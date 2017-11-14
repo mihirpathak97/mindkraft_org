@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto');
+
+body{
+  background: rgb(0, 150, 136);
+}
+.col-md-4{
+  padding-bottom: 75px;
+}
+.no-padding-grid{
+  padding-bottom: -75px;
+}
+#slider{
+  margin-top: 10%;
+  text-align: center;
+}
+
+.login{
+  margin-left: 38%;
+  width: 100%;
+}
+
+.login h3{
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+input[type="text"], input[type="password"]{
+  width: 50%;
+  margin-bottom: 3%;
+  border: 4px rgb(128, 203, 196) solid;
+  border-radius: 3px;
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #020202;
+}
+
+@media screen and (max-width: 786px) {
+  .login{
+    margin-left: auto;
+  }
+}

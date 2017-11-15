@@ -11,7 +11,7 @@
     }
 	}
   $con = mysqli_connect($host, $username, $password, $db);
-  $query = "select * from mindkraft18_games";
+  $query = "select * from ".$table_prefix."games_list";
   $result = mysqli_query($con, $query);
 ?>
 <!DOCTYPE html>

@@ -3,5 +3,6 @@
     $host = "localhost";
     $username = "root";
     $password = "";
-    $db = "site_db";
+    $db = "mindkraft18_site_db";
+    $table_prefix = "mindkraft18_";
 ?>

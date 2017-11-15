@@ -8,10 +8,10 @@
     $college = $_POST['college'];
     $password = $_POST['password'];
     $userid = generateUniqueUserId();
-    $query = "insert into user_table values ('" . $name . "', '" . $mobile . "', '" . $email . "', '" . $college . "', '" . $password . "', '" . $userid . "')";
+    $query = "insert into ".$table_prefix."enduser_table values ('" . $name . "', '" . $mobile . "', '" . $email . "', '" . $college . "', '" . $password . "', '" . $userid . "')";
     $result = mysqli_query($con, $query);
     if ($result) {
-      $query = "select * from user_table where mobile='" . $mobile . "' and password='" . $password . "'";
+      $query = "select * from ".$table_prefix."enduser_table where mobile='" . $mobile . "' and password='" . $password . "'";
       $result = mysqli_query($con, $query);
       $record = mysqli_fetch_array($result, MYSQL_ASSOC);
       $_SESSION['userid'] = $record['userid'];

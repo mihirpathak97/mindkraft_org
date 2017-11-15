@@ -4,7 +4,7 @@ $font-primary: 'Work Sans', Arial, sans-serif;
 $font-secondary: 'Montserrat', Arial, sans-serif;
 
 // Overrides
-$grid-gutter-width: 40px !default; 
+$grid-gutter-width: 40px !default;
 $border-radius-base:  4px !default;
 $padding-base-vertical: 14px !default;
 
@@ -72,7 +72,7 @@ $form-group-margin-bottom:       30px !default;
 }
 
 @mixin icomoon() {
-	
+
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -84,24 +84,14 @@ $form-group-margin-bottom:       30px !default;
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	
+
 }
 
-// Import 
+// Import
 @import 'bootstrap/mixins';
 @import 'bootstrap/variables';
 
 
-
-
-/* =======================================================
-*
-* 	Template Style 
-*	Edit this section
-*
-* ======================================================= */
-
-// Template Base
 body {
 	font-family: $font-primary;
 	font-weight: 400;
@@ -112,7 +102,7 @@ body {
 	background: $brand-bg-color;
 	height: 100%;
 	position: relative;
-	
+
 }
 a {
 	color: $brand-primary;
@@ -157,7 +147,7 @@ h4 {
 
 
 
-#fh5co-header {
+#header {
 	// position: relative;
 	position: absolute;
 	z-index: 99;
@@ -286,7 +276,7 @@ h4 {
 		span {
 			color: $brand-primary;
 		}
-		
+
 	}
 	&.navbar-fixed-top {
 		position: fixed!important;
@@ -330,7 +320,7 @@ h4 {
 		border: transparent;
 		background: transparent;
 		@include border-radius(0px);
-		
+
 		// padding-right: 30px;
 		// padding-left: 10px;
 
@@ -339,7 +329,7 @@ h4 {
 			padding-right: 0px;
 			padding-left: 0px;
 		}
-		
+
 
 		.brand-slogan {
 			margin: 28px 0 0 15px;
@@ -351,7 +341,7 @@ h4 {
 				font-style: normal;
 			}
 		}
-		
+
 	}
 	a {
 		@include transition(.0s);
@@ -363,7 +353,7 @@ body {
 	overflow-x: hidden;
 }
 .owl-carousel-main {
-	
+
 	.owl-stage-outer {
 		overflow: visible;
 	}
@@ -372,9 +362,9 @@ body {
 			padding-top: 120px!important;
 		}
 	}
-	
 
-	
+
+
 }
 
 
@@ -426,20 +416,20 @@ body {
 	@include transition(.3s);
 }
 
-#fh5co-our-services,
-#fh5co-about-us,
-#fh5co-features,
-#fh5co-testimonials,
-#fh5co-pricing,
-#fh5co-press,
-#fh5co-product-screenshots,
-#fh5co-tour {
+#our-services,
+#about-us,
+#features,
+#testimonials,
+#pricing,
+#press,
+#product-screenshots,
+#tour {
 	padding: 7em 0;
 	@media screen and (max-width: $screen-xs) {
 		padding: 5em 0;
 	}
 }
-#fh5co-tour {
+#tour {
 	h3 {
 		font-size: 30px;
 	}
@@ -451,7 +441,7 @@ body {
 		box-shadow: -1px -1px 58px -13px rgba(0,0,0,.9);
 	}
 }
-#fh5co-testimonials {
+#testimonials {
 	background: $brand-primary;
 	background: #ba78ff;
 	.section-heading {
@@ -482,7 +472,7 @@ body {
 			border-left: none;
 			padding: 40px;
 			background: $brand-white;
-			
+
 			position: relative;
 			@include border-radius(4px);
 			&:after {
@@ -491,9 +481,9 @@ body {
 			   top: 100%;
 			   left: 40px;
 			   border-top: 15px solid black;
-			   border-top-color: $brand-white; 
+			   border-top-color: $brand-white;
 			   border-left: 15px solid transparent;
-			   border-right: 15px solid transparent; 
+			   border-right: 15px solid transparent;
 			}
 			.quote {
 				position: absolute;
@@ -533,7 +523,7 @@ body {
 		}
 	}
 }
-#fh5co-pricing {
+#pricing {
 	.price-box {
 	    border: 2px solid #ECEEF0;
 	    text-align: center;
@@ -560,9 +550,9 @@ body {
 				   left: 50%;
 				   margin-left: -10px;
 				   border-top: 10px solid black;
-				   border-top-color: $brand-primary; 
+				   border-top-color: $brand-primary;
 				   border-left: 10px solid transparent;
-				   border-right: 10px solid transparent; 
+				   border-right: 10px solid transparent;
 				}
 	    	}
 	    }
@@ -598,7 +588,7 @@ body {
 	}
 }
 
-.fh5co-cta {
+.cta {
 	padding: 7em 0;
 	background-size: cover;
 	background-attachment: fixed;
@@ -636,12 +626,8 @@ body {
 	}
 }
 
-#fh5co-our-services,
-#fh5co-press {
-	background: #f4f4f4;
-}
-#fh5co-our-services {
-	
+services {
+	 background: #f4f4f4;
 	.box {
 		// min-height: 360px;
 		// padding: 30px;
@@ -675,7 +661,7 @@ body {
 				width: 100%;
 				i {
 					position: relative;
-					float: left;		
+					float: left;
 					margin-top: 5px;
 					width: 100%;
 					font-size: 40px;
@@ -752,155 +738,22 @@ body {
 	}
 }
 
-#fh5co-features {
-	background: lighten($brand-black, 98%);
-	padding: 7em 0;
-	@media screen and (max-width: $screen-sm) {
-		padding: 4em 0;
-	}
-	.fh5co-service {
-		margin-bottom: 30px;
-		float: left;
-		.fh5co-icon {
-			float: left;
-			width: 20%;
-			// border: 1px solid red;
-			i {
-				font-size: 40px;
-				color: $brand-primary;
-			}
-		}
-		.fh5co-desc {
-			width: 80%;
-			// border: 1px solid red;
-			float:right;
-			h3 {
-				margin-top: 0;
-				font-size: 18px;
-			}
-		}
-	}
-}
-.first-section {
-	padding-top: 15em!important;
-	@media screen and (max-width: $screen-sm) {
-		padding-top: 3em;
-	}
-} 
-#fh5co-press {
-	.fh5co-press-item {
-		background: $brand-white;
-		float: left;
-		margin-bottom: 30px;
-		position: relative;
-		overflow: hidden;
-		@include flex;
-		@include border-radius(4px);
-		@media screen and (max-width: $screen-xs) {
-			display: block!important;
-		}
-		.fh5co-press-text,
-		.fh5co-press-img {
-			width: 50%;
-			@media screen and (max-width: $screen-xs) {
-				height: inherit;
-				float: none!important;
-				width: 100%;
-				display: block!important;
-			}
-		}
-		.fh5co-press-text {
-			float: left;
-			padding: 20px;
-			.fh5co-press-title {
-		
-				margin: 0 0 20px 0;
-				padding: 0 0 10px 0;
-				font-weight: 400;
-				font-size: 20px;
-				color: $brand-darker;
-				position: relative;
-				.fh5co-border {
-					position: absolute;
-					left: 0;
-					bottom: 0;
-					height: 2px;
-					width: 30px;
-					background: $brand-primary;
-				}
-			}
-		}
-		.fh5co-press-img {
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			top: 0;
-			background-size: cover;
-			@media screen and (max-width: $screen-xs) {
-				height: 200px;
-				left: 0;
-				top: 0;
-				position: relative;
-				width: 100%;
-			}
-		}
-	}
-}
-
-// Burger Menu
-.fh5co-nav-toggle {
-  width:25px;
-  height:25px;
-  cursor: pointer;
-  text-decoration: none;
-  &.active i {
-		&::before, &::after {
-			background: $brand-primary;
-		}
-  }
-  &:hover, &:focus, &:active {
-  	outline: none;
-  	border-bottom: none!important;
-  }
-  i {
-  	position: relative;
-	  @include inline-block;
-	  width: 25px;
-	  height: 3px;
-	  color: $brand-primary;
-	  font:bold 14px/.4 Helvetica;
-	  text-transform: uppercase;
-	  text-indent:-55px;
-	  background: $brand-primary;
-	  transition: all .2s ease-out;
-		 &::before, &::after {
-	  	  content:'';
-		  width: 25px;
-		  height: 3px;
-		  background: $brand-primary;
-		  position: absolute;
-		  left:0;
-		  @include transition(.2s);
-	  }
-  }
-}
-
-.fh5co-nav-toggle i::before {
+.nav-toggle i::before {
   top: -7px;
 }
-.fh5co-nav-toggle i::after {
+.nav-toggle i::after {
   bottom: -7px;
 }
-.fh5co-nav-toggle:hover i::before {
+.nav-toggle:hover i::before {
   top: -10px;
 }
-.fh5co-nav-toggle:hover i::after {
+.nav-toggle:hover i::after {
   bottom: -10px;
 }
-.fh5co-nav-toggle.active i {
+.nav-toggle.active i {
 	background: transparent;
 }
-.fh5co-nav-toggle.active i::before {
+.nav-toggle.active i::before {
   top:0;
   -webkit-transform: rotateZ(45deg);
      -moz-transform: rotateZ(45deg);
@@ -908,7 +761,7 @@ body {
        -o-transform: rotateZ(45deg);
           transform: rotateZ(45deg);
 }
-.fh5co-nav-toggle.active i::after {
+.nav-toggle.active i::after {
   bottom:0;
   -webkit-transform: rotateZ(-45deg);
      -moz-transform: rotateZ(-45deg);
@@ -916,7 +769,7 @@ body {
        -o-transform: rotateZ(-45deg);
           transform: rotateZ(-45deg);
 }
-.fh5co-nav-toggle {
+.nav-toggle {
   position: absolute;
   top: 12px;
   right: 0px;
@@ -1113,7 +966,7 @@ body {
 		left: 10px;
 		i:before {
 			color: rgba(255,255,255,1);
-		
+
 		}
 	}
 }
@@ -1124,12 +977,12 @@ body {
 	}
 	&:hover {
 		i {
-			color: $brand-black;		
+			color: $brand-black;
 		}
 	}
 }
-.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-next,
-.owl-carousel-fullwidth.fh5co-light-arrow .owl-controls .owl-nav .owl-prev {
+.owl-carousel-fullwidth.light-arrow .owl-controls .owl-nav .owl-next,
+.owl-carousel-fullwidth.light-arrow .owl-controls .owl-nav .owl-prev {
 	i {
 		color: $brand-white;
 	}
@@ -1163,7 +1016,7 @@ body {
 	text-align: center;
 }
 .owl-carousel-fullwidth.owl-theme .owl-dots {
-	bottom: 0;	
+	bottom: 0;
 	margin-bottom: 2.5em;
 }
 .owl-carousel-main {
@@ -1184,16 +1037,16 @@ body {
 		border: 2px solid #000!important;
 	}
 	&.owl-direction {
-		
+
 		&:before {
-			color: $brand-black!important;	
+			color: $brand-black!important;
 		}
 	}
 }
 .owl-carousel-fullwidth {
-	
 
-	.item, .fh5co-owl-text-wrap {
+
+	.item, .owl-text-wrap {
 		height: 860px;
 		display: table;
 		width: 100%;
@@ -1201,15 +1054,15 @@ body {
 			height: inherit;
 			padding: 5em 0;
 			padding: 0;
-			text-align: center; 
+			text-align: center;
 		}
 	}
-	.fh5co-owl-text-wrap {
+	.owl-text-wrap {
 		position: relative;
 		// bottom: -5em;
 	}
 	.item {
-		
+
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: top left;
@@ -1226,7 +1079,7 @@ body {
 		img {
 			max-width: 100%;
 		}
-		
+
 		.mobile-image {
 			position: relative;
 			z-index: 99999999;
@@ -1247,10 +1100,10 @@ body {
 				}
 			}
 		}
-	
-		
 
-		.fh5co-owl-text {
+
+
+		.owl-text {
 			display: table-cell;
 			vertical-align: middle;
 			z-index: 10;
@@ -1267,12 +1120,12 @@ body {
 					border-bottom: 1px solid rgba(255,255,255,1);
 				}
 			}
-			.fh5co-lead, .fh5co-lead-2, .fh5co-sub-lead {
+			.lead, .lead-2, .sub-lead {
 				color: $brand-white;
 				margin: 0;
 				padding: 0;
 			}
-			.fh5co-lead {
+			.lead {
 				font-weight: 700;
 				margin-bottom: 20px;
 				margin-top: 0;
@@ -1287,8 +1140,8 @@ body {
 					line-height: 30px;
 				}
 			}
-			
-			.fh5co-sub-lead {
+
+			.sub-lead {
 				font-size: 30px;
 				line-height: 30px;
 				line-height: 42px;
@@ -1301,90 +1154,6 @@ body {
 				}
 			}
 		}
-	}
-}
-
-
-#fh5co-product-screenshots {
-	background: #303841;
-	.section-heading {
-		h2 {
-			color: $brand-white;
-		}
-	}
-}
-.owl-carousel-center {
-	.owl-stage-outer {
-		overflow: visible;
-	}
-	.owl-item {
-		-webkit-transform: scale(0.85);
-		-moz-transform: scale(0.85); 
-		-ms-transform: scale(0.85);
-		-o-transform: scale(0.85);
-		transform: scale(0.85);
-		z-index: 18;
-		@include transition(.5s);
-		-webkit-box-shadow: -1px -1px 38px -13px rgba(0,0,0,.9);
-		-moz-box-shadow: -1px -1px 38px -13px rgba(0,0,0,.9);
-		-ms-box-shadow: -1px -1px 38px -13px rgba(0,0,0,.9);
-		-o-box-shadow: -1px -1px 38px -13px rgba(0,0,0,.9);
-		box-shadow: -1px -1px 38px -13px rgba(0,0,0,.9);
-		@include border-radius(5px);
-		img {
-			@include border-radius(5px);
-		}
-		&.center {
-			-webkit-transform: scale(1.0);
-			-moz-transform: scale(1.0); 
-			-ms-transform: scale(1.0);
-			-o-transform: scale(1.0);
-			transform: scale(1.0);
-			z-index: 999;
-			-webkit-box-shadow: -1px -1px 58px -13px rgba(0,0,0,.9);
-			-moz-box-shadow: -1px -1px 58px -13px rgba(0,0,0,.9);
-			-ms-box-shadow: -1px -1px 58px -13px rgba(0,0,0,.9);
-			-o-box-shadow: -1px -1px 58px -13px rgba(0,0,0,.9);
-			box-shadow: -1px -1px 58px -13px rgba(0,0,0,.9);
-		}
-	}
-	.owl-dots {
-		bottom: -80px;
-		@media screen and (max-width: $screen-xs) {
-			bottom: -60px;
-		}
-	}
-
-	&.owl-theme .owl-dots .owl-dot span {
-		width:10px;
-	  	height:10px;
-		background: rgba(255,255,255,.2);
-		@include transition(.2s);
-		border: 2px solid transparent;
-		&:hover {
-			background: none;
-			background: rgba(255,255,255,1);
-		}
-	}
-	&.owl-theme .owl-dots .owl-dot.active span, &.owl-theme .owl-dots .owl-dot:hover span {
-		// background: none;
-		background: rgba(255,255,255,1);
-		background: transparent;
-		border: 2px solid #fff;
-	}
-
-}
-
-
-.js .to-animate,
-.js .to-animate-2,
-.js .single-animate {
-	opacity: 0;
-}
-
-.animate-box {
-	.js & {
-		opacity: 0;
 	}
 }
 
@@ -1406,17 +1175,17 @@ body {
 	padding-bottom: 4em;
 	@media screen and (max-width: $screen-sm ) {
 		padding-bottom: 2em;
-	}	
+	}
 }
 .row-bottom-padded-sm {
 	padding-bottom: 2em;
 	@media screen and (max-width: $screen-sm ) {
 		padding-bottom: 2em;
-	}	
+	}
 }
 
 // Menu Animate
-.fh5co-animated {
+.animated {
   -webkit-animation-duration: .3s;
   animation-duration: .3s;
   -webkit-animation-fill-mode: both;

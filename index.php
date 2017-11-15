@@ -33,11 +33,15 @@
 		<script src="js/modernizr-2.6.2.min.js"></script>
 	</head>
 	<style media="screen">
-		.col-md-4{
+		.col-md-3{
 			padding-bottom: 75px;
 		}
-		.no-padding-grid{
-			padding-bottom: -75px;
+		.bottom-grid{
+			margin: auto;
+			margin-bottom: -85px;
+		}
+		.col-md-3 a:hover{
+			text-decoration: none;
 		}
 	</style>
 	<body>
@@ -136,7 +140,7 @@
 			</div>
 			<div class="row">
 
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="box animate-box">
 						<a href="pages/about.php">
 						<div class="icon colored-1"><span><i class="icon-user"></i></span></div>
@@ -144,7 +148,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="box animate-box">
 						<a href="pages/sponsors.php">
 						<div class="icon colored-4"><span><i class="icon-ticket"></i></span></div>
@@ -152,7 +156,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="box animate-box">
 						<a href="pages/gallery.php">
 						<div class="icon colored-3"><span><i class="icon-image"></i></span></div>
@@ -160,9 +164,7 @@
 						</a>
 					</div>
 				</div>
-
-
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="box animate-box">
 						<a href="pages/events.php">
 						<div class="icon colored-2"><span><i class="icon-trophy"></i></span></div>
@@ -170,7 +172,8 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-md-4">
+
+				<div class="col-md-3">
 					<div class="box animate-box">
 						<a href="pages/workshops.php">
 						<div class="icon colored-6"><span><i class="icon-wrench"></i></span></div>
@@ -178,7 +181,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<div class="box animate-box">
 						<a href="pages/games.php">
 						<div class="icon colored-1"><span><i class="icon-gamepad"></i></span></div>
@@ -186,9 +189,7 @@
 						</a>
 					</div>
 				</div>
-
-
-				<div class="col-md-4 no-padding-grid">
+				<div class="col-md-3">
 					<div class="box animate-box">
 						<a href="pages/team.php">
 						<div class="icon colored-7"><span><i class="icon-users"></i></span></div>
@@ -196,7 +197,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-md-4 no-padding-grid">
+				<div class="col-md-3">
 					<div class="box animate-box">
 						<a href="pages/contact.php">
 						<div class="icon colored-8"><span><i class="icon-phone"></i></span></div>
@@ -204,7 +205,8 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-md-4 no-padding-grid">
+
+				<div class="col-md-3 bottom-grid">
 					<div class="box animate-box">
 						<a href="pages/faq.php">
 						<div class="icon colored-2"><span><i class="icon-question"></i></span></div>
@@ -213,6 +215,14 @@
 					</div>
 				</div>
 
+				<div class="col-md-3 bottom-grid">
+					<div class="box animate-box">
+						<a href="pages/faq.php">
+						<div class="icon colored-7"><span><i class="icon-home"></i></span></div>
+						<h3>Accomodation</h3>
+						</a>
+					</div>
+				</div>
 
 			</div>
 		</div>

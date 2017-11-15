@@ -23,14 +23,9 @@
 		<link rel="shortcut icon" href="../images/favicon.ico">
 		<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../css/animate.css">
-		<link rel="stylesheet" href="../css/icomoon.css">
-		<link rel="stylesheet" href="../css/simple-line-icons.css">
-		<link rel="stylesheet" href="../css/owl.carousel.min.css">
-		<link rel="stylesheet" href="../css/owl.theme.default.min.css">
 		<link rel="stylesheet" href="../css/bootstrap.css">
 		<link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/events.css">
-		<script src="../js/modernizr-2.6.2.min.js"></script>
 	</head>
 	<style media="screen">
     /*.col-md-4{
@@ -38,14 +33,13 @@
     }*/
 	</style>
 	<body>
-	<div role="banner" id="header">
+	<div id="header">
 			<div class="container">
 				<!-- <div class="row"> -->
 			    <nav class="navbar navbar-default">
 		        <div class="navbar-header">
-		        	<!-- Mobile Toggle Menu Button -->
-					<a href="#" class="js-nav-toggle nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		          	<a class="navbar-brand" href="../index.php">MindKraft</a>
+							<a href="#" class="js-nav-toggle nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+		          <a class="navbar-brand" href="../index.php">MindKraft</a>
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
@@ -59,35 +53,28 @@
 		          </ul>
 		        </div>
 			    </nav>
-			  <!-- </div> -->
 		  </div>
 	</div>
 
   <br>
 
   <div id="slider" data-section="home">
-		    <div class="item">
-		    	<div class="container" style="position: relative;">
-		    		<div class="row animate-box" data-animate-effect="fadeIn">
-					    <div class="col-md-7 col-sm-7">
-								<div class="games">
-                  <h2>Games</h2>
-                  <br><br>
-                  <?php while ($record = mysqli_fetch_array($result, MYSQL_ASSOC)) { ?>
-                    <div class="col-md-4">
-                      <div class="box animate-box">
-                        <h4><?php echo $record['name']; ?></h4>
-                        <p><?php echo $record['co-ordinator']; ?></p>
-                        <p><?php echo $record['contact']; ?></p>
-												<p style="display:none"><?php echo $record['description'] ?></p>
-                      </div>
-                    </div>
-                  <?php } ?>
-                </div>
+		<div class="row animate-box" data-animate-effect="fadeIn">
+			<div class="games">
+        <h2>Games</h2>
+        <br><br>
+				<div class="">
+					<?php while ($record = mysqli_fetch_array($result, MYSQL_ASSOC)) { ?>
+						<div class="col-sm-3">
+							<div class="card game-card">
+								<h4><?php echo $record['event_name']; ?></h4>
+								<br><br>
+								<p><a href="gamereq.php?q=<?php echo $record['event_id']?>">Know More</a></p>
 							</div>
-					  </div>
-		    	</div>
-		    </div>
+						</div>
+					<?php } ?>
+				</div>
+      </div>
 		</div>
 	</div>
 
@@ -95,8 +82,6 @@
   <script src="../js/jquery.easing.1.3.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/jquery.waypoints.min.js"></script>
-  <script src="../js/owl.carousel.min.js"></script>
-  <script src="../js/main.js"></script>
 
 </body>
 </html>

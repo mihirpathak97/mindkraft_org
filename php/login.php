@@ -2,7 +2,7 @@
     require 'sqlconf.php';
     session_start();
     $con = mysqli_connect($host, $username, $password, $db);
-    $query = "select * from ".$table_prefix."enduser_table where mobile='" . $_POST['uname'] . "' and password='" . $_POST['password'] . "'";
+    $query = "select * from ".$view_prefix."enduser_table where mobile='" . $_POST['uname'] . "' and password=password('" . $_POST['password'] . "')";
     $result = mysqli_query($con, $query);
     if (mysqli_num_rows($result) == 1) {
       $record = mysqli_fetch_array($result, MYSQL_ASSOC);

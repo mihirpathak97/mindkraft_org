@@ -5,4 +5,5 @@
     $password = "";
     $db = "mindkraft18_site_db";
     $table_prefix = "mindkraft18_";
+    $view_prefix = "base_view_";
 ?>

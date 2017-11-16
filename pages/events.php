@@ -3,7 +3,7 @@
   require '../php/sqlconf.php';
 	if (isset($_SESSION['userid'])) {
 		$con = mysqli_connect($host, $username, $password, $db);
-    $query = "select * from ".$table_prefix."enduser_table where userid='" . $_SESSION['userid'] . "'";
+    $query = "select * from ".$view_prefix."enduser_table where userid='" . $_SESSION['userid'] . "'";
     $result = mysqli_query($con, $query);
 		if (mysqli_num_rows($result) == 1) {
       $record = mysqli_fetch_array($result, MYSQL_ASSOC);
@@ -11,7 +11,7 @@
     }
 	}
   $con = mysqli_connect($host, $username, $password, $db);
-  $query = "select * from ".$table_prefix."events_list";
+  $query = "select * from ".$view_prefix."events_list";
   $result = mysqli_query($con, $query);
 ?>
 <!DOCTYPE html>

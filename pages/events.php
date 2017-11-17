@@ -44,7 +44,7 @@
 			foreach ($dept_list as $key => $dept) {
 				echo
 				".".$key."{
-					background-image: url(../images/dept/$key.png);
+					background-image: url(../images/dept/$key.jpg);
 					background-size: cover;
 					background-repeat: no-repeat;
 					}
@@ -54,6 +54,7 @@
 		.game-card-dept{
 			height: 200px;
 			width: 200px;
+			border-radius: 15px;
 		}
 		.col-sm-3{
 			margin-top: 30px;

@@ -69,7 +69,7 @@
 							<div class="card game-card">
 								<h4><?php echo $record['event_name']; ?></h4>
 								<br><br>
-								<p><a href="gamereq.php?q=<?php echo $record['event_id']?>">Know More</a></p>
+								<p><a href="eventreq.php?q=<?php echo $record['event_id']?>">Know More</a></p>
 							</div>
 						</div>
 					<?php } ?>

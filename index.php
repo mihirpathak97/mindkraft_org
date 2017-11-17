@@ -95,16 +95,16 @@
 		    <div class="item">
 		    	<div class="container" style="position: relative;">
 		    		<div class="row animate-box" data-animate-effect="fadeIn">
-					    <div class="col-md-7 col-sm-7">
+							<div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 mobile-image">
+								<div class="mobile"><img src="images/kit-logo.png" alt="Karunya Institute of Technology"></div>
+							</div>
+					    <div class="">
 			    			<div class="owl-text-wrap">
 						    	<div class="owl-text">
-						    		<h1 class="lead">Karunya Institute of Technology Proudly Presents</h1>
+						    		<h1 class="lead">Proudly Presents</h1>
 										<h2 class="sub-lead"></h2>
 						    	</div>
 						    </div>
-					    </div>
-					    <div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 mobile-image">
-					    	<div class="mobile"><img src="images/ku-logo.png" alt="Karunya Institute of Technology"></div>
 					    </div>
 		    		</div>
 		    	</div>
@@ -113,7 +113,7 @@
 				<div class="item">
 		    	<div class="container" style="position: relative;">
 		    		<div class="row animate-box" data-animate-effect="fadeIn">
-					    <div class="col-md-7 col-sm-7">
+					    <div class="">
 			    			<div class="owl-text-wrap">
 						    	<div class="owl-text">
 						    		<h1 class="lead">MindKraft 2018</h1>

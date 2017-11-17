@@ -28,9 +28,9 @@
     <link rel="stylesheet" href="../css/events.css">
 	</head>
 	<style media="screen">
-    /*.col-md-4{
-      margin-left: -100px;
-    }*/
+	#header{
+		background: #2aaf67;
+	}
 	</style>
 	<body>
 	<div id="header">

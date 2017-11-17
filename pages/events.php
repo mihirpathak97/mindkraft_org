@@ -44,7 +44,7 @@
 			foreach ($dept_list as $key => $dept) {
 				echo
 				".".$key."{
-					background-image: url(../images/$key.png);
+					background-image: url(../images/dept/$key.png);
 					background-size: cover;
 					background-repeat: no-repeat;
 					}

@@ -10,9 +10,21 @@
       $name = $record['name'];
     }
 	}
-  $con = mysqli_connect($host, $username, $password, $db);
-  $query = "select * from ".$view_prefix."events_list";
-  $result = mysqli_query($con, $query);
+	$dept_list = array(
+											'ae' => 'Aerospace Engineering',
+											'bt' => 'Bio Technology',
+											'bi' => 'Bio Informatics',
+											'ce' => 'Civil Engineering',
+											'cse' => 'Computer Science',
+											'ece' => 'Electronics and Communication',
+											'eee' => 'Electrical and Eclectronics',
+											'eie' => 'Electronics and Instrumentation',
+											'fp' => 'Foop Processing',
+											'me' => 'Mechanical Engineering',
+											'emt' => 'Media Technology',
+											'nano' => 'Nano Technology',
+											'snh' => 'Science and Humanities'
+										);
 ?>
 <!DOCTYPE html>
 	<head>
@@ -28,9 +40,31 @@
     <link rel="stylesheet" href="../css/events.css">
 	</head>
 	<style media="screen">
-    /*.col-md-4{
-      margin-left: -100px;
-    }*/
+		<?php
+			foreach ($dept_list as $key => $dept) {
+				echo
+				".".$key."{
+					background-image: url(../images/$key.png);
+					background-size: cover;
+					background-repeat: no-repeat;
+					}
+				";
+			}
+		?>
+		.game-card-dept{
+			height: 200px;
+			width: 200px;
+		}
+		.col-sm-3{
+			margin-top: 30px;
+		}
+    .col-sm-3 a:hover{
+      text-decoration: none;
+    }
+		.dept-head{
+			margin-top: 15%;
+			padding: 5px;
+		}
 	</style>
 	<body>
 	<div id="header">
@@ -60,21 +94,44 @@
 
   <div id="slider" data-section="home">
 		<div class="row animate-box" data-animate-effect="fadeIn">
-			<div class="games">
-        <h2>Events</h2>
-        <br><br>
-				<div class="">
-					<?php while ($record = mysqli_fetch_array($result, MYSQL_ASSOC)) { ?>
-						<div class="col-sm-3">
-							<div class="card game-card">
-								<h4><?php echo $record['event_name']; ?></h4>
-								<br><br>
-								<p><a href="eventreq.php?q=<?php echo $record['event_id']?>">Know More</a></p>
+			<?php
+				if (isset($_GET['q'])){
+					$con = mysqli_connect($host, $username, $password, $db);
+					$query = "select * from ".$view_prefix."events_list where department='".$_GET['q']."'";
+					$result = mysqli_query($con, $query);
+			?>
+				<div class="games">
+					<h2><?php echo $dept_list[$_GET['q']]; ?></h2>
+					<br><br>
+					<div class="">
+						<?php while ($record = mysqli_fetch_array($result, MYSQL_ASSOC)) { ?>
+							<div class="col-sm-3">
+								<div class="card game-card event">
+									<h4><?php echo $record['event_name']; ?></h4>
+									<br><br>
+									<p><a href="eventreq.php?q=<?php echo $record['event_id']?>">Know More</a></p>
+								</div>
 							</div>
-						</div>
-					<?php } ?>
+						<?php } ?>
+					</div>
 				</div>
-      </div>
+			<?php }else{ ?>
+				<div class="games">
+					<h2>Events</h2>
+					<br><br>
+					<div class="">
+						<?php foreach ($dept_list as $key => $dept) { ?>
+							<div class="col-sm-3">
+								<a href="events.php?q=<?php echo $key ?>">
+									<div class="card game-card <?php echo $key ?> game-card-dept">
+										<!-- <h4 class="dept-head"><?php echo $dept ?></h4> -->
+									</div>
+								</a>
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+			<?php } ?>
 		</div>
 	</div>
 

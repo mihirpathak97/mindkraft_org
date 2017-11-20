@@ -6,7 +6,7 @@ body{
 
 #header{
   position: fixed;
-  background: #B39DDB;
+  background: #00bff3;
   margin-top: 0;
   box-shadow:0 0 5px 0 rgba(0,0,0,0.16),0 0 10px 0 rgba(0,0,0,0.12)
 }
@@ -25,6 +25,17 @@ body{
   display: block;
   margin: auto;
   padding: 1.25rem;
+}
+.event-info table{
+  display: table;
+  width: 60%;
+  margin: auto;
+}
+.event-info table tr{
+}
+.event-info table tr td{
+  width: 50%;
+  text-align: justify;
 }
 
 .event-info p{

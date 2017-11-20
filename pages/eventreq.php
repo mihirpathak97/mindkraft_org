@@ -82,25 +82,57 @@
 					$query = "select * from ".$view_prefix."all_events where event_id='".$_GET['q']."'";
 					$result = mysqli_query($con, $query);
 			?>
-        <?php while ($record = mysqli_fetch_array($result, MYSQL_ASSOC)) { ?>
+        <?php
+					while ($record = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+						$event_id = $record['event_id'];
+				?>
           <div class="games">
             <h2><?php echo $record['event_name']; ?></h2>
             <br><br>
             <div class="event-info">
-              <p>Event Name : <?php echo $record['event_name']; ?></p>
-              <p>Event Cetegory : <?php echo $event_category[$record['category']]; ?></p>
-              <?php if ($record['category'] == 'event'): ?>
-                <p>Event Type : <?php echo $event_type[$record['event_type']]; ?></p>
-              <?php endif; ?>
-              <p>Department : <?php echo $dept_list[$record['department']]; ?></p>
-              <p>Event Co-ordinator : <?php echo $record['event_incharge']; ?></p>
-              <p>Co-ordinator Contact : <?php echo $record['incharge_contact']; ?></p>
-              <p>Event Fee : <?php echo $record['event_fee']; ?></p>
-              <?php if ($record['category'] != 'workshop'): ?>
-                <p>Prize : <?php echo $record['event_prize']; ?></p>
-              <?php endif; ?>
-              <p>Description : <?php echo $record['description']; ?></p>
-              <input type="button" class="register-button" value="Register">
+							<table>
+								<tr>
+									<td><p>Event Name : </p></td>
+									<td><p><?php echo $record['event_name']; ?></p></td>
+								</tr>
+								<tr>
+									<td><p>Event Category</p></td>
+									<td><p><?php echo $event_category[$record['category']]; ?></p></td>
+								</tr>
+								<?php if ($record['category'] == 'event'): ?>
+									<tr>
+										<td><p>Event Type : </p></td>
+										<td><p><?php echo $event_type[$record['event_type']]; ?></p></td>
+									</tr>
+								<?php endif; ?>
+								<tr>
+									<td><p>Department : </p></td>
+									<td><p><?php echo $dept_list[$record['department']]; ?></p></td>
+								</tr>
+								<tr>
+									<td><p>Event Co-ordinator : </p></td>
+									<td><p><?php echo $record['event_incharge']; ?></p></td>
+								</tr>
+								<tr>
+									<td><p>Co-ordinator Contact : </p></td>
+									<td><p><?php echo $record['incharge_contact']; ?></p></td>
+								</tr>
+								<tr>
+									<td><p>Event Fee : </p></td>
+									<td><p><?php echo $record['event_fee']; ?></p></td>
+								</tr>
+								<?php if ($record['category'] != 'workshop'): ?>
+									<tr>
+										<td><p>Prize : </p></td>
+										<td><p><?php echo $record['event_prize']; ?></p></td>
+									</tr>
+								<?php endif; ?>
+								<tr>
+									<td><p>Description : </p></td>
+									<td><p><?php echo $record['description']; ?></p></td>
+								</tr>
+							</table>
+              <input type="button" class="register-button" onclick="register_event()" value="Register">
             </div>
           </div>
         <?php } ?>
@@ -112,6 +144,25 @@
   <script src="../js/jquery.easing.1.3.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/jquery.waypoints.min.js"></script>
+
+	<script type="text/javascript">
+		var event_id = "<?php echo $event_id; ?>";
+		var user_id = "<?php if(isset($_SESSION['userid'])){ echo $_SESSION['userid']; } else{ echo ""; } ?>";
+		function register_event() {
+			if (user_id.length == 16 && event_id.length == 16) {
+				$.post(
+					"ajax_register.php",
+					{
+						event_id: event_id,
+						user_id: user_id
+					},
+					function (data, status) {
+						document.write(result);
+					}
+				);
+			}
+		}
+	</script>
 
 </body>
 </html>

@@ -117,7 +117,7 @@
 			    			<div class="owl-text-wrap">
 						    	<div class="owl-text">
 						    		<h1 class="lead">MindKraft 2018</h1>
-										<h2 class="sub-lead">Frugal innovation for smart India</h2>
+										<h2 class="sub-lead"></h2>
 						    	</div>
 						    </div>
 					    </div>

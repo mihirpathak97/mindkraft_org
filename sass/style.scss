@@ -417,6 +417,7 @@ body {
 
 #services{
 	padding: 7em 0;
+  z-index: 9999;
 	@media screen and (max-width: $screen-xs) {
 		padding: 5em 0;
 	}
@@ -970,14 +971,12 @@ body {
     }
 
     .starscape {
-      width: 100%;
-      height: 100%;
       margin-right: 0px;
       font: 1em source-sans-pro, Source Sans Pro, Helvetica, sans-serif;
       position: absolute;
       left: 0px;
       top: 0px;
-      z-index: 1000;
+      z-index: 999;
     }
 
     #shooting-star {
@@ -985,14 +984,12 @@ body {
     }
 
     #constellation {
-      width: 100%;
-        height: 100%;
-        margin-right: 0px;
-        font: 1em source-sans-pro, Source Sans Pro, Helvetica, sans-serif;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        z-index: 1000;
+      margin-right: 0px;
+      font: 1em source-sans-pro, Source Sans Pro, Helvetica, sans-serif;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 999;
     }
 	}
 

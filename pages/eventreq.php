@@ -74,6 +74,26 @@
 
   <br>
 
+	<!-- Modal -->
+	<div class="modal fade" id="info-modal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Information</h4>
+				</div>
+				<div class="modal-body">
+					<p id="info-body">
+
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
   <div id="slider" data-section="home">
 		<div class="row animate-box" data-animate-effect="fadeIn">
 			<?php
@@ -149,18 +169,19 @@
 		var event_id = "<?php echo $event_id; ?>";
 		var user_id = "<?php if(isset($_SESSION['userid'])){ echo $_SESSION['userid']; } else{ echo ""; } ?>";
 		function register_event() {
-			if (user_id.length == 16 && event_id.length == 16) {
-				$.post(
-					"ajax_register.php",
-					{
-						event_id: event_id,
-						user_id: user_id
-					},
-					function (data, status) {
-						document.write(result);
-					}
-				);
-			}
+			console.log("Triggered");
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200) {
+					showModal(this.responseText);
+				}
+			};
+			xhttp.open("get", "ajax_register.php?event_id="+event_id+"&user_id="+user_id, true);
+			xhttp.send();
+		}
+		function showModal(respText) {
+			$('#info-body').html(respText);
+			$('#info-modal').modal('toggle');
 		}
 	</script>
 

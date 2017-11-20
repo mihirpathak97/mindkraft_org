@@ -28,9 +28,6 @@
     <link rel="stylesheet" href="../css/events.css">
 	</head>
 	<style media="screen">
-	#header{
-		background: #2aaf67;
-	}
 	</style>
 	<body>
 	<div id="header">

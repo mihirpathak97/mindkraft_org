@@ -27,11 +27,6 @@
 		<link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/events.css">
 	</head>
-	<style media="screen">
-		#header{
-			background: #6173f4;
-		}
-	</style>
 	<body>
 	<div id="header">
 			<div class="container">

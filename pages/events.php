@@ -40,9 +40,6 @@
     <link rel="stylesheet" href="../css/events.css">
 	</head>
 	<style media="screen">
-		#header{
-			background: #00bff3;
-		}
 		<?php
 			foreach ($dept_list as $key => $dept) {
 				echo

@@ -91,39 +91,12 @@
 	</div>
 
 	<div id="slider" data-section="home">
-		<div class="owl-carousel owl-carousel-main owl-carousel-fullwidth">
-		    <div class="item">
-		    	<div class="container" style="position: relative;">
-		    		<div class="row animate-box" data-animate-effect="fadeIn">
-							<div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 mobile-image">
-								<div class="mobile"><img src="images/kit-logo.png" alt="Karunya Institute of Technology"></div>
-							</div>
-					    <div class="">
-			    			<div class="owl-text-wrap">
-						    	<div class="owl-text">
-						    		<h1 class="lead">Proudly Presents</h1>
-										<h2 class="sub-lead"></h2>
-						    	</div>
-						    </div>
-					    </div>
-		    		</div>
-		    	</div>
-		    </div>
-
-				<div class="item">
-		    	<div class="container" style="position: relative;">
-		    		<div class="row animate-box" data-animate-effect="fadeIn">
-					    <div class="">
-			    			<div class="owl-text-wrap">
-						    	<div class="owl-text">
-						    		<h1 class="lead">MindKraft 2018</h1>
-										<h2 class="sub-lead"></h2>
-						    	</div>
-						    </div>
-					    </div>
-		    		</div>
-		    	</div>
-		    </div>
+		<div class="item">
+			<canvas id="sky"></canvas>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" class="starscape">
+				<circle id="shooting-star" cx="100.4" cy="150.4" r="1.8" style="fill: #FADFAA; opacity: 0" />
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" id="constellation" viewBox="0 0 800 600">
 		</div>
 	</div>
 
@@ -266,6 +239,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.waypoints.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
+	<script src='//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js'></script>
 	<script src="js/main.js"></script>
 
 	<?php if (isset($success) && $success): ?>

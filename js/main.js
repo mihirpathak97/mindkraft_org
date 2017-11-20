@@ -1,19 +1,18 @@
 ;(function () {
-	
+
 	'use strict';
 
-	// iPad and iPod detection	
+	// iPad and iPod detection
 	var isiPad = function(){
 		return (navigator.platform.indexOf("iPad") != -1);
 	};
 
 	var isiPhone = function(){
 	    return (
-			(navigator.platform.indexOf("iPhone") != -1) || 
+			(navigator.platform.indexOf("iPhone") != -1) ||
 			(navigator.platform.indexOf("iPod") != -1)
 	    );
 	};
-
 
 
 	// Carousel Feature Slide
@@ -32,7 +31,7 @@
 			autoplay: true,
 			autoplayTimeout: 5000,
 			autoplayHoverPause: true,
-		    navText: [	
+		    navText: [
 		      "<i class='icon-arrow-left2 owl-direction'></i>",
 		      "<i class='icon-arrow-right2 owl-direction'></i>"
 	     	]
@@ -82,13 +81,13 @@
 		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
 
 			if ( $('#navbar').is(':visible') ) {
-				$(this).removeClass('active');	
+				$(this).removeClass('active');
 			} else {
-				$(this).addClass('active');	
+				$(this).addClass('active');
 			}
 
 			event.preventDefault();
-			
+
 		});
 
 	};
@@ -130,11 +129,11 @@
 	var navigationSection = function() {
 
 		var $section = $('div[data-section]');
-		
+
 		$section.waypoint(function(direction) {
 		  	if (direction === 'down') {
 		    	navActive($(this.element).data('section'));
-		    
+
 		  	}
 		}, {
 		  	offset: '150px'
@@ -169,8 +168,8 @@
 						header.removeClass('navbar-fixed-top fh5co-animated slideInDown slideOutUp');
 					}, 100 );
 				}
-			} 
-			
+			}
+
 		});
 	};
 
@@ -184,7 +183,7 @@
 		$('.animate-box').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -207,15 +206,15 @@
 							el.removeClass('item-animate');
 						},  k * 200, 'easeInOutExpo' );
 					});
-					
+
 				}, 100);
-				
+
 			}
 
 		} , { offset: '85%' } );
 	};
 
-	
+
 
 	// Document on load.
 	$(function(){
@@ -233,3 +232,76 @@
 
 
 }());
+
+
+
+	function getRandomInt(min, max) {
+	  return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	// Line up some sky vars
+	var c = document.getElementById('sky');
+	var ctx = c.getContext('2d');
+	var xMax = c.width = window.screen.availWidth;
+	var yMax = c.height = window.screen.availHeight;
+	var hmTimes = Math.round(xMax + yMax);
+
+	var star2 = document.getElementById("shooting-star");
+
+	var tl = new TimelineLite();
+
+	for (var i = 0; i <= hmTimes; i++) {
+	  var x = getRandomInt(300, xMax / 4);
+	  var y = getRandomInt(-100, yMax / 4);
+	  var r = Math.floor((Math.random() * 2) + 1); //getRandomInt(0.5,2);
+	  tl.to(star2, Math.random(), {
+	      x: x,
+	      y: y,
+	      r: r,
+	      delay: Math.random()
+	    })
+	    .to(star2, 1, {
+	      x: y,
+	      y: x,
+	      autoAlpha: 1
+	    })
+	    .to(star2, .5, {
+	      autoAlpha: 0
+	    }, "-=0.5");
+	}
+
+	function drawing() {
+	  for (var i = 0; i <= hmTimes; i++) {
+	    var randomX = Math.floor((Math.random() * xMax) + 1);
+	    var randomY = Math.floor((Math.random() * yMax) + 1);
+	    var randomSize = Math.floor((Math.random() * 2) + 1);
+	    var randomOpacityOne = Math.floor((Math.random() * 9) + 1);
+	    var randomOpacityTwo = Math.floor((Math.random() * 9) + 1);
+	    var randomHue = Math.floor((Math.random() * 360) + 1);
+	    if (randomSize > 1) {
+	      ctx.shadowBlur = Math.floor((Math.random() * 15) + 5);
+	      ctx.shadowColor = "white";
+	    }
+	    ctx.fillStyle = "hsla(" + randomHue + ", 30%, 80%, ." + randomOpacityOne + randomOpacityTwo + ")";
+	    ctx.fillRect(randomX, randomY, randomSize, randomSize);
+	  }
+	}
+
+	drawing();
+
+	var t1 = new TimelineMax({
+	  onReverseComplete: reverseRepeat,
+	  onReverseCompleteParams: ['{self}'],
+	  onComplete: complete,
+	  onCompleteParams: ['{self}']
+	});
+
+	function reverseRepeat(tl) {
+	  tl.reverse(0); // 0 sets the playhead at the end of the animation
+	}
+
+	function complete(tl) {
+	  tl.restart(); // 0 sets the playhead at the end of the animation
+	}
+
+	t1.timeScale(4);

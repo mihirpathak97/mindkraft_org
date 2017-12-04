@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	$history = 'http://' . $_SERVER['SERVER_NAME'] . $_GET['prev_history'];
+	header("location:$history");
 	if (isset($_SESSION['sql-err'])) {
 		$err = true;
 		unset($_SESSION['sql-err']);

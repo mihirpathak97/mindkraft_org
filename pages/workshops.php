@@ -42,8 +42,8 @@
 									<li><a href="#"><span><?php echo $name; ?></span></a></li>
 									<li><a href="../logout.php"><span>Logout</span></a></li>
 								<?php }else{ ?>
-			            <li><a href="../login.php?prev_history=<?php echo $_SERVER['REQUEST_URI']; ?>"><span>Login</span></a></li>
-			            <li><a href="../register.php?prev_history=<?php echo $_SERVER['REQUEST_URI']; ?>"><span>Register</span></a></li>
+			            <li><a href="../login.php"><span>Login</span></a></li>
+			            <li><a href="../register.php"><span>Register</span></a></li>
 								<?php } ?>
 		          </ul>
 		        </div>

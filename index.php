@@ -1,9 +1,5 @@
 <?php
 	session_start();
-	if (isset($_SESSION['sql-success'])) {
-		$success = true;
-		unset($_SESSION['sql-success']);
-	}
 	if (isset($_SESSION['userid'])) {
 		require 'php/sqlconf.php';
 		$con = mysqli_connect($host, $username, $password, $db);

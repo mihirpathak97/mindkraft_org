@@ -1,9 +1,5 @@
 <?php
 	session_start();
-	if (isset($_SESSION['sql-err'])) {
-		$err = true;
-		unset($_SESSION['sql-err']);
-	}
 	if (isset($_SESSION['userid'])) {
 		require 'php/sqlconf.php';
 		$con = mysqli_connect($host, $username, $password, $db);
@@ -70,10 +66,7 @@
 					<h4 class="modal-title">Information</h4>
 				</div>
 				<div class="modal-body">
-					<p>
-						Error Registering user! Please try again... <br><br>
-						If you are an already registered user, try logging in.
-					</p>
+					<p id="info-body"></p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -101,14 +94,14 @@
 									<div class="login">
 	                  <h3>Register</h3>
 	                  <br><br>
-	                  <form class="" action="php/register.php" method="post">
+	                  <form class="" id="registration_form">
 	                    <input type="text" name="name" value="" placeholder="Full Name" required>
 	                    <input type="text" name="mobile" value="" placeholder="Mobile Number" required>
 	                    <input type="text" name="email" value="" placeholder="Valid E-mail" required>
 	                    <input type="text" name="college" value="" placeholder="College Name" required>
 	                    <input type="password" name="password" value="" placeholder="Password" required>
-	                    <input type="password" name="password1" value="" placeholder="Retype Password" required>
-	                    <p><br> <input type="submit" class="btn btn-primary btn-lg" value="Register!"></p>
+	                    <input type="password" name="password_retype" value="" placeholder="Retype Password" required>
+	                    <p><br> <input type="button" class="btn btn-primary btn-lg" value="Register!" onclick="submitRegistrationForm()"></p>
 	                  </form>
 							    </div>
 								<?php } ?>
@@ -124,14 +117,7 @@
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/main.js"></script>
-
-	<?php if (isset($err) && $err): ?>
-		<script type="text/javascript">
-			$(document).ready(function () {
-				$('#info-modal').modal('toggle');
-			})
-		</script>
-	<?php endif; ?>
+	<script src="js/libjs.js"></script>
 
 </body>
 </html>

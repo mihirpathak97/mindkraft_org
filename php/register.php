@@ -15,12 +15,17 @@
       $result = mysqli_query($con, $query);
       $record = mysqli_fetch_array($result, MYSQL_ASSOC);
       $_SESSION['userid'] = $record['userid'];
-      $_SESSION['sql-success'] = '1';
-      header("location:../index.php");
+      echo "User registration successfull!";
     }
     else {
-      $_SESSION['sql-err'] = '1';
-      header("location:../register.php");
+      $query = "select * from ".$view_prefix."enduser_table where mobile='" . $mobile . "'";
+      $result = mysqli_query($con, $query);
+      if (mysqli_num_rows($result) == 1) {
+        echo "User account with the given mobile number already exists!";
+      }
+      else {
+        echo "There was an error registering the user! <br><br>Please check your credentials and try again";
+      }
     }
 
     function generateUniqueUserId($length = 16) {
@@ -34,8 +39,10 @@
 
       $query = "select * from user_table where userid='" . $randomString . "'";
       $result = mysqli_query($con, $query);
-      if (mysqli_num_rows($result) > 0) {
-        generateUniqueUserId();
+      if ($result) {
+        if (mysqli_num_rows($result) > 0) {
+          generateUniqueUserId();
+        }
       }
       else {
         return $randomString;

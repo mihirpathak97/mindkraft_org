@@ -7,11 +7,18 @@
     if (mysqli_num_rows($result) == 1) {
       $record = mysqli_fetch_array($result, MYSQL_ASSOC);
       $_SESSION['userid'] = $record['userid'];
-      $_SESSION['sql-success'] = '1';
-      header("location:../index.php");
+      echo "Successfully logged in!";
     }
     else {
-      $_SESSION['sql-err'] = '1';
-      header("location:../login.php");
+      $query = "select * from ".$view_prefix."enduser_table where mobile='" . $_POST['uname'] . "'";
+      $result = mysqli_query($con, $query);
+      if (mysqli_num_rows($result) == 1) {
+        echo "Your password is incorrect!";
+      }
+      else {
+        echo "The user account could not be found. <br>Are you sure you signed up?";
+      }
+      // $_SESSION['sql-err'] = '1';
+      // header("location:../login.php");
     }
 ?>

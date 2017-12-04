@@ -1,11 +1,5 @@
 <?php
 	session_start();
-	$history = 'http://' . $_SERVER['SERVER_NAME'] . $_GET['prev_history'];
-	header("location:$history");
-	if (isset($_SESSION['sql-err'])) {
-		$err = true;
-		unset($_SESSION['sql-err']);
-	}
 	if (isset($_SESSION['userid'])) {
 		require 'php/sqlconf.php';
 		$con = mysqli_connect($host, $username, $password, $db);
@@ -66,21 +60,21 @@
 
 	<!-- Modal -->
 	<div class="modal fade" id="info-modal" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Information</h4>
-        </div>
-        <div class="modal-body">
-          <p>Error Logging in! Please check your credentials...</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Information</h4>
+				</div>
+				<div class="modal-body">
+					<p id="info-body"></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
   <br>
 
@@ -101,10 +95,10 @@
 									<div class="login">
 	                  <h3>Login</h3>
 	                  <br><br>
-	                  <form class="" action="php/login.php" method="post">
+	                  <form class="" id="login_form">
 	                    <input type="text" name="uname" value="" placeholder="Mobile Number" required>
 	                    <input type="password" name="password" value="" placeholder="Password" required>
-	                    <p><br> <input type="submit" class="btn btn-primary btn-lg" value="Login"></p>
+	                    <p><br> <input type="button" class="btn btn-primary btn-lg" value="Login" onclick="submitLoginForm()"></p>
 	                  </form>
 							    </div>
 								<?php } ?>
@@ -120,14 +114,7 @@
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/main.js"></script>
-
-	<?php if (isset($err) && $err): ?>
-		<script type="text/javascript">
-			$(document).ready(function () {
-				$('#info-modal').modal('toggle');
-			})
-		</script>
-	<?php endif; ?>
+	<script src="js/libjs.js" charset="utf-8"></script>
 
 </body>
 </html>

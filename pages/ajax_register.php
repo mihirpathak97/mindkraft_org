@@ -12,6 +12,7 @@
       $query = "select registered_users from ".$table_prefix."enduser_registration where event_id='".$event."'";
       $record = mysqli_fetch_array(mysqli_query($con, $query), MYSQL_ASSOC);
       if (!user_registered($user, $record)) {
+        $con->begin_transaction(MYSQLI_TRANS_START_READ_WRITE);
         $query = "update ".$table_prefix."enduser_registration set registered_users='".$record['registered_users'].$user.":'";
         $result = mysqli_query($con, $query);
         if ($result) {
@@ -20,12 +21,15 @@
         else {
           echo "There was an error registering for the event!";
         }
+        $con->commit();
+        $con->close();
       }
       else {
         echo "You have already registed for this event...";
       }
     }
     else {
+      $con->begin_transaction(MYSQLI_TRANS_START_READ_WRITE);
       $query = "insert into ".$table_prefix."enduser_registration values ('".$event."','".$user.":')";
       $result = $result = mysqli_query($con, $query);
       if ($result) {
@@ -34,6 +38,8 @@
       else {
         echo "There was an error registering for the event!";
       }
+      $con->commit();
+      $con->close();
     }
   }
 

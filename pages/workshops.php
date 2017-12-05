@@ -22,10 +22,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="../images/favicon.ico">
 		<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="../css/animate.css">
-		<link rel="stylesheet" href="../css/bootstrap.css">
-		<link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/events.css">
+		<link rel="stylesheet" href="../src/css/animate.css">
+		<link rel="stylesheet" href="../src/css/bootstrap.css">
+		<link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/events.css">
 	</head>
 	<body>
 	<div id="header">
@@ -73,10 +73,10 @@
 		</div>
 	</div>
 
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/jquery.easing.1.3.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/jquery.waypoints.min.js"></script>
+  <script src="../src/js/jquery.min.js"></script>
+  <script src="../src/js/jquery.easing.1.3.js"></script>
+  <script src="../src/js/bootstrap.min.js"></script>
+  <script src="../src/js/jquery.waypoints.min.js"></script>
 
 </body>
 </html>

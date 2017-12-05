@@ -19,15 +19,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/animate.css">
-		<link rel="stylesheet" href="css/icomoon.css">
-		<link rel="stylesheet" href="css/simple-line-icons.css">
-		<link rel="stylesheet" href="css/owl.carousel.min.css">
-		<link rel="stylesheet" href="css/owl.theme.default.min.css">
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
-		<script src="js/modernizr-2.6.2.min.js"></script>
+		<link rel="stylesheet" href="src/css/animate.css">
+		<link rel="stylesheet" href="src/css/icomoon.css">
+		<link rel="stylesheet" href="src/css/simple-line-icons.css">
+		<link rel="stylesheet" href="src/css/owl.carousel.min.css">
+		<link rel="stylesheet" href="src/css/owl.theme.default.min.css">
+		<link rel="stylesheet" href="src/css/bootstrap.css">
+		<link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/login.css">
+		<script src="src/js/modernizr-2.6.2.min.js"></script>
 	</head>
 	<style media="screen">
 	</style>
@@ -108,13 +108,13 @@
 		    </div>
 		</div>
 	</div>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/main.js"></script>
-	<script src="js/libjs.js" charset="utf-8"></script>
+  <script src="src/js/jquery.min.js"></script>
+  <script src="src/js/jquery.easing.1.3.js"></script>
+  <script src="src/js/bootstrap.min.js"></script>
+  <script src="src/js/jquery.waypoints.min.js"></script>
+  <script src="src/js/owl.carousel.min.js"></script>
+  <script src="src/js/main.js"></script>
+	<script src="src/js/libjs.js" charset="utf-8"></script>
 
 </body>
 </html>

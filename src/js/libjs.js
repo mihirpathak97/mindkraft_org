@@ -1,3 +1,7 @@
+// MindKraft JS library
+
+// Form vlaidation functions
+
 function validateMobileNumber(mobileNumber) {
   var acceptedRegex = /^[0]?[789]\d{9}$/;
   if (acceptedRegex.test(mobileNumber)) {
@@ -84,7 +88,7 @@ function submitLoginForm() {
         showModal(this.responseText);
       }
     };
-    xhttp.open("post", "php/login.php", true);
+    xhttp.open("post", "src/php/login.php", true);
     xhttp.send(loginFormData);
   }
 }
@@ -99,7 +103,7 @@ function submitRegistrationForm() {
         showModal(this.responseText);
       }
     };
-    xhttp.open("post", "php/register.php", true);
+    xhttp.open("post", "src/php/register.php", true);
     xhttp.send(registrationFormData);
   }
 }

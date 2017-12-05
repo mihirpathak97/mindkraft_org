@@ -1,14 +1,7 @@
 <?php
 	session_start();
-	if (isset($_SESSION['userid'])) {
-		require 'php/sqlconf.php';
-		$con = mysqli_connect($host, $username, $password, $db);
-    $query = "select * from ".$view_prefix."enduser_table where userid='" . $_SESSION['userid'] . "'";
-    $result = mysqli_query($con, $query);
-		if (mysqli_num_rows($result) == 1) {
-      $record = mysqli_fetch_array($result, MYSQL_ASSOC);
-      $name = $record['name'];
-    }
+	if (isset($_SESSION['username'])) {
+      $name = $_SESSION['username'];
 	}
 ?>
 <!DOCTYPE html>

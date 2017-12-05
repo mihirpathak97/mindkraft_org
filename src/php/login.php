@@ -7,6 +7,7 @@
     if (mysqli_num_rows($result) == 1) {
       $record = mysqli_fetch_array($result, MYSQL_ASSOC);
       $_SESSION['userid'] = $record['userid'];
+      $_SESSION['username'] = $record['name'];
       echo "Successfully logged in!";
     }
     else {

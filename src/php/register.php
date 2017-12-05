@@ -15,6 +15,7 @@
       $result = mysqli_query($con, $query);
       $record = mysqli_fetch_array($result, MYSQL_ASSOC);
       $_SESSION['userid'] = $record['userid'];
+      $_SESSION['username'] = $record['name'];
       echo "User registration successfull!";
     }
     else {

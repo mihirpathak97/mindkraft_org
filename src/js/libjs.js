@@ -86,6 +86,11 @@ function submitLoginForm() {
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         showModal(this.responseText);
+        if (this.responseText.indexOf('Successfully') == 0) {
+          $('#info-modal').on('hidden.bs.modal', function () {
+            window.history.back();
+          });
+        }
       }
     };
     xhttp.open("post", "src/php/login.php", true);
@@ -101,6 +106,11 @@ function submitRegistrationForm() {
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         showModal(this.responseText);
+        if (this.responseText.indexOf('successfull!') != -1) {
+          $('#info-modal').on('hidden.bs.modal', function () {
+            window.history.back();
+          });
+        }
       }
     };
     xhttp.open("post", "src/php/register.php", true);
@@ -111,16 +121,6 @@ function submitRegistrationForm() {
 function showModal(respText) {
   $('#info-body').html(respText);
   $('#info-modal').modal('toggle');
-  if (respText.indexOf('Successfully') == 0) {
-    $('#info-modal').on('hidden.bs.modal', function () {
-      window.history.back();
-    });
-  }
-  else if (respText.indexOf('successfull!') != -1) {
-    $('#info-modal').on('hidden.bs.modal', function () {
-      window.history.back();
-    });
-  }
 }
 
 function getQueryVariable(variable) {

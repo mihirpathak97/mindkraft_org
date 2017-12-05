@@ -82,6 +82,7 @@ function submitLoginForm() {
   if (validateLoginForm()) {
     var loginForm = document.getElementById('login_form');
     var loginFormData = new FormData(loginForm);
+    loginFormData.append('action', 'login');
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -93,7 +94,7 @@ function submitLoginForm() {
         }
       }
     };
-    xhttp.open("post", "src/php/login.php", true);
+    xhttp.open("post", "src/php/authenticate.php", true);
     xhttp.send(loginFormData);
   }
 }
@@ -102,6 +103,7 @@ function submitRegistrationForm() {
   if (validateRegistationForm()) {
     var registrationForm = document.getElementById('registration_form');
     var registrationFormData = new FormData(registrationForm);
+    registrationFormData.append('action', 'register');
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -113,7 +115,7 @@ function submitRegistrationForm() {
         }
       }
     };
-    xhttp.open("post", "src/php/register.php", true);
+    xhttp.open("post", "src/php/authenticate.php", true);
     xhttp.send(registrationFormData);
   }
 }

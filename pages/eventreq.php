@@ -70,12 +70,11 @@
 		<div class="row animate-box" data-animate-effect="fadeIn">
 			<?php
 				if (isset($_GET['q'])){
-					$con = mysqli_connect($host, $username, $password, $db);
-					$query = "select * from ".$view_prefix."all_events where event_id='".$_GET['q']."'";
-					$result = mysqli_query($con, $query);
+					global $pdo, $view_prefix;
+					$stmt = $pdo->query("SELECT * FROM $view_prefix" . "all_events WHERE event_id='" . $_GET['q']. "'");
 			?>
         <?php
-					while ($record = mysqli_fetch_array($result, MYSQL_ASSOC)) {
+					foreach ($stmt as $record) {
 						$event_id = $record['event_id'];
 				?>
           <div class="games">
@@ -88,7 +87,7 @@
 									<td><p><?php echo $record['event_name']; ?></p></td>
 								</tr>
 								<tr>
-									<td><p>Event Category</p></td>
+									<td><p>Event Category : </p></td>
 									<td><p><?php echo event_category[$record['category']]; ?></p></td>
 								</tr>
 								<?php if ($record['category'] == 'event'): ?>
@@ -99,7 +98,7 @@
 								<?php endif; ?>
 								<tr>
 									<td><p>Department : </p></td>
-									<td><p><?php echo $dept_list[$record['department']]; ?></p></td>
+									<td><p><?php echo dept_list[$record['event_department']]; ?></p></td>
 								</tr>
 								<tr>
 									<td><p>Event Co-ordinator : </p></td>
@@ -121,7 +120,7 @@
 								<?php endif; ?>
 								<tr>
 									<td><p>Description : </p></td>
-									<td><p><?php echo $record['description']; ?></p></td>
+									<td><p><?php echo $record['event_description']; ?></p></td>
 								</tr>
 							</table>
               <input type="button" id="register_event" class="register-button" value="Register">

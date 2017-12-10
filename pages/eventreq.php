@@ -1,11 +1,11 @@
 <?php
 	session_start();
-  require '../src/php/sqlconf.php';
-	require '../src/php/lib.php';
+	require '../src/php/pdo.php';
+  require_once '../src/php/sqlconf.php';
+	require_once '../src/php/lib.php';
 	if (isset($_SESSION['username'])) {
 			$name = $_SESSION['username'];
 	}
-
 ?>
 <!DOCTYPE html>
 	<head>

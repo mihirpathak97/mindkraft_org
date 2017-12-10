@@ -1,24 +1,11 @@
 <?php
 	session_start();
-  require '../php/sqlconf.php';
+	require '../src/php/pdo.php';
+  require_once '../src/php/sqlconf.php';
+	require_once '../src/php/lib.php';
 	if (isset($_SESSION['username'])) {
 			$name = $_SESSION['username'];
 	}
-	$dept_list = array(
-											'ae' => 'Aerospace Engineering',
-											'bt' => 'Bio Technology',
-											'bi' => 'Bio Informatics',
-											'ce' => 'Civil Engineering',
-											'cse' => 'Computer Science',
-											'ece' => 'Electronics and Communication',
-											'eee' => 'Electrical and Eclectronics',
-											'eie' => 'Electronics and Instrumentation',
-											'fp' => 'Foop Processing',
-											'me' => 'Mechanical Engineering',
-											'emt' => 'Media Technology',
-											'nano' => 'Nano Technology',
-											'snh' => 'Science and Humanities'
-										);
 ?>
 <!DOCTYPE html>
 	<head>

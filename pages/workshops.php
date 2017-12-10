@@ -1,12 +1,11 @@
 <?php
 	session_start();
-  require '../php/sqlconf.php';
+	require '../src/php/pdo.php';
+  require_once '../src/php/sqlconf.php';
+	require_once '../src/php/lib.php';
 	if (isset($_SESSION['username'])) {
 			$name = $_SESSION['username'];
 	}
-  $con = mysqli_connect($host, $username, $password, $db);
-  $query = "select * from ".$view_prefix."workshops_list";
-  $result = mysqli_query($con, $query);
 ?>
 <!DOCTYPE html>
 	<head>

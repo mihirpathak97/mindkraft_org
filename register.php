@@ -88,11 +88,11 @@
 	                  <h3>Register</h3>
 	                  <br><br>
 	                  <form class="" id="registration_form">
-	                    <input type="text" name="name" value="" placeholder="Full Name" required>
-	                    <input type="text" name="mobile" value="" placeholder="Mobile Number" required>
-	                    <input type="text" name="email" value="" placeholder="Valid E-mail" required>
-	                    <input type="text" name="college" value="" placeholder="College Name" required>
-	                    <input type="password" name="password" value="" placeholder="Password" required>
+	                    <input type="text" name="enduser_name" value="" placeholder="Full Name" required>
+	                    <input type="text" name="enduser_mobile" value="" placeholder="Mobile Number" required>
+	                    <input type="text" name="enduser_email" value="" placeholder="Valid E-mail" required>
+	                    <input type="text" name="enduser_college_namecollege" value="" placeholder="College Name" required>
+	                    <input type="password" name="enduser_password" value="" placeholder="Password" required>
 	                    <input type="password" name="password_retype" value="" placeholder="Retype Password" required>
 	                    <p><br> <input type="button" class="btn btn-primary btn-lg" value="Register!" onclick="submitRegistrationForm()"></p>
 	                  </form>

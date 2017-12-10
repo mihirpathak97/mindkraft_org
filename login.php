@@ -89,8 +89,8 @@
 	                  <h3>Login</h3>
 	                  <br><br>
 	                  <form class="" id="login_form">
-	                    <input type="text" name="uname" value="" placeholder="Mobile Number" required>
-	                    <input type="password" name="password" value="" placeholder="Password" required>
+	                    <input type="text" name="enduser_mobile" value="" placeholder="Mobile Number" required>
+	                    <input type="password" name="enduser_password" value="" placeholder="Password" required>
 	                    <p><br> <input type="button" class="btn btn-primary btn-lg" value="Login" onclick="submitLoginForm()"></p>
 	                  </form>
 							    </div>

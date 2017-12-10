@@ -22,7 +22,7 @@
 	</head>
 	<style media="screen">
 		<?php
-			foreach ($dept_list as $key => $dept) {
+			foreach (dept_list as $key => $dept) {
 				echo
 				".".$key."{
 					background-image: url(../images/dept/$key.jpg);
@@ -83,7 +83,7 @@
 					$result = mysqli_query($con, $query);
 			?>
 				<div class="games">
-					<h2><?php echo $dept_list[$_GET['q']]; ?></h2>
+					<h2><?php echo dept_list[$_GET['q']]; ?></h2>
 					<br><br>
 					<div class="">
 						<?php while ($record = mysqli_fetch_array($result, MYSQL_ASSOC)) { ?>
@@ -102,7 +102,7 @@
 					<h2>Events</h2>
 					<br><br>
 					<div class="">
-						<?php foreach ($dept_list as $key => $dept) { ?>
+						<?php foreach (dept_list as $key => $dept) { ?>
 							<div class="col-sm-3">
 								<a href="events.php?q=<?php echo $key ?>">
 									<div class="card game-card <?php echo $key ?> game-card-dept">

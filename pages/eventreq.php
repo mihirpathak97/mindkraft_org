@@ -89,12 +89,12 @@
 								</tr>
 								<tr>
 									<td><p>Event Category</p></td>
-									<td><p><?php echo $event_category[$record['category']]; ?></p></td>
+									<td><p><?php echo event_category[$record['category']]; ?></p></td>
 								</tr>
 								<?php if ($record['category'] == 'event'): ?>
 									<tr>
 										<td><p>Event Type : </p></td>
-										<td><p><?php echo $event_type[$record['event_type']]; ?></p></td>
+										<td><p><?php echo event_type[$record['event_type']]; ?></p></td>
 									</tr>
 								<?php endif; ?>
 								<tr>

@@ -96,10 +96,12 @@
 										<td><p><?php echo event_type[$record['event_type']]; ?></p></td>
 									</tr>
 								<?php endif; ?>
-								<tr>
-									<td><p>Department : </p></td>
-									<td><p><?php echo dept_list[$record['event_department']]; ?></p></td>
-								</tr>
+								<?php if ($record['category'] != 'game'): ?>
+									<tr>
+										<td><p>Department : </p></td>
+										<td><p><?php echo dept_list[$record['event_department']]; ?></p></td>
+									</tr>
+								<?php endif; ?>
 								<tr>
 									<td><p>Event Co-ordinator : </p></td>
 									<td><p><?php echo $record['event_incharge']; ?></p></td>

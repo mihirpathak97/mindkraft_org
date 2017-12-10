@@ -171,7 +171,7 @@
 	</div>
 
 
-	<div class="cta" style="background-image:url(images/feedback.jpg)">
+	<div class="cta" style="background-image:url(src/images/feedback.jpg)">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="col-md-8 col-md-offset-2 text-center">
@@ -210,14 +210,6 @@
 	<script src="src/js/owl.carousel.min.js"></script>
 	<script src='//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js'></script>
 	<script src="src/js/main.js"></script>
-
-	<?php if (isset($success) && $success): ?>
-		<script type="text/javascript">
-			$(document).ready(function () {
-				$('#info-modal').modal('toggle');
-			})
-		</script>
-	<?php endif; ?>
 
 	</body>
 </html>

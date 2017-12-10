@@ -12,6 +12,10 @@
 
     global $pdo, $table_prefix;
 
+    if ($pdo == null) {
+      return;
+    }
+
     try {
       // Begins SQL transaction
       $pdo->beginTransaction();

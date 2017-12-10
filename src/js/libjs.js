@@ -40,8 +40,8 @@ function validatePasswords(pass1, pass2) {
 }
 
 function validateLoginForm() {
-  var mobileNumber = document.getElementsByName('uname')[0].value;
-  var password = document.getElementsByName('password')[0].value;
+  var mobileNumber = document.getElementsByName('enduser_mobile')[0].value;
+  var password = document.getElementsByName('enduser_password')[0].value;
   if (validatePassword(password) && validateMobileNumber(mobileNumber)) {
     return true;
   }
@@ -54,10 +54,10 @@ function validateLoginForm() {
 }
 
 function validateRegistationForm() {
-  mobileNumber = document.getElementsByName('mobile')[0].value;
-  email = document.getElementsByName('email')[0].value;
-  collegeName = document.getElementsByName('college')[0].value;
-  password = document.getElementsByName('password')[0].value;
+  mobileNumber = document.getElementsByName('enduser_mobile')[0].value;
+  email = document.getElementsByName('enduser_email')[0].value;
+  collegeName = document.getElementsByName('enduser_college_name')[0].value;
+  password = document.getElementsByName('enduser_password')[0].value;
   passwordRetype = document.getElementsByName('password_retype')[0].value;
   if (validatePassword(password) && validatePasswords(password, passwordRetype) && validateMobileNumber(mobileNumber) && validateCollegeName(collegeName) && validateEmail(email)) {
     return true;

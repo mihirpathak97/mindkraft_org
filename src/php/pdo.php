@@ -18,5 +18,6 @@
     if ($e->getCode() == 2002) {
       echo "<b>Error!</b> <br><br>Server actively refused the SQL connection.";
     }
+    $pdo = null;
   }
 ?>

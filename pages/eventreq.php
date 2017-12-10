@@ -1,33 +1,11 @@
 <?php
 	session_start();
-  require '../php/sqlconf.php';
+  require '../src/php/sqlconf.php';
+	require '../src/php/lib.php';
 	if (isset($_SESSION['username'])) {
 			$name = $_SESSION['username'];
 	}
-	$dept_list = array(
-											'ae' => 'Aerospace Engineering',
-											'bt' => 'Bio Technology',
-											'bi' => 'Bio Informatics',
-											'ce' => 'Civil Engineering',
-											'cse' => 'Computer Science',
-											'ece' => 'Electronics and Communication',
-											'eee' => 'Electrical and Eclectronics',
-											'eie' => 'Electronics and Instrumentation',
-											'fp' => 'Foop Processing',
-											'me' => 'Mechanical Engineering',
-											'emt' => 'Media Technology',
-											'nano' => 'Nano Technology',
-											'snh' => 'Science and Humanities'
-										);
-  $event_type = array(
-                       'tech' => 'Technical',
-                       'nontech' => 'Non Technical'
-                     );
-  $event_category = array(
-                       'event' => 'Event',
-                       'workshop' => 'Workshop',
-                       'game' => 'Games'
-                     );
+
 ?>
 <!DOCTYPE html>
 	<head>
@@ -146,7 +124,7 @@
 									<td><p><?php echo $record['description']; ?></p></td>
 								</tr>
 							</table>
-              <input type="button" class="register-button" onclick="register_event()" value="Register">
+              <input type="button" id="register_event" class="register-button" value="Register">
             </div>
           </div>
         <?php } ?>
@@ -158,25 +136,15 @@
   <script src="../src/js/jquery.easing.1.3.js"></script>
   <script src="../src/js/bootstrap.min.js"></script>
   <script src="../src/js/jquery.waypoints.min.js"></script>
+	<script src="../src/js/libjs.js" charset="utf-8"></script>
 
 	<script type="text/javascript">
 		var event_id = "<?php echo $event_id; ?>";
 		var user_id = "<?php if(isset($_SESSION['userid'])){ echo $_SESSION['userid']; } else{ echo ""; } ?>";
-		function register_event() {
-			console.log("Triggered");
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function () {
-				if (this.readyState == 4 && this.status == 200) {
-					showModal(this.responseText);
-				}
-			};
-			xhttp.open("get", "ajax_register.php?event_id="+event_id+"&user_id="+user_id, true);
-			xhttp.send();
-		}
-		function showModal(respText) {
-			$('#info-body').html(respText);
-			$('#info-modal').modal('toggle');
-		}
+
+		$('#register_event').click(function () {
+			register_event(event_id, user_id);
+		});
 	</script>
 
 </body>

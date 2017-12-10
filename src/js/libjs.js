@@ -1,4 +1,5 @@
-// MindKraft JS library
+// libjs.js - Contains some basic pure JS functions
+// Copyright (c) Z-Coders
 
 // Form vlaidation functions
 
@@ -135,4 +136,16 @@ function getQueryVariable(variable) {
         }
     }
     console.log('Query variable %s not found', variable);
+}
+
+// Event registration logic
+function register_event(event_id, user_id) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      showModal(this.responseText);
+    }
+  };
+  xhttp.open("get", "../src/php/event_register.php?event_id="+event_id+"&user_id="+user_id, true);
+  xhttp.send();
 }

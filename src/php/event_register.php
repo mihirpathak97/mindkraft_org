@@ -36,7 +36,7 @@
 
         // Check if already registered
         if (in_array($userid, $registered_users)) {
-          echo "You have already registered...";
+          echo "You have already registered for this event!";
         }
         else {
           $registered_users = implode(':', $registered_users);

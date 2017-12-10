@@ -47,7 +47,7 @@
   // PDO error
   function PDOerror($errorMessage)
   {
-    return "An SQL error occured! <br><br>Error message : $errorMessage";
+    return "<b>An SQL error occured!</b><br><br>Error message : $errorMessage";
   }
 
 ?>

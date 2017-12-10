@@ -18,7 +18,7 @@
   } catch (PDOException $e) {
     $pdo = null;
     if ($e->getCode() == 2002) {
-      echo "<b>Error!</b> <br><br>Server actively refused the SQL connection.";
+      echo "<b>Error!</b><br><br>Server actively refused the SQL connection.";
     }
     else {
       echo PDOerror($e->getMessage());

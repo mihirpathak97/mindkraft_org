@@ -6,6 +6,10 @@
 	if (isset($_SESSION['username'])) {
 			$name = $_SESSION['username'];
 	}
+
+  // Logic to get workshops list
+	global $pdo, $view_prefix;
+	$stmt = $pdo->query("SELECT * FROM $view_prefix" . "workshops_list");
 ?>
 <!DOCTYPE html>
 	<head>
@@ -52,7 +56,7 @@
         <h2>Workshops</h2>
         <br><br>
 				<div class="">
-					<?php while ($record = mysqli_fetch_array($result, MYSQL_ASSOC)) { ?>
+					<?php foreach ($stmt as $record) { ?>
 						<div class="col-sm-3">
 							<div class="card game-card">
 								<h4><?php echo $record['event_name']; ?></h4>

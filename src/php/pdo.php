@@ -16,12 +16,12 @@
   try {
     $pdo = new PDO($dsn, $username, $password, $options);
   } catch (PDOException $e) {
+    $pdo = null;
     if ($e->getCode() == 2002) {
       echo "<b>Error!</b> <br><br>Server actively refused the SQL connection.";
     }
-    $pdo = null;
     else {
-      PDOerror($e->getMessage());
+      echo PDOerror($e->getMessage());
     }
   }
 ?>

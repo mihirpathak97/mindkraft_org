@@ -25,6 +25,13 @@ function validateEmail(email){
   return false;
 }
 
+function validateName(name) {
+  if (name.length >= 1) {
+    return true;
+  }
+  return false;
+}
+
 function validateCollegeName(collegeName) {
   if (collegeName.length >= 1) {
     return true;
@@ -54,22 +61,26 @@ function validateLoginForm() {
 }
 
 function validateRegistationForm() {
+  name = document.getElementsByName('enduser_mobile')[0].value;
   mobileNumber = document.getElementsByName('enduser_mobile')[0].value;
   email = document.getElementsByName('enduser_email')[0].value;
   collegeName = document.getElementsByName('enduser_college_name')[0].value;
   password = document.getElementsByName('enduser_password')[0].value;
   passwordRetype = document.getElementsByName('password_retype')[0].value;
-  if (validatePassword(password) && validatePasswords(password, passwordRetype) && validateMobileNumber(mobileNumber) && validateCollegeName(collegeName) && validateEmail(email)) {
+  if (validatePassword(password) && validatePasswords(password, passwordRetype) && validateMobileNumber(mobileNumber) && validateCollegeName(collegeName) && validateEmail(email) && validateName(name)) {
     return true;
+  }
+  else if (!validateName(name)) {
+    showModal("Name field cannot be empty!");
   }
   else if (!validateMobileNumber(mobileNumber)) {
     showModal("Please enter a valid 10 digit mobile number!");
   }
-  else if (!validateCollegeName()) {
-    showModal("Please enter a valid college name!");
-  }
   else if (!validateEmail(email)) {
     showModal("Please enter a valid E-Mail!");
+  }
+  else if (!validateCollegeName(collegeName)) {
+    showModal("Please enter a valid college name!");
   }
   else if (!validatePassword(password)) {
     showModal("Please enter a valid password (min 8 digits)!");

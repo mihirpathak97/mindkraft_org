@@ -87,11 +87,13 @@
 									<div class="login">
 	                  <h3>Register</h3>
 	                  <br><br>
+										<p style="color:black">All fields are required</p>
+										<br>
 	                  <form class="" id="registration_form">
 	                    <input type="text" name="enduser_name" value="" placeholder="Full Name" required>
 	                    <input type="text" name="enduser_mobile" value="" placeholder="Mobile Number" required>
 	                    <input type="text" name="enduser_email" value="" placeholder="Valid E-mail" required>
-	                    <input type="text" name="enduser_college_namecollege" value="" placeholder="College Name" required>
+	                    <input type="text" name="enduser_college_name" value="" placeholder="College Name" required>
 	                    <input type="password" name="enduser_password" value="" placeholder="Password" required>
 	                    <input type="password" name="password_retype" value="" placeholder="Retype Password" required>
 	                    <p><br> <input type="button" class="btn btn-primary btn-lg" value="Register!" onclick="submitRegistrationForm()"></p>

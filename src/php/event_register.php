@@ -26,6 +26,11 @@
       $stmt->execute();
       if ($stmt->rowCount() == 0){
         $query = "INSERT INTO $table_prefix" . "event_registration VALUES ('$eventid','$userid')";
+        $stmt = $pdo->prepare($query);
+        $result = $stmt->execute();
+        if ($result) {
+          echo "You have been succesfully registered for this event!";
+        }
       }
       else {
         // Get list of registered users

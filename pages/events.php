@@ -78,15 +78,14 @@
 		<div class="row animate-box" data-animate-effect="fadeIn">
 			<?php
 				if (isset($_GET['q'])){
-					$con = mysqli_connect($host, $username, $password, $db);
-					$query = "select * from ".$view_prefix."events_list where department='".$_GET['q']."'";
-					$result = mysqli_query($con, $query);
+					global $pdo, $view_prefix;
+					$stmt = $pdo->query("SELECT * FROM $view_prefix" . "events_list WHERE event_department='" . $_GET['q']. "'");
 			?>
 				<div class="games">
 					<h2><?php echo dept_list[$_GET['q']]; ?></h2>
 					<br><br>
 					<div class="">
-						<?php while ($record = mysqli_fetch_array($result, MYSQL_ASSOC)) { ?>
+						<?php foreach($stmt as $record) { ?>
 							<div class="col-sm-3">
 								<div class="card game-card event">
 									<h4><?php echo $record['event_name']; ?></h4>

@@ -1,95 +1,100 @@
 <?php
   session_start();
-  if ($_POST['action'] == 'login') {
-    loginUser();
-  }
-  else if ($_POST['action'] == 'register') {
-    registerUser();
+  require 'pdo.php';
+  require_once 'sqlconf.php';
+  require_once 'lib.php';
+
+  if (isset($_POST['action'])) {
+    if ($_POST['action'] == 'login') {
+      loginUser();
+    }
+    else if ($_POST['action'] == 'register') {
+      registerUser();
+    }
+    else {
+      echo "Error: Unknown action. Supported actions and 'login' and 'register'";
+    }
   }
   else {
-    echo "Error: Unknown action. Supported actions and 'login' and 'register'";
+    echo "Uh oh... <br><br>Are you sure you are supposed to be in this page?";
   }
 
   // Login logic
 
-  function loginUser()
+  function loginUser($mobile = null, $password = null)
   {
-    require 'sqlconf.php';
-    $con = mysqli_connect($host, $username, $password, $db);
-    $query = "select * from ".$view_prefix."enduser_table where mobile='" . $_POST['uname'] . "' and password=password('" . $_POST['password'] . "')";
-    $result = mysqli_query($con, $query);
-    if (mysqli_num_rows($result) == 1) {
-      $record = mysqli_fetch_array($result, MYSQL_ASSOC);
+    if (isset($_POST['enduser_mobile']) && isset($_POST['enduser_password'])) {
+      $mobile = $_POST['enduser_mobile'];
+      $password = $_POST['enduser_password'];
+    }
+    global $pdo, $view_prefix;
+    $query = "SELECT * FROM $view_prefix" . "enduser_table WHERE enduser_mobile= ? AND enduser_password=PASSWORD( ? )";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$mobile, $password]);
+
+    if ($stmt->rowCount() == 1) {
+      $record = $stmt->fetch(PDO::FETCH_ASSOC);
       $_SESSION['userid'] = $record['userid'];
-      $_SESSION['username'] = $record['name'];
+      $_SESSION['username'] = $record['enduser_name'];
       echo "Successfully logged in!";
     }
     else {
-      $query = "select * from ".$view_prefix."enduser_table where mobile='" . $_POST['uname'] . "'";
-      $result = mysqli_query($con, $query);
-      if (mysqli_num_rows($result) == 1) {
+      $query = "SELECT * FROM $view_prefix" . "enduser_table WHERE enduser_mobile= ?";
+      $stmt = $pdo->prepare($query);
+      $stmt->execute([$_POST['enduser_mobile']]);
+      if ($stmt->rowCount() == 1) {
         echo "Your password is incorrect!";
       }
       else {
         echo "The user account could not be found. <br>Are you sure you signed up?";
       }
-      // $_SESSION['sql-err'] = '1';
-      // header("location:../login.php");
     }
   }
-
 
   // User registration Logic
   function registerUser()
   {
-    require 'sqlconf.php';
-    $con = mysqli_connect($host, $username, $password, $db);
-    $userid = generateUniqueUserId();
-    $mobile = $_POST['mobile'];
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $college = $_POST['college'];
-    $password = $_POST['password'];
-    $query = "insert into ".$table_prefix."enduser_table values ('" . $userid . "', '" . $mobile . "', '" . $name . "', '" . $email . "', '" . $college . "', password('" . $password . "'))";
-    $result = mysqli_query($con, $query);
-    if ($result) {
-      $query = "select * from ".$view_prefix."enduser_table where mobile='" . $mobile . "' and password=password('" . $password . "')";
-      $result = mysqli_query($con, $query);
-      $record = mysqli_fetch_array($result, MYSQL_ASSOC);
-      $_SESSION['userid'] = $record['userid'];
-      $_SESSION['username'] = $record['name'];
-      echo "User registration successfull!";
-    }
-    else {
-      $query = "select * from ".$view_prefix."enduser_table where mobile='" . $mobile . "'";
-      $result = mysqli_query($con, $query);
-      if (mysqli_num_rows($result) == 1) {
-        echo "User account with the given mobile number already exists!";
-      }
-      else {
-        echo "There was an error registering the user! <br><br>Please check your credentials and try again";
-      }
+    global $pdo, $table_prefix;
+
+    if ($pdo == null) {
+      return;
     }
 
-    function generateUniqueUserId($length = 16) {
-      global $con;
-      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      $charactersLength = strlen($characters);
-      $randomString = '';
-      for ($i = 0; $i < $length; $i++) {
-          $randomString .= $characters[rand(0, $charactersLength - 1)];
-      }
+    $userid = generateRandomString();
+    $mobile = $_POST['enduser_mobile'];
+    $name = $_POST['enduser_name'];
+    $email = $_POST['enduser_email'];
+    $college = $_POST['enduser_college_name'];
+    $password = $_POST['enduser_password'];
 
-      $query = "select * from user_table where userid='" . $randomString . "'";
-      $result = mysqli_query($con, $query);
-      if ($result) {
-        if (mysqli_num_rows($result) > 0) {
-          generateUniqueUserId();
+    $query = "INSERT INTO $table_prefix" . "enduser_table VALUES ( ?, ?, ?, ?, ?, PASSWORD( ? ))";
+
+    tryinsert:
+      try {
+        $stmt = $pdo->prepare($query);
+        $result = $stmt->execute([$userid, $mobile, $name, $email, $college, $password]);
+      } catch (PDOException $e) {
+        if ($e->getCode() == 23000) {
+          // Duplicate key error
+          if ($e->errorInfo[1] == 1062) {
+            if (strpos($e->getMessage(), 'userid') != false) {
+              $userid = generateRandomString();
+              goto tryinsert;
+            }
+            else {
+              echo "User account with the given credentials already exists!
+              <br><br>
+              Try logging in...";
+            }
+          }
+        }
+        else {
+          echo PDOerror("There was an error registering the user!<br>" . $e->getMessage());
         }
       }
-      else {
-        return $randomString;
-      }
+    if ($result) {
+      echo "User registration was successfull!<br><br>You can now login...";
+      // loginUser($mobile, $password);
     }
   }
 ?>

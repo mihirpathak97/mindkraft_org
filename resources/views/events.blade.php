@@ -1,5 +1,12 @@
 <?php
 	session_start();
+  $path = public_path();
+  	require $path . '/php/pdo.php';
+    require_once $path . '/php/sqlconf.php';
+  	require_once $path . '/php/lib.php';
+  	if (isset($_SESSION['username'])) {
+  			$name = $_SESSION['username'];
+  	}
 	if (isset($_SESSION['username'])) {
       $name = $_SESSION['username'];
 	}

@@ -11,6 +11,12 @@
 // Font-Awesome
 @import "~font-awesome/scss/font-awesome.scss";
 
+// Pirulen font
+@font-face {
+  font-family: 'Pirulen';
+  src: url(/fonts/vendor/pirulen/pirulen-rg.ttf) format('truetype');
+}
+
 
 // Base rules
 html{
@@ -194,3 +200,86 @@ body{
 }
 
 // Preloader code ends
+
+// Selection classes
+.select-disable {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.select-enable {
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -o-user-select: text;
+    user-select: text;
+}
+
+.crap-shadow{
+  box-shadow:
+        inset 0 0 50px #fff,      /* inner white */
+        inset 20px 0 80px #f0f,   /* inner left magenta short */
+        inset -20px 0 80px #0ff,  /* inner right cyan short */
+        inset 20px 0 300px #f0f,  /* inner left magenta broad */
+        inset -20px 0 300px #0ff, /* inner right cyan broad */
+        0 0 50px #fff,            /* outer white */
+        -10px 0 80px #f0f,        /* outer left magenta */
+        10px 0 80px #0ff;         /* outer right cyan */
+}
+
+#particle-canvas {
+  display: block;
+  // background: rgb(33,36,50);
+  // background: #222;
+  background: rgb(41, 50, 66);
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  opacity: 0.3;
+}
+
+
+#base-hero{
+  opacity: 1;
+  display: none;
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+#base-hero img{
+  width: 350px;
+  height: 280px;
+  margin-top: 15%;
+  overflow: auto;
+  @media screen and (max-width: $screen-sm){
+    width: 250px;
+    height: 180px;
+    margin-top: 40%;
+  }
+}
+
+#base-hero nav{
+  width: 100%;
+  top: 0;
+  position: fixed;
+  border: 1px solid green;
+}
+
+#base-hero nav #wave{
+  transform: rotate(90deg);
+  top: 1.5%;
+  left: 1%;
+  fill: #fff;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}

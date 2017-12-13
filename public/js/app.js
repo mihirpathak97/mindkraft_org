@@ -999,7 +999,16 @@ $(document).ready(function () {
   }, 3000);
 });
 
-function loadBody() {}
+function loadBody() {
+  particlesJS.load('particle-canvas', 'js/particles.json', function () {
+    console.log('callback - particles.js config loaded');
+  });
+  $('#base-hero').show();
+}
+
+$('#wave').click(function () {
+  console.log('under construction');
+});
 
 /***/ }),
 /* 11 */

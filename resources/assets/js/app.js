@@ -28,5 +28,12 @@ $(document).ready(function () {
 });
 
 function loadBody() {
-  
+  particlesJS.load('particle-canvas', 'js/particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+  $('#base-hero').show();
 }
+
+$('#wave').click(function () {
+  console.log('under construction');
+});

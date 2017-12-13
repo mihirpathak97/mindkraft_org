@@ -84,15 +84,13 @@ function loadRadialMenu() {
   }
 
   var functions = {
-    onInit: function() {
-      console.log('INIT');
+    onChangeBegin: function (data) {
+      curr = menuData[data].url;
     },
-    onChangeBegin: function() {
-      console.log('CHANGE');
-    },
-    onChangeComplete: function(d) {
-      console.log('CHANGE_COMPLETE');
-      console.log(d);
+    onChangeComplete: function(data) {
+      if (curr!=data.url) { // prevent infinite loop
+        window.open(data.url, "_self");
+      }
     }
   };
 
@@ -231,7 +229,7 @@ function CircleMenu(target, data, selectedByKey, opt, func) {
 				var newPos = [];
 				var lastItem = null, lastItem_bot = null;
 
-				that.onChangeBegin ? that.onChangeBegin() : null;
+				that.onChangeBegin ? that.onChangeBegin(that.currentSelected) : null;
 
 				var completeAnimation = function(i) {
 					cm_label.find('span').text(data[offset].label);

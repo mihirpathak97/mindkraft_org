@@ -1,12 +1,15 @@
 <?php
 	session_start();
   $path = public_path();
-  	require $path . '/php/pdo.php';
-    require_once $path . '/php/sqlconf.php';
-  	require_once $path . '/php/lib.php';
-  	if (isset($_SESSION['username'])) {
-  			$name = $_SESSION['username'];
-  	}
+  require $path . '/php/pdo.php';
+  require_once $path . '/php/sqlconf.php';
+  require_once $path . '/php/lib.php';
+
+  if ($pdo == null) {
+    echo "<h2>PDO object could not be created!</h2>";
+    return;
+  }
+
 	if (isset($_SESSION['username'])) {
       $name = $_SESSION['username'];
 	}
@@ -27,6 +30,36 @@
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/radial-menu.css') }}">
   </head>
+
+  <style media="screen">
+    <?php
+      foreach (dept_list as $key => $dept_name) {
+        echo
+        ".".$key."{
+          background-image: url(/images/dept/$key.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          }
+        ";
+      }
+    ?>
+    .game-card-dept{
+      margin-left: -25px;
+      height: 200px;
+      width: 200px;
+      border-radius: 15px;
+    }
+    .col-sm-3{
+      margin-top: 30px;
+    }
+    .col-sm-3 a:hover{
+      text-decoration: none;
+    }
+    .dept-head{
+      margin-top: 15%;
+      padding: 5px;
+    }
+  </style>
 
   <body>
 
@@ -59,7 +92,39 @@
         </svg>
       </nav> -->
       <br><br>
-      <h2 class="hero-head">Events</h2>
+      <?php
+        if (isset($dept)){
+          $stmt = $pdo->query("SELECT * FROM $view_prefix" . "events_list WHERE event_department='" . $dept. "'");
+      ?>
+        <div class="games">
+          <h2 class="hero-head"><?php echo dept_list[$dept]; ?></h2>
+          <br><br>
+          <div class="">
+            <?php foreach($stmt as $record) { ?>
+              <div class="col-sm-3">
+                <div class="card game-card event">
+                  <h4><?php echo $record['event_name']; ?></h4>
+                  <br><br>
+                  <p><a href="/eventreq/<?php echo $record['event_id']?>">Know More</a></p>
+                </div>
+              </div>
+            <?php } ?>
+          </div>
+        </div>
+      <?php }else { ?>
+        <h2 class="hero-head">Events</h2>
+        <br><br>
+        <div class="games">
+          <?php foreach (dept_list as $key => $dept) { ?>
+            <div class="col-sm-3">
+              <a href="events/<?php echo $key ?>">
+                <div class="card game-card <?php echo $key ?> game-card-dept">
+                </div>
+              </a>
+            </div>
+          <?php } ?>
+        </div>
+      <?php } ?>
     </div>
 
     <div id="radial-menu" class="cm-container">

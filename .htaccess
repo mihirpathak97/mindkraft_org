@@ -1,8 +1,0 @@
-# .htaccess file for mindkraft18. Do not edit or modify
-# Copyright (c) Z-Coders 2017
-
-Options -Indexes
-
-RewriteEngine on
-RewriteRule \.ini$ - [R=404]
-RewriteRule ^src/?$ - [R=403]

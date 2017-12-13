@@ -11679,6 +11679,11 @@ body {
   position: fixed;
 }
 
+#base-hero h2 {
+  font-family: Pirulen !important;
+  font-size: 22px;
+}
+
 #base-hero nav #wave {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);

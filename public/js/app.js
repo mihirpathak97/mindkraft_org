@@ -807,11 +807,11 @@ function loadRadialMenu() {
 		label: 'Home',
 		url: 'home'
 	}, {
-		label: 'Workshops',
-		url: 'workshops'
-	}, {
 		label: 'Events',
 		url: 'events'
+	}, {
+		label: 'Workshops',
+		url: 'workshops'
 	}, {
 		label: 'Games',
 		url: 'games'

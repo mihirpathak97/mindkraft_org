@@ -55,12 +55,12 @@ function loadRadialMenu() {
       url: 'home'
     },
     {
-      label: 'Workshops',
-      url: 'workshops'
-    },
-    {
       label: 'Events',
       url: 'events'
+    },
+    {
+      label: 'Workshops',
+      url: 'workshops'
     },
     {
       label: 'Games',

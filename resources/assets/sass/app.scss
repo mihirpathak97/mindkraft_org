@@ -8,6 +8,9 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Font-Awesome
+@import "~font-awesome/scss/font-awesome.scss";
+
 @mixin centre($axis: "both") {
 	position: absolute;
 	@if $axis == "y" {

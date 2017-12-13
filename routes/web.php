@@ -23,6 +23,11 @@ Route::get('/events', function () {
     return view('events');
 });
 
+Route::get('/events/{dept}', function ($dept) {
+    $data = array('dept' => $dept);
+    return view('events')->with($data);
+});
+
 Route::get('/workshops', function () {
     return view('workshops');
 });

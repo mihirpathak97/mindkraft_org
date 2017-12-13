@@ -260,6 +260,7 @@ body{
   height: 280px;
   margin-top: 15%;
   overflow: auto;
+  // border: 1px solid green;
   @media screen and (max-width: $screen-sm){
     width: 250px;
     height: 180px;
@@ -271,7 +272,6 @@ body{
   width: 100%;
   top: 0;
   position: fixed;
-  border: 1px solid green;
 }
 
 #base-hero nav #wave{
@@ -282,4 +282,10 @@ body{
   position: absolute;
   width: 50px;
   height: 50px;
+}
+
+// Circular Menu - SASS
+
+#radial-menu{
+  display: none;
 }

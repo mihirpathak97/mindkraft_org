@@ -18,3 +18,27 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return redirect('/');
 });
+
+Route::get('/events', function () {
+    return view('events');
+});
+
+Route::get('/workshops', function () {
+    return view('workshops');
+});
+
+Route::get('/games', function () {
+    return view('games');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/faq', function () {
+    return view('faq');
+});

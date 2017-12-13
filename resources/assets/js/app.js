@@ -105,7 +105,7 @@ function loadRadialMenu() {
   var functions = {
     onChangeBegin: function (url) {
       if (url != selected) {
-        window.open(url, "_self");
+        window.open("/"+url, "_self");
       }
     }
   };

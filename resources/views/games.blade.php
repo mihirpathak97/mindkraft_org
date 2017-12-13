@@ -1,8 +1,19 @@
 <?php
 	session_start();
+	$path = public_path();
+	require $path . '/php/pdo.php';
+	require_once $path . '/php/sqlconf.php';
+	require_once $path . '/php/lib.php';
+
+	if ($pdo == null) {
+		echo "<h2>PDO object could not be created!</h2>";
+		return;
+	}
 	if (isset($_SESSION['username'])) {
       $name = $_SESSION['username'];
 	}
+
+	$stmt = $pdo->query("SELECT * FROM $view_prefix" . "games_list");
 ?>
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
@@ -52,7 +63,21 @@
         </svg>
       </nav> -->
       <br><br>
-      <h2 class="hero-head">Games</h2>
+			<div class="games">
+        <h2 class="hero-head">Games</h2>
+        <br><br>
+				<div class="">
+					<?php foreach($stmt as $record) { ?>
+						<div class="col-sm-3">
+							<div class="card game-card">
+								<h4><?php echo $record['event_name']; ?></h4>
+								<br><br>
+								<p><a href="/eventreq/<?php echo $record['event_id']?>">Know More</a></p>
+							</div>
+						</div>
+					<?php } ?>
+				</div>
+      </div>
     </div>
 
     <div id="radial-menu" class="cm-container">

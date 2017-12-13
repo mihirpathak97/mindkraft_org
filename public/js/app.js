@@ -781,7 +781,7 @@ __webpack_require__(9);
 $(document).ready(function () {
 	setTimeout(function () {
 		$('.e-loadholder').hide(1000, loadBody());
-	}, 3000);
+	}, 1000);
 });
 
 function loadBody() {

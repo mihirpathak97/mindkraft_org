@@ -25,7 +25,7 @@ require('./bootstrap');
 $(document).ready(function () {
   setTimeout(function () {
     $('.e-loadholder').hide(1000, loadBody());
-  }, 3000);
+  }, 1000);
 });
 
 function loadBody() {

@@ -32,6 +32,7 @@ function loadBody() {
   particlesJS.load('particle-canvas', 'js/particles.json', function() {
     console.log('callback - particles.js config loaded');
   });
+
   if ($(window).width() > 786) {
     loadRadialMenu();
   }
@@ -79,6 +80,8 @@ function loadRadialMenu() {
     }
   ];
 
+  const menuDataURLS = ['home', 'workshops', 'events', 'games', 'faq', 'contact', 'about'];
+
   var options = {
     key: 'url',
     pageLoader: {
@@ -87,18 +90,22 @@ function loadRadialMenu() {
     }
   }
 
+  var url_arr = window.location.href.split('/');
+  var selected = url_arr[url_arr.length - 1];
+
+  if (menuDataURLS.indexOf(selected) == -1) {
+    selected = 'home';
+  }
+
   var functions = {
-    onChangeBegin: function (data) {
-      curr = menuData[data].url;
-    },
-    onChangeComplete: function(data) {
-      if (curr!=data.url) { // prevent infinite loop
-        window.open(data.url, "_self");
+    onChangeBegin: function (url) {
+      if (url != selected) {
+        window.open(url, "_self");
       }
     }
   };
 
-  var RadialMenu = new CircleMenu($('#radial-menu'), menuData, 'home', options, functions);
+  var RadialMenu = new CircleMenu($('#radial-menu'), menuData, selected, options, functions);
 
   $('#radial-menu').show();
 
@@ -232,9 +239,7 @@ function CircleMenu(target, data, selectedByKey, opt, func) {
 
 				var newPos = [];
 				var lastItem = null, lastItem_bot = null;
-
-				that.onChangeBegin ? that.onChangeBegin(that.currentSelected) : null;
-
+				that.onChangeBegin ? that.onChangeBegin(data[offset].url) : null;
 				var completeAnimation = function(i) {
 					cm_label.find('span').text(data[offset].label);
 					cm_label.find('span').fadeIn(300);

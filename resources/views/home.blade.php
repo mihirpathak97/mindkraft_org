@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	if (isset($_SESSION['username'])) {
+      $name = $_SESSION['username'];
+	}
+?>
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
   <head>
@@ -29,6 +35,20 @@
     <div id="particle-canvas"></div>
 
     <div id="base-hero" class="select-disable">
+
+      <!-- "NAV" -->
+      <div id="navbar" class="navbar-collapse collapse enable-select">
+        <ul class="nav-ul">
+          <?php if (isset($name)) { ?>
+            <li><a href="user"><span><?php echo $name; ?></span></a></li>
+            <li><a href="logout"><span>Logout</span></a></li>
+          <?php }else{ ?>
+            <li><a href="login"><span>Login</span></a></li>
+            <li><a href="register"><span>Register</span></a></li>
+          <?php } ?>
+        </ul>
+      </div>
+
       <!-- <nav>
         <svg id="wave" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 38">
           <path data-v-14b53e32="" data-name="Line 1" d="M0.91,15L0.78,15A1,1,0,0,0,0,16v6a1,1,0,1,0,2,0s0,0,0,0V16a1,1,0,0,0-1-1H0.91Z" class="line line-1"></path>

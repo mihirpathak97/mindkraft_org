@@ -94,7 +94,12 @@ function loadRadialMenu() {
   var selected = url_arr[url_arr.length - 1];
 
   if (menuDataURLS.indexOf(selected) == -1) {
-    selected = 'home';
+    if (menuDataURLS.indexOf(url_arr[url_arr.length - 2]) != -1) {
+      selected = url_arr[url_arr.length - 2];
+    }
+    else {
+      selected = 'home';
+    }
   }
 
   var functions = {

@@ -993,6 +993,14 @@ __webpack_require__(11);
 //     el: '#app'
 // });
 
+$(document).ready(function () {
+  setTimeout(function () {
+    $('.e-loadholder').hide(1000, loadBody());
+  }, 3000);
+});
+
+function loadBody() {}
+
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {

@@ -15,12 +15,20 @@
   </head>
 
   <body>
+
+    <!-- Preloader -->
     <div class="e-loadholder">
       <div class="m-loader">
 		    <span class="e-text">Loading</span>
 	    </div>
     </div>
-    <div id="particleCanvas-Blue"></div>
-    <div id="particleCanvas-White"></div>
+
+    <!-- Actual body -->
+
+    <div class="base-hero">
+      
+    </div>
+
   </body>
+  <script src="{{ URL::asset('js/app.js') }}" charset="utf-8"></script>
 </html>

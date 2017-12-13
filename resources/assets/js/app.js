@@ -20,3 +20,13 @@ require('./bootstrap');
 // const app = new Vue({
 //     el: '#app'
 // });
+
+$(document).ready(function () {
+  setTimeout(function () {
+    $('.e-loadholder').hide(1000, loadBody());
+  }, 3000);
+});
+
+function loadBody() {
+  
+}

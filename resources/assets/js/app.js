@@ -66,6 +66,10 @@ function loadRadialMenu() {
       url: 'games'
     },
     {
+      label: 'FAQ',
+      url: 'faq'
+    },
+    {
       label: 'Contact',
       url: 'contact'
     },

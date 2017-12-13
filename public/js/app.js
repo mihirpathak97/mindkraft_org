@@ -815,6 +815,9 @@ function loadRadialMenu() {
 		label: 'Games',
 		url: 'games'
 	}, {
+		label: 'FAQ',
+		url: 'faq'
+	}, {
 		label: 'Contact',
 		url: 'contact'
 	}, {

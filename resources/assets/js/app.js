@@ -109,6 +109,23 @@ function loadRadialMenu() {
 
   $('#radial-menu').show();
 
+  if (selected != 'home') {
+    $('.cm-items').hide();
+    $('.cm-button-next').hide();
+    var orig_left = $('#radial-menu').css('left');
+    $('#radial-menu').animate({left: '-560px'});
+    $('.cm-selected-container').click(function () {
+      $('.cm-items').toggle();
+      $('.cm-button-next').toggle();
+      if ($('#radial-menu').css('left') == orig_left) {
+        $('#radial-menu').animate({left: '-560px'});
+      }
+      else {
+        $('#radial-menu').animate({left: orig_left});
+      }
+    });
+  }
+
 }
 
 

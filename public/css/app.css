@@ -11700,3 +11700,7 @@ body {
   font-family: Pirulen !important;
 }
 
+.hide-radial-menu {
+  left: -200px;
+}
+

@@ -11706,8 +11706,15 @@ body {
   left: 1%;
   fill: #fff;
   position: absolute;
+  cursor: pointer;
   width: 50px;
   height: 50px;
+}
+
+@media screen and (min-width: 786px) {
+  #base-hero nav #wave {
+    display: none;
+  }
 }
 
 #radial-menu {

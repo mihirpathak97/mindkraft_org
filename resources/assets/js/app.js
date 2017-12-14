@@ -28,17 +28,23 @@ $(document).ready(function () {
   }, 1000);
 });
 
+$(window).resize(function() {
+  if ($(this).width() < 786) {
+    $('#radial-menu').hide();
+  }
+  else {
+    $('#radial-menu').show();
+  }
+});
+
+
 function loadBody() {
   particlesJS.load('particle-canvas', 'js/particles.json', function() {
     console.log('callback - particles.js config loaded');
   });
 
-  if ($(window).width() > 786) {
-    loadRadialMenu();
-  }
-  else {
-    console.log('not loading menu');
-  }
+  loadRadialMenu();
+
   $('#base-hero').show();
 
 }
@@ -112,7 +118,9 @@ function loadRadialMenu() {
 
   var RadialMenu = new CircleMenu($('#radial-menu'), menuData, selected, options, functions);
 
-  $('#radial-menu').show();
+  if ($(window).width() > 786) {
+    $('#radial-menu').show();
+  }
 
   if (selected != 'home') {
     $('.cm-items').hide();

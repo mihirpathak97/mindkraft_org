@@ -52,3 +52,12 @@ Route::get('/about', function () {
 Route::get('/faq', function () {
     return view('faq');
 });
+
+// Auth Routes
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('register');
+});

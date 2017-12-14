@@ -28,6 +28,11 @@ Route::get('/events/{dept}', function ($dept) {
     return view('events')->with($data);
 });
 
+Route::get('/eventreq/{eventid}', function ($eventid) {
+    $data = array('eventid' => $eventid);
+    return view('events')->with($data);
+});
+
 Route::get('/workshops', function () {
     return view('workshops');
 });

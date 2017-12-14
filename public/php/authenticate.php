@@ -4,6 +4,8 @@
   require_once 'sqlconf.php';
   require_once 'lib.php';
 
+  echo $_POST['q1'];
+
   if (isset($_POST['action'])) {
     if ($_POST['action'] == 'login') {
       loginUser();

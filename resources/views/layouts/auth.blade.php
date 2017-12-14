@@ -18,7 +18,16 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/radial-menu.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/component.css') }}">
+    <script src="{{ URL::asset('js/modernizr.custom.js') }}"></script>
   </head>
+
+  <style media="screen">
+    .container{
+      margin-top: 10%;
+    }
+  </style>
 
   <body>
 
@@ -51,6 +60,7 @@
         </svg>
       </nav> -->
       <br><br>
+
       <h2 class="hero-head">@yield('title')</h2>
 
       <!-- Login -->
@@ -64,6 +74,52 @@
       <!-- Register -->
       <?php function callRegister() { ?>
 
+        <div class="">
+    			<section>
+    				<form id="theForm" class="simform" autocomplete="off">
+    					<div class="simform-inner">
+    						<ol class="questions">
+    							<li>
+    								<span><label for="q1">Let's start with your name</label></span>
+    								<input id="q1" name="q1" type="text"/>
+    							</li>
+    							<li>
+    								<span><label for="q2">How do we contact you? (primary phone number)</label></span>
+    								<input id="q2" name="q2" type="text"/>
+    							</li>
+    							<li>
+    								<span><label for="q3">What is your primary email?</label></span>
+    								<input id="q3" name="q3" type="text"/>
+    							</li>
+    							<li>
+    								<span><label for="q4">Where you do you go to college?</label></span>
+    								<input id="q4" name="q4" type="text"/>
+    							</li>
+    							<li>
+    								<span><label for="q5">Pick a password</label></span>
+    								<input id="q5" name="q5" type="password"/>
+    							</li>
+    							<li>
+    								<span><label for="q6">Retype your password just once more</label></span>
+    								<input id="q6" name="q6" type="password"/>
+    							</li>
+    						</ol><!-- /questions -->
+    						<button class="submit" type="submit">Send answers</button>
+    						<div class="controls">
+    							<button class="next"></button>
+    							<div class="progress"></div>
+    							<span class="number">
+    								<span class="number-current"></span>
+    								<span class="number-total"></span>
+    							</span>
+    							<span class="error-message"></span>
+    						</div><!-- / controls -->
+    					</div><!-- /simform-inner -->
+    					<span class="final-message"></span>
+    				</form><!-- /simform -->
+    			</section>
+    		</div><!-- /container -->
+
       <?php } ?>
     </div>
 
@@ -72,4 +128,29 @@
   <script src="{{ URL::asset('js/greensock/TweenMax.min.js') }}"></script>
   <script src="{{ URL::asset('js/app.js') }}" charset="utf-8"></script>
   <script src="{{ URL::asset('js/particles.js') }}" charset="utf-8"></script>
+  <script src="{{ URL::asset('js/classie.js') }}" charset="utf-8"></script>
+  <script src="{{ URL::asset('js/stepsForm.js') }}" charset="utf-8"></script>
+
+  <script>
+    var theForm = document.getElementById( 'theForm' );
+
+    new stepsForm( theForm, {
+      onSubmit : function( form ) {
+        // hide form
+        classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+        /*
+        form.submit()
+        or
+        AJAX request (maybe show loading indicator while we don't have an answer..)
+        */
+
+        // let's just simulate something...
+        var messageEl = theForm.querySelector( '.final-message' );
+        messageEl.innerHTML = 'Crunching that ol\' database, just for you :) ';
+        classie.addClass( messageEl, 'show' );
+      }
+    } );
+  </script>
+
 </html>

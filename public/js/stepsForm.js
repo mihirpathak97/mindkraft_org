@@ -203,7 +203,7 @@
 			return false;
 		}
 
-		if (input.name === 'q2' ) { // Mobile number check
+		if (input.name === 'enduser_mobile' ) { // Mobile number check
 			var acceptedRegex = /^[0]?[789]\d{9}$/;
 			if (acceptedRegex.test(input.value)) {
 				return true;
@@ -214,7 +214,7 @@
 			}
 		}
 
-		if (input.name === 'q3' ) { // email number check
+		if (input.name === 'enduser_email' ) { // email number check
 			var acceptedRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 			if (acceptedRegex.test(input.value)) {
 				return true;
@@ -225,7 +225,7 @@
 			}
 		}
 
-		if (input.name === 'q5' ) { // Password check
+		if (input.name === 'enduser_password' ) { // Password check
 			if (input.value.length >= 8) {
 				return true;
 			}
@@ -235,8 +235,8 @@
 			}
 		}
 
-		if (input.name === 'q6' ) { // Password check
-			if (document.getElementById('q5').value == input.value) {
+		if (input.name === 'password_retype' ) { // Password check
+			if (document.getElementById('enduser_password').value == input.value) {
 				return true;
 			}
 			else {

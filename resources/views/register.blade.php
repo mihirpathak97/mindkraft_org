@@ -69,28 +69,28 @@
     					<div class="simform-inner">
     						<ol class="questions">
     							<li>
-    								<span><label for="q1">Let's start with your name</label></span>
-    								<input id="q1" name="q1" type="text"/>
+    								<span><label for="enduser_name">Let's start with your name</label></span>
+    								<input id="enduser_name" name="enduser_name" type="text"/>
     							</li>
     							<li>
-    								<span><label for="q2">How do we contact you? (primary phone number)</label></span>
-    								<input id="q2" name="q2" type="text"/>
+    								<span><label for="enduser_mobile">How do we contact you? (primary phone number)</label></span>
+    								<input id="enduser_mobile" name="enduser_mobile" type="text"/>
     							</li>
     							<li>
-    								<span><label for="q3">What is your primary email?</label></span>
-    								<input id="q3" name="q3" type="text"/>
+    								<span><label for="enduser_email">What is your primary email?</label></span>
+    								<input id="enduser_email" name="enduser_email" type="text"/>
     							</li>
     							<li>
-    								<span><label for="q4">Where you do you go to college?</label></span>
-    								<input id="q4" name="q4" type="text"/>
+    								<span><label for="enduser_college_name">Where you do you go to college?</label></span>
+    								<input id="enduser_college_name" name="enduser_college_name" type="text"/>
     							</li>
     							<li>
-    								<span><label for="q5">Pick a password</label></span>
-    								<input id="q5" name="q5" type="password"/>
+    								<span><label for="enduser_password">Pick a password</label></span>
+    								<input id="enduser_password" name="enduser_password" type="password"/>
     							</li>
     							<li>
-    								<span><label for="q6">Retype your password just once more</label></span>
-    								<input id="q6" name="q6" type="password"/>
+    								<span><label for="password_retype">Retype your password just once more</label></span>
+    								<input id="password_retype" name="password_retype" type="password"/>
     							</li>
     						</ol><!-- /questions -->
     						<button class="submit" type="submit">Send answers</button>

@@ -4,8 +4,6 @@
   require_once 'sqlconf.php';
   require_once 'lib.php';
 
-  echo $_POST['q1'];
-
   if (isset($_POST['action'])) {
     if ($_POST['action'] == 'login') {
       loginUser();
@@ -84,7 +82,7 @@
               goto tryinsert;
             }
             else {
-              echo "User account with the given credentials already exists!
+              echo "<br>User account with the given credentials already exists!
               <br><br>
               Try logging in...";
             }
@@ -94,7 +92,7 @@
           echo PDOerror("There was an error registering the user!<br>" . $e->getMessage());
         }
       }
-    if ($result) {
+    if (isset($result) && $result) {
       echo "User registration was successfull!<br><br>You can now login...";
       // loginUser($mobile, $password);
     }

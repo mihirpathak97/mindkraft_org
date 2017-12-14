@@ -1,15 +1,12 @@
-/**
- * stepsForm.js v1.0.0
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- * 
- * Copyright 2014, Codrops
- * http://www.codrops.com
- */
+//
+//  stepsForm.js
+//
+// 	Author - Mihir Pathak
+//  Version - 1.0
+//
+
 ;( function( window ) {
-	
+
 	'use strict';
 
 	var transEndEventNames = {
@@ -23,7 +20,7 @@
 		support = { transitions : Modernizr.csstransitions };
 
 	function extend( a, b ) {
-		for( var key in b ) { 
+		for( var key in b ) {
 			if( b.hasOwnProperty( key ) ) {
 				a[key] = b[key];
 			}
@@ -52,13 +49,13 @@
 		this.questionsCount = this.questions.length;
 		// show first question
 		classie.addClass( this.questions[0], 'current' );
-		
+
 		// next question control
 		this.ctrlNext = this.el.querySelector( 'button.next' );
 
 		// progress bar
 		this.progress = this.el.querySelector( 'div.progress' );
-		
+
 		// question number status
 		this.questionStatus = this.el.querySelector( 'span.number' );
 		// current question placeholder
@@ -70,7 +67,7 @@
 
 		// error message
 		this.error = this.el.querySelector( 'span.error-message' );
-		
+
 		// init events
 		this._initEvents();
 	};
@@ -89,9 +86,9 @@
 		firstElInput.addEventListener( 'focus', onFocusStartFn );
 
 		// show next question
-		this.ctrlNext.addEventListener( 'click', function( ev ) { 
+		this.ctrlNext.addEventListener( 'click', function( ev ) {
 			ev.preventDefault();
-			self._nextQuestion(); 
+			self._nextQuestion();
 		} );
 
 		// pressing enter will jump to next question
@@ -110,7 +107,7 @@
 			// tab
 			if( keyCode === 9 ) {
 				ev.preventDefault();
-			} 
+			}
 		} );
 	};
 
@@ -200,10 +197,52 @@
 	// the validation function
 	stepsForm.prototype._validade = function() {
 		// current question´s input
-		var input = this.questions[ this.current ].querySelector( 'input' ).value;
-		if( input === '' ) {
+		var input = this.questions[ this.current ].querySelector( 'input' );
+		if( input.value === '' ) {
 			this._showError( 'EMPTYSTR' );
 			return false;
+		}
+
+		if (input.name === 'q2' ) { // Mobile number check
+			var acceptedRegex = /^[0]?[789]\d{9}$/;
+			if (acceptedRegex.test(input.value)) {
+				return true;
+			}
+			else {
+				this._showError( 'INVALIDPHONE' );
+				return false;
+			}
+		}
+
+		if (input.name === 'q3' ) { // email number check
+			var acceptedRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			if (acceptedRegex.test(input.value)) {
+				return true;
+			}
+			else {
+				this._showError( 'INVALIDEMAIL' );
+				return false;
+			}
+		}
+
+		if (input.name === 'q5' ) { // Password check
+			if (input.value.length >= 8) {
+				return true;
+			}
+			else {
+				this._showError( 'INVALIDPASSWORD' );
+				return false;
+			}
+		}
+
+		if (input.name === 'q6' ) { // Password check
+			if (document.getElementById('q5').value == input.value) {
+				return true;
+			}
+			else {
+				this._showError( 'INVALIDRETYPE' );
+				return false;
+			}
 		}
 
 		return true;
@@ -213,13 +252,21 @@
 	stepsForm.prototype._showError = function( err ) {
 		var message = '';
 		switch( err ) {
-			case 'EMPTYSTR' : 
+			case 'EMPTYSTR' :
 				message = 'Please fill the field before continuing';
 				break;
-			case 'INVALIDEMAIL' : 
+			case 'INVALIDEMAIL' :
 				message = 'Please fill a valid email address';
 				break;
-			// ...
+			case 'INVALIDPHONE' :
+				message = 'Please fill a valid 10-digit mobile number';
+				break;
+			case 'INVALIDPASSWORD' :
+				message = 'Your password should be at least 8 characters long';
+				break;
+			case 'INVALIDRETYPE' :
+				message = 'Your passwords do not match!';
+				break;
 		};
 		this.error.innerHTML = message;
 		classie.addClass( this.error, 'show' );

@@ -59,7 +59,7 @@
         </svg>
       </nav>
       <img src="{{ URL::asset('images/mk.png') }}" alt="">
-      <h2 class="hero-date">14 March - 16 March</h2>
+      <h2 class="hero-date">23 Feb - 24 Feb</h2>
     </div>
 
     <div id="radial-menu" class="cm-container">

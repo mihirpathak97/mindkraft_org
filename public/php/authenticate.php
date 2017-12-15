@@ -27,7 +27,12 @@
       $mobile = $_POST['enduser_mobile'];
       $password = $_POST['enduser_password'];
     }
+
     global $pdo, $view_prefix;
+    if ($pdo == null) {
+      return;
+    }
+    
     $query = "SELECT * FROM $view_prefix" . "enduser_table WHERE enduser_mobile= ? AND enduser_password=PASSWORD( ? )";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$mobile, $password]);

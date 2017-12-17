@@ -53,6 +53,9 @@
 		// next question control
 		this.ctrlNext = this.el.querySelector( 'button.next' );
 
+    // previous question control
+		this.ctrlPrev = this.el.querySelector( 'button.prev' );
+
 		// progress bar
 		this.progress = this.el.querySelector( 'div.progress' );
 
@@ -87,6 +90,11 @@
 
 		// show next question
 		this.ctrlNext.addEventListener( 'click', function( ev ) {
+			ev.preventDefault();
+			self._nextQuestion();
+		} );
+
+		this.ctrlPrev.addEventListener( 'click', function( ev ) {
 			ev.preventDefault();
 			self._nextQuestion();
 		} );

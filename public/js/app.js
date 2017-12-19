@@ -793,7 +793,7 @@ $(window).resize(function () {
 });
 
 function loadBody() {
-	particlesJS.load('particle-canvas', 'js/particles.json', function () {
+	particlesJS.load('particle-canvas', 'js/particlesjs-config-nasa.json', function () {
 		console.log('callback - particles.js config loaded');
 	});
 

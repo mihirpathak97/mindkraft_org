@@ -83,6 +83,8 @@
         </div>
       </form>
 
+      <h3 id="ajax-output"><br><br><br></h3>
+
     </div>
 
   </body>

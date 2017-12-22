@@ -23225,6 +23225,18 @@ body {
   height: 10%;
 }
 
+#base-hero #ajax-output {
+  margin-top: 8%;
+  font-size: 18px !important;
+}
+
+@media screen and (max-width: 769px) {
+  #base-hero #ajax-output {
+    margin-top: 12%;
+    font-size: 14px !important;
+  }
+}
+
 #radial-menu {
   display: none;
   font-family: Pirulen !important;

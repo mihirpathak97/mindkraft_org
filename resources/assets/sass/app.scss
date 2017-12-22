@@ -363,6 +363,15 @@ body{
   height: 10%;
 }
 
+#base-hero #ajax-output{
+  margin-top: 8%;
+  font-size: 18px !important;
+  @media screen and (max-width: $tablet){
+    margin-top: 12%;
+    font-size: 14px !important;
+  }
+}
+
 
 // Circular Menu - SASS
 

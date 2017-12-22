@@ -73,6 +73,8 @@ $('#loginForm').submit(function () {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       console.log(xhttp.responseText);
+      $('.field').hide();
+      $('#ajax-output').html(xhttp.responseText);
     }
   };
   xhttp.open("POST", "../php/authenticate.php", true);

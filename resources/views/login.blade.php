@@ -80,10 +80,9 @@
             <br><br>
             <button class="button is-link">Submit</button>
           </div>
+          <p id="ajax-output"></p>
         </div>
       </form>
-
-      <h3 id="ajax-output"><br><br><br></h3>
 
     </div>
 

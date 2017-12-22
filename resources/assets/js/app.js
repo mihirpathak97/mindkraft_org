@@ -67,13 +67,17 @@ $('#loginForm').submit(function () {
     return false;
   }
 
+  $('.button').removeClass('is-link');
+  $('.button').addClass('button-onclick-animation');
+  $('.button').removeClass('button');
+
   formData = new FormData(document.getElementById('loginForm'));
   formData.append('action', 'login');
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       console.log(xhttp.responseText);
-      $('.field').hide();
+      $('.button-onclick-animation').hide();
       $('#ajax-output').html(xhttp.responseText);
     }
   };

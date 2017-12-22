@@ -59,39 +59,30 @@
           <path data-v-14b53e32="" data-name="Line 5" d="M24.91,15l-0.12,0A1,1,0,0,0,24,16v6a1,1,0,0,0,2,0s0,0,0,0V16a1,1,0,0,0-1-1H24.91Z" class="line line-5"></path>
         </svg>
       </nav>
+
       <br><br><br>
 
       <h2 class="hero-head">Login</h2>
 
-        <div class="">
-    			<section>
-    				<form id="theForm" class="simform" autocomplete="off">
-    					<div class="simform-inner">
-    						<ol class="questions">
-    							<li>
-    								<span><label for="enduser_mobile">Enter your mobile number</label></span>
-    								<input id="enduser_mobile" name="enduser_mobile" type="text"/>
-    							</li>
-    							<li>
-    								<span><label for="enduser_password">Type in your password</label></span>
-    								<input id="enduser_password" name="enduser_password" type="password"/>
-    							</li>
-    						</ol><!-- /questions -->
-    						<button class="submit" type="submit">Send answers</button>
-    						<div class="controls">
-    							<button class="next"></button>
-    							<div class="progress"></div>
-    							<span class="number">
-    								<span class="number-current"></span>
-    								<span class="number-total"></span>
-    							</span>
-    							<span class="error-message"></span>
-    						</div><!-- / controls -->
-    					</div><!-- /simform-inner -->
-    					<span class="final-message"></span>
-    				</form><!-- /simform -->
-    			</section>
-    		</div><!-- /container -->
+      <form class="" id="loginForm">
+        <div class="field card">
+          <label class="label">Mobile Number</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Number here">
+          </div>
+          <p class="help"></p>
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Password here">
+          </div>
+          <p class="help"></p>
+          <div class="control">
+            <br><br>
+            <button class="button is-link">Submit</button>
+          </div>
+        </div>
+      </form>
+
     </div>
 
   </body>
@@ -99,31 +90,26 @@
   <script src="{{ URL::asset('js/greensock/TweenMax.min.js') }}"></script>
   <script src="{{ URL::asset('js/app.js') }}" charset="utf-8"></script>
   <script src="{{ URL::asset('js/particles.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/classie.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/stepsForm.js') }}" charset="utf-8"></script>
 
   <script>
-    var theForm = document.getElementById( 'theForm' );
-
-    new stepsForm( theForm, {
-      onSubmit : function( form ) {
-        // hide form
-        classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
-        var messageEl = theForm.querySelector( '.final-message' );
-        messageEl.innerHTML = 'Hold on... <br>Crunching that ol\' database, just for you :) ';
-        classie.addClass( messageEl, 'show' );
-        formData = new FormData(form);
-        formData.append('action', 'login');
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            messageEl.innerHTML = xhttp.responseText;
-          }
-        };
-        xhttp.open("POST", "{{ URL::asset('php/authenticate.php') }}", true);
-        xhttp.send(formData);
-      }
-    } );
+    // var loginForm = document.getElementById( 'loginForm' );
+    //
+    //
+    //     var messageEl = theForm.querySelector( '.final-message' );
+    //     messageEl.innerHTML = 'Hold on... <br>Crunching that ol\' database, just for you :) ';
+    //     classie.addClass( messageEl, 'show' );
+    //     formData = new FormData(form);
+    //     formData.append('action', 'login');
+    //     var xhttp = new XMLHttpRequest();
+    //     xhttp.onreadystatechange = function() {
+    //       if (this.readyState == 4 && this.status == 200) {
+    //         messageEl.innerHTML = xhttp.responseText;
+    //       }
+    //     };
+    //     xhttp.open("POST", "{{ URL::asset('php/authenticate.php') }}", true);
+    //     xhttp.send(formData);
+    //   }
+    // } );
   </script>
 
 </html>

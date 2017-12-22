@@ -68,12 +68,12 @@
         <div class="field card">
           <label class="label">Mobile Number</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Number here">
+            <input class="input" type="text" name="enduser_mobile" placeholder="Number here" required>
           </div>
           <p class="help"></p>
           <label class="label">Password</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Password here">
+            <input class="input" type="password" name="enduser_password" placeholder="Password here" required>
           </div>
           <p class="help"></p>
           <div class="control">
@@ -90,26 +90,5 @@
   <script src="{{ URL::asset('js/greensock/TweenMax.min.js') }}"></script>
   <script src="{{ URL::asset('js/app.js') }}" charset="utf-8"></script>
   <script src="{{ URL::asset('js/particles.js') }}" charset="utf-8"></script>
-
-  <script>
-    // var loginForm = document.getElementById( 'loginForm' );
-    //
-    //
-    //     var messageEl = theForm.querySelector( '.final-message' );
-    //     messageEl.innerHTML = 'Hold on... <br>Crunching that ol\' database, just for you :) ';
-    //     classie.addClass( messageEl, 'show' );
-    //     formData = new FormData(form);
-    //     formData.append('action', 'login');
-    //     var xhttp = new XMLHttpRequest();
-    //     xhttp.onreadystatechange = function() {
-    //       if (this.readyState == 4 && this.status == 200) {
-    //         messageEl.innerHTML = xhttp.responseText;
-    //       }
-    //     };
-    //     xhttp.open("POST", "{{ URL::asset('php/authenticate.php') }}", true);
-    //     xhttp.send(formData);
-    //   }
-    // } );
-  </script>
 
 </html>

@@ -400,6 +400,10 @@ body{
 
 #base-hero #ajax-output{
   // font-size: 14px !important;
+  margin-top: 2%;
+  @media screen and (max-width: $tablet){
+    margin-top: 5%;
+  }
 }
 
 

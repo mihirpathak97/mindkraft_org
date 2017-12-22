@@ -23275,6 +23275,16 @@ body {
   }
 }
 
+#base-hero #ajax-output {
+  margin-top: 2%;
+}
+
+@media screen and (max-width: 769px) {
+  #base-hero #ajax-output {
+    margin-top: 5%;
+  }
+}
+
 #radial-menu {
   display: none;
   font-family: Pirulen !important;

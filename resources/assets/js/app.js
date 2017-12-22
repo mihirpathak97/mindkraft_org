@@ -54,9 +54,17 @@ $('#wave').click(function () {
 });
 
 
+// show login button on change
+$('input').on("focus paste keyup", function () {
+  $('.button').show();
+});
+
 
 // submits login form
 $('#loginForm').submit(function () {
+
+  // Hide all help texts before beginning
+  $('.help').text('');
 
   var mobile = $(this).find('input').eq(0).val();
   var password = $(this).find('input').eq(1).val();
@@ -77,7 +85,12 @@ $('#loginForm').submit(function () {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       console.log(xhttp.responseText);
+
+      // puts back old button classes
       $('.button-onclick-animation').hide();
+      $('.button-onclick-animation').addClass('button is-link');
+      $('.button-onclick-animation').removeClass('button-onclick-animation');
+
       $('#ajax-output').html(xhttp.responseText);
     }
   };

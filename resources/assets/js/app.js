@@ -53,6 +53,53 @@ $('#wave').click(function () {
   console.log('under construction');
 });
 
+
+
+// submits login form
+$('#loginForm').submit(function () {
+
+  var mobile = $(this).find('input').eq(0).val();
+  var password = $(this).find('input').eq(1).val();
+
+  if(!validateMobile(mobile)){
+    $('.help').eq(0).css({'color':'hsl(348, 100%, 61%)'});
+    $('.help').eq(0).text('Enter a valid mobile number!');
+    return false;
+  }
+
+  formData = new FormData(document.getElementById('loginForm'));
+  formData.append('action', 'login');
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(xhttp.responseText);
+    }
+  };
+  xhttp.open("POST", "../php/authenticate.php", true);
+  xhttp.send(formData);
+
+  return false;
+});
+
+
+// Functions below, do not edit unless
+// you know what you are doing
+
+
+// Form validation funcitons
+function validateMobile(mobile) {
+  var acceptedRegex = /^[0]?[789]\d{9}$/;
+  if (acceptedRegex.test(mobile)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+
+
+// Loads radial menu
 function loadRadialMenu() {
 
   const menuData = [

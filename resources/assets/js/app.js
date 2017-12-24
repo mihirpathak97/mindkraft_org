@@ -7,20 +7,6 @@
 
 require('./bootstrap');
 
-// window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-//
-// const app = new Vue({
-//     el: '#app'
-// });
-
 
 $(document).ready(function () {
   setTimeout(function () {
@@ -103,6 +89,80 @@ $('#loginForm').submit(function () {
   return false;
 });
 
+// submits registration form
+$('#registerForm').submit(function () {
+
+  // Hide all help texts before beginning
+  $('.help').text('');
+
+  var name = $(this).find('input').eq(0).val();
+  var mobile = $(this).find('input').eq(1).val();
+  var email = $(this).find('input').eq(2).val();
+  var college = $(this).find('input').eq(3).val();
+  var password = $(this).find('input').eq(4).val();
+  var retype = $(this).find('input').eq(5).val();
+
+  if (!validateName(name)) {
+    $('.help').eq(0).css({'color':'hsl(348, 100%, 61%)'});
+    $('.help').eq(0).text('Name cannot be empty!');
+    return false;
+  }
+
+  if(!validateMobile(mobile)){
+    $('.help').eq(1).css({'color':'hsl(348, 100%, 61%)'});
+    $('.help').eq(1).text('Enter a valid mobile number!');
+    return false;
+  }
+
+  if(!validateEmail(email)){
+    $('.help').eq(2).css({'color':'hsl(348, 100%, 61%)'});
+    $('.help').eq(2).text('Enter a valid E-mail ID!');
+    return false;
+  }
+
+  if(!validateCollegeName(college)){
+    $('.help').eq(3).css({'color':'hsl(348, 100%, 61%)'});
+    $('.help').eq(3).text('College name cannot be empty!');
+    return false;
+  }
+
+  if(!validatePassword(password)){
+    $('.help').eq(4).css({'color':'hsl(348, 100%, 61%)'});
+    $('.help').eq(4).text('Enter a valid 8-digit password!');
+    return false;
+  }
+
+  if(!validatePasswords(password, retype)){
+    $('.help').eq(5).css({'color':'hsl(348, 100%, 61%)'});
+    $('.help').eq(5).text('Your passwords do not match!');
+    return false;
+  }
+
+  $('.button').removeClass('is-link');
+  $('.button').addClass('button-onclick-animation');
+  $('.button').removeClass('button');
+
+  formData = new FormData(document.getElementById('registerForm'));
+  formData.append('action', 'register');
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(xhttp.responseText);
+
+      // puts back old button classes
+      $('.button-onclick-animation').hide();
+      $('.button-onclick-animation').addClass('button is-link');
+      $('.button-onclick-animation').removeClass('button-onclick-animation');
+
+      $('#ajax-output').html(xhttp.responseText);
+    }
+  };
+  xhttp.open("POST", "../php/authenticate.php", true);
+  xhttp.send(formData);
+
+  return false;
+});
+
 
 // Functions below, do not edit unless
 // you know what you are doing
@@ -114,11 +174,51 @@ function validateMobile(mobile) {
   if (acceptedRegex.test(mobile)) {
     return true;
   }
-  else {
-    return false;
-  }
+
+  return false;
 }
 
+
+function validateName(name) {
+  if (name.length > 0) {
+    return true;
+  }
+
+  return false;
+}
+
+function validateEmail(email) {
+  var acceptedRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (acceptedRegex.test(email)) {
+    return true;
+  }
+
+  return false;
+}
+
+function validateCollegeName(college) {
+  if (college.length > 0) {
+    return true;
+  }
+
+  return false;
+}
+
+function validatePasswords(p1, p2) {
+  if (pq == p2) {
+    return true;
+  }
+
+  return false;
+}
+
+function validatePassword(password) {
+  if (password.length >= 8) {
+    return true;
+  }
+
+  return false;
+}
 
 
 // Loads radial menu

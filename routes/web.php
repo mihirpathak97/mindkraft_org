@@ -30,7 +30,7 @@ Route::get('/events/{dept}', function ($dept) {
 
 Route::get('/eventreq/{eventid}', function ($eventid) {
     $data = array('eventid' => $eventid);
-    return view('events')->with($data);
+    return view('eventreq')->with($data);
 });
 
 Route::get('/workshops', function () {

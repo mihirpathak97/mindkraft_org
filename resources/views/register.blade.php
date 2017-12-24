@@ -27,6 +27,25 @@
     .container{
       margin-top: 10%;
     }
+    body{
+      height: 100%;
+    }
+    #base-hero{
+      height: 100%;
+      overflow: auto;
+    }
+    #base-hero .field{
+      height: auto;
+      margin-bottom: 10%;
+    }
+    #base-hero .field input{
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      height: 5%;
+    }
+    #base-hero .field button{
+      height: 5% !important;
+    }
   </style>
 
   <body>
@@ -35,7 +54,7 @@
 
     <!-- <div id="particle-canvas"></div> -->
 
-    <div id="base-hero" class="select-disable">
+    <div id="base-hero">
 
       <!-- "NAV" -->
       <div id="navbar" class="navbar-collapse collapse enable-select">
@@ -63,83 +82,52 @@
 
       <h2 class="hero-head">Register</h2>
 
-        <div class="">
-    			<section>
-    				<form id="theForm" class="simform" autocomplete="off">
-    					<div class="simform-inner">
-    						<ol class="questions">
-    							<li>
-    								<span><label for="enduser_name">Let's start with your name</label></span>
-    								<input id="enduser_name" name="enduser_name" type="text"/>
-    							</li>
-    							<li>
-    								<span><label for="enduser_mobile">How do we contact you? (primary phone number)</label></span>
-    								<input id="enduser_mobile" name="enduser_mobile" type="text"/>
-    							</li>
-    							<li>
-    								<span><label for="enduser_email">What is your primary email?</label></span>
-    								<input id="enduser_email" name="enduser_email" type="text"/>
-    							</li>
-    							<li>
-    								<span><label for="enduser_college_name">Where you do you go to college?</label></span>
-    								<input id="enduser_college_name" name="enduser_college_name" type="text"/>
-    							</li>
-    							<li>
-    								<span><label for="enduser_password">Pick a password</label></span>
-    								<input id="enduser_password" name="enduser_password" type="password"/>
-    							</li>
-    							<li>
-    								<span><label for="password_retype">Retype your password just once more</label></span>
-    								<input id="password_retype" name="password_retype" type="password"/>
-    							</li>
-    						</ol><!-- /questions -->
-    						<button class="submit" type="submit">Send answers</button>
-    						<div class="controls">
-    							<button class="next"></button>
-    							<div class="progress"></div>
-    							<span class="number">
-    								<span class="number-current"></span>
-    								<span class="number-total"></span>
-    							</span>
-    							<span class="error-message"></span>
-    						</div><!-- / controls -->
-    					</div><!-- /simform-inner -->
-    					<span class="final-message"></span>
-    				</form><!-- /simform -->
-    			</section>
-    		</div><!-- /container -->
+      <form class="" id="registerForm">
+        <div class="field card">
+          <label class="label">Full Name</label>
+          <div class="control">
+            <input class="input" type="text" name="enduser_name" placeholder="Your Name" required>
+          </div>
+          <p class="help"></p>
+          <label class="label">Mobile Number</label>
+          <div class="control">
+            <input class="input" type="text" name="enduser_mobile" placeholder="Mobile number" required>
+          </div>
+          <p class="help"></p>
+          <label class="label">E-Mail</label>
+          <div class="control">
+            <input class="input" type="text" name="enduser_email" placeholder="E-Mail ID" required>
+          </div>
+          <p class="help"></p>
+          <label class="label">College Name</label>
+          <div class="control">
+            <input class="input" type="text" name="enduser_college_name" placeholder="College" required>
+          </div>
+          <p class="help"></p>
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" type="text" name="enduser_password" placeholder="Password" required>
+          </div>
+          <p class="help"></p>
+          <label class="label">Retype Password</label>
+          <div class="control">
+            <input class="input" type="text" name="password_retype" placeholder="Retype password" required>
+          </div>
+          <p class="help"></p>
+          <div class="control">
+            <br><br>
+            <button class="button is-link">Register</button>
+          </div>
+          <p id="ajax-output"></p>
+          <br><br>
+        </div>
+      </form>
+
     </div>
 
   </body>
   <script src="{{ URL::asset('js/lodash.core.js') }}"></script>
   <script src="{{ URL::asset('js/greensock/TweenMax.min.js') }}"></script>
   <script src="{{ URL::asset('js/app.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/particles.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/classie.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/stepsForm.js') }}" charset="utf-8"></script>
-
-  <script>
-    var theForm = document.getElementById( 'theForm' );
-
-    new stepsForm( theForm, {
-      onSubmit : function( form ) {
-        // hide form
-        classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
-        var messageEl = theForm.querySelector( '.final-message' );
-        messageEl.innerHTML = 'Hold on... <br>Crunching that ol\' database, just for you :) ';
-        classie.addClass( messageEl, 'show' );
-        formData = new FormData(form);
-        formData.append('action', 'register');
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            messageEl.innerHTML = xhttp.responseText;
-          }
-        };
-        xhttp.open("POST", "{{ URL::asset('php/authenticate.php') }}", true);
-        xhttp.send(formData);
-      }
-    } );
-  </script>
 
 </html>

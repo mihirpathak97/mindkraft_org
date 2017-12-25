@@ -63,3 +63,9 @@ Route::post('userlogin', 'Auth@login');
 Route::get('/register', function () {
     return view('register');
 });
+
+
+// Test route. Do all testing in this view
+Route::get('/test', function () {
+    return view('test');
+});

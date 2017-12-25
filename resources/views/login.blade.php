@@ -60,12 +60,12 @@
         <div class="field card">
           <label class="label">Mobile Number</label>
           <div class="control">
-            <input class="input" type="text" name="enduser_mobile" placeholder="Number here" required>
+            <input class="input" type="text" name="mobile" placeholder="Number here" required>
           </div>
           <p class="help"></p>
           <label class="label">Password</label>
           <div class="control">
-            <input class="input" type="password" name="enduser_password" placeholder="Password here" required>
+            <input class="input" type="password" name="password" placeholder="Password here" required>
           </div>
           <p class="help"></p>
           <div class="control">

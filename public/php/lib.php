@@ -57,7 +57,7 @@
     $acc .= 'type: "text"';
     $acc .= 'message: "'. $msg .'"';
     $acc .= '}';
-    return $acc
+    return $acc;
   }
 
   function modalAjaxReply($msg)
@@ -66,7 +66,7 @@
     $acc .= 'type: "modal"';
     $acc .= 'message: "'. $msg .'"';
     $acc .= '}';
-    return $acc
+    return $acc;
   }
 
 ?>

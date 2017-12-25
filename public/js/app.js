@@ -818,23 +818,30 @@ $('#loginForm').submit(function () {
   $('.button').addClass('button-onclick-animation');
   $('.button').removeClass('button');
 
-  formData = new FormData(document.getElementById('loginForm'));
-  formData.append('action', 'login');
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      console.log(xhttp.responseText);
-
+  formData = $('#loginForm').serialize();
+  console.log(formData);
+  $.ajax({
+    type: 'POST',
+    url: '/userlogin',
+    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+    data: formData,
+    success: function success(data) {
       // puts back old button classes
       $('.button-onclick-animation').hide();
       $('.button-onclick-animation').addClass('button is-link');
       $('.button-onclick-animation').removeClass('button-onclick-animation');
 
-      $('#ajax-output').html(xhttp.responseText);
+      $('#ajax-output').html(data);
     }
-  };
-  xhttp.open("POST", "../php/authenticate.php", true);
-  xhttp.send(formData);
+  });
+  // var xhttp = new XMLHttpRequest();
+  // xhttp.onreadystatechange = function() {
+  //   if (this.readyState == 4 && this.status == 200) {
+  //     console.log(xhttp.responseText);
+  //   }
+  // };
+  // xhttp.open("POST", "../php/authenticate.php", true);
+  // xhttp.send(formData);
 
   return false;
 });

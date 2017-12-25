@@ -19,7 +19,7 @@ class CreateEnduserTable extends Migration
             $table->string('email')->unique();
             $table->string('college');
             $table->binary('password');
-            $table->timestamps();
+            $table->timestamp('timestamp');
         });
     }
 

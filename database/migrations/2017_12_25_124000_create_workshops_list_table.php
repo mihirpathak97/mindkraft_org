@@ -23,7 +23,7 @@ class CreateWorkshopsListTable extends Migration
           $table->string('prize');
           $table->longText('about');
           $table->longText('faq');
-          $table->timestamp();
+          $table->timestamp('timestamp');
         });
     }
 

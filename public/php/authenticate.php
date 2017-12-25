@@ -32,7 +32,7 @@
     if ($pdo == null) {
       return;
     }
-    
+
     $query = "SELECT * FROM $view_prefix" . "enduser_table WHERE enduser_mobile= ? AND enduser_password=PASSWORD( ? )";
     $stmt = $pdo->prepare($query);
     $stmt->execute([$mobile, $password]);
@@ -41,17 +41,17 @@
       $record = $stmt->fetch(PDO::FETCH_ASSOC);
       $_SESSION['userid'] = $record['userid'];
       $_SESSION['username'] = $record['enduser_name'];
-      echo "Successfully logged in!";
+      echo modalAjaxReply("Successfully logged in!");
     }
     else {
       $query = "SELECT * FROM $view_prefix" . "enduser_table WHERE enduser_mobile= ?";
       $stmt = $pdo->prepare($query);
       $stmt->execute([$_POST['enduser_mobile']]);
       if ($stmt->rowCount() == 1) {
-        echo "Your password is incorrect!";
+        echo textAjaxReply("Your password is incorrect!");
       }
       else {
-        echo "The user account could not be found. <br>Are you sure you signed up?";
+        echo modalAjaxReply("The user account could not be found. <br>Are you sure you signed up?");
       }
     }
   }
@@ -87,9 +87,9 @@
               goto tryinsert;
             }
             else {
-              echo "<br>User account with the given credentials already exists!
+              echo modalAjaxReply("<br>User account with the given credentials already exists!
               <br><br>
-              Try logging in...";
+              Try logging in...");
             }
           }
         }
@@ -98,7 +98,7 @@
         }
       }
     if (isset($result) && $result) {
-      echo "User registration was successfull!<br><br>You can now login...";
+      echo modalAjaxReply("User registration was successfull!<br><br>You can now login...");
       // loginUser($mobile, $password);
     }
   }

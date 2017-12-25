@@ -16,6 +16,7 @@ class CreateEnduserTable extends Migration
         Schema::create('enduser', function (Blueprint $table) {
             $table->string('userid')->unique();
             $table->string('mobile')->unique();
+            $table->string('name');
             $table->string('email')->unique();
             $table->string('college');
             $table->binary('password');

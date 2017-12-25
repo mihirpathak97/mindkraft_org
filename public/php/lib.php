@@ -50,4 +50,23 @@
     return "<b>An SQL error occured!</b><br><br>Error message : $errorMessage";
   }
 
+
+  function textAjaxReply($msg)
+  {
+    $acc = '{';
+    $acc .= 'type: "text"';
+    $acc .= 'message: "'. $msg .'"';
+    $acc .= '}';
+    return $acc
+  }
+
+  function modalAjaxReply($msg)
+  {
+    $acc = '{';
+    $acc .= 'type: "modal"';
+    $acc .= 'message: "'. $msg .'"';
+    $acc .= '}';
+    return $acc
+  }
+
 ?>

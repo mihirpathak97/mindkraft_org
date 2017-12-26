@@ -834,14 +834,6 @@ $('#loginForm').submit(function () {
       $('#ajax-output').html(data);
     }
   });
-  // var xhttp = new XMLHttpRequest();
-  // xhttp.onreadystatechange = function() {
-  //   if (this.readyState == 4 && this.status == 200) {
-  //     console.log(xhttp.responseText);
-  //   }
-  // };
-  // xhttp.open("POST", "../php/authenticate.php", true);
-  // xhttp.send(formData);
 
   return false;
 });
@@ -889,33 +881,32 @@ $('#registerForm').submit(function () {
     return false;
   }
 
-  if (!validatePasswords(password, retype)) {
-    $('.help').eq(5).css({ 'color': 'hsl(348, 100%, 61%)' });
-    $('.help').eq(5).text('Your passwords do not match!');
-    return false;
-  }
+  // if(password != retype){
+  //   $('.help').eq(5).css({'color':'hsl(348, 100%, 61%)'});
+  //   $('.help').eq(5).text('Your passwords do not match!');
+  //   return false;
+  // }
 
   $('.button').removeClass('is-link');
   $('.button').addClass('button-onclick-animation');
   $('.button').removeClass('button');
 
-  formData = new FormData(document.getElementById('registerForm'));
-  formData.append('action', 'register');
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      console.log(xhttp.responseText);
-
+  formData = $('#registerForm').serialize();
+  console.log(formData);
+  $.ajax({
+    type: 'POST',
+    url: '/userregister',
+    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+    data: formData,
+    success: function success(data) {
       // puts back old button classes
       $('.button-onclick-animation').hide();
       $('.button-onclick-animation').addClass('button is-link');
       $('.button-onclick-animation').removeClass('button-onclick-animation');
 
-      $('#ajax-output').html(xhttp.responseText);
+      $('#ajax-output').html(data);
     }
-  };
-  xhttp.open("POST", "../php/authenticate.php", true);
-  xhttp.send(formData);
+  });
 
   return false;
 });

@@ -70,6 +70,11 @@ class Auth extends Controller
           }
         }
 
+    if (isset($result) && $result) {
+      return "User registration was successfull!<br><br>You can now login";
+      // loginUser($mobile, $password);
+    }
+
   }
 
 

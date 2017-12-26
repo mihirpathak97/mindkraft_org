@@ -78,32 +78,32 @@
         <div class="field card">
           <label class="label">Full Name</label>
           <div class="control">
-            <input class="input" type="text" name="enduser_name" placeholder="Your Name" required>
+            <input class="input" type="text" name="name" placeholder="Your Name" required>
           </div>
           <p class="help"></p>
           <label class="label">Mobile Number</label>
           <div class="control">
-            <input class="input" type="text" name="enduser_mobile" placeholder="Mobile number" required>
+            <input class="input" type="text" name="mobile" placeholder="Mobile number" required>
           </div>
           <p class="help"></p>
           <label class="label">E-Mail</label>
           <div class="control">
-            <input class="input" type="text" name="enduser_email" placeholder="E-Mail ID" required>
+            <input class="input" type="text" name="email" placeholder="E-Mail ID" required>
           </div>
           <p class="help"></p>
           <label class="label">College Name</label>
           <div class="control">
-            <input class="input" type="text" name="enduser_college_name" placeholder="College" required>
+            <input class="input" type="text" name="college" placeholder="College" required>
           </div>
           <p class="help"></p>
           <label class="label">Password</label>
           <div class="control">
-            <input class="input" type="text" name="enduser_password" placeholder="Password" required>
+            <input class="input" type="text" name="password" placeholder="Password" required>
           </div>
           <p class="help"></p>
           <label class="label">Retype Password</label>
           <div class="control">
-            <input class="input" type="text" name="password_retype" placeholder="Retype password" required>
+            <input class="input" type="text" name="retype" placeholder="Retype password" required>
           </div>
           <p class="help"></p>
           <div class="control">

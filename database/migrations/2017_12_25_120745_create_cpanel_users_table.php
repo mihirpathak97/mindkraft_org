@@ -14,8 +14,8 @@ class CreateCpanelUsersTable extends Migration
     public function up()
     {
         Schema::create('cpanel_users', function (Blueprint $table) {
-            $table->string('cpanel_username');
-            $table->binary('user_password');
+            $table->string('username');
+            $table->binary('password');
             $table->timestamp('timestamp');
         });
     }

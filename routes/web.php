@@ -53,6 +53,7 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
+
 // Auth Routes
 Route::get('/login', function () {
     return view('login');
@@ -63,6 +64,8 @@ Route::post('userlogin', 'Auth@login');
 Route::get('/register', function () {
     return view('register');
 });
+
+Route::post('userregister', 'Auth@register');
 
 
 // Test route. Do all testing in this view

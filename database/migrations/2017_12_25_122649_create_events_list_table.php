@@ -17,7 +17,7 @@ class CreateEventsListTable extends Migration
             $table->string('name');
             $table->string('id')->unique();
             $table->string('type');
-            $table->string('deptartment');
+            $table->string('department');
             $table->string('contact');
             $table->string('fee');
             $table->string('prize');

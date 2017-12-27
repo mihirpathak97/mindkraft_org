@@ -11,20 +11,11 @@
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/radial-menu.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/component.css') }}">
-    <script src="{{ URL::asset('js/modernizr.custom.js') }}"></script>
   </head>
 
   <style media="screen">
     .container{
       margin-top: 10%;
-    }
-    html{
-      background: #222;
-    }
-    #base-hero{
-      background: #222;
     }
     #base-hero .field{
       height: auto;

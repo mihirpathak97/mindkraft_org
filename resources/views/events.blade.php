@@ -30,12 +30,6 @@
   </head>
 
   <style media="screen">
-		html{
-			background: #222;
-		}
-		#base-hero{
-			background: #222;
-		}
     <?php
       foreach (Controller::dept_list as $key => $dept_name) {
         echo
@@ -154,5 +148,4 @@
   <script src="{{ URL::asset('js/lodash.core.js') }}"></script>
   <script src="{{ URL::asset('js/greensock/TweenMax.min.js') }}"></script>
   <script src="{{ URL::asset('js/app.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/particles.js') }}" charset="utf-8"></script>
 </html>

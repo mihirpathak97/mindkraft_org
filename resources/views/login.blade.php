@@ -11,18 +11,9 @@
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/radial-menu.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/normalize.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/component.css') }}">
-    <script src="{{ URL::asset('js/modernizr.custom.js') }}"></script>
   </head>
 
   <style media="screen">
-    html{
-      background: #222;
-    }
-    #base-hero{
-      background: #222
-    }
     .container{
       margin-top: 10%;
     }
@@ -96,6 +87,4 @@
   <script src="{{ URL::asset('js/lodash.core.js') }}"></script>
   <script src="{{ URL::asset('js/greensock/TweenMax.min.js') }}"></script>
   <script src="{{ URL::asset('js/app.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/particles.js') }}" charset="utf-8"></script>
-
 </html>

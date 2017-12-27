@@ -42,35 +42,37 @@ const menuData = [
 const mobileMenuData = [
   {
     label: 'Home',
-    url: 'home'
+    url: '/home'
   },
   {
     label: 'Events',
-    url: 'events'
+    url: '/events'
   },
   {
     label: 'Workshops',
-    url: 'workshops'
+    url: '/workshops'
   },
   {
     label: 'Games',
-    url: 'games'
+    url: '/games'
   },
   {
     label: 'About',
-    url: 'about'
+    url: '/about'
   },
   {
     label:'Login',
-    url:'login'
+    url:'/login'
   },
   {
     label:'Register',
-    url:'register'
+    url:'/register'
   }
 ];
 
 const menuDataURLS = ['home', 'workshops', 'events', 'games', 'faq', 'contact', 'about'];
+
+const breakpoint = 769;
 
 $(document).ready(function () {
   setTimeout(function () {
@@ -79,7 +81,7 @@ $(document).ready(function () {
 });
 
 $(window).resize(function() {
-  if ($(this).width() < 786) {
+  if ($(this).width() < breakpoint) {
     $('#radial-menu').hide();
   }
   else {
@@ -334,7 +336,7 @@ function loadRadialMenu() {
 
   var RadialMenu = new CircleMenu($('#radial-menu'), menuData, selected, options, functions);
 
-  if ($(window).width() > 786) {
+  if ($(window).width() > breakpoint) {
     $('#radial-menu').show();
   }
 

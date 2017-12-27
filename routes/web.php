@@ -72,6 +72,7 @@ Route::post('userregister', 'Auth@register');
 
 // CMS Routes
 Route::prefix('cms')->group(function () {
+
   Route::view('/', 'cms.main');
   Route::view('console', 'cms.console');
   Route::view('game', 'cms.game');
@@ -79,6 +80,12 @@ Route::prefix('cms')->group(function () {
 
   // Auth Route
   Route::post('authenticate', 'CmsController@login');
+
+  // Adder Routes
+  Route::post('addevent', 'CmsController@addevent');
+  Route::post('addgame', 'CmsController@addgame');
+  Route::post('addworkshop', 'CmsController@addworkshop');
+
 });
 
 

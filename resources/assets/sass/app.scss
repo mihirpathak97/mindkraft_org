@@ -254,18 +254,34 @@ body, html{
   z-index: 1;
   width: 100%;
   height: 100%;
+  overflow: auto;
 }
 
-#base-hero img{
-  width: 350px;
+#base-hero .mk-logo{
+  width: 280px;
   height: 280px;
-  margin-top: 10%;
+  margin-top: 5%;
   overflow: auto;
   // border: 1px solid green;
   @media screen and (max-width: $screen-sm){
-    width: 250px;
+    width: 180px;
     height: 180px;
-    margin-top: 40%;
+    margin-top: 18%;
+  }
+}
+
+#base-hero .head-logo{
+  margin: auto;
+  width: 50%;
+  height: 15%;
+  margin-top: 4%;
+  display: block;
+  // border: 1px solid green;
+  @media screen and (max-width: $screen-sm){
+    overflow: auto;
+    margin: auto;
+    margin-top: 20%;
+    width: 90%;
   }
 }
 
@@ -293,6 +309,14 @@ body, html{
 #base-hero h2{
   font-family: Pirulen !important;
   font-size: 22px;
+}
+
+#base-hero .hero-date{
+  margin-top: 5%;
+  @media screen and (max-width: $tablet){
+    margin-top: 15%;
+    font-size: 20px;
+  }
 }
 
 #base-hero nav #wave{

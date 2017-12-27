@@ -65,7 +65,8 @@
           <path data-v-14b53e32="" data-name="Line 5" d="M24.91,15l-0.12,0A1,1,0,0,0,24,16v6a1,1,0,0,0,2,0s0,0,0,0V16a1,1,0,0,0-1-1H24.91Z" class="line line-5"></path>
         </svg>
       </nav>
-      <img src="{{ URL::asset('images/mk.png') }}" alt="">
+			<img src="{{ URL::asset('images/kit-logo.png') }}" class="head-logo" alt="">
+      <img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
       <h2 class="hero-date">23 Feb - 24 Feb</h2>
     </div>
 

@@ -11,6 +11,8 @@
 |
 */
 
+
+// Base Routes
 Route::get('/', function () {
     return view('home');
 });
@@ -66,6 +68,12 @@ Route::get('/register', function () {
 });
 
 Route::post('userregister', 'Auth@register');
+
+
+// CMS Routes
+Route::prefix('cms')->group(function () {
+  Route::view('/', 'cms.main');
+});
 
 
 // Test route. Do all testing in this view

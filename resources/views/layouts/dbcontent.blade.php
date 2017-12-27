@@ -1,8 +1,6 @@
 <?php
-	session_start();
-
-	if (isset($_SESSION['username'])) {
-      $name = $_SESSION['username'];
+	if (session()->has('username')) {
+		$name = session('username');
 	}
 
 	$table_list = DB::select("select * from $table_name");

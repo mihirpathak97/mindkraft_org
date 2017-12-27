@@ -1,3 +1,9 @@
+<?php
+  if (session()->has('username')) {
+    $name = session('username');
+  }
+?>
+
 <html lang="{{ app()->getLocale() }}">
   <head>
     <meta charset="utf-8">

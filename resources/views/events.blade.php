@@ -2,8 +2,8 @@
 	namespace App\Http\Controllers;
 	use URL, DB;
 
-	if (isset($_SESSION['username'])) {
-    $name = $_SESSION['username'];
+	if (session()->has('username')) {
+		$name = session('username');
 	}
 
 	$pdo = DB::connection()->getPdo();

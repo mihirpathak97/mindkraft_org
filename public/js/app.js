@@ -763,6 +763,31 @@ module.exports = __webpack_require__(36);
 
 __webpack_require__(9);
 
+var menuData = [{
+  label: 'Home',
+  url: 'home'
+}, {
+  label: 'Events',
+  url: 'events'
+}, {
+  label: 'Workshops',
+  url: 'workshops'
+}, {
+  label: 'Games',
+  url: 'games'
+}, {
+  label: 'FAQ',
+  url: 'faq'
+}, {
+  label: 'Contact',
+  url: 'contact'
+}, {
+  label: 'About',
+  url: 'about'
+}];
+
+var menuDataURLS = ['home', 'workshops', 'events', 'games', 'faq', 'contact', 'about'];
+
 $(document).ready(function () {
   setTimeout(function () {
     $('.e-loadholder').hide(1000, loadBody());
@@ -787,11 +812,28 @@ function loadBody() {
 
   loadRadialMenu();
 
+  // Load list items in mobile navbar
+  for (var i = 0; i < menuData.length; i++) {
+    $('.modal-content').children('ol').append('<li class="navbar-li"><a href="' + menuData[i].url + '">' + menuData[i].label + '</li>');
+  }
+
   $('#base-hero').show();
 }
 
 $('#wave').click(function () {
-  console.log('under construction');
+
+  // Avtivate modal
+  $('.modal').addClass('is-active');
+
+  // Close modal on click
+  $('.modal-close').click(function () {
+    $('.modal').removeClass('is-active');
+  });
+
+  // $('.modal').animateCss('fadeIn', function () {
+  //   $('.modal').removeClass('fadeIn');
+  //   $('.modal').addClass('fadeOut');
+  // });
 });
 
 // show login button on change
@@ -968,31 +1010,6 @@ function validatePassword(password) {
 
 // Loads radial menu
 function loadRadialMenu() {
-
-  var menuData = [{
-    label: 'Home',
-    url: 'home'
-  }, {
-    label: 'Events',
-    url: 'events'
-  }, {
-    label: 'Workshops',
-    url: 'workshops'
-  }, {
-    label: 'Games',
-    url: 'games'
-  }, {
-    label: 'FAQ',
-    url: 'faq'
-  }, {
-    label: 'Contact',
-    url: 'contact'
-  }, {
-    label: 'About',
-    url: 'about'
-  }];
-
-  var menuDataURLS = ['home', 'workshops', 'events', 'games', 'faq', 'contact', 'about'];
 
   var options = {
     key: 'url',

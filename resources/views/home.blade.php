@@ -19,6 +19,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/radial-menu.css') }}">
+		<link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}">
   </head>
 
 	<style media="screen">
@@ -64,6 +65,13 @@
           <path data-v-14b53e32="" data-name="Line 4" d="M18.91,15l-0.12,0A1,1,0,0,0,18,11V27a1,1,0,1,0,2,0s0,0,0,0V11a1,1,0,0,0-1-1H18.91Z" class="line line-4"></path>
           <path data-v-14b53e32="" data-name="Line 5" d="M24.91,15l-0.12,0A1,1,0,0,0,24,16v6a1,1,0,0,0,2,0s0,0,0,0V16a1,1,0,0,0-1-1H24.91Z" class="line line-5"></path>
         </svg>
+				<div class="modal animated fadeIn">
+				  <div class="modal-background"></div>
+				  <div class="modal-content">
+						<ol></ol>
+					</div>
+				  <button class="modal-close is-large" aria-label="close"></button>
+				</div>
       </nav>
 			<img src="{{ URL::asset('images/kit-logo.png') }}" class="head-logo" alt="">
       <img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">

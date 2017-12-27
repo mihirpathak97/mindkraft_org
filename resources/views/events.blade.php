@@ -46,16 +46,6 @@
       width: 200px;
       border-radius: 8px;
     }
-    .col-sm-3{
-      margin-top: 30px;
-    }
-    .col-sm-3 a:hover{
-      text-decoration: none;
-    }
-    .dept-head{
-      margin-top: 15%;
-      padding: 5px;
-    }
   </style>
 
   <body>
@@ -99,21 +89,23 @@
       <?php
         if (isset($dept)){
           $stmt = $pdo->query("SELECT * FROM $view_prefix" . "events_list WHERE department='" . $dept. "'");
+					$result = $stmt->fetchAll();
       ?>
         <div class="games">
           <h2 class="hero-head"><?php echo Controller::dept_list[$dept]; ?></h2>
           <br><br>
-          <div class="">
-            <?php foreach($stmt as $record) { ?>
-              <div class="col-sm-3">
-                <div class="card game-card event">
-                  <h4><?php echo $record['event_name']; ?></h4>
-                  <br><br>
-                  <p><a href="/eventreq/<?php echo $record['event_id']?>">Know More</a></p>
-                </div>
-              </div>
-            <?php } ?>
-          </div>
+					<?php for ($i=0; $i < $stmt->rowCount()-1; $i+=5) { ?>
+						<div class="columns">
+							<?php foreach(array_slice($result, $i, 4) as $record) { ?>
+								<div class="column is-one-quarter">
+									<div class="game-card">
+										<h3 class="dept-head"><?php echo $record['name']; ?></h3>
+										<p class="know-more"><a href="/eventreq/<?php echo $record['id']?>">Know More</a></p>
+									</div>
+								</div>
+							<?php } ?>
+						</div>
+					<?php } ?>
         </div>
       <?php }else { ?>
 				<div class="games">

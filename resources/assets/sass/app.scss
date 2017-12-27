@@ -467,11 +467,21 @@ body, html{
 }
 
 .game-card{
-  background: #00d1b2;
+  background: $grey-lighter;
   text-align: center;
-  margin: auto;
-  padding-top: 20px;
   height: 180px;
+  overflow: auto;
+}
+
+.game-card .know-more{
+  margin-top: 15%;
+  font-size: 1rem;
+}
+
+.game-card .dept-head{
+  margin-top: 15%;
+  padding: 5px;
+  font-size: 1.2rem;
 }
 
 .game-card h4{

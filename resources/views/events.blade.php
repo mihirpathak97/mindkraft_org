@@ -1,18 +1,15 @@
 <?php
-	session_start();
-  $path = public_path();
-  require $path . '/php/pdo.php';
-  require_once $path . '/php/sqlconf.php';
-  require_once $path . '/php/lib.php';
-
-  if ($pdo == null) {
-    echo "<h2>PDO object could not be created!</h2>";
-    return;
-  }
+	namespace App\Http\Controllers;
+	use URL, DB;
 
 	if (isset($_SESSION['username'])) {
-      $name = $_SESSION['username'];
+    $name = $_SESSION['username'];
 	}
+
+	$pdo = DB::connection()->getPdo();
+
+	$view_prefix = env('DB_VIEW_PREFIX', '');
+
 ?>
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
@@ -32,8 +29,14 @@
   </head>
 
   <style media="screen">
+		html{
+			background: #222;
+		}
+		#base-hero{
+			background: #222;
+		}
     <?php
-      foreach (dept_list as $key => $dept_name) {
+      foreach (Controller::dept_list as $key => $dept_name) {
         echo
         ".".$key."{
           background-image: url(/images/dept/$key.jpg);
@@ -44,10 +47,9 @@
       }
     ?>
     .game-card-dept{
-      margin-left: -25px;
       height: 200px;
       width: 200px;
-      border-radius: 15px;
+      border-radius: 8px;
     }
     .col-sm-3{
       margin-top: 30px;
@@ -94,10 +96,10 @@
       <br><br>
       <?php
         if (isset($dept)){
-          $stmt = $pdo->query("SELECT * FROM $view_prefix" . "events_list WHERE event_department='" . $dept. "'");
+          $stmt = $pdo->query("SELECT * FROM $view_prefix" . "events_list WHERE department='" . $dept. "'");
       ?>
         <div class="games">
-          <h2 class="hero-head"><?php echo dept_list[$dept]; ?></h2>
+          <h2 class="hero-head"><?php echo Controller::dept_list[$dept]; ?></h2>
           <br><br>
           <div class="">
             <?php foreach($stmt as $record) { ?>
@@ -114,17 +116,19 @@
       <?php }else { ?>
         <h2 class="hero-head">Events</h2>
         <br><br>
-        <div class="games">
-          <?php foreach (dept_list as $key => $dept) { ?>
-            <div class="col-sm-3">
-              <a href="events/<?php echo $key ?>">
-                <div class="card game-card <?php echo $key ?> game-card-dept">
-                </div>
-              </a>
-            </div>
-          <?php } ?>
-        </div>
-      <?php } ?>
+				<?php for ($i=0; $i < count(Controller::dept_list)-1; $i+=5) { ?>
+					<div class="columns">
+						<?php foreach (array_slice(Controller::dept_list, $i, 4) as $key => $value) { ?>
+							<div class="column is-one-quarter">
+								<a href="/events/<?php echo $key ?>">
+									<div class="card game-card <?php echo $key ?> game-card-dept">
+									</div>
+								</a>
+							</div>
+						<?php } ?>
+					</div>
+				<?php } ?>
+				<?php } ?>
     </div>
 
     <div id="radial-menu" class="cm-container">

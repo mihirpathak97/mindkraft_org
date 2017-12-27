@@ -29,6 +29,11 @@ class CreateOverallViews extends Migration
      */
     public function down()
     {
-        
+      $view_prefix = env('DB_VIEW_PREFIX', '');
+      DB::statement("drop view $view_prefix"."enduser");
+      DB::statement("drop view $view_prefix"."events_list");
+      DB::statement("drop view $view_prefix"."games_list");
+      DB::statement("drop view $view_prefix"."workshops_list");
+      DB::statement("drop view $view_prefix"."event_registration");
     }
 }

@@ -62,27 +62,23 @@
         {{ csrf_field() }}
         <p class="ip-group">
           <label class="label">Game Name</label>
-          <input type="text" name="gm_name" class="input" value="" required>
+          <input type="text" name="name" class="input" value="" required>
         </p>
         <p class="ip-group">
-          <label class="label">Game Co-Ordinator</label>
-          <input type="text" name="gm_incharge" class="input" value="" required>
-        </p>
-        <p class="ip-group">
-          <label class="label">Co-Ordinator Contact</label>
-          <input type="text" name="incharge_con" class="input" value="" required>
+          <label class="label">Contact</label>
+          <textarea name="contact" class="textarea" value="" required></textarea>
         </p>
         <p class="ip-group">
           <label class="label">Fee (type 0 if free)</label>
-          <input type="text" name="gm_fee" class="input" value="" required>
+          <input type="text" name="fee" class="input" value="" required>
         </p>
         <p class="ip-group">
           <label class="label">Prize (type 0 if none)</label>
-          <input type="text" name="gm_prize" class="input" value="" required>
+          <input type="text" name="prize" class="input" value="" required>
         </p>
         <p class="ip-group">
           <label class="label">Game Description</label>
-          <textarea name="gm_description" class="textarea" required></textarea>
+          <textarea name="about" class="textarea" required></textarea>
         </p>
         <input type="submit" name="" class="button is-link" value="Submit">
       </form>

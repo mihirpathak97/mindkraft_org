@@ -33,7 +33,7 @@ class CmsController extends Controller
     public function addevent(Request $request)
     {
 
-      $prefix = env('DB_VIEW_PREFIX', '');
+      $prefix = env('DB_TABLE_PREFIX', '');
 
       $id = Controller::generateRandomString();
       $name = $request->input('name');
@@ -43,13 +43,12 @@ class CmsController extends Controller
       $fee = $request->input('fee');
       $prize = $request->input('prize');
       $about = $request->input('about');
-      $faq = $request->input('faq');
 
-      $query = 'INSERT INTO'.$prefix.'events_list (id, name, type, department, contact, fee, prize, about, faq) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      $query = 'INSERT INTO '.$prefix.'events_list (id, name, type, department, contact, fee, prize, about) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
 
       tryinsert:
         try {
-          $result = DB::insert($query, [$id, $name, $type, $dept, $contact, $fee, $prize, $about, $faq]);
+          $result = DB::insert($query, [$id, $name, $type, $dept, $contact, $fee, $prize, $about]);
         } catch (\Illuminate\Database\QueryException $e) {
             if ($e->errorInfo[1] == 1062) {
               // Checks if generated user id is already taken
@@ -63,7 +62,8 @@ class CmsController extends Controller
             }
             // If it's not a duplicate entry but something is still wrong
             else {
-              return "Error adding event!<br>Please try again later";
+              echo "Error adding event!<br>Please try again later<br><br>";
+              echo "<b>Error Message</b> <br>" . $e->getMessage();
             }
           }
 
@@ -76,27 +76,24 @@ class CmsController extends Controller
     public function addgame(Request $request)
     {
 
-      $prefix = env('DB_VIEW_PREFIX', '');
+      $prefix = env('DB_TABLE_PREFIX', '');
 
       $id = Controller::generateRandomString();
       $name = $request->input('name');
-      $type = $request->input('type');
-      $dept = $request->input('department');
       $contact = $request->input('contact');
       $fee = $request->input('fee');
       $prize = $request->input('prize');
       $about = $request->input('about');
-      $faq = $request->input('faq');
 
-      $query = 'INSERT INTO'.$prefix.'games_list (id, name, type, department, contact, fee, prize, about, faq) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      $query = 'INSERT INTO '.$prefix.'games_list (id, name, contact, fee, prize, about) VALUES (?, ?, ?, ?, ?, ?)';
 
       tryinsert:
         try {
-          $result = DB::insert($query, [$id, $name, $type, $dept, $contact, $fee, $prize, $about, $faq]);
+          $result = DB::insert($query, [$id, $name, $contact, $fee, $prize, $about]);
         } catch (\Illuminate\Database\QueryException $e) {
             if ($e->errorInfo[1] == 1062) {
               // Checks if generated user id is already taken
-              if (stripos($e->getMessage(), 'for key \'events_list_id_unique\'') != false) {
+              if (stripos($e->getMessage(), 'for key \'games_list_id_unique\'') != false) {
                 $id = Controller::generateRandomString();
                 goto tryinsert;
               }
@@ -106,7 +103,8 @@ class CmsController extends Controller
             }
             // If it's not a duplicate entry but something is still wrong
             else {
-              return "Error adding event!<br>Please try again later";
+              echo "Error adding event!<br>Please try again later<br><br>";
+              echo "<b>Error Message</b> <br>" . $e->getMessage();
             }
           }
 
@@ -119,23 +117,20 @@ class CmsController extends Controller
     public function addworkshop(Request $request)
     {
 
-      $prefix = env('DB_VIEW_PREFIX', '');
+      $prefix = env('DB_TABLE_PREFIX', '');
 
       $id = Controller::generateRandomString();
       $name = $request->input('name');
-      $type = $request->input('type');
       $dept = $request->input('department');
       $contact = $request->input('contact');
       $fee = $request->input('fee');
-      $prize = $request->input('prize');
       $about = $request->input('about');
-      $faq = $request->input('faq');
 
-      $query = 'INSERT INTO'.$prefix.'workshops_list (id, name, type, department, contact, fee, prize, about, faq) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      $query = 'INSERT INTO '.$prefix.'workshops_list (id, name, department, contact, fee, about) VALUES (?, ?, ?, ?, ?, ?)';
 
       tryinsert:
         try {
-          $result = DB::insert($query, [$id, $name, $type, $dept, $contact, $fee, $prize, $about, $faq]);
+          $result = DB::insert($query, [$id, $name, $dept, $contact, $fee, $about]);
         } catch (\Illuminate\Database\QueryException $e) {
             if ($e->errorInfo[1] == 1062) {
               // Checks if generated user id is already taken
@@ -149,7 +144,8 @@ class CmsController extends Controller
             }
             // If it's not a duplicate entry but something is still wrong
             else {
-              return "Error adding event!<br>Please try again later";
+              echo "Error adding event!<br>Please try again later<br><br>";
+              echo "<b>Error Message</b> <br>" . $e->getMessage();
             }
           }
 

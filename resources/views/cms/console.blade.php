@@ -62,13 +62,13 @@
         {{ csrf_field() }}
         <p class="ip-group">
           <label class="label">Event Name</label>
-          <input type="text" name="ev_name" class="input" value="" required>
+          <input type="text" name="name" class="input" value="" required>
         </p>
         <p class="ip-group">
           <label class="label">Event Type</label>
           <div class="control">
             <div class="select">
-              <select class="select" name="ev_type">
+              <select class="select" name="type">
                 <option value="tech" selected>Technical</option>
                 <option value="nontech">Non Technical</option>
               </select>
@@ -79,7 +79,7 @@
           <label class="label">Department</label>
           <div class="control">
             <div class="select">
-              <select class="select" name="ev_department">
+              <select class="select" name="department">
                 <option value="ae" selected>Aerospace</option>
                 <option value="bt">Bio Technology</option>
                 <option value="bi">Bio Informatics</option>
@@ -99,24 +99,20 @@
           </div>
         </p>
         <p class="ip-group">
-          <label class="label">Event Co-Ordinator</label>
-          <input type="text" name="ev_incharge" class="input" value="" required>
-        </p>
-        <p class="ip-group">
-          <label class="label">Co-Ordinator Contact</label>
-          <input type="text" name="incharge_con" class="input" value="" required>
+          <label class="label">Contact</label>
+          <textarea name="contact" class="textarea" value="" required></textarea>
         </p>
         <p class="ip-group">
           <label class="label">Fee (type 0 if free)</label>
-          <input type="text" name="ev_fee" class="input" value="" required>
+          <input type="text" name="fee" class="input" value="" required>
         </p>
         <p class="ip-group">
           <label class="label">Prize (type 0 if none)</label>
-          <input type="text" name="ev_prize" class="input" value="" required>
+          <input type="text" name="prize" class="input" value="" required>
         </p>
         <p class="ip-group">
           <label class="label">Event Description</label>
-          <textarea name="ev_description" class="textarea" required></textarea>
+          <textarea name="about" class="textarea" required></textarea>
         </p>
         <input type="submit" name="" class="button is-link" value="Submit">
       </form>

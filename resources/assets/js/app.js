@@ -57,14 +57,6 @@ const mobileMenuData = [
     url: 'games'
   },
   {
-    label: 'FAQ',
-    url: 'faq'
-  },
-  {
-    label: 'Contact',
-    url: 'contact'
-  },
-  {
     label: 'About',
     url: 'about'
   },

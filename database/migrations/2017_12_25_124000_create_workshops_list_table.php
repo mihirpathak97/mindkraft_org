@@ -16,13 +16,10 @@ class CreateWorkshopsListTable extends Migration
         Schema::create('workshops_list', function (Blueprint $table) {
           $table->string('id')->unique();
           $table->string('name');
-          $table->string('type');
           $table->string('department');
           $table->string('contact');
           $table->string('fee');
-          $table->string('prize');
           $table->longText('about');
-          $table->longText('faq');
           $table->timestamp('timestamp');
         });
     }

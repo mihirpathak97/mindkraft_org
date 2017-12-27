@@ -22,7 +22,6 @@ class CreateEventsListTable extends Migration
             $table->string('fee');
             $table->string('prize');
             $table->longText('about');
-            $table->longText('faq');
             $table->timestamp('timestamp');
         });
     }

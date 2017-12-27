@@ -59,6 +59,7 @@
   <div class="box">
     <article>
       <form class="" action="/cms/addworkshop" method="post">
+        {{ csrf_field() }}
         <p class="ip-group">
           <label class="label">Workshop Name</label>
           <input type="text" name="wr_name" class="input" value="" required>

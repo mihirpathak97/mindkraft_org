@@ -59,6 +59,7 @@
   <div class="box">
     <article>
       <form class="" action="/cms/addevent" method="post">
+        {{ csrf_field() }}
         <p class="ip-group">
           <label class="label">Event Name</label>
           <input type="text" name="ev_name" class="input" value="" required>

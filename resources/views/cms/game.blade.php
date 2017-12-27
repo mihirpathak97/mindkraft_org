@@ -59,6 +59,7 @@
   <div class="box">
     <article>
       <form class="" action="/cms/addgame" method="post">
+        {{ csrf_field() }}
         <p class="ip-group">
           <label class="label">Game Name</label>
           <input type="text" name="gm_name" class="input" value="" required>

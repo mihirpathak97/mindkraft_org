@@ -73,6 +73,9 @@ Route::post('userregister', 'Auth@register');
 // CMS Routes
 Route::prefix('cms')->group(function () {
   Route::view('/', 'cms.main');
+
+  // Auth Route
+  Route::post('authenticate', 'CmsAuth@login');
 });
 
 

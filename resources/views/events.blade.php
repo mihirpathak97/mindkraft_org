@@ -116,20 +116,22 @@
           </div>
         </div>
       <?php }else { ?>
-        <h2 class="hero-head">Events</h2>
-        <br><br>
-				<?php for ($i=0; $i < count(Controller::dept_list)-1; $i+=5) { ?>
-					<div class="columns">
-						<?php foreach (array_slice(Controller::dept_list, $i, 4) as $key => $value) { ?>
-							<div class="column is-one-quarter">
-								<a href="/events/<?php echo $key ?>">
-									<div class="card game-card <?php echo $key ?> game-card-dept">
-									</div>
-								</a>
-							</div>
-						<?php } ?>
-					</div>
-				<?php } ?>
+				<div class="games">
+					<h2 class="hero-head">Events</h2>
+	        <br><br>
+					<?php for ($i=0; $i < count(Controller::dept_list)-1; $i+=5) { ?>
+						<div class="columns">
+							<?php foreach (array_slice(Controller::dept_list, $i, 4) as $key => $value) { ?>
+								<div class="column is-one-quarter">
+									<a href="/events/<?php echo $key ?>">
+										<div class="card game-card <?php echo $key ?> game-card-dept">
+										</div>
+									</a>
+								</div>
+							<?php } ?>
+						</div>
+							<?php } ?>
+				</div>
 				<?php } ?>
     </div>
 

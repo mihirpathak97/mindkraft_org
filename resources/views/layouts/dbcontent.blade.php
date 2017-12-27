@@ -71,9 +71,9 @@
           <?php foreach($table_list as $record) { ?>
             <div class="col-sm-3">
               <div class="card game-card">
-                <h4><?php echo $record->event_name; ?></h4>
+                <h4><?php echo $record->name; ?></h4>
                 <br><br>
-                <p><a href="/eventreq/<?php echo $record->event_id ?>">Know More</a></p>
+                <p><a href="/eventreq/<?php echo $record->id ?>">Know More</a></p>
               </div>
             </div>
           <?php } ?>

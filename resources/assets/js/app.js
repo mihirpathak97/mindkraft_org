@@ -39,6 +39,9 @@ const menuData = [
   }
 ];
 
+var mobileMenuData = menuData;
+mobileMenuData.push({label:'Login', url:'login'}, {label:'Register', url:'register'});
+
 const menuDataURLS = ['home', 'workshops', 'events', 'games', 'faq', 'contact', 'about'];
 
 
@@ -69,8 +72,8 @@ function loadBody() {
   loadRadialMenu();
 
   // Load list items in mobile navbar
-  for (var i = 0; i < menuData.length; i++) {
-    $('.modal-content').children('ol').append('<li class="navbar-li"><a href="'+menuData[i].url+'">'+menuData[i].label+'</li>');
+  for (var i = 0; i < mobileMenuData.length; i++) {
+    $('.modal-content').children('ol').append('<li class="navbar-li"><a href="'+mobileMenuData[i].url+'">'+mobileMenuData[i].label+'</li>');
   }
 
   $('#base-hero').show();

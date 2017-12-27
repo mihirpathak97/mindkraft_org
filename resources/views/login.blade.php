@@ -16,6 +16,12 @@
   </head>
 
   <style media="screen">
+    html{
+      background: #222;
+    }
+    #base-hero{
+      background: #222
+    }
     .container{
       margin-top: 10%;
     }

@@ -21,6 +21,13 @@
     <link rel="stylesheet" href="{{ URL::asset('css/radial-menu.css') }}">
   </head>
 
+	<style media="screen">
+		body{
+			width: 100vw;
+			height: 100vh;
+		}
+	</style>
+
   <body>
 
     <!-- Preloader -->

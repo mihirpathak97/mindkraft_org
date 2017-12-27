@@ -19,12 +19,11 @@
     .container{
       margin-top: 10%;
     }
-    body{
-      height: 100%;
+    html{
+      background: #222;
     }
     #base-hero{
-      height: 100%;
-      overflow: auto;
+      background: #222;
     }
     #base-hero .field{
       height: auto;
@@ -121,9 +120,5 @@
   <script src="{{ URL::asset('js/lodash.core.js') }}"></script>
   <script src="{{ URL::asset('js/greensock/TweenMax.min.js') }}"></script>
   <script src="{{ URL::asset('js/app.js') }}" charset="utf-8"></script>
-
-  <script type="text/javascript">
-    $('.help').eq(5).text('Your passwords do not match!');
-  </script>
 
 </html>

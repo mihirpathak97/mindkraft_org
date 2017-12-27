@@ -36,16 +36,102 @@ class CmsController extends Controller
       $prefix = env('DB_VIEW_PREFIX', '');
 
       $id = Controller::generateRandomString();
-      $name = $request->input('ev_name');
-      $type = $request->input('ev_type');
-      $dept = $request->input('ev_department');
-      $contact = $request->input('ev_contact');
-      $fee = $request->input('ev_fee');
-      $prize = $request->input('ev_prize');
-      $about = $request->input('ev_about');
-      $faq = $request->input('ev_faq');
+      $name = $request->input('name');
+      $type = $request->input('type');
+      $dept = $request->input('department');
+      $contact = $request->input('contact');
+      $fee = $request->input('fee');
+      $prize = $request->input('prize');
+      $about = $request->input('about');
+      $faq = $request->input('faq');
 
       $query = 'INSERT INTO'.$prefix.'events_list (id, name, type, department, contact, fee, prize, about, faq) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+
+      tryinsert:
+        try {
+          $result = DB::insert($query, [$id, $name, $type, $dept, $contact, $fee, $prize, $about, $faq]);
+        } catch (\Illuminate\Database\QueryException $e) {
+            if ($e->errorInfo[1] == 1062) {
+              // Checks if generated user id is already taken
+              if (stripos($e->getMessage(), 'for key \'events_list_id_unique\'') != false) {
+                $id = Controller::generateRandomString();
+                goto tryinsert;
+              }
+              else {
+                return $e->getMessage();
+              }
+            }
+            // If it's not a duplicate entry but something is still wrong
+            else {
+              return "Error adding event!<br>Please try again later";
+            }
+          }
+
+      if (isset($result) && $result) {
+        return "Successfully added event!";
+      }
+
+    }
+
+    public function addgame(Request $request)
+    {
+
+      $prefix = env('DB_VIEW_PREFIX', '');
+
+      $id = Controller::generateRandomString();
+      $name = $request->input('name');
+      $type = $request->input('type');
+      $dept = $request->input('department');
+      $contact = $request->input('contact');
+      $fee = $request->input('fee');
+      $prize = $request->input('prize');
+      $about = $request->input('about');
+      $faq = $request->input('faq');
+
+      $query = 'INSERT INTO'.$prefix.'games_list (id, name, type, department, contact, fee, prize, about, faq) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+
+      tryinsert:
+        try {
+          $result = DB::insert($query, [$id, $name, $type, $dept, $contact, $fee, $prize, $about, $faq]);
+        } catch (\Illuminate\Database\QueryException $e) {
+            if ($e->errorInfo[1] == 1062) {
+              // Checks if generated user id is already taken
+              if (stripos($e->getMessage(), 'for key \'events_list_id_unique\'') != false) {
+                $id = Controller::generateRandomString();
+                goto tryinsert;
+              }
+              else {
+                return $e->getMessage();
+              }
+            }
+            // If it's not a duplicate entry but something is still wrong
+            else {
+              return "Error adding event!<br>Please try again later";
+            }
+          }
+
+      if (isset($result) && $result) {
+        return "Successfully added event!";
+      }
+
+    }
+
+    public function addworkshop(Request $request)
+    {
+
+      $prefix = env('DB_VIEW_PREFIX', '');
+
+      $id = Controller::generateRandomString();
+      $name = $request->input('name');
+      $type = $request->input('type');
+      $dept = $request->input('department');
+      $contact = $request->input('contact');
+      $fee = $request->input('fee');
+      $prize = $request->input('prize');
+      $about = $request->input('about');
+      $faq = $request->input('faq');
+
+      $query = 'INSERT INTO'.$prefix.'workshops_list (id, name, type, department, contact, fee, prize, about, faq) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
       tryinsert:
         try {

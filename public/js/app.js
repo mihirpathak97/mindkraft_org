@@ -786,8 +786,34 @@ var menuData = [{
   url: 'about'
 }];
 
-var mobileMenuData = menuData;
-mobileMenuData.push({ label: 'Login', url: 'login' }, { label: 'Register', url: 'register' });
+var mobileMenuData = [{
+  label: 'Home',
+  url: 'home'
+}, {
+  label: 'Events',
+  url: 'events'
+}, {
+  label: 'Workshops',
+  url: 'workshops'
+}, {
+  label: 'Games',
+  url: 'games'
+}, {
+  label: 'FAQ',
+  url: 'faq'
+}, {
+  label: 'Contact',
+  url: 'contact'
+}, {
+  label: 'About',
+  url: 'about'
+}, {
+  label: 'Login',
+  url: 'login'
+}, {
+  label: 'Register',
+  url: 'register'
+}];
 
 var menuDataURLS = ['home', 'workshops', 'events', 'games', 'faq', 'contact', 'about'];
 

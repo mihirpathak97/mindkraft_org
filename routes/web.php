@@ -78,7 +78,7 @@ Route::prefix('cms')->group(function () {
   Route::view('workshop', 'cms.workshop');
 
   // Auth Route
-  Route::post('authenticate', 'CmsAuth@login');
+  Route::post('authenticate', 'CmsController@login');
 });
 
 

@@ -23489,7 +23489,7 @@ html {
   }
 }
 
-#base-hero .control {
+#base-hero .box {
   width: 60%;
   left: 0;
   display: block;
@@ -23497,16 +23497,36 @@ html {
   font-size: 16px;
 }
 
-#base-hero .control button {
+@media screen and (max-width: 769px) {
+  #base-hero .box {
+    width: 80%;
+  }
+}
+
+#base-hero .box button {
   font-size: 14px;
   font-family: 'Pirulen', sans-serif;
   display: block;
   margin: auto;
   margin-top: 10%;
+  margin-bottom: 5%;
 }
 
-#base-hero .control #register-reply {
+@media screen and (max-width: 769px) {
+  #base-hero .box button {
+    font-size: 12px;
+  }
+}
+
+#base-hero .box #register-reply {
   text-align: center;
   margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+@media screen and (max-width: 769px) {
+  #base-hero .box #register-reply {
+    font-size: 16px;
+  }
 }
 

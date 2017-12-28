@@ -64,7 +64,7 @@
 
       <h2 class="hero-head">Register for {{ $type }}</h2>
 
-        <div class="control">
+        <div class="box">
           <label class="checkbox">
             <input type="checkbox">
             I agree to the <a href="#">terms and conditions</a>

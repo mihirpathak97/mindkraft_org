@@ -46,13 +46,13 @@ Route::get('/events/{dept}/{name}/{id}', function ($dept, $name, $id) {
     return view('req.event')->with($data);
 });
 
-Route::get('/workshops/{dept}/{name}/{id}', function ($dept, $name, $id) {
-    $data = array('dept' => $dept, 'name' => $name, 'id' => $id);
+Route::get('/workshops/{name}/{id}', function ($name, $id) {
+    $data = array('name' => $name, 'id' => $id);
     return view('req.workshop')->with($data);
 });
 
-Route::get('/games/{dept}/{name}/{id}', function ($dept, $name, $id) {
-    $data = array('dept' => $dept, 'name' => $name, 'id' => $id);
+Route::get('/games/{name}/{id}', function ($name, $id) {
+    $data = array('name' => $name, 'id' => $id);
     return view('req.game')->with($data);
 });
 

@@ -21,7 +21,7 @@ class CreateGamesListTable extends Migration
           $table->string('prize');
           $table->longText('about');
           $table->integer('seats');
-          $table->boolean('open');
+          $table->boolean('open')->default(1);
           $table->timestamp('timestamp');
         });
     }

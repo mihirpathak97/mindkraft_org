@@ -43,12 +43,13 @@ class CmsController extends Controller
       $fee = $request->input('fee');
       $prize = $request->input('prize');
       $about = $request->input('about');
+      $seats = $request->input('seats');
 
-      $query = 'INSERT INTO '.$prefix.'events_list (id, name, type, department, contact, fee, prize, about) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+      $query = 'INSERT INTO '.$prefix.'events_list (id, name, type, department, contact, fee, prize, about, seats) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
       tryinsert:
         try {
-          $result = DB::insert($query, [$id, $name, $type, $dept, $contact, $fee, $prize, $about]);
+          $result = DB::insert($query, [$id, $name, $type, $dept, $contact, $fee, $prize, $about, $seats]);
         } catch (\Illuminate\Database\QueryException $e) {
             if ($e->errorInfo[1] == 1062) {
               // Checks if generated user id is already taken
@@ -84,12 +85,13 @@ class CmsController extends Controller
       $fee = $request->input('fee');
       $prize = $request->input('prize');
       $about = $request->input('about');
+      $seats = $request->input('seats');
 
-      $query = 'INSERT INTO '.$prefix.'games_list (id, name, contact, fee, prize, about) VALUES (?, ?, ?, ?, ?, ?)';
+      $query = 'INSERT INTO '.$prefix.'games_list (id, name, contact, fee, prize, about, seats) VALUES (?, ?, ?, ?, ?, ?, ?)';
 
       tryinsert:
         try {
-          $result = DB::insert($query, [$id, $name, $contact, $fee, $prize, $about]);
+          $result = DB::insert($query, [$id, $name, $contact, $fee, $prize, $about, $seats]);
         } catch (\Illuminate\Database\QueryException $e) {
             if ($e->errorInfo[1] == 1062) {
               // Checks if generated user id is already taken
@@ -125,12 +127,13 @@ class CmsController extends Controller
       $contact = $request->input('contact');
       $fee = $request->input('fee');
       $about = $request->input('about');
+      $seats = $request->input('seats');
 
-      $query = 'INSERT INTO '.$prefix.'workshops_list (id, name, department, contact, fee, about) VALUES (?, ?, ?, ?, ?, ?)';
+      $query = 'INSERT INTO '.$prefix.'workshops_list (id, name, department, contact, fee, about, seats) VALUES (?, ?, ?, ?, ?, ?, ?)';
 
       tryinsert:
         try {
-          $result = DB::insert($query, [$id, $name, $dept, $contact, $fee, $about]);
+          $result = DB::insert($query, [$id, $name, $dept, $contact, $fee, $about, $seats]);
         } catch (\Illuminate\Database\QueryException $e) {
             if ($e->errorInfo[1] == 1062) {
               // Checks if generated user id is already taken

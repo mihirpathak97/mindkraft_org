@@ -60,6 +60,9 @@ Route::get('/games/{name}/{id}', function ($name, $id) {
     return view('req.game')->with($data);
 });
 
+// Event Registration Route
+Route::view('/register/{type}/{userid}/{eventid}', 'req.registerevent');
+
 
 // Misc. Routes
 Route::get('/contact', function () {

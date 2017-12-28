@@ -389,6 +389,29 @@ $('.workshop-list-item').eq(2).click(function () {
   });
 });
 
+
+// Event registration
+$('#event-register').click(function () {
+  if (!$('input').eq(0).prop('checked') || !$('input').eq(1).prop('checked')) {
+    alert('Please agree to all the terms');
+  }
+  else {
+    var type = window.location.href.split('/')[window.location.href.split('/').length - 3];
+    var userid = window.location.href.split('/')[window.location.href.split('/').length - 2];
+    var eventid = window.location.href.split('/')[window.location.href.split('/').length - 1];
+    $.ajax({
+      type: 'GET',
+      url: '/api/register/'+type+'/'+userid+'/'+eventid,
+      success: function (data) {
+        $('#event-register').hide();
+        $('#register-reply').text(data);
+      }
+    });
+  }
+});
+
+
+
 // Functions below, do not edit unless
 // you know what you are doing
 

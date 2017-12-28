@@ -598,3 +598,24 @@ body, html{
     font-size: 20px;
   }
 }
+
+#base-hero .control{
+  width: 60%;
+  left: 0;
+  display: block;
+  margin: auto;
+  font-size: 16px;
+}
+
+#base-hero .control button{
+  font-size: 14px;
+  font-family: 'Pirulen', sans-serif;
+  display: block;
+  margin: auto;
+  margin-top: 10%;
+}
+
+#base-hero .control #register-reply{
+  text-align: center;
+  margin-top: 10%;
+}

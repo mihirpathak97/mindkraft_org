@@ -1,6 +1,12 @@
 <!-- MindKraft CMS v0.3
 Copyright (c) 2017 Z-Coders  -->
 
+<?php
+  if (session()->has('cmsuser')) {
+    Redirect::to('cms/console')->send();
+  }
+?>
+
 <!DOCTYPE html>
 <html>
   <head>

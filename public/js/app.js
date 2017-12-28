@@ -1038,6 +1038,90 @@ $('.event-list-item').eq(4).click(function () {
   });
 });
 
+// For Games
+$('.game-list-item').eq(0).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length - 1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/getgameinfo/' + id + '/about',
+    success: function success(data) {
+      updateInfo(data);
+    }
+  });
+});
+$('.game-list-item').eq(1).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length - 1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/getgameinfo/' + id + '/rules',
+    success: function success(data) {
+      updateInfo(data);
+    }
+  });
+});
+$('.game-list-item').eq(2).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length - 1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/getgameinfo/' + id + '/contact',
+    success: function success(data) {
+      updateInfo(data);
+    }
+  });
+});
+$('.game-list-item').eq(3).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length - 1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/getgameinfo/' + id + '/fee',
+    success: function success(data) {
+      updateInfo(data);
+    }
+  });
+});
+$('.game-list-item').eq(4).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length - 1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/getgameinfo/' + id + '/prize',
+    success: function success(data) {
+      updateInfo(data);
+    }
+  });
+});
+
+// For Workshops
+$('.workshop-list-item').eq(0).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length - 1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/getworkshopinfo/' + id + '/about',
+    success: function success(data) {
+      updateInfo(data);
+    }
+  });
+});
+$('.workshop-list-item').eq(1).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length - 1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/getworkshopinfo/' + id + '/contact',
+    success: function success(data) {
+      updateInfo(data);
+    }
+  });
+});
+$('.workshop-list-item').eq(2).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length - 1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/getworkshopinfo/' + id + '/fee',
+    success: function success(data) {
+      updateInfo(data);
+    }
+  });
+});
+
 // Functions below, do not edit unless
 // you know what you are doing
 

@@ -100,7 +100,7 @@
 								<div class="column is-one-quarter">
 									<div class="game-card">
 										<h3 class="dept-head"><?php echo $record['name']; ?></h3>
-										<p class="know-more"><a href="/eventreq/<?php echo $record['id']?>">Know More</a></p>
+										<p class="know-more"><a href="/events/<?php echo $record['department'].'/'.Controller::slugify($record['name'], '_').'/'.$record['id']?>">Know More</a></p>
 									</div>
 								</div>
 							<?php } ?>

@@ -19,4 +19,4 @@ Route::get('/getworkshopinfo/{id}/{param}', 'EventInfoController@getWorkshopInfo
 Route::get('/prepareuserregister/{type}/{userid}/{eventid}', 'EventInfoController@prepareUserRegister');
 
 // Event Registration Route
-Route::get('/register/{type}/{userid}/{eventid}', 'EvenRegistration@register');
+Route::get('/register/{type}/{userid}/{eventid}', 'EventRegistration@register');

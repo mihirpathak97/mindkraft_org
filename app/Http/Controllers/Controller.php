@@ -53,4 +53,17 @@ class Controller extends BaseController
       return $randomString;
     }
 
+    // Mini slugify function
+    public function slugify($string, $delimiter = '-')
+    {
+      $string = preg_replace('#[^\pL\d]+#u', '-', $string);
+      // Trim trailing -
+      $string = trim($string, '-');
+      $clean = preg_replace('~[^-\w]+~', '', $string);
+      $clean = strtolower($clean);
+      $clean = preg_replace('#[\/_|+ -]+#', $delimiter, $clean);
+      $clean = trim($clean, $delimiter);
+      return $clean;
+    }
+
 }

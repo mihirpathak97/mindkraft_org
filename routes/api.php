@@ -16,4 +16,4 @@ use Illuminate\Http\Request;
 Route::get('/geteventinfo/{id}/{param}', 'EventInfoController@getEventInfo');
 Route::get('/getgameinfo/{id}/{param}', 'EventInfoController@getGameInfo');
 Route::get('/getworkshopinfo/{id}/{param}', 'EventInfoController@getWorkshopInfo');
-Route::get('/prepareuserregister/{userid}/{eventid}', 'EventInfoController@prepareUserRegister');
+Route::get('/prepareuserregister/{type}/{userid}/{eventid}', 'EventInfoController@prepareUserRegister');

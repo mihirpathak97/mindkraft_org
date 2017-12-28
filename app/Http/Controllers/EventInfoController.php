@@ -19,6 +19,14 @@ class EventInfoController extends Controller
       $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
       $event = $event[0];
 
+      if ($event->fee == 0) {
+        $event->fee = 'Free!';
+      }
+
+      if ($event->prize == 0) {
+        $event->prize = 'No prizes for this event';
+      }
+
       if ($param == 'about') {
         $acc = '{ "heading": "Info",';
         $acc .= '"body": "'.$event->about.'"}';
@@ -57,6 +65,14 @@ class EventInfoController extends Controller
 
       $event = DB::select('select * from '.$prefix.'games_list where id=\''.$id.'\'');
       $event = $event[0];
+
+      if ($event->fee == 0) {
+        $event->fee = 'Free!';
+      }
+
+      if ($event->prize == 0) {
+        $event->prize = 'No prizes for this event';
+      }
 
       if ($param == 'about') {
         $acc = '{ "heading": "Info",';
@@ -97,6 +113,10 @@ class EventInfoController extends Controller
       $event = DB::select('select * from '.$prefix.'workshops_list where id=\''.$id.'\'');
       $event = $event[0];
 
+      if ($event->fee == 0) {
+        $event->fee = 'Free!';
+      }
+
       if ($param == 'about') {
         $acc = '{ "heading": "Info",';
         $acc .= '"body": "'.$event->about.'"}';
@@ -125,6 +145,7 @@ class EventInfoController extends Controller
       $prefix = env('DB_VIEW_PREFIX', '');
 
       $path = explode('/', $request->path());
+      $table = $prefix . $path[count($path) - 3] . "s_list";
       $userid = $path[count($path) - 2];
       $eventid = $path[count($path) - 1];
 
@@ -133,8 +154,18 @@ class EventInfoController extends Controller
       }
 
       else {
+
         $user = DB::select('select * from '.$prefix.'enduser where id=\''.$userid.'\'');
         $user = $user[0];
+
+        $event = DB::select('select * from '.$table.' where id=\''.$eventid.'\'');
+        $event = $event[0];
+        if (!$event->open) {
+          return "<p>Registrations for this event is closed!</p>";
+        }
+        // else {
+        //   // Check seats available
+        // }
         $acc = '<a href="/registerevent/'.$userid.'/'.$eventid.'">Register Now!</a>';
         return $acc;
       }

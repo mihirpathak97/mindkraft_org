@@ -114,6 +114,10 @@
           <label class="label">Event Description</label>
           <textarea name="about" class="textarea" required></textarea>
         </p>
+        <p class="ip-group">
+          <label class="label">Available Seats</label>
+          <input type="text" name="seats" class="input" value="" required>
+        </p>
         <input type="submit" name="" class="button is-link" value="Submit">
       </form>
     </article>

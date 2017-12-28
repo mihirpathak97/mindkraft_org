@@ -96,7 +96,7 @@
         <div class="games">
           <h2 class="hero-head"><?php echo Controller::dept_list[$dept]; ?></h2>
           <br><br>
-					<?php for ($i=0; $i < $stmt->rowCount()-1; $i+=5) { ?>
+					<?php for ($i=0; $i < $stmt->rowCount(); $i+=4) { ?>
 						<div class="columns">
 							<?php foreach(array_slice($result, $i, 4) as $record) { ?>
 								<div class="column is-one-quarter">
@@ -113,7 +113,7 @@
 				<div class="games">
 					<h2 class="hero-head">Events</h2>
 	        <br><br>
-					<?php for ($i=0; $i < count(Controller::dept_list)-1; $i+=5) { ?>
+					<?php for ($i=0; $i < count(Controller::dept_list); $i+=4) { ?>
 						<div class="columns">
 							<?php foreach (array_slice(Controller::dept_list, $i, 4) as $key => $value) { ?>
 								<div class="column is-one-quarter">

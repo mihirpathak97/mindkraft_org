@@ -69,7 +69,7 @@
 			<div class="games">
         <h2 class="hero-head">@yield('title')</h2>
         <br><br>
-        <?php for ($i=0; $i < count($table_list); $i+=5) { ?>
+        <?php for ($i=0; $i < count($table_list); $i+=4) { ?>
 					<div class="columns">
 						<?php	foreach(array_slice($table_list, $i, 4) as $record) { ?>
 							<div class="column is-one-quarter">

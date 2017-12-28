@@ -21,6 +21,7 @@ Route::get('/home', function () {
     return redirect('/');
 });
 
+// Displaying Events/Workshops/Games
 Route::get('/events', function () {
     return view('events');
 });
@@ -28,11 +29,6 @@ Route::get('/events', function () {
 Route::get('/events/{dept}', function ($dept) {
     $data = array('dept' => $dept);
     return view('events')->with($data);
-});
-
-Route::get('/eventreq/{eventid}', function ($eventid) {
-    $data = array('eventid' => $eventid);
-    return view('eventreq')->with($data);
 });
 
 Route::get('/workshops', function () {
@@ -43,6 +39,25 @@ Route::get('/games', function () {
     return view('games');
 });
 
+
+// Event Request Routes
+Route::get('/events/{dept}/{name}/{id}', function ($dept, $name, $id) {
+    $data = array('dept' => $dept, 'name' => $name, 'id' => $id);
+    return view('req.event')->with($data);
+});
+
+Route::get('/workshops/{dept}/{name}/{id}', function ($dept, $name, $id) {
+    $data = array('dept' => $dept, 'name' => $name, 'id' => $id);
+    return view('req.workshop')->with($data);
+});
+
+Route::get('/games/{dept}/{name}/{id}', function ($dept, $name, $id) {
+    $data = array('dept' => $dept, 'name' => $name, 'id' => $id);
+    return view('req.game')->with($data);
+});
+
+
+// Misc. Routes
 Route::get('/contact', function () {
     return view('contact');
 });

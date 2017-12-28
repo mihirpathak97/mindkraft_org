@@ -39,6 +39,10 @@ Route::get('/games', function () {
     return view('games');
 });
 
+Route::get('/logout', function () {
+    return view('logout');
+});
+
 
 // Event Request Routes
 Route::get('/events/{dept}/{name}/{id}', function ($dept, $name, $id) {

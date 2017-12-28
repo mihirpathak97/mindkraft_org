@@ -54,7 +54,7 @@ class Controller extends BaseController
     }
 
     // Mini slugify function
-    public function slugify($string, $delimiter = '-')
+    public static function slugify($string, $delimiter = '-')
     {
       $string = preg_replace('#[^\pL\d]+#u', '-', $string);
       // Trim trailing -

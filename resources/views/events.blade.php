@@ -45,6 +45,8 @@
       height: 200px;
       width: 200px;
       border-radius: 8px;
+			display: block;
+			margin: auto;
     }
   </style>
 

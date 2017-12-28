@@ -1,4 +1,6 @@
 <?php
+	namespace App\Http\Controllers;
+	use URL, DB;
 	if (session()->has('username')) {
 		$name = session('username');
 	}
@@ -61,23 +63,28 @@
 					<button class="modal-close is-large" aria-label="close"></button>
 				</div>
 			</nav>
-      <br><br>
-      <div class="games">
+
+			<br><br>
+
+			<div class="games">
         <h2 class="hero-head">@yield('title')</h2>
         <br><br>
-        <div class="">
-          <?php foreach($table_list as $record) { ?>
-            <div class="col-sm-3">
-              <div class="card game-card">
-                <h4><?php echo $record->name; ?></h4>
-                <br><br>
-                <p><a href="/eventreq/<?php echo $record->id ?>">Know More</a></p>
-              </div>
-            </div>
-          <?php } ?>
-        </div>
+        <?php for ($i=0; $i < count($table_list); $i+=5) { ?>
+					<div class="columns">
+						<?php	foreach(array_slice($table_list, $i, 4) as $record) { ?>
+							<div class="column is-one-quarter">
+								<div class="game-card">
+									<h3 class="dept-head"><?php echo $record->name; ?></h3>
+									<br><br>
+									<p class="know-more"><a href="<?php echo '/'.$link.'/'.Controller::slugify($record->name, '_').'/'.$record->id ?>">Know More</a></p>
+								</div>
+							</div>
+						<?php } ?>
+					</div>
+				<?php } ?>
       </div>
-    </div>
+
+		</div>
 
     <div id="radial-menu" class="cm-container">
       <ul class="cm-items"></ul>
@@ -94,5 +101,4 @@
   <script src="{{ URL::asset('js/lodash.core.js') }}"></script>
   <script src="{{ URL::asset('js/greensock/TweenMax.min.js') }}"></script>
   <script src="{{ URL::asset('js/app.js') }}" charset="utf-8"></script>
-  <script src="{{ URL::asset('js/particles.js') }}" charset="utf-8"></script>
 </html>

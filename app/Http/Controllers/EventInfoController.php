@@ -166,7 +166,7 @@ class EventInfoController extends Controller
         // else {
         //   // Check seats available
         // }
-        $acc = '<a href="/register/'.$type.'/'.$userid.'/'.$eventid.'">Register Now!</a>';
+        $acc = '<a href="/register/'.$path[count($path) - 3].'/'.$userid.'/'.$eventid.'">Register Now!</a>';
         return $acc;
       }
 

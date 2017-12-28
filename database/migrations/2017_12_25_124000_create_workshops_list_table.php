@@ -20,7 +20,7 @@ class CreateWorkshopsListTable extends Migration
           $table->string('contact');
           $table->string('fee');
           $table->longText('about');
-          $table->integet('seats');
+          $table->integer('seats');
           $table->boolean('open');
           $table->timestamp('timestamp');
         });

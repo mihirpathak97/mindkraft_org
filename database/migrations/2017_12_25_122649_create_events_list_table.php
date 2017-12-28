@@ -22,7 +22,7 @@ class CreateEventsListTable extends Migration
             $table->string('fee');
             $table->string('prize');
             $table->longText('about');
-            $table->integet('seats');
+            $table->integer('seats');
             $table->boolean('open');
             $table->timestamp('timestamp');
         });

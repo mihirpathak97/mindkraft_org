@@ -246,6 +246,65 @@ $('#registerForm').submit(function () {
 });
 
 
+// Event Info req functions
+
+function updateInfo(data) {
+  data = JSON.parse(data);
+  $('.info-stuff').children('.heading').text(data.heading);
+  $('.info-stuff').children('.body').text(data.body);
+}
+
+$('.event-list-item').eq(0).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length -1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/geteventinfo/'+id+'/about',
+    success: function (data) {
+      updateInfo(data);
+    }
+  });
+});
+$('.event-list-item').eq(1).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length -1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/geteventinfo/'+id+'/rules',
+    success: function (data) {
+      updateInfo(data);
+    }
+  });
+});
+$('.event-list-item').eq(2).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length -1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/geteventinfo/'+id+'/contact',
+    success: function (data) {
+      updateInfo(data);
+    }
+  });
+});
+$('.event-list-item').eq(3).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length -1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/geteventinfo/'+id+'/fee',
+    success: function (data) {
+      updateInfo(data);
+    }
+  });
+});
+$('.event-list-item').eq(4).click(function () {
+  var id = window.location.href.split('/')[window.location.href.split('/').length -1];
+  $.ajax({
+    type: 'GET',
+    url: '/api/geteventinfo/'+id+'/prize',
+    success: function (data) {
+      updateInfo(data);
+    }
+  });
+});
+
 // Functions below, do not edit unless
 // you know what you are doing
 
@@ -315,7 +374,7 @@ function loadRadialMenu() {
   }
 
   var url_arr = window.location.href.split('/');
-  var selected = url_arr[url_arr.length - 1];
+  var selected = url_arr[3];
 
   if (menuDataURLS.indexOf(selected) == -1) {
     if (menuDataURLS.indexOf(url_arr[url_arr.length - 2]) != -1) {

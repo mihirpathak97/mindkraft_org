@@ -107,7 +107,7 @@
     $('.register-event').click(function () {
       $.ajax({
         type: 'GET',
-        url: '/api/prepareuserregister/'+userid+'/'+eventid,
+        url: '/api/prepareuserregister/event/'+userid+'/'+eventid,
         success: function (data) {
           $('.info-stuff').children('.heading').text('Register');
           $('.info-stuff').children('.body').html(data);

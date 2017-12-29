@@ -398,11 +398,14 @@ body, html{
   padding-top: 5%;
 }
 
-#base-hero .field input{
+#base-hero .field .control input{
   width: 80%;
   height: 12%;
   display: block;
   margin: auto;
+  @media screen and (max-width: $tablet){
+    height: 12% !important;
+  }
 }
 
 #base-hero .field .help{

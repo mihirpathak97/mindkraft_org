@@ -777,14 +777,14 @@ var menuData = [{
   label: 'Games',
   url: 'games'
 }, {
-  label: 'FAQ',
-  url: 'faq'
+  label: 'Sponsors',
+  url: 'sponsors'
 }, {
-  label: 'Contact',
-  url: 'contact'
+  label: 'Lectures',
+  url: 'lectures'
 }, {
-  label: 'About',
-  url: 'about'
+  label: 'Exhibitions',
+  url: 'exhibitions'
 }];
 
 var mobileMenuData = [{
@@ -800,8 +800,14 @@ var mobileMenuData = [{
   label: 'Games',
   url: '/games'
 }, {
-  label: 'About',
-  url: '/about'
+  label: 'Lectures',
+  url: '/lectures'
+}, {
+  label: 'Exibitions',
+  url: '/exibitions'
+}, {
+  label: 'Our Sponsors',
+  url: '/sponsors'
 }, {
   label: 'Login',
   url: '/login'

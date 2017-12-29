@@ -23236,11 +23236,13 @@ html {
 
 #base-hero .field {
   width: 40%;
-  height: 45%;
+  height: auto;
   display: block;
   margin: auto;
   background: whitesmoke;
   border-radius: 5px;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
 }
 
 @media screen and (max-width: 769px) {
@@ -23272,7 +23274,7 @@ html {
 
 #base-hero .field input {
   width: 80%;
-  height: 12%;
+  height: 7%;
   display: block;
   margin: auto;
 }

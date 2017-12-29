@@ -372,11 +372,12 @@ body, html{
 // Input fields div
 #base-hero .field{
   width: 40%;
-  height: 45%;
+  height: auto;
   display: block;
   margin: auto;
   background: $light;
   border-radius: $radius-large;
+  transition: all 1s ease;
   @media screen and (max-width: $tablet){
     position: absolute;
     left: 0;
@@ -405,7 +406,7 @@ body, html{
 
 #base-hero .field input{
   width: 80%;
-  height: 12%;
+  height: 7%;
   display: block;
   margin: auto;
 }

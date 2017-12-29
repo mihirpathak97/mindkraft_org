@@ -23,6 +23,18 @@
     .container{
       margin-top: 10%;
     }
+    #base-hero .field{
+      height: auto;
+      padding-bottom: 3%;
+    }
+    #base-hero .field input{
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      height: 5%;
+    }
+    #base-hero .field button{
+      height: 5% !important;
+    }
   </style>
 
   <body>

@@ -78,46 +78,54 @@
 
       <h2 class="hero-head">Register</h2>
 
-      <form class="" id="registerForm">
-        <div class="field card">
-          <label class="label">Full Name</label>
-          <div class="control">
-            <input class="input" type="text" name="name" placeholder="Your Name" required>
-          </div>
-          <p class="help"></p>
-          <label class="label">Mobile Number</label>
-          <div class="control">
-            <input class="input" type="text" name="mobile" placeholder="Mobile number" required>
-          </div>
-          <p class="help"></p>
-          <label class="label">E-Mail</label>
-          <div class="control">
-            <input class="input" type="text" name="email" placeholder="E-Mail ID" required>
-          </div>
-          <p class="help"></p>
-          <label class="label">College Name</label>
-          <div class="control">
-            <input class="input" type="text" name="college" placeholder="College" required>
-          </div>
-          <p class="help"></p>
-          <label class="label">Password</label>
-          <div class="control">
-            <input class="input" type="text" name="password" placeholder="Password" required>
-          </div>
-          <p class="help"></p>
-          <label class="label">Retype Password</label>
-          <div class="control">
-            <input class="input" type="text" name="retype" placeholder="Retype password" required>
-          </div>
-          <p class="help"></p>
-          <div class="control">
+      <?php if (session()->has('username')): ?>
+
+          <h2>A user is already logged in!</h2>
+
+      <?php else: ?>
+
+        <form class="" id="registerForm">
+          <div class="field card">
+            <label class="label">Full Name</label>
+            <div class="control">
+              <input class="input" type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <p class="help"></p>
+            <label class="label">Mobile Number</label>
+            <div class="control">
+              <input class="input" type="text" name="mobile" placeholder="Mobile number" required>
+            </div>
+            <p class="help"></p>
+            <label class="label">E-Mail</label>
+            <div class="control">
+              <input class="input" type="text" name="email" placeholder="E-Mail ID" required>
+            </div>
+            <p class="help"></p>
+            <label class="label">College Name</label>
+            <div class="control">
+              <input class="input" type="text" name="college" placeholder="College" required>
+            </div>
+            <p class="help"></p>
+            <label class="label">Password</label>
+            <div class="control">
+              <input class="input" type="text" name="password" placeholder="Password" required>
+            </div>
+            <p class="help"></p>
+            <label class="label">Retype Password</label>
+            <div class="control">
+              <input class="input" type="text" name="retype" placeholder="Retype password" required>
+            </div>
+            <p class="help"></p>
+            <div class="control">
+              <br><br>
+              <button class="button is-link">Register</button>
+            </div>
+            <p id="ajax-output"></p>
             <br><br>
-            <button class="button is-link">Register</button>
           </div>
-          <p id="ajax-output"></p>
-          <br><br>
-        </div>
-      </form>
+        </form>
+
+      <?php endif; ?>
 
     </div>
 

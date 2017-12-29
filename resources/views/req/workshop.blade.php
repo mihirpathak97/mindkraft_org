@@ -63,7 +63,7 @@
 
       <br><br><br>
 
-      <h2 class="hero-head"><?php echo $event->about; ?></h2>
+      <h2 class="hero-head">{{ $event->name }}</h2>
 
       <div class="item-info">
         <ul>
@@ -75,7 +75,7 @@
         <div class="info-box">
           <div class="info-stuff">
             <h2 class="heading">Info</h2><br>
-            <p class="body">{{ $event->about }}</p>
+            <p class="body"><?php echo $event->about; ?></p>
           </div>
         </div>
       </div>

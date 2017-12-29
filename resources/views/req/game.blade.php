@@ -63,7 +63,7 @@
 
       <br><br><br>
 
-      <h2 class="hero-head"><?php echo $event->about; ?></h2>
+      <h2 class="hero-head">{{ $event->name }}</h2>
 
       <div class="item-info">
         <ul>

@@ -25,7 +25,7 @@ class Auth extends Controller
         'username' => $user[0]->name,
         'userid' => $user[0]->id
       ]);
-      return "Login was successfull!";
+      return "Login was successfull! Click <a href=\"javascript:history.back()\">here</a> to go back";
     }
     else {
       return "Please check your credentials and try again!";
@@ -71,7 +71,7 @@ class Auth extends Controller
         }
 
     if (isset($result) && $result) {
-      return "User registration was successfull!<br><br>You can now login";
+      return "User registration was successfull!<br><br>Click here to <a href=\"/login\">login</a>";
       // loginUser($mobile, $password);
     }
 

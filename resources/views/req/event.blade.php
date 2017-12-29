@@ -77,7 +77,7 @@
         <div class="info-box">
           <div class="info-stuff">
             <h2 class="heading">Info</h2><br>
-            <p class="body">{{ $event->about }}</p>
+            <p class="body"><?php echo $event->about; ?></p>
           </div>
         </div>
       </div>

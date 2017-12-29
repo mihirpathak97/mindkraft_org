@@ -43,6 +43,10 @@ Route::get('/logout', function () {
     return view('logout');
 });
 
+Route::get('/user', function () {
+    return view('user');
+});
+
 
 // Event Request Routes
 Route::get('/events/{dept}/{name}/{id}', function ($dept, $name, $id) {

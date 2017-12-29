@@ -23335,6 +23335,10 @@ html {
 }
 
 #base-hero #ajax-output {
+  font-size: 12px !important;
+  max-width: 80%;
+  margin: auto;
+  text-align: center;
   margin-top: 2%;
 }
 

@@ -453,7 +453,10 @@ body, html{
 }
 
 #base-hero #ajax-output{
-  // font-size: 14px !important;
+  font-size: 12px !important;
+  max-width: 80%;
+  margin: auto;
+  text-align: center;
   margin-top: 2%;
   @media screen and (max-width: $tablet){
     margin-top: 5%;

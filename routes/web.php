@@ -69,16 +69,16 @@ Route::view('/register/{type}/{userid}/{eventid}', 'req.registerevent');
 
 
 // Misc. Routes
-Route::get('/contact', function () {
-    return view('contact');
+Route::get('/lectures', function () {
+    return view('lectures');
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::get('/exhibitions', function () {
+    return view('exhibitions');
 });
 
-Route::get('/faq', function () {
-    return view('faq');
+Route::get('/sponsors', function () {
+    return view('sponsors');
 });
 
 

@@ -78,7 +78,7 @@ const mobileMenuData = [
   }
 ];
 
-const menuDataURLS = ['home', 'workshops', 'events', 'games', 'faq', 'contact', 'about'];
+const menuDataURLS = ['home', 'workshops', 'events', 'games', 'sponsors', 'lectures', 'exhibitions'];
 
 const breakpoint = 769;
 

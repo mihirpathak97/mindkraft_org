@@ -816,7 +816,7 @@ var mobileMenuData = [{
   url: '/register'
 }];
 
-var menuDataURLS = ['home', 'workshops', 'events', 'games', 'faq', 'contact', 'about'];
+var menuDataURLS = ['home', 'workshops', 'events', 'games', 'sponsors', 'lectures', 'exhibitions'];
 
 var breakpoint = 769;
 

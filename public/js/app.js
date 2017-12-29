@@ -892,8 +892,12 @@ $('#loginForm').submit(function () {
   $('.button').addClass('button-onclick-animation');
   $('.button').removeClass('button');
 
-  formData = $('#loginForm').serialize();
-  console.log(formData);
+  formData = $('#loginForm').serializeArray();
+  var referrer = document.referrer.split('/')[3];
+  if (typeof referrer == "undefined") {
+    referrer = '';
+  }
+  formData.push({ name: "referrer", value: referrer });
   $.ajax({
     type: 'POST',
     url: '/userlogin',
@@ -966,7 +970,6 @@ $('#registerForm').submit(function () {
   $('.button').removeClass('button');
 
   formData = $('#registerForm').serialize();
-  console.log(formData);
   $.ajax({
     type: 'POST',
     url: '/userregister',

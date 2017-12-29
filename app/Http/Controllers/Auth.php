@@ -25,7 +25,13 @@ class Auth extends Controller
         'username' => $user[0]->name,
         'userid' => $user[0]->id
       ]);
-      return "Login was successfull! Click <a href=\"javascript:history.back()\">here</a> to go back";
+      if ($request->input('referrer') == 'register') {
+        $link = 'javascript:history.go(-2)';
+      }
+      else {
+        $link = 'javascript:history.back()';
+      }
+      return "Login was successfull! Click <a href=\"$link\">here</a> to go back";
     }
     else {
       return "Please check your credentials and try again!";

@@ -23236,7 +23236,7 @@ html {
 
 #base-hero .field {
   width: 40%;
-  min-height: 45%;
+  height: 45%;
   display: block;
   margin: auto;
   background: whitesmoke;

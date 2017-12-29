@@ -95,9 +95,6 @@ $(window).resize(function() {
   else {
     $('#radial-menu').show();
   }
-
-  var viewportWidth = $(window).width();
-  var viewportHeight = $(window).height();
 });
 
 

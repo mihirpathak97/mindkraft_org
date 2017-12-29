@@ -378,6 +378,11 @@ body, html{
   background: $light;
   border-radius: $radius-large;
   @media screen and (max-width: $tablet){
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 90%;
     margin-top: 5%;
   }

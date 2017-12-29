@@ -23245,6 +23245,11 @@ html {
 
 @media screen and (max-width: 769px) {
   #base-hero .field {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 90%;
     margin-top: 5%;
   }

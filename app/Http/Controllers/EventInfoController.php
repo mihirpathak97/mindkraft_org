@@ -151,7 +151,7 @@ class EventInfoController extends Controller
       $eventid = $path[count($path) - 1];
 
       if ($userid == 'nil') {
-        return "You must login first!";
+        return "You must <a href=\"/login\">login</a> first!";
       }
 
       else {

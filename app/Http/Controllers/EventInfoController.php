@@ -145,7 +145,8 @@ class EventInfoController extends Controller
       $prefix = env('DB_VIEW_PREFIX', '');
 
       $path = explode('/', $request->path());
-      $table = $prefix . $path[count($path) - 3] . "s_list";
+      $type = $path[count($path) - 3];
+      $table = $prefix . $type . "s_list";
       $userid = $path[count($path) - 2];
       $eventid = $path[count($path) - 1];
 
@@ -167,9 +168,17 @@ class EventInfoController extends Controller
         if (!$event->open) {
           return "<p>Registrations for this event is closed!</p>";
         }
-        // else {
-        //   // Check seats available
-        // }
+        else {
+          // Check seats available
+          $event_list = DB::select('select * from '.$prefix.'event_registration where id=\''.$type.'-'.$eventid.'\'');
+          if (count($event_list) > 0) {
+            $registered_users = explode(':', $event_list[0]->registered_users);
+            if (count($registered_users) >= $event->seats){
+              echo count($registered_users) . " " . $event->seats;
+              return "Sorry, all seats are full!";
+            }
+          }
+        }
         $acc = '<a href="/register/'.$path[count($path) - 3].'/'.$userid.'/'.$eventid.'">Register Now!</a>';
         return $acc;
       }

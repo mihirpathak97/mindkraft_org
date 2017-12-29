@@ -598,7 +598,7 @@ body, html{
   height: 56%;
   color: $white;
   text-align: left;
-  overflow: scroll;
+  overflow: auto;
   @media screen and (max-width: $tablet){
     width: 80%;
   }

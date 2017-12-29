@@ -61,8 +61,8 @@ const mobileMenuData = [
     url: '/lectures'
   },
   {
-    label: 'Exibitions',
-    url: '/exibitions'
+    label: 'Exhibitions',
+    url: '/exhibitions'
   },
   {
     label: 'Our Sponsors',

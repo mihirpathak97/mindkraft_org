@@ -803,8 +803,8 @@ var mobileMenuData = [{
   label: 'Lectures',
   url: '/lectures'
 }, {
-  label: 'Exibitions',
-  url: '/exibitions'
+  label: 'Exhibitions',
+  url: '/exhibitions'
 }, {
   label: 'Our Sponsors',
   url: '/sponsors'

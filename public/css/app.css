@@ -23239,6 +23239,7 @@ html {
   height: auto;
   display: block;
   margin: auto;
+  margin-bottom: 10%;
   background: whitesmoke;
   border-radius: 5px;
   -webkit-transition: all 1s ease;
@@ -23247,11 +23248,6 @@ html {
 
 @media screen and (max-width: 769px) {
   #base-hero .field {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
     width: 90%;
     margin-top: 5%;
   }
@@ -23274,9 +23270,17 @@ html {
 
 #base-hero .field input {
   width: 80%;
-  height: 7%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  height: 5%;
   display: block;
   margin: auto;
+}
+
+@media screen and (max-width: 769px) {
+  #base-hero .field input {
+    height: 7%;
+  }
 }
 
 #base-hero .field .help {
@@ -23288,7 +23292,7 @@ html {
 #base-hero .field .button {
   display: block;
   margin: auto;
-  height: 10%;
+  height: 5%;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }

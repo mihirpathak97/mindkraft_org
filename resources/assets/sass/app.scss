@@ -375,15 +375,11 @@ body, html{
   height: auto;
   display: block;
   margin: auto;
+  margin-bottom: 10%;
   background: $light;
   border-radius: $radius-large;
   transition: all 1s ease;
   @media screen and (max-width: $tablet){
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
     width: 90%;
     margin-top: 5%;
   }
@@ -406,9 +402,14 @@ body, html{
 
 #base-hero .field input{
   width: 80%;
-  height: 7%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  height: 5%;
   display: block;
   margin: auto;
+  @media screen and (max-width: $tablet){
+    height: 7%;
+  }
 }
 
 #base-hero .field .help{
@@ -420,7 +421,7 @@ body, html{
 #base-hero .field .button{
   display: block;
   margin: auto;
-  height: 10%;
+  height: 5%;
   transition: all 0.25s ease;
 }
 

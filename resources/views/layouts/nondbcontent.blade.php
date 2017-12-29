@@ -19,6 +19,34 @@
 		<link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}">
   </head>
 
+	<style media="screen">
+		.full-height {
+				height: 40vh;
+		}
+
+		.flex-center {
+				align-items: center;
+				display: flex;
+				justify-content: center;
+		}
+
+		.position-ref {
+				position: relative;
+		}
+
+		.content {
+			text-align: center;
+		}
+
+		.title {
+			color: hsl(0, 0%, 96%);
+			font-family: 'Raleway', sans-serif;
+			font-weight: 100;
+			font-size: 36px;
+			padding: 20px;
+		}
+	</style>
+
   <body>
 
     <!-- Actual body -->
@@ -58,6 +86,15 @@
 			</nav>
       <br><br>
       <h2 class="hero-head">@yield('title')</h2>
+
+			<div class="flex-center position-ref full-height">
+				<div class="content">
+					<div class="title">
+						<p>This page will be up real soon! Stay tuned</p>
+					</div>
+				</div>
+			</div>
+
     </div>
 
     <div id="radial-menu" class="cm-container">

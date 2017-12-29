@@ -108,12 +108,12 @@
             <p class="help"></p>
             <label class="label">Password</label>
             <div class="control">
-              <input class="input" type="text" name="password" placeholder="Password" required>
+              <input class="input" type="password" name="password" placeholder="Password" required>
             </div>
             <p class="help"></p>
             <label class="label">Retype Password</label>
             <div class="control">
-              <input class="input" type="text" name="retype" placeholder="Retype password" required>
+              <input class="input" type="password" name="retype" placeholder="Retype password" required>
             </div>
             <p class="help"></p>
             <div class="control">

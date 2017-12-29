@@ -23272,12 +23272,6 @@ html {
   margin: auto;
 }
 
-@media screen and (max-width: 769px) {
-  #base-hero .field .control input {
-    height: 12% !important;
-  }
-}
-
 #base-hero .field .help {
   text-align: left;
   margin-left: 10%;

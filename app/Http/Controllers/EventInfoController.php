@@ -19,11 +19,11 @@ class EventInfoController extends Controller
       $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
       $event = $event[0];
 
-      if ($event->fee == 0) {
+      if ($event->fee == '0') {
         $event->fee = 'Free!';
       }
 
-      if ($event->prize == 0) {
+      if ($event->prize == '0') {
         $event->prize = 'No prizes for this event';
       }
 
@@ -66,11 +66,11 @@ class EventInfoController extends Controller
       $event = DB::select('select * from '.$prefix.'games_list where id=\''.$id.'\'');
       $event = $event[0];
 
-      if ($event->fee == 0) {
+      if ($event->fee == '0') {
         $event->fee = 'Free!';
       }
 
-      if ($event->prize == 0) {
+      if ($event->prize == '0') {
         $event->prize = 'No prizes for this event';
       }
 
@@ -113,7 +113,7 @@ class EventInfoController extends Controller
       $event = DB::select('select * from '.$prefix.'workshops_list where id=\''.$id.'\'');
       $event = $event[0];
 
-      if ($event->fee == 0) {
+      if ($event->fee == '0') {
         $event->fee = 'Free!';
       }
 

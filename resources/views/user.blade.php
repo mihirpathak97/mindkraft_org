@@ -12,6 +12,8 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
         <style>
             html, body {
                 background-color: #222;
@@ -44,13 +46,16 @@
                 font-size: 36px;
                 padding: 20px;
             }
+            .title i{
+              font-size: 30px;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title">
-                    This page will be up real soon! Stay tuned :)
+                    This page will be up real soon! Stay tuned <i class="em em-smiley"></i>
                 </div>
             </div>
         </div>

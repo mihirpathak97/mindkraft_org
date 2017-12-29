@@ -156,6 +156,10 @@ class EventInfoController extends Controller
       else {
 
         $user = DB::select('select * from '.$prefix.'enduser where id=\''.$userid.'\'');
+
+        if (count($user) == 0) {
+          return "Invalid user ID! <br>Did you login?";
+        }
         $user = $user[0];
 
         $event = DB::select('select * from '.$table.' where id=\''.$eventid.'\'');

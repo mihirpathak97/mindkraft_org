@@ -36,14 +36,14 @@ class CmsController extends Controller
       $prefix = env('DB_TABLE_PREFIX', '');
 
       $id = Controller::generateRandomString();
-      $name = $request->input('name');
-      $type = $request->input('type');
-      $dept = $request->input('department');
-      $contact = $request->input('contact');
-      $fee = $request->input('fee');
-      $prize = $request->input('prize');
-      $about = $request->input('about');
-      $seats = $request->input('seats');
+      $name = Controller::nl_replace($request->input('name'));
+      $type = Controller::nl_replace($request->input('type'));
+      $dept = Controller::nl_replace($request->input('department'));
+      $contact = Controller::nl_replace($request->input('contact'));
+      $fee = Controller::nl_replace($request->input('fee'));
+      $prize = Controller::nl_replace($request->input('prize'));
+      $about = Controller::nl_replace($request->input('about'));
+      $seats = Controller::nl_replace($request->input('seats'));
 
       $query = 'INSERT INTO '.$prefix.'events_list (id, name, type, department, contact, fee, prize, about, seats) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
@@ -80,12 +80,12 @@ class CmsController extends Controller
       $prefix = env('DB_TABLE_PREFIX', '');
 
       $id = Controller::generateRandomString();
-      $name = $request->input('name');
-      $contact = $request->input('contact');
-      $fee = $request->input('fee');
-      $prize = $request->input('prize');
-      $about = $request->input('about');
-      $seats = $request->input('seats');
+      $name = Controller::nl_replace($request->input('name'));
+      $contact = Controller::nl_replace($request->input('contact'));
+      $fee = Controller::nl_replace($request->input('fee'));
+      $prize = Controller::nl_replace($request->input('prize'));
+      $about = Controller::nl_replace($request->input('about'));
+      $seats = Controller::nl_replace($request->input('seats'));
 
       $query = 'INSERT INTO '.$prefix.'games_list (id, name, contact, fee, prize, about, seats) VALUES (?, ?, ?, ?, ?, ?, ?)';
 
@@ -122,12 +122,12 @@ class CmsController extends Controller
       $prefix = env('DB_TABLE_PREFIX', '');
 
       $id = Controller::generateRandomString();
-      $name = $request->input('name');
-      $dept = $request->input('department');
-      $contact = $request->input('contact');
-      $fee = $request->input('fee');
-      $about = $request->input('about');
-      $seats = $request->input('seats');
+      $name = Controller::nl_replace($request->input('name'));
+      $dept = Controller::nl_replace($request->input('department'));
+      $contact = Controller::nl_replace($request->input('contact'));
+      $fee = Controller::nl_replace($request->input('fee'));
+      $about = Controller::nl_replace($request->input('about'));
+      $seats = Controller::nl_replace($request->input('seats'));
 
       $query = 'INSERT INTO '.$prefix.'workshops_list (id, name, department, contact, fee, about, seats) VALUES (?, ?, ?, ?, ?, ?, ?)';
 

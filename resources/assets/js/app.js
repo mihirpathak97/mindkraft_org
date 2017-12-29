@@ -260,9 +260,10 @@ $('#registerForm').submit(function () {
 // Event Info req functions
 
 function updateInfo(data) {
+  data = data.toString();
   data = JSON.parse(data);
   $('.info-stuff').children('.heading').text(data.heading);
-  $('.info-stuff').children('.body').text(data.body);
+  $('.info-stuff').children('.body').html(data.body);
 }
 
 $('.event-list-item').eq(0).click(function () {

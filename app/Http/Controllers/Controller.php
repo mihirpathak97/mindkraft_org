@@ -66,4 +66,9 @@ class Controller extends BaseController
       return $clean;
     }
 
+    public function nl_replace($string)
+    {
+      return str_replace(array("\r", "\n", "\r\n", "\n\r"), '<br>', $string);
+    }
+
 }

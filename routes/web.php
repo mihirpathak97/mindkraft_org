@@ -117,8 +117,14 @@ Route::prefix('cms')->group(function () {
 
 // Admin Routes
 Route::prefix('admin')->group(function () {
+
   Route::view('/', 'admin.main');
   Route::view('console', 'admin.console');
+
+  Route::view('events', 'admin.events');
+  Route::view('games', 'admin.games');
+  Route::view('workshops', 'admin.workshops');
+  Route::view('users', 'admin.users');
 
   // Auth Route
   Route::post('authenticate', 'AdminController@login');

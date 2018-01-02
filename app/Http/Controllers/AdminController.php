@@ -21,7 +21,7 @@ class AdminController extends Controller
 
     if (count($user) == 1) {
       session([
-        'admin' => $user[0]->username,
+        'adminuser' => $user[0]->username,
       ]);
       return redirect('/admin/console');
     }

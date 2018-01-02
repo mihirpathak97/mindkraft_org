@@ -1,6 +1,6 @@
 <?php
-  if (!session()->has('cmsuser')) {
-    Redirect::to('cms')->send();
+  if (!session()->has('adminuser')) {
+    Redirect::to('admin')->send();
   }
 ?>
 
@@ -27,10 +27,10 @@
 
       <div class="box">
         <article>
-          <a href="/admin/showevents">Events List</a><br><br>
-          <a href="/admin/showgames">Games List</a><br><br>
-          <a href="/admin/showworkshops">Workshops List</a><br><br>
-          <a href="/admin/showusers">Users List</a><br><br>
+          <a href="/admin/events">Events List</a><br><br>
+          <a href="/admin/games">Games List</a><br><br>
+          <a href="/admin/workshops">Workshops List</a><br><br>
+          <a href="/admin/users">Users List</a><br><br>
         </article>
       </div>
     </div>

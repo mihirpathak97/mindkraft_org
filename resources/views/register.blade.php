@@ -1,5 +1,6 @@
 <?php
-  if (session()->has('username')) {
+  namespace App\Http\Controllers;
+  if (session()->has('userid') && Controller::checkUserId(session('userid'))) {
     $username = session('username');
   }
 ?>

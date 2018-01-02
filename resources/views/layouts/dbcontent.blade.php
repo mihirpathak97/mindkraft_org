@@ -1,8 +1,8 @@
 <?php
 	namespace App\Http\Controllers;
 	use URL, DB;
-	if (session()->has('username')) {
-		$name = session('username');
+	if (session()->has('userid') && Controller::checkUserId(session('userid'))) {
+		$username = session('username');
 	}
 
 	$table_list = DB::select("select * from $table_name");

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\DB;
 
 class Controller extends BaseController
 {
@@ -40,6 +41,20 @@ class Controller extends BaseController
       'workshop' => 'Workshop',
       'game' => 'Games'
     );
+
+    // Checks if provided userid is an authentic user
+    public static function checkUserId($uid)
+    {
+      $prefix = env('DB_VIEW_PREFIX', '');
+      $user = DB::select('select * from '.$prefix.'enduser where id=\''.$uid.'\'');
+
+      if (count($user) > 0) {
+        return true;
+      }
+
+      return false;
+
+    }
 
     // Generates a 16-digit alpha-numeric
     public function generateRandomString($length = 16) {

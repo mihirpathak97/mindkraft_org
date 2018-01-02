@@ -41,7 +41,7 @@
     <div class="container">
         <div class="jumbotron">
           <div class="container">
-            <h1 class="display-3">CMS - Login</h1>
+            <h1 class="display-3">Admin - Login</h1>
             <br>
             <form class="form-inline" action="/admin/authenticate" id="login-form" method="post">
               {{ csrf_field() }}

@@ -1,7 +1,7 @@
 <?php
   namespace App\Http\Controllers;
   use URL, DB;
-  
+
   if (session()->has('userid') && Controller::checkUserId(session('userid'))) {
     $username = session('username');
   }
@@ -97,6 +97,10 @@
               <input class="input" type="text" name="college" placeholder="College" required>
             </div>
             <p class="help"></p>
+            <label class="label">Registration Number<br> (if aplicable)</label>
+            <div class="control">
+              <input class="input" type="text" name="reg_no" placeholder="XXYYDDXXXX">
+            </div>
             <label class="label">Password</label>
             <div class="control">
               <input class="input" type="password" name="password" placeholder="Password" required>

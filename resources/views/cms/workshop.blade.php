@@ -6,7 +6,10 @@
 <!DOCTYPE html>
 <html>
  <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="csrf-token" content="{{ csrf_token() }}">
    <title>Dev Console</title>
    <link rel="stylesheet" href="{{ URL::asset('css/cms.css') }}">
  </head>

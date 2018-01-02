@@ -118,6 +118,7 @@ Route::prefix('cms')->group(function () {
 // Admin Routes
 Route::prefix('admin')->group(function () {
   Route::view('/', 'admin.main');
+  Route::view('console', 'admin.console');
 
   // Auth Route
   Route::post('authenticate', 'AdminController@login');

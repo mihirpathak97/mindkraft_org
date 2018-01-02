@@ -1,7 +1,7 @@
 <?php
 	namespace App\Http\Controllers;
 	use URL, DB;
-	
+
 	if (session()->has('userid') && Controller::checkUserId(session('userid'))) {
 		$username = session('username');
 	}
@@ -61,8 +61,8 @@
       <!-- "NAV" -->
       <div id="navbar" class="navbar-collapse collapse enable-select">
         <ul class="nav-ul">
-          <?php if (isset($name)) { ?>
-            <li><a href="/user"><span><?php echo $name; ?></span></a></li>
+          <?php if (isset($username)) { ?>
+            <li><a href="/user"><span><?php echo $username; ?></span></a></li>
             <li><a href="/logout"><span>Logout</span></a></li>
           <?php }else{ ?>
             <li><a href="/login"><span>Login</span></a></li>

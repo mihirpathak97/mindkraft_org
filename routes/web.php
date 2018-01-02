@@ -115,6 +115,15 @@ Route::prefix('cms')->group(function () {
 });
 
 
+// Admin Routes
+Route::prefix('admin')->group(function () {
+  Route::view('/', 'admin.main');
+
+  // Auth Route
+  Route::post('authenticate', 'AdminController@login');
+});
+
+
 // Test route. Do all testing in this view
 Route::get('/test', function () {
     return view('test');

@@ -1,5 +1,7 @@
 <?php
 	namespace App\Http\Controllers;
+	use URL, DB;
+	
 	if (session()->has('userid') && Controller::checkUserId(session('userid'))) {
 		$username = session('username');
 	}

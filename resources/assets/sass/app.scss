@@ -321,11 +321,16 @@ body, html{
 
 // MindKraft Date
 #base-hero .hero-date{
-  margin-top: 5%;
+  margin-top: 3rem;
   @media screen and (max-width: $tablet){
     margin-top: 15%;
     font-size: 20px;
   }
+}
+
+#base-hero .hero-presents{
+  margin-top: 2rem;
+  font-size: 20px;
 }
 
 // Mobile Menu

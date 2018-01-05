@@ -22,7 +22,7 @@ class CreateWorkshopsListTable extends Migration
           $table->longText('about');
           $table->integer('seats');
           $table->boolean('open')->default(1);
-          $table->timestamp('timestamp');
+          $table->timestamp('date_created');
         });
     }
 

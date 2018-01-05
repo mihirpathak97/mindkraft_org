@@ -16,7 +16,7 @@ class CreateAdminUserTable extends Migration
         Schema::create('admin_user', function (Blueprint $table) {
             $table->string('username');
             $table->binary('password');
-            $table->timestamp('timestamp');
+            $table->timestamp('date_created');
         });
         DB::statement('insert into mindkraft18_admin_user (username, password) values (\'admin\', password(\'Mi12971123581321\'))');
     }

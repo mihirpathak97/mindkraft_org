@@ -21,7 +21,10 @@ class CreateEnduserTable extends Migration
             $table->string('college');
             $table->binary('password');
             $table->boolean('is_verified');
-            $table->timestamp('timestamp');
+            $table->boolean('allow_sponsor_promo');
+            $table->integer('visit_count');
+            $table->timestamp('date_created');
+            $table->timestamp('last_visited');
         });
     }
 

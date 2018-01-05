@@ -21,10 +21,15 @@ class Auth extends Controller
     $user = DB::select($query, [$mobile, $password]);
 
     if (count($user) == 1) {
+
+      // increment visit_count by 1
+      DB::update('UPDATE '.$prefix.'enduser SET visit_count = visit_count + 1 where id=\''.$user[0]->id.'\'');
+
       session([
         'username' => $user[0]->name,
         'userid' => $user[0]->id
       ]);
+
       if ($request->input('referrer') == 'register') {
         $link = 'javascript:history.go(-2)';
       }

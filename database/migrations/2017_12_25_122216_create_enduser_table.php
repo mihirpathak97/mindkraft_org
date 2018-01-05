@@ -20,11 +20,10 @@ class CreateEnduserTable extends Migration
             $table->string('email')->unique();
             $table->string('college');
             $table->binary('password');
-            $table->boolean('is_verified');
-            $table->boolean('allow_sponsor_promo');
-            $table->integer('visit_count');
-            $table->timestamp('date_created');
-            $table->timestamp('last_visited');
+            $table->boolean('is_verified')->default(false);
+            $table->boolean('allow_sponsor_promo')->default(false);
+            $table->integer('visit_count')->default(0);
+            $table->timestamp('date_modified');
         });
     }
 

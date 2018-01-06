@@ -179,7 +179,7 @@ class EventInfoController extends Controller
             }
           }
         }
-        $acc = '<a href="/register/'.$path[count($path) - 3].'/'.$userid.'/'.$eventid.'">Register Now!</a>';
+        $acc = '<a style="color:hsl(348, 100%, 61%)" href="/register/'.$path[count($path) - 3].'/'.$userid.'/'.$eventid.'">Register Now!</a>';
         return $acc;
       }
 

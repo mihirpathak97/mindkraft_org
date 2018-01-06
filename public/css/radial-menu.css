@@ -1,5 +1,5 @@
 .cm-container {
-  position: absolute;
+  position: fixed;
   width: 550px;
   height: 550px;
   border: solid 2px #4bd187;

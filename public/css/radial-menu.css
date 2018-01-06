@@ -1,5 +1,5 @@
 .cm-container {
-  position: fixed;
+  position: absolute;
   width: 550px;
   height: 550px;
   border: solid 2px #4bd187;
@@ -34,7 +34,6 @@
 .cm-container .cm-items .cm-item a {
   position: relative;
   color: #4bd187;
-  font-weight: 900;
   padding-left: 30px;
   text-decoration: none;
   -webkit-transition: all 0.2s ease-out;

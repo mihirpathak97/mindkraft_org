@@ -327,6 +327,7 @@ body, html{
 // MindKraft Date
 #base-hero .hero-date{
   margin-top: 3rem;
+  color: $light;
   @media screen and (max-width: $tablet){
     margin-top: 15%;
     font-size: 20px;
@@ -334,6 +335,7 @@ body, html{
 }
 
 #base-hero .hero-presents{
+  color: $light;
   margin-top: 2rem;
   font-size: 20px;
 }
@@ -375,6 +377,7 @@ body, html{
 #base-hero .hero-head{
   margin-top: 5%;
   padding-bottom: 5%;
+  color: $light;
   @media screen and (max-width: $tablet){
     margin-top: 15%;
   }

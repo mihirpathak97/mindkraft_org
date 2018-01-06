@@ -23182,6 +23182,7 @@ html {
 
 #base-hero .hero-date {
   margin-top: 3rem;
+  color: whitesmoke;
 }
 
 @media screen and (max-width: 769px) {
@@ -23192,6 +23193,7 @@ html {
 }
 
 #base-hero .hero-presents {
+  color: whitesmoke;
   margin-top: 2rem;
   font-size: 20px;
 }
@@ -23237,6 +23239,7 @@ html {
 #base-hero .hero-head {
   margin-top: 5%;
   padding-bottom: 5%;
+  color: whitesmoke;
 }
 
 @media screen and (max-width: 769px) {

@@ -79,7 +79,7 @@
 			<img src="{{ URL::asset('images/kit-logo.png') }}" class="head-logo" alt="">
 			<h2 class="hero-presents">Proudly Presents</h2>
       <img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
-      <h2 class="hero-date">23 Feb - 24 Feb</h2>
+      <h2 class="hero-date">15 Mar - 16 Mar</h2>
     </div>
 
     <div id="radial-menu" class="cm-container">

@@ -25,7 +25,7 @@ class Controller extends BaseController
       'fp' => 'Foop Processing',
       'me' => 'Mechanical Engineering',
       'emt' => 'Media Technology',
-      'nano' => 'Nano Technology',
+      // 'nano' => 'Nano Technology',
       'snh' => 'Science and Humanities'
     );
 

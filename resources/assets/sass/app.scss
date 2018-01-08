@@ -262,11 +262,20 @@ body, html{
   }
 }
 
+// #base-hero .mk-div{
+//   display: block;
+//   margin: auto;
+//   width: 60%;
+// }
+
 // MindKraft Logo
 #base-hero .mk-logo{
-  width: 280px;
-  height: 280px;
+  width: 250px;
+  height: 250px;
   margin-top: 1.3rem;
+  display: inline;
+  position: relative;
+  left: 0;
   overflow: auto;
   // border: 1px solid green;
   @media screen and (max-width: $tablet){
@@ -275,6 +284,16 @@ body, html{
     margin-top: 18%;
   }
 }
+
+// #base-hero .mk-div .mk-2018{
+//   display: inline;
+//   position: relative;
+//   right: 0;
+//   font-size: 5rem;
+//   color: $light;
+//   font-weight: 900;
+//   font-family: 'Raleway', sans-serif !important;
+// }
 
 // KIT Logo
 #base-hero .head-logo{

@@ -23119,9 +23119,12 @@ html {
 }
 
 #base-hero .mk-logo {
-  width: 280px;
-  height: 280px;
+  width: 250px;
+  height: 250px;
   margin-top: 1.3rem;
+  display: inline;
+  position: relative;
+  left: 0;
   overflow: auto;
 }
 

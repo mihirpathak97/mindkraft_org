@@ -266,7 +266,7 @@ body, html{
 #base-hero .mk-logo{
   width: 280px;
   height: 280px;
-  margin-top: 5%;
+  margin-top: 1.3rem;
   overflow: auto;
   // border: 1px solid green;
   @media screen and (max-width: $tablet){
@@ -279,15 +279,15 @@ body, html{
 // KIT Logo
 #base-hero .head-logo{
   margin: auto;
-  width: 50%;
-  height: 15%;
+  width: 50rem;
+  height: 8rem;
   margin-top: 4%;
   display: block;
   // border: 1px solid green;
   @media screen and (max-width: $tablet){
     margin: auto;
     margin-top: 20%;
-    width: 95%;
+    width: 85%;
   }
 }
 
@@ -319,19 +319,31 @@ body, html{
   font-size: 22px;
 }
 
-// MindKraft Date
-#base-hero .hero-date{
+// MindKraft theme
+#base-hero .hero-theme{
   margin-top: 3rem;
-  color: $light;
+  font-size: 2.2rem;
+  color: $turquoise;
   @media screen and (max-width: $tablet){
     margin-top: 15%;
     font-size: 20px;
   }
 }
 
+// MindKraft Date
+#base-hero .hero-date{
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  color: $light;
+  @media screen and (max-width: $tablet){
+    margin-top: 15%;
+    font-size: 18px;
+  }
+}
+
 #base-hero .hero-presents{
   color: $light;
-  margin-top: 2rem;
+  margin-top: 1.7rem;
   font-size: 20px;
 }
 
@@ -649,4 +661,32 @@ body, html{
   @media screen and (max-width: $tablet){
     font-size: 16px;
   }
+}
+
+
+// Neon Glow
+
+.neon {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  font: normal 48px/normal "Warnes", Helvetica, sans-serif;
+  color: rgba(255,255,255,1);
+  text-decoration: normal;
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  white-space: pre;
+  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.neon:hover {
+  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
 }

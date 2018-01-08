@@ -77,8 +77,9 @@
 				</div>
       </nav>
 			<img src="{{ URL::asset('images/kit-logo.png') }}" class="head-logo" alt="">
-			<h2 class="hero-presents">Proudly Presents</h2>
+			<h2 class="hero-presents">Present</h2>
       <img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
+			<h2 class="hero-theme">Zenith of Invention</h2>
       <h2 class="hero-date">15 Mar - 16 Mar</h2>
     </div>
 

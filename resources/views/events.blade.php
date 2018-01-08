@@ -97,18 +97,26 @@
         <div class="games">
           <h2 class="hero-head"><?php echo Controller::dept_list[$dept]; ?></h2>
           <br><br>
-					<?php for ($i=0; $i < $stmt->rowCount(); $i+=4) { ?>
-						<div class="columns">
-							<?php foreach(array_slice($result, $i, 4) as $record) { ?>
-								<div class="column is-one-quarter">
-									<div class="game-card">
-										<h3 class="dept-head"><?php echo $record['name']; ?></h3>
-										<p class="know-more"><a href="/events/<?php echo $record['department'].'/'.Controller::slugify($record['name'], '_').'/'.$record['id']?>">Know More</a></p>
-									</div>
-								</div>
-							<?php } ?>
+					<?php if ($stmt->rowCount() == 0): ?>
+						<div class="not-avail-content">
+							<div class="title">
+								<p>More events will be added soon! Stay tuned</p>
+							</div>
 						</div>
-					<?php } ?>
+					<?php else: ?>
+						<?php for ($i=0; $i < $stmt->rowCount(); $i+=4) { ?>
+							<div class="columns">
+								<?php foreach(array_slice($result, $i, 4) as $record) { ?>
+									<div class="column is-one-quarter">
+										<div class="game-card">
+											<h3 class="dept-head"><?php echo $record['name']; ?></h3>
+											<p class="know-more"><a href="/events/<?php echo $record['department'].'/'.Controller::slugify($record['name'], '_').'/'.$record['id']?>">Know More</a></p>
+										</div>
+									</div>
+								<?php } ?>
+							</div>
+						<?php } ?>
+					<?php endif; ?>
         </div>
       <?php }else { ?>
 				<div class="games">

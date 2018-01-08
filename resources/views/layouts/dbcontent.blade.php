@@ -70,19 +70,27 @@
 			<div class="games">
         <h2 class="hero-head">@yield('title')</h2>
         <br><br>
-        <?php for ($i=0; $i < count($table_list); $i+=4) { ?>
-					<div class="columns">
-						<?php	foreach(array_slice($table_list, $i, 4) as $record) { ?>
-							<div class="column is-one-quarter">
-								<div class="game-card">
-									<h3 class="dept-head"><?php echo $record->name; ?></h3>
-									<br><br>
-									<p class="know-more"><a href="<?php echo '/'.$link.'/'.Controller::slugify($record->name, '_').'/'.$record->id ?>">Know More</a></p>
-								</div>
-							</div>
-						<?php } ?>
+				<?php if (count($table_list) == 0): ?>
+					<div class="not-avail-content">
+						<div class="title">
+							<p>This page will be up real soon! Stay tuned</p>
+						</div>
 					</div>
-				<?php } ?>
+				<?php else: ?>
+	        <?php for ($i=0; $i < count($table_list); $i+=4) { ?>
+						<div class="columns">
+							<?php	foreach(array_slice($table_list, $i, 4) as $record) { ?>
+								<div class="column is-one-quarter">
+									<div class="game-card">
+										<h3 class="dept-head"><?php echo $record->name; ?></h3>
+										<br><br>
+										<p class="know-more"><a href="<?php echo '/'.$link.'/'.Controller::slugify($record->name, '_').'/'.$record->id ?>">Know More</a></p>
+									</div>
+								</div>
+							<?php } ?>
+						</div>
+					<?php } ?>
+				<?php endif; ?>
       </div>
 
 		</div>

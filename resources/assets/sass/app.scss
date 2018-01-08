@@ -664,8 +664,19 @@ body, html{
 }
 
 
-// Neon Glow
+// When no content is available
+.not-avail-content{
+  margin-top: 5rem;
+}
+.not-avail-content p{
+  color: $light;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 36px;
+}
 
+
+// Neon Glow
 .neon {
   display: inline-block;
   -webkit-box-sizing: border-box;

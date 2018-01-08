@@ -76,7 +76,7 @@
 				  <button class="modal-close is-large" aria-label="close"></button>
 				</div>
       </nav>
-			<img src="{{ URL::asset('images/kit-logo.png') }}" class="head-logo" alt="">
+			<img src="{{ URL::asset('images/kit-logo-white.png') }}" class="head-logo" alt="">
 			<h2 class="hero-presents">Presents</h2>
       <img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
 			<h2 class="hero-theme">Zenith of Invention</h2>

@@ -23260,6 +23260,112 @@ html {
   }
 }
 
+#base-hero .footer-bottom:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  right: -20px;
+  z-index: 0;
+  background: black;
+  -webkit-transform: skewX(30deg);
+  transform: skewX(30deg);
+  -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#base-hero .footer-bottom {
+  width: 40%;
+  height: 6rem;
+  padding: 10px 20px 10px 10px;
+  font-size: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: #FFF;
+  background: black;
+  text-align: center;
+  -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 769px) {
+  #base-hero .footer-bottom {
+    width: 80%;
+  }
+}
+
+#base-hero .footer-bottom::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  left: -20px;
+  z-index: 0;
+  background: black;
+  -webkit-transform: skewX(-30deg);
+  transform: skewX(-30deg);
+  -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#base-hero .footer-bottom * {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  vertical-align: center;
+}
+
+@media screen and (max-width: 769px) {
+  #base-hero .footer-bottom * {
+    font-size: 12px;
+    margin: 0 !important;
+    line-height: 70% !important;
+    padding: 0 !important;
+    vertical-align: top;
+  }
+}
+
+#base-hero .footer-bottom p,
+#base-hero .footer-bottom a {
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+}
+
+#base-hero .footer-bottom .social-icon {
+  list-style-type: none;
+  font-size: 16px;
+}
+
+#base-hero .footer-bottom .social-icon .fa-facebook-f {
+  color: #3C599F;
+}
+
+#base-hero .footer-bottom .social-icon .fa-instagram {
+  color: #A1755C;
+}
+
+#base-hero .footer-bottom .social-icon .fa-youtube-play {
+  color: #C52F30;
+}
+
+#base-hero .footer-bottom .social-icon .fa-twitter {
+  color: #32CCFE;
+}
+
+#base-hero .footer-bottom .fa-heart {
+  color: #ff3860;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
 #base-hero .field {
   width: 40%;
   height: auto;

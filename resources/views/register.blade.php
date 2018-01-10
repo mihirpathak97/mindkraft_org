@@ -39,6 +39,7 @@
       <!-- "NAV" -->
       <div id="navbar" class="navbar-collapse collapse enable-select">
         <ul class="nav-ul">
+          <li><a href="/home"><span>Home</span></a></li>
           <?php if (isset($username)) { ?>
             <li><a href="/user"><span><?php echo $username; ?></span></a></li>
             <li><a href="/logout"><span>Logout</span></a></li>

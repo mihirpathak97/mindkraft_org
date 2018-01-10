@@ -38,7 +38,7 @@ Copyright (c) 2017 Z-Coders All Rights Reserved.
 
     * Nginx server
     * PHP 7.0+
-    * MySQL 5.7+
+    * MySQL 5.7+ (one user account with full previliges to “mindkraft18_site_db”)
     * Git
     * Composer
     * SSH access to server
@@ -46,9 +46,10 @@ Copyright (c) 2017 Z-Coders All Rights Reserved.
   **Setup**
 
     * Clone the repository
-    * Run `composer install`
+    * Run `composer install` to install dependencies
     * Run `cp .env.example .env`
     * Run `php artisan key:generate`
+    * Run `php artisan migrate`
     * In `.env`
       * Set `APP_ENV` to `production`
       * Set `APP_DEBUG` to `false`

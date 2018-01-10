@@ -17,7 +17,7 @@ class CreateNewsFeedTable extends Migration
             $table->string('message');
         });
 
-        DB::statement('insert into mindkraft18_news_feed (message) values (\'Registrations Open!\')');
+        DB::statement('insert into mindkraft18_news_feed (message) values (\'Registrations Open!!\')');
     }
 
     /**

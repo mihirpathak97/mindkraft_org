@@ -787,34 +787,44 @@ var menuData = [{
   url: 'exhibitions'
 }];
 
-var mobileMenuData = [{
-  label: 'Home',
-  url: '/home'
-}, {
-  label: 'Events',
-  url: '/events'
-}, {
-  label: 'Workshops',
-  url: '/workshops'
-}, {
-  label: 'Games',
-  url: '/games'
-}, {
-  label: 'Lectures',
-  url: '/lectures'
-}, {
-  label: 'Exhibitions',
-  url: '/exhibitions'
-}, {
-  label: 'Our Sponsors',
-  url: '/sponsors'
-}, {
-  label: 'Login',
-  url: '/login'
-}, {
-  label: 'Register',
-  url: '/register'
-}];
+// const mobileMenuData = [
+//   {
+//     label: 'Home',
+//     url: '/home'
+//   },
+//   {
+//     label: 'Events',
+//     url: '/events'
+//   },
+//   {
+//     label: 'Workshops',
+//     url: '/workshops'
+//   },
+//   {
+//     label: 'Games',
+//     url: '/games'
+//   },
+//   {
+//     label: 'Lectures',
+//     url: '/lectures'
+//   },
+//   {
+//     label: 'Exhibitions',
+//     url: '/exhibitions'
+//   },
+//   {
+//     label: 'Our Sponsors',
+//     url: '/sponsors'
+//   },
+//   {
+//     label:'Login',
+//     url:'/login'
+//   },
+//   {
+//     label:'Register',
+//     url:'/register'
+//   }
+// ];
 
 var menuDataURLS = ['home', 'workshops', 'events', 'games', 'sponsors', 'lectures', 'exhibitions'];
 
@@ -845,9 +855,9 @@ function loadBody() {
   loadRadialMenu();
 
   // Load list items in mobile navbar
-  for (var i = 0; i < mobileMenuData.length; i++) {
-    $('.modal-content').children('ol').append('<li class="navbar-li"><a href="' + mobileMenuData[i].url + '">' + mobileMenuData[i].label + '</li>');
-  }
+  // for (var i = 0; i < mobileMenuData.length; i++) {
+  //   $('.modal-content').children('ol').append('<li class="navbar-li"><a href="'+mobileMenuData[i].url+'">'+mobileMenuData[i].label+'</li>');
+  // }
 
   $('#base-hero').show();
 

@@ -60,7 +60,23 @@
         <div class="modal animated fadeIn">
           <div class="modal-background"></div>
           <div class="modal-content">
-            <ol></ol>
+            <ol>
+							<li class="navbar-li"><a href="/home">Home</li>
+							<li class="navbar-li"><a href="/events">Events</li>
+							<li class="navbar-li"><a href="/workshops">Workshops</li>
+							<li class="navbar-li"><a href="/gmaes">Games</li>
+							<li class="navbar-li"><a href="/lectures">Lectures</li>
+							<li class="navbar-li"><a href="/exhibitions">Exhibitions</li>
+							<li class="navbar-li"><a href="/sponsors">Our Sponsors</li>
+							<li class="navbar-li"><a href="/contact">Contact</li>
+							<?php if (isset($username)): ?>
+								<li class="navbar-li"><a href="/user"><?php echo $username; ?></li>
+								<li class="navbar-li"><a href="/logout">Logout</li>
+							<?php else: ?>
+								<li class="navbar-li"><a href="/login">Login</li>
+								<li class="navbar-li"><a href="/register">Register</li>
+							<?php endif; ?>
+						</ol>
           </div>
           <button class="modal-close is-large" aria-label="close"></button>
         </div>

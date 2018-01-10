@@ -9,14 +9,14 @@ Copyright (c) 2017 Z-Coders All Rights Reserved.
 
 ## Development Environment Setup Instructions
 
-  #### Required packages
+  **Required packages**
 
   * NodeJS 8+
   * PHP 7+
   * Composer
   * Git
 
-  #### Setup Instructions
+  **Setup Instructions**
 
   * Install all required packages
   * Run `composer install` to install Laravel and other packages
@@ -27,7 +27,7 @@ Copyright (c) 2017 Z-Coders All Rights Reserved.
 
 ## Production Build Instructions
 
-  #### Setup
+  **Setup**
 
   * In `developement` branch, run `npm run production`
   * Production ready code is then pushed to `production` branch

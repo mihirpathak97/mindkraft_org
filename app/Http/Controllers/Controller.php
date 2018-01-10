@@ -56,6 +56,24 @@ class Controller extends BaseController
 
     }
 
+    public function getChatMessages()
+    {
+
+      $prefix = env('DB_VIEW_PREFIX', '');
+      $messages = DB::select('select * from '.$prefix.'news_feed');
+
+      $acc = '{ "messages":[';
+
+      foreach ($messages as $message) {
+        $acc .= '"'.$message->message.'"';
+      }
+
+      $acc .= ']}';
+
+      return $acc;
+
+    }
+
     // Generates a 16-digit alpha-numeric
     public function generateRandomString($length = 16) {
       $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

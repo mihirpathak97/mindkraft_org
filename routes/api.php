@@ -17,6 +17,7 @@ Route::get('/geteventinfo/{id}/{param}', 'EventInfoController@getEventInfo');
 Route::get('/getgameinfo/{id}/{param}', 'EventInfoController@getGameInfo');
 Route::get('/getworkshopinfo/{id}/{param}', 'EventInfoController@getWorkshopInfo');
 Route::get('/prepareuserregister/{type}/{userid}/{eventid}', 'EventInfoController@prepareUserRegister');
+Route::get('/getchatmessages', 'Controller@getChatMessages');
 
 // Event Registration Route
 Route::get('/register/{type}/{userid}/{eventid}', 'EventRegistration@register');

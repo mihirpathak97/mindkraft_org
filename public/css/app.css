@@ -23612,6 +23612,12 @@ html {
   max-height: 80%;
 }
 
+@media screen and (max-width: 769px) {
+  .message-box-holder {
+    display: none;
+  }
+}
+
 .message-box {
   padding: 6px 10px;
   border-radius: 6px 0 6px 0;

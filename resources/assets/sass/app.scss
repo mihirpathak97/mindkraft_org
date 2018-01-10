@@ -733,6 +733,9 @@ body, html{
   right: 2rem;
   bottom: 1rem;
   max-height: 80%;
+  @media screen and (max-width: $tablet){
+    display: none;
+  }
 }
 
 .message-box {

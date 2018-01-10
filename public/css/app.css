@@ -23605,3 +23605,25 @@ html {
   text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px #00ffff, 0 0 70px #00ffff, 0 0 80px #00ffff, 0 0 100px #00ffff;
 }
 
+.message-box-holder {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  max-height: 80%;
+}
+
+.message-box {
+  padding: 6px 10px;
+  border-radius: 6px 0 6px 0;
+  max-width: 25rem;
+  margin-bottom: 2rem;
+  background: rgba(100, 170, 0, 0.15);
+  border: 2px solid rgba(100, 170, 0, 0.1);
+  color: whitesmoke;
+  font-size: 12px;
+}
+
+.message-box:last-child {
+  margin-bottom: none;
+}
+

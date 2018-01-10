@@ -835,7 +835,7 @@ $(window).resize(function () {
 });
 
 function loadBody() {
-  console.log();
+
   if (typeof particlesJS != "undefined") {
     particlesJS.load('particle-canvas', 'js/particlesjs-config-nasa.json', function () {
       console.log('callback - particles.js config loaded');
@@ -850,6 +850,15 @@ function loadBody() {
   }
 
   $('#base-hero').show();
+
+  // Populate chat items
+
+  $.get('/api/getchatmessages', function (data, status) {
+    data = JSON.parse(data);
+    for (var i = 0; i < data.messages.length; i++) {
+      console.log(data.messages[i]);
+    }
+  });
 }
 
 $('#wave').click(function () {

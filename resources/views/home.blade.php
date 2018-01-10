@@ -85,6 +85,12 @@
 			<img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
 			<h2 class="hero-theme">Zenith of Intelligence</h2>
       <h2 class="hero-date">15 March - 16 March</h2>
+
+			<!-- Chat Box -->
+			<div class="message-box-holder">
+
+			</div>
+
     </div>
 
     <div id="radial-menu" class="cm-container">
@@ -97,6 +103,15 @@
         <a class="cm-button cm-button-next" type="button" title="Next">&gt;</a>
       </div>
     </div>
+
+		<!-- <footer class="footer">
+			<div class="core">
+
+			</div>
+			<div class="z-coders">
+
+			</div>
+		</footer> -->
 
   </body>
   <script src="{{ URL::asset('js/lodash.core.js') }}"></script>

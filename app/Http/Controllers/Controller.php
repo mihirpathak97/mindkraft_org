@@ -64,8 +64,13 @@ class Controller extends BaseController
 
       $acc = '{ "messages":[';
 
-      foreach ($messages as $message) {
-        $acc .= '"'.$message->message.'"';
+      for ($i=0; $i < count($messages); $i++) {
+        if ($i == count($messages) - 1) {
+          $acc .= '"'.$messages[$i]->message.'"';
+        }
+        else {
+          $acc .= '"'.$messages[$i]->message.'",';
+        }
       }
 
       $acc .= ']}';

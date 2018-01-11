@@ -120,7 +120,6 @@ function loadBody() {
   $.get('/api/getchatmessages', function (data, status) {
     data = JSON.parse(data);
     for (var i = 0; i < data.messages.length; i++) {
-      console.log(data.messages[i]);
       $('.message-box-holder').append('<div class="message-box">'+data.messages[i]+'</div>');
     }
   });

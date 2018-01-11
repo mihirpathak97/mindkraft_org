@@ -81,6 +81,10 @@ Route::get('/sponsors', function () {
     return view('sponsors');
 });
 
+Route::get('/team', function () {
+    return view('team');
+});
+
 
 // Auth Routes
 Route::get('/login', function () {

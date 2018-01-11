@@ -94,12 +94,13 @@
       </nav>
 			<img src="{{ URL::asset('images/kit-logo-white.png') }}" class="head-logo" alt="">
 			<h2 class="hero-presents">Presents</h2>
-			<!-- <div class="mk-div">
+			<div class="mk-div">
 				<img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
 				<h2 class="mk-2018">MindKraft 2018</h2>
-			</div> -->
-			<img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
+			</div>
+			<!-- <img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt=""> -->
 			<h2 class="hero-theme">Zenith of Intelligence</h2>
+			<h3 class="tag">The Engineers' Contrivance</h3>
       <h2 class="hero-date">15 March - 16 March</h2>
 
 			<!-- Chat Box -->

@@ -262,18 +262,21 @@ body, html{
   }
 }
 
-// #base-hero .mk-div{
-//   display: block;
-//   margin: auto;
-//   width: 60%;
-// }
+#base-hero .mk-div{
+  display: block;
+  margin: auto;
+  width: 50%;
+  @media screen and (max-width: $tablet){
+    width: 70%;
+  }
+}
 
 // MindKraft Logo
-#base-hero .mk-logo{
-  width: 250px;
-  height: 250px;
+#base-hero .mk-div .mk-logo{
+  width: 210px;
+  height: 210px;
   margin-top: 1.3rem;
-  display: inline;
+  display: inline-flex;
   position: relative;
   left: 0;
   overflow: auto;
@@ -285,15 +288,24 @@ body, html{
   }
 }
 
-// #base-hero .mk-div .mk-2018{
-//   display: inline;
-//   position: relative;
-//   right: 0;
-//   font-size: 5rem;
-//   color: $light;
-//   font-weight: 900;
-//   font-family: 'Raleway', sans-serif !important;
-// }
+#base-hero .mk-div .mk-2018{
+  display: inline-flex;
+  position: relative;
+  right: 0;
+  font-size: 6rem;
+  color: $light;
+  padding-top: 1px;
+  font-weight: 800;
+  margin-top: 5rem;
+  margin-right: 20px;
+  font-family: 'Raleway', sans-serif !important;
+  @media screen and (max-width: $tablet){
+    margin: auto;
+    text-align: center;
+    font-weight: 500;
+    font-size: 3rem;
+  }
+}
 
 // KIT Logo
 #base-hero .head-logo{
@@ -341,7 +353,7 @@ body, html{
 // MindKraft theme
 #base-hero .hero-theme{
   margin-top: 3rem;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   color: $turquoise;
   @media screen and (max-width: $tablet){
     margin-top: 15%;
@@ -349,10 +361,20 @@ body, html{
   }
 }
 
+// Tag line
+#base-hero .tag{
+  background: none;
+  margin-top: 1rem;
+  color: #FF7043;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 // MindKraft Date
 #base-hero .hero-date{
   margin-top: 3rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: $light;
   @media screen and (max-width: $tablet){
     margin-top: 15%;

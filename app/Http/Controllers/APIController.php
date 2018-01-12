@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
 | Invalid `api_token` or improper API calls will return false.
 |
 | [IMPORTANT] : `api_token` is not stored in the client-side in anyway. Use
-| `auth/get/api_token/` to retrieve it from the server.
+| `auth/get/api_token/{userid}` to retrieve it from the server.
 |
 */
 
@@ -56,13 +56,13 @@ class APIController extends Controller
        // increment visit_count by 1
        DB::update('UPDATE '.$prefix.'enduser SET visit_count = visit_count + 1 where id=\''.$user[0]->id.'\'');
 
-       $json_result = '{ "auth_type":"login", "success":"true" , "userid":"'.$user[0]->userid.'", "api_token":"'.$user[0]->api_token.'"}';
+       $json_result = '{ "auth_type": "login", "success": true, "userid": "'.$user[0]->id.'", "api_token": "'.$user[0]->api_token.'" }';
 
        return $json_result;
 
      }
      else {
-       return '{ "auth_type":"login", "success":"false" }';
+       return '{ "auth_type": "login", "success": false }';
      }
   }
 
@@ -70,11 +70,53 @@ class APIController extends Controller
   {
     /**
      * Accetps user registration data
-     * Returns "login successful" (until OTP framework is enabled)
+     * Returns a boolean (until OTP framework is enabled)
      * When OTP framework is enabled, will return a proper message
      */
 
-    return "true";
+     $prefix = env('DB_TABLE_PREFIX', '');
+
+     $path = explode('/', $request->path());
+     $id = Controller::generateRandomString();
+     $name = $path[count($path) - 5];
+     $mobile = $path[count($path) - 4];
+     $email = $path[count($path) - 3];
+     $college = $path[count($path) - 2];
+     $password = $path[count($path) - 1];
+     $api_token = Controller::generateRandomString(64);
+
+     $query = 'INSERT INTO '.$prefix.'enduser (id, name, mobile, email, college, password, api_token) VALUES ( ?, ?, ?, ?, ?, PASSWORD( ? ), ?)';
+
+     tryinsert:
+       try {
+         $result = DB::insert($query, [$id, $name, $mobile, $email, $college, $password, $api_token]);
+       } catch (\Illuminate\Database\QueryException $e) {
+           if ($e->errorInfo[1] == 1062) {
+             // Checks if generated user id is already taken
+             if (stripos($e->getMessage(), 'for key \'enduser_id_unique\'') != false) {
+               $id = Controller::generateRandomString();
+               goto tryinsert;
+             }
+             // Checks if generated api_token is already taken
+             elseif (stripos($e->getMessage(), 'for key \'enduser_api_token_unique\'') != false) {
+               $id = Controller::generateRandomString(64);
+               goto tryinsert;
+             }
+             else {
+               // Houston we have a duplicate entry!
+               return '{ "auth_type": "register", "success": false, "duplicate": true }';
+             }
+           }
+           // If it's not a duplicate entry but something is still wrong
+           else {
+             return '{ "auth_type": "register", "success": false, "error_message": "'.$e->getMessage().'" }';
+           }
+         }
+
+     if (isset($result) && $result) {
+       return '{ "auth_type": "register", "success": true }';
+       // loginUser($mobile, $password);
+     }
   }
 
   public function userAuthRegisterKarunya(Request $request)

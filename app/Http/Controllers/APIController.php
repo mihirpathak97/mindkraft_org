@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,29 @@ class APIController extends Controller
      * [NOTE] : `userid` can be stored on the client-side
      */
 
-    return "true";
+     $prefix = env('DB_VIEW_PREFIX', '');
+
+     $path = explode('/', $request->path());
+     $mobile = $path[count($path) - 2];
+     $password = $path[count($path) - 1];
+
+     $query = 'SELECT * FROM '.$prefix.'enduser WHERE mobile=? AND password=PASSWORD(?)';
+
+     $user = DB::select($query, [$mobile, $password]);
+
+     if (count($user) == 1) {
+
+       // increment visit_count by 1
+       DB::update('UPDATE '.$prefix.'enduser SET visit_count = visit_count + 1 where id=\''.$user[0]->id.'\'');
+
+       $json_result = '{ "auth_type":"login", "success":"true" , "userid":"'.$user[0]->userid.'", "api_token":"'.$user[0]->api_token.'"}';
+
+       return $json_result;
+
+     }
+     else {
+       return '{ "auth_type":"login", "success":"false" }';
+     }
   }
 
   public function userAuthRegister(Request $request)

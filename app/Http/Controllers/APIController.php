@@ -115,7 +115,6 @@ class APIController extends Controller
 
      if (isset($result) && $result) {
        return '{ "auth_type": "register", "success": true }';
-       // loginUser($mobile, $password);
      }
   }
 
@@ -128,7 +127,49 @@ class APIController extends Controller
      * Return - Same as userAuthRegister
      */
 
-    return "true";
+     $prefix = env('DB_TABLE_PREFIX', '');
+
+     $path = explode('/', $request->path());
+     $id = Controller::generateRandomString();
+     $name = urldecode($path[count($path) - 6]);
+     $mobile = $path[count($path) - 5];
+     $email = $path[count($path) - 4];
+     $college = urldecode($path[count($path) - 3]);
+     $reg_no = $path[count($path) - 2];
+     $password = $path[count($path) - 1];
+     $api_token = Controller::generateRandomString(64);
+
+     $query = 'INSERT INTO '.$prefix.'enduser (id, name, mobile, email, college, register_number, password, api_token) VALUES ( ?, ?, ?, ?, ?, ?, PASSWORD( ? ), ?)';
+
+     tryinsert:
+       try {
+         $result = DB::insert($query, [$id, $name, $mobile, $email, $college, $reg_no, $password, $api_token]);
+       } catch (\Illuminate\Database\QueryException $e) {
+           if ($e->errorInfo[1] == 1062) {
+             // Checks if generated user id is already taken
+             if (stripos($e->getMessage(), 'for key \'enduser_id_unique\'') != false) {
+               $id = Controller::generateRandomString();
+               goto tryinsert;
+             }
+             // Checks if generated api_token is already taken
+             elseif (stripos($e->getMessage(), 'for key \'enduser_api_token_unique\'') != false) {
+               $id = Controller::generateRandomString(64);
+               goto tryinsert;
+             }
+             else {
+               // Houston we have a duplicate entry!
+               return '{ "auth_type": "register", "success": false, "duplicate": true }';
+             }
+           }
+           // If it's not a duplicate entry but something is still wrong
+           else {
+             return '{ "auth_type": "register", "success": false, "error_message": "'.$e->getMessage().'" }';
+           }
+         }
+
+     if (isset($result) && $result) {
+       return '{ "auth_type": "register", "success": true }';
+     }
   }
 
   public function userAuthAuthenticate(Request $request)

@@ -48,5 +48,5 @@ Route::prefix('auth')->group(function () {
 // Get Data
 Route::get('{api_token}/get/events', 'APIController@getEventsList');
 Route::get('{api_token}/get/events/{dept}', 'APIController@getEventsListDepartment');
-Route::get('{api_token}/get/workshops', 'APIController@getWorkshopsList');
 Route::get('{api_token}/get/games', 'APIController@getGamesList');
+Route::get('{api_token}/get/workshops', 'APIController@getWorkshopsList');

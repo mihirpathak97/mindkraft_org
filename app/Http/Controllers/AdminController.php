@@ -15,7 +15,7 @@ class AdminController extends Controller
     $username = $request->input('username');
     $password = $request->input('password');
 
-    $query = 'SELECT * FROM '.$prefix.'admin_user WHERE username=? AND password=PASSWORD(?)';
+    $query = 'SELECT * FROM '.$prefix.'cpanel_users WHERE username=? AND password=PASSWORD(?)';
 
     $user = DB::select($query, [$username, $password]);
 

@@ -78,10 +78,10 @@ class APIController extends Controller
 
      $path = explode('/', $request->path());
      $id = Controller::generateRandomString();
-     $name = $path[count($path) - 5];
+     $name = urldecode($path[count($path) - 5]);
      $mobile = $path[count($path) - 4];
      $email = $path[count($path) - 3];
-     $college = $path[count($path) - 2];
+     $college = urldecode($path[count($path) - 2]);
      $password = $path[count($path) - 1];
      $api_token = Controller::generateRandomString(64);
 

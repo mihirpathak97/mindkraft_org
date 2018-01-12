@@ -27,6 +27,27 @@ use Illuminate\Support\Facades\DB;
 class APIController extends Controller
 {
 
+  protected function checkAPIToken($api_token)
+  {
+    /**
+     *  checkAPIToken - returns true if given `api_token` is valid
+     */
+
+    $prefix = env('DB_VIEW_PREFIX', '');
+
+    $query = 'SELECT * FROM '.$prefix.'enduser WHERE api_token=?';
+
+    $user = DB::select($query, [$api_token]);
+
+    if (count($user) == 1) {
+      return true;
+    }
+    else {
+      return false;
+    }
+
+  }
+
   /*
   |--------------------------------------------------------------------------
   | Authentication Functions
@@ -199,7 +220,7 @@ class APIController extends Controller
      * Returns events list (departments)
      */
 
-    return "true";
+
   }
 
   public function getEventsListDepartment(Request $request)
@@ -208,7 +229,34 @@ class APIController extends Controller
      * Returns department wise events list
      */
 
-    return "true";
+    $prefix = env('DB_VIEW_PREFIX', '');
+
+    $path = explode('/', $request->path());
+    $api_token = $path[count($path) - 4];
+    $dept = $path[count($path) - 1];
+
+    if (!APIController::checkAPIToken($api_token)) {
+      return '{ "event_type": "events", "department": "'.$dept.'", "invalid_token": true }';
+    }
+
+    $query = 'SELECT * FROM '.$prefix.'events_list WHERE department= ? ';
+    $events_list = DB::select($query, [$dept]);
+
+    $json_result = '{ "event_type": "events", "department": "'.Controller::dept_list[$dept].'", "events": [';
+
+    for ($i=0; $i < count($events_list); $i++) {
+      if ($i == count($events_list) - 1) {
+        $json_result .= '{ "event_name": "'.$events_list[$i]->name.'", "event_id": "'.$events_list[$i]->id.'" }';
+      }
+      else {
+        $json_result .= '{ "event_name": "'.$events_list[$i]->name.'", "event_id": "'.$events_list[$i]->id.'" }, ';
+      }
+    }
+
+    $json_result .= '] }';
+
+    return $json_result;
+
   }
 
   public function getGamesList(Request $request)
@@ -217,7 +265,33 @@ class APIController extends Controller
      * Returns games list
      */
 
-    return "true";
+     $prefix = env('DB_VIEW_PREFIX', '');
+
+     $path = explode('/', $request->path());
+     $api_token = $path[count($path) - 3];
+
+     if (!APIController::checkAPIToken($api_token)) {
+       return '{ "event_type": "games", "invalid_token": true }';
+     }
+
+     $query = 'SELECT * FROM '.$prefix.'games_list';
+     $games_list = DB::select($query);
+
+     $json_result = '{ "event_type": "workshops", "games": [';
+
+     for ($i=0; $i < count($games_list); $i++) {
+       if ($i == count($games_list) - 1) {
+         $json_result .= '{ "game_name": "'.$games_list[$i]->name.'", "game_id": "'.$games_list[$i]->id.'" }';
+       }
+       else {
+         $json_result .= '{ "game_name": "'.$games_list[$i]->name.'", "game_id": "'.$games_list[$i]->id.'" }, ';
+       }
+     }
+
+     $json_result .= '] }';
+
+     return $json_result;
+
   }
 
   public function getWorkshopsList(Request $request)
@@ -226,7 +300,33 @@ class APIController extends Controller
      * Returns workshops list
      */
 
-    return "true";
+     $prefix = env('DB_VIEW_PREFIX', '');
+
+     $path = explode('/', $request->path());
+     $api_token = $path[count($path) - 3];
+
+     if (!APIController::checkAPIToken($api_token)) {
+       return '{ "event_type": "workshops", "invalid_token": true }';
+     }
+
+     $query = 'SELECT * FROM '.$prefix.'workshops_list';
+     $workshops_list = DB::select($query);
+
+     $json_result = '{ "event_type": "workshops", "workshops": [';
+
+     for ($i=0; $i < count($workshops_list); $i++) {
+       if ($i == count($workshops_list) - 1) {
+         $json_result .= '{ "workshop_name": "'.$workshops_list[$i]->name.'", "workshop_id": "'.$workshops_list[$i]->id.'" }';
+       }
+       else {
+         $json_result .= '{ "workshop_name": "'.$workshops_list[$i]->name.'", "workshop_id": "'.$workshops_list[$i]->id.'" }, ';
+       }
+     }
+
+     $json_result .= '] }';
+
+     return $json_result;
+
   }
 
 }

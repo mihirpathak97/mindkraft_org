@@ -19,6 +19,7 @@ class CreateEnduserTable extends Migration
             $table->string('mobile')->unique();
             $table->string('email')->unique();
             $table->string('college');
+            $table->string('register_number')->default('N/A');
             $table->binary('password');
             $table->string('api_token')->unique();
             $table->boolean('is_verified')->default(false);

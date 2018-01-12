@@ -20,6 +20,7 @@ class CreateEnduserTable extends Migration
             $table->string('email')->unique();
             $table->string('college');
             $table->binary('password');
+            $table->string('api_token')->unique();
             $table->boolean('is_verified')->default(false);
             $table->boolean('allow_sponsor_promo')->default(false);
             $table->integer('visit_count')->default(0);

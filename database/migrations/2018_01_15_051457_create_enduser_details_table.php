@@ -15,7 +15,7 @@ class CreateEnduserDetailsTable extends Migration
     {
         Schema::create('enduser_details', function (Blueprint $table) {
             $table->string('id')->unique();
-            $table->string('api_token');
+            $table->string('api_token')->unique();
             $table->integer('visit_count')->default(0);
             $table->boolean('allow_sponsor_promo')->default(false);
             $table->timestamp('date_modified');

@@ -205,6 +205,24 @@ class APIController extends Controller
   }
 
 
+  public function getAPIToken(Request $request)
+  {
+    $prefix = env('DB_VIEW_PREFIX', '');
+
+    $path = explode('/', $request->path());
+    $id = $path[count($path) - 1];
+
+    $user = DB::select('SELECT * FROM '.$prefix.'enduser WHERE id=\''.$id.'\'');
+    if (count($user) == 1) {
+      $user = $user[0];
+      return '{ "api_token": "'.$user->api_token.'" }';
+    }
+    else {
+      return '{ "message": "Invalid userid" }';
+    }
+
+  }
+
   /*
   |--------------------------------------------------------------------------
   | Get Functions

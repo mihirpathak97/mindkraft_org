@@ -39,6 +39,7 @@ Route::prefix('auth')->group(function () {
   Route::get('/login/{mobile}/{password}', 'APIController@userAuthLogin');
   Route::get('/register/{name}/{mobile}/{email}/{college}/{password}', 'APIController@userAuthRegister');
   Route::get('/register/{name}/{mobile}/{email}/{college}/{register_no}/{password}', 'APIController@userAuthRegisterKarunya');
+  Route::get('/get/api_token/{userid}', 'APIController@getAPIToken');
 
 });
 // Get Data

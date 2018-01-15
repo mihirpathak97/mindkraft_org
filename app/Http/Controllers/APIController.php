@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\DB;
 class APIController extends Controller
 {
 
+
   protected function checkAPIToken($api_token)
   {
     /**
@@ -47,6 +48,7 @@ class APIController extends Controller
     }
 
   }
+
 
   /*
   |--------------------------------------------------------------------------

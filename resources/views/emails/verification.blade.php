@@ -5,12 +5,13 @@
       <meta charset="utf-8">
     </head>
 
-    <body>
+    <link href='https://fonts.googleapis.com/css?family=Raleway|Roboto' rel='stylesheet' type='text/css'>
 
-      <br><br>
-      <h2>Your Verification OTP is : {{ $otp }}</h2><br><br>
-      <p>With Regards,</p>
-      <p>MindKraft Tech Team</p>
+    <body style="overflow:hidden">
+
+        <h2 style="font-weight: 400;color: #000;font-size: 2rem;text-align: center;font-family: 'Roboto', sans-serif; margin-top: 5rem;" >Your verification code is : <span style="font-weight: bold;color: rgba(0, 0, 0, 0.7);">{{ $otp }}</span></h2><br><br>
+        <p style="text-align: left;color: #000;position: relative;left: 7rem;font-family: 'Raleway', sans-serif;">With Regards,</p>
+        <p style="text-align: left;color: #000;position: relative;left: 7rem;font-family: 'Raleway', sans-serif;">MindKraft Tech Team</p>
 
     </body>
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VerificationEmail;
 
 class Auth extends Controller
 {
@@ -22,12 +24,21 @@ class Auth extends Controller
 
     if (count($user) == 1) {
 
+      $user = $user[0];
+
+      // Check if user is verified
+      if ($user->is_verified == 0) {
+        $data = ['userid' => $user->id];
+        Mail::to($user->email)->send(new VerificationEmail($data));
+        return "A verification link was sent to your email account, please use that link to verify your account";
+      }
+
       // increment visit_count by 1
-      DB::update('UPDATE '.$prefix.'enduser SET visit_count = visit_count + 1 where id=\''.$user[0]->id.'\'');
+      DB::update('UPDATE '.$prefix.'enduser SET visit_count = visit_count + 1 where id=\''.$user->id.'\'');
 
       session([
-        'username' => $user[0]->name,
-        'userid' => $user[0]->id
+        'username' => $user->name,
+        'userid' => $user->id
       ]);
 
       if ($request->input('referrer') == 'register') {

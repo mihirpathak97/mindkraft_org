@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VerificationEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,11 +78,18 @@ class APIController extends Controller
 
      if (count($user) == 1) {
 
+       $user = $user[0];
+
+       // Check if user is verified
+       if ($user->is_verified == 0) {
+         $data = ['id' => $user->id, 'api_token' => $user->api_token];
+         Mail::to($user->email)->send(new VerificationEmail($data));
+         return '{ "auth_type": "login", "success": false, "verify": true }';
+       }
+
        // increment visit_count by 1
-       DB::update('UPDATE '.$prefix.'enduser SET visit_count = visit_count + 1 where id=\''.$user[0]->id.'\'');
-
-       $json_result = '{ "auth_type": "login", "success": true, "userid": "'.$user[0]->id.'", "api_token": "'.$user[0]->api_token.'" }';
-
+       DB::update('UPDATE '.$prefix.'enduser SET visit_count = visit_count + 1 where id=\''.$user->id.'\'');
+       $json_result = '{ "auth_type": "login", "success": true, "userid": "'.$user->id.'", "api_token": "'.$user->api_token.'" }';
        return $json_result;
 
      }
@@ -193,16 +202,6 @@ class APIController extends Controller
      if (isset($result) && $result) {
        return '{ "auth_type": "register", "success": true }';
      }
-  }
-
-  public function userAuthAuthenticate(Request $request)
-  {
-    /**
-     * Accepts mobile number, password and OTP
-     * Returns "You can now login"
-     */
-
-    return "true";
   }
 
 

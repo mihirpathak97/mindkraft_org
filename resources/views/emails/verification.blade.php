@@ -9,7 +9,7 @@
 
     <body style="overflow:hidden">
 
-        <h2 style="font-weight: 400;color: #000;font-size: 2rem;text-align: center;font-family: 'Roboto', sans-serif; margin-top: 5rem;" >Your verification code is : <span style="font-weight: bold;color: rgba(0, 0, 0, 0.7);">{{ $otp }}</span></h2><br><br>
+        <h2 style="font-weight: 400;color: #000;font-size: 2rem;text-align: center;font-family: 'Roboto', sans-serif; margin-top: 5rem;" >Your verification link is : <a href="<?php echo 'http://localhost:8000/verify/'. hash('sha256', $id); ?>"><span style="font-weight: bold;color: rgba(0, 0, 0, 0.7);">Click here to verify</span></a> </h2><br><br>
         <p style="text-align: left;color: #000;position: relative;left: 7rem;font-family: 'Raleway', sans-serif;">With Regards,</p>
         <p style="text-align: left;color: #000;position: relative;left: 7rem;font-family: 'Raleway', sans-serif;">MindKraft Tech Team</p>
 

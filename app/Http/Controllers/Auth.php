@@ -60,19 +60,37 @@ class Auth extends Controller
     else {
       $college = $request->input('college_other');
     }
+    if ($request->has('reg_no')) {
+      $reg_no = $request->input('reg_no');
+    }
     $password = $request->input('password');
+    $api_token = Controller::generateRandomString(64);
 
-    $query = 'INSERT INTO '.$prefix.'enduser (id, name, mobile, email, college, password) VALUES ( ?, ?, ?, ?, ?, PASSWORD( ? ))';
-    // $result = DB::insert($query, [$id, $name, $mobile, $email, $college, $password]);
+    if (isset($reg_no)) {
+      $query = 'INSERT INTO '.$prefix.'enduser (id, name, mobile, email, college, register_number, password, api_token) VALUES ( ?, ?, ?, ?, ?, ?, PASSWORD( ? ), ?)';
+    }
+    else {
+      $query = 'INSERT INTO '.$prefix.'enduser (id, name, mobile, email, college, password, api_token) VALUES ( ?, ?, ?, ?, ?, PASSWORD( ? ), ?)';
+    }
 
     tryinsert:
       try {
-        $result = DB::insert($query, [$id, $name, $mobile, $email, $college, $password]);
+        if (isset($reg_no)) {
+          $result = DB::insert($query, [$id, $name, $mobile, $email, $college, $reg_no, $password, $api_token]);
+        }
+        else {
+          $result = DB::insert($query, [$id, $name, $mobile, $email, $college, $password, $api_token]);
+        }
       } catch (\Illuminate\Database\QueryException $e) {
           if ($e->errorInfo[1] == 1062) {
             // Checks if generated user id is already taken
             if (stripos($e->getMessage(), 'for key \'enduser_id_unique\'') != false) {
               $id = Controller::generateRandomString();
+              goto tryinsert;
+            }
+            // Checks if generated api_token is already taken
+            elseif (stripos($e->getMessage(), 'for key \'enduser_api_token_unique\'') != false) {
+              $id = Controller::generateRandomString(64);
               goto tryinsert;
             }
             else {
@@ -82,7 +100,7 @@ class Auth extends Controller
           }
           // If it's not a duplicate entry but something is still wrong
           else {
-            return "Error creating user account!<br>Please check your input and try again later";
+            return "Error creating user account!<br>Please check your input and try again later" . $e->getMessage();
           }
         }
 

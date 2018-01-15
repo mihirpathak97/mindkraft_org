@@ -115,7 +115,7 @@
 				<a href=""><li class="social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></li></a>
 				<a href=""><li class="social-icon"><i class="fa fa-youtube-play" aria-hidden="true"></i></li></a>
 				<p>|</p>
-				<p>Written with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="">Z Coders</a></p>
+				<p>Written with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="/z">Z Coders</a></p>
 				<p>|</p>
 				<a href="/team">Core Team</a>
 			</div>

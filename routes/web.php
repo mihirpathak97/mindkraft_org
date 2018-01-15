@@ -87,6 +87,8 @@ Route::get('/team', function () {
     return view('team');
 });
 
+Route::view('/z', 'z');
+
 
 // Auth Routes
 Route::get('/login', function () {

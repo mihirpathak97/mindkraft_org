@@ -138,6 +138,11 @@ class Auth extends Controller
 
       // check if already done
       $user = DB::select('SELECT * FROM '.$prefix.'enduser WHERE id=\''.$id.'\'');
+
+      if (count($user) != 1) {
+        return view('verify.failed');
+      }
+
       $user = $user[0];
 
       if ($user->is_verified == 1) {

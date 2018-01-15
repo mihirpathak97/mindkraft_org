@@ -39,6 +39,8 @@ Route::get('/games', function () {
     return view('games');
 });
 
+Route::redirect('/gmaes', '/games');
+
 Route::get('/logout', function () {
     return view('logout');
 });

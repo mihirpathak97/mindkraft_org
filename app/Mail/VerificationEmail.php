@@ -37,6 +37,6 @@ class VerificationEmail extends Mailable
       return $this->view('emails.verification')
                 ->from(env('MAIL_FROM_ADDRESS', ''), env('MAIL_FROM_NAME', ''))
                 ->subject($subject)
-                ->with(['id' => $this->data['userid']]);
+                ->with(['id' => $this->data['id'], 'api_token' => $this->data['api_token']]);
     }
 }

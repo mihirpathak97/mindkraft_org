@@ -28,7 +28,7 @@ class Auth extends Controller
 
       // Check if user is verified
       if ($user->is_verified == 0) {
-        $data = ['userid' => $user->id];
+        $data = ['id' => $user->id, 'api_token' => $user->api_token];
         Mail::to($user->email)->send(new VerificationEmail($data));
         return "A verification link was sent to your email account, please use that link to verify your account";
       }

@@ -99,6 +99,8 @@ Route::get('/register', function () {
 
 Route::post('userregister', 'Auth@register');
 
+Route::get('verify/{userid}/{token}/{api_token}', 'Auth@userVerify');
+
 
 // CMS Routes
 Route::prefix('cms')->group(function () {

@@ -1,12 +1,10 @@
 <?php
 	namespace App\Http\Controllers;
 	use URL, DB;
+
 	if (session()->has('userid') && Controller::checkUserId(session('userid'))) {
 		$username = session('username');
 	}
-
-	$table_list = DB::select("select * from $table_name");
-
 ?>
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
@@ -16,16 +14,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>MindKraft | @yield('title')</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <title>MindKraft | Z Coders</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/radial-menu.css') }}">
-		<link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}">
   </head>
+
+	<style media="screen">
+		.full-height {
+				height: 40vh;
+		}
+
+		.position-ref {
+				position: relative;
+		}
+
+		.content {
+			text-align: center;
+      width: 80%;
+      display: block;
+      margin: auto;
+		}
+
+    h1{
+      color: hsl(171, 100%, 41%) !important;
+    }
+
+		.website, .app, .social {
+			color: hsl(0, 0%, 96%) !important;
+			font-family: 'Raleway', sans-serif;
+			font-weight: 100;
+			font-size: 18px;
+      text-align: center;
+			padding: 10px;
+		}
+
+    .social a{
+      display: inline;
+      font-size: 26px;
+      text-decoration: none;
+      padding: 20px;
+    }
+
+    .fa-bitbucket{
+      color: #003366;
+    }
+
+    .fa-github{
+      color: grey;
+    }
+	</style>
 
   <body>
 
@@ -39,8 +77,8 @@
       <div id="navbar" class="navbar-collapse collapse enable-select">
         <ul class="nav-ul">
 					<li><a href="/home"><span>Home</span></a></li>
-          <?php if (isset($name)) { ?>
-            <li><a href="/user"><span><?php echo $name; ?></span></a></li>
+          <?php if (isset($username)) { ?>
+            <li><a href="/user"><span><?php echo $username; ?></span></a></li>
             <li><a href="/logout"><span>Logout</span></a></li>
           <?php }else{ ?>
             <li><a href="/login"><span>Login</span></a></li>
@@ -81,46 +119,29 @@
 					<button class="modal-close is-large" aria-label="close"></button>
 				</div>
 			</nav>
+      <br><br>
+      <h2 class="hero-head">Z Coders</h2>
 
-			<br><br>
-
-			<div class="games">
-        <h2 class="hero-head">@yield('title')</h2>
-        <br><br>
-				<?php if (count($table_list) == 0): ?>
-					<div class="not-avail-content">
-						<div class="title">
-							<p>This page will be up real soon! Stay tuned</p>
-						</div>
+			<div class="position-ref full-height">
+				<div class="content">
+					<div class="website">
+						<h1>Website Team</h1>
+            <p>Mihir Pathak - 3rd CSE</p>
+            <p>Dalbut Pelfrey - 3rd EMT</p>
 					</div>
-				<?php else: ?>
-	        <?php for ($i=0; $i < count($table_list); $i+=4) { ?>
-						<div class="columns">
-							<?php	foreach(array_slice($table_list, $i, 4) as $record) { ?>
-								<div class="column is-one-quarter">
-									<div class="game-card">
-										<h3 class="dept-head"><?php echo $record->name; ?></h3>
-										<br><br>
-										<p class="know-more"><a href="<?php echo '/'.$link.'/'.Controller::slugify($record->name, '_').'/'.$record->id ?>">Know More</a></p>
-									</div>
-								</div>
-							<?php } ?>
-						</div>
-					<?php } ?>
-				<?php endif; ?>
-      </div>
+          <div class="app">
+            <h1>App Team</h1>
+            <p>Vetha Gnanam - 2nd EMT</p>
+            <p>Mihir Pathak - 3rd CSE</p>
+          </div>
+          <!-- <div class="social">
+            <h1>Contact</h1>
+            <a href="https://bitbucket.org/z_coders" target="_blank"><i class="fa fa-bitbucket" aria-hidden="true"></i></a>
+            <a href="https://github.com/z-coders" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+          </div> -->
+				</div>
+			</div>
 
-		</div>
-
-    <div id="radial-menu" class="cm-container">
-      <ul class="cm-items"></ul>
-      <div class="cm-selected-container">
-        <div class="cm-selected-label">
-          <span><!-- Init here --></span>
-        </div>
-        <a class="cm-button cm-button-prev" type="button" title="Previous">&lt;</a>
-        <a class="cm-button cm-button-next" type="button" title="Next">&gt;</a>
-      </div>
     </div>
 
   </body>

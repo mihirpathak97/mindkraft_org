@@ -62,6 +62,7 @@
       <!-- "NAV" -->
       <div id="navbar" class="navbar-collapse collapse enable-select">
         <ul class="nav-ul">
+					<li><a href="/home"><span>Home</span></a></li>
           <?php if (isset($username)) { ?>
             <li><a href="/user"><span><?php echo $username; ?></span></a></li>
             <li><a href="/logout"><span>Logout</span></a></li>
@@ -83,7 +84,23 @@
 				<div class="modal animated fadeIn">
 					<div class="modal-background"></div>
 					<div class="modal-content">
-						<ol></ol>
+						<ol>
+							<li class="navbar-li"><a href="/home">Home</a></li>
+							<li class="navbar-li"><a href="/events">Events</a></li>
+							<li class="navbar-li"><a href="/workshops">Workshops</a></li>
+							<li class="navbar-li"><a href="/gmaes">Games</a></li>
+							<li class="navbar-li"><a href="/lectures">Lectures</a></li>
+							<li class="navbar-li"><a href="/exhibitions">Exhibitions</a></li>
+							<li class="navbar-li"><a href="/sponsors">Our Sponsors</a></li>
+							<li class="navbar-li"><a href="/contact">Contact</a></li>
+							<?php if (isset($username)): ?>
+								<li class="navbar-li"><a href="/user"><?php echo $username; ?></a></li>
+								<li class="navbar-li"><a href="/logout">Logout</a></li>
+							<?php else: ?>
+								<li class="navbar-li"><a href="/login">Login</a></li>
+								<li class="navbar-li"><a href="/register">Register</a></li>
+							<?php endif; ?>
+						</ol>
 					</div>
 					<button class="modal-close is-large" aria-label="close"></button>
 				</div>

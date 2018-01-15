@@ -39,6 +39,8 @@ Route::get('/games', function () {
     return view('games');
 });
 
+Route::redirect('/gmaes', '/games');
+
 Route::get('/logout', function () {
     return view('logout');
 });
@@ -81,6 +83,12 @@ Route::get('/sponsors', function () {
     return view('sponsors');
 });
 
+Route::get('/team', function () {
+    return view('team');
+});
+
+Route::view('/z', 'z');
+
 
 // Auth Routes
 Route::get('/login', function () {
@@ -94,6 +102,8 @@ Route::get('/register', function () {
 });
 
 Route::post('userregister', 'Auth@register');
+
+Route::get('verify/{userid}/{token}/{api_token}', 'Auth@userVerify');
 
 
 // CMS Routes

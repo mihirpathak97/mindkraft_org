@@ -262,18 +262,21 @@ body, html{
   }
 }
 
-// #base-hero .mk-div{
-//   display: block;
-//   margin: auto;
-//   width: 60%;
-// }
+#base-hero .mk-div{
+  display: block;
+  margin: auto;
+  width: 50%;
+  @media screen and (max-width: $tablet){
+    width: 70%;
+  }
+}
 
 // MindKraft Logo
-#base-hero .mk-logo{
-  width: 250px;
-  height: 250px;
+#base-hero .mk-div .mk-logo{
+  width: 210px;
+  height: 210px;
   margin-top: 1.3rem;
-  display: inline;
+  display: inline-flex;
   position: relative;
   left: 0;
   overflow: auto;
@@ -285,15 +288,24 @@ body, html{
   }
 }
 
-// #base-hero .mk-div .mk-2018{
-//   display: inline;
-//   position: relative;
-//   right: 0;
-//   font-size: 5rem;
-//   color: $light;
-//   font-weight: 900;
-//   font-family: 'Raleway', sans-serif !important;
-// }
+#base-hero .mk-div .mk-2018{
+  display: inline-flex;
+  position: relative;
+  right: 0;
+  font-size: 6rem;
+  color: $light;
+  padding-top: 1px;
+  font-weight: 800;
+  margin-top: 5rem;
+  margin-right: 20px;
+  font-family: 'Raleway', sans-serif !important;
+  @media screen and (max-width: $tablet){
+    margin: auto;
+    text-align: center;
+    font-weight: 500;
+    font-size: 3rem;
+  }
+}
 
 // KIT Logo
 #base-hero .head-logo{
@@ -341,7 +353,7 @@ body, html{
 // MindKraft theme
 #base-hero .hero-theme{
   margin-top: 3rem;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   color: $turquoise;
   @media screen and (max-width: $tablet){
     margin-top: 15%;
@@ -349,10 +361,20 @@ body, html{
   }
 }
 
+// Tag line
+#base-hero .tag{
+  background: none;
+  margin-top: 1rem;
+  color: #FF7043;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 // MindKraft Date
 #base-hero .hero-date{
   margin-top: 3rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: $light;
   @media screen and (max-width: $tablet){
     margin-top: 15%;
@@ -409,6 +431,110 @@ body, html{
   }
 }
 
+
+// Footer
+
+#base-hero .footer-bottom:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  right: -20px;
+  z-index: 0;
+  background: rgba(0, 0, 0, 1);
+  -ms-transform: skewX(30deg);
+  -webkit-transform: skewX(30deg);
+  transform: skewX(30deg);
+  box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 8px 20px 0 rgba(0,0,0,0.19);
+}
+
+#base-hero .footer-bottom{
+  width: 40%;
+  height: 6rem;
+  padding: 10px 20px 10px 10px;
+  font-size: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: #FFF;
+  background: rgba(0, 0, 0, 1);
+  text-align: center;
+  box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+  @media screen and (max-width: $tablet){
+    width: 80%;
+  }
+}
+
+#base-hero .footer-bottom::after{
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  left: -20px;
+  z-index: 0;
+  background: rgba(0, 0, 0, 1);
+  -ms-transform: skewX(-30deg);
+  -webkit-transform: skewX(-30deg);
+  transform: skewX(-30deg);
+  box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 8px 20px 0 rgba(0,0,0,0.19);
+}
+
+#base-hero .footer-bottom *{
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  vertical-align: center;
+  @media screen and (max-width: $tablet){
+    font-size: 12px;
+    margin: 0 !important;
+    line-height: 70% !important;
+    padding: 0 !important;
+    vertical-align: top;
+  }
+}
+
+
+
+#base-hero .footer-bottom p, #base-hero .footer-bottom a{
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+}
+
+#base-hero .footer-bottom .social-icon{
+  list-style-type: none;
+  font-size: 16px;
+}
+
+#base-hero .footer-bottom .social-icon .fa-facebook-f{
+  color: #3C599F;
+}
+
+#base-hero .footer-bottom .social-icon .fa-instagram{
+  color: #A1755C;
+}
+
+#base-hero .footer-bottom .social-icon .fa-youtube-play{
+  color: #C52F30;
+}
+
+#base-hero .footer-bottom .social-icon .fa-twitter{
+  color: #32CCFE;
+}
+
+#base-hero .footer-bottom .fa-heart{
+  color: $red;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+
 // Input fields div
 #base-hero .field{
   width: 40%;
@@ -444,6 +570,19 @@ body, html{
   width: 80%;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
+  height: 5%;
+  display: block;
+  margin: auto;
+  @media screen and (max-width: $tablet){
+    height: 7%;
+  }
+}
+
+#base-hero .field select{
+  width: 80%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  background: $light;
   height: 5%;
   display: block;
   margin: auto;
@@ -720,3 +859,39 @@ body, html{
 .neon:hover {
   text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
 }
+
+.message-box-holder{
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  max-height: 80%;
+  @media screen and (max-width: $tablet){
+    display: none;
+  }
+}
+
+.message-box {
+  padding: 6px 10px;
+  border-radius: 6px 0 6px 0;
+  max-width: 25rem;
+  margin-bottom: 2rem;
+  background: rgba(100, 170, 0, 0.15);
+  border: 2px solid rgba(100, 170, 0, 0.1);
+  color: $light;
+  font-size: 12px;
+}
+
+.message-box:last-child{
+  margin-bottom: none;
+}
+
+
+// .message-box:after {
+//   content: "";
+//   position: absolute;
+//   border: 10px solid transparent;
+//   border-top: 10px solid rgba(100, 170, 0, .2);
+//   border-right: none;
+//   bottom: -22px;
+//   right: 10px;
+// }

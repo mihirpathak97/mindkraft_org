@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCollegesListTable extends Migration
+class UpdateOverallViews extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateCollegesListTable extends Migration
      */
     public function up()
     {
-        Schema::create('colleges_list', function (Blueprint $table) {
-            $table->string('value')->unique();
-            $table->string('name');
-            $table->string('city');
-        });
+      $view_prefix = env('DB_VIEW_PREFIX', '');
+      $table_prefix = env('DB_TABLE_PREFIX', '');
+      DB::statement("create view $view_prefix"."news_feed as select * from $table_prefix"."news_feed");
     }
 
     /**
@@ -27,6 +25,7 @@ class CreateCollegesListTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colleges_list');
+      $view_prefix = env('DB_VIEW_PREFIX', '');
+      DB::statement("drop view $view_prefix"."news_feed");
     }
 }

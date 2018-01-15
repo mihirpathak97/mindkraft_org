@@ -71,20 +71,55 @@
 				<div class="modal animated fadeIn">
 				  <div class="modal-background"></div>
 				  <div class="modal-content">
-						<ol></ol>
+						<ol>
+							<li class="navbar-li"><a href="/home">Home</a></li>
+							<li class="navbar-li"><a href="/events">Events</a></li>
+							<li class="navbar-li"><a href="/workshops">Workshops</a></li>
+							<li class="navbar-li"><a href="/gmaes">Games</a></li>
+							<li class="navbar-li"><a href="/lectures">Lectures</a></li>
+							<li class="navbar-li"><a href="/exhibitions">Exhibitions</a></li>
+							<li class="navbar-li"><a href="/sponsors">Our Sponsors</a></li>
+							<li class="navbar-li"><a href="/contact">Contact</a></li>
+							<?php if (isset($username)): ?>
+								<li class="navbar-li"><a href="/user"><?php echo $username; ?></a></li>
+								<li class="navbar-li"><a href="/logout">Logout</a></li>
+							<?php else: ?>
+								<li class="navbar-li"><a href="/login">Login</a></li>
+								<li class="navbar-li"><a href="/register">Register</a></li>
+							<?php endif; ?>
+						</ol>
 					</div>
 				  <button class="modal-close is-large" aria-label="close"></button>
 				</div>
       </nav>
 			<img src="{{ URL::asset('images/kit-logo-white.png') }}" class="head-logo" alt="">
 			<h2 class="hero-presents">Presents</h2>
-			<!-- <div class="mk-div">
+			<div class="mk-div">
 				<img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
 				<h2 class="mk-2018">MindKraft 2018</h2>
-			</div> -->
-			<img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
+			</div>
+			<!-- <img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt=""> -->
 			<h2 class="hero-theme">Zenith of Intelligence</h2>
+			<h3 class="tag">The Engineers' Contrivance</h3>
       <h2 class="hero-date">15 March - 16 March</h2>
+
+			<!-- Chat Box -->
+			<div class="message-box-holder">
+
+			</div>
+
+			<!-- Footer -->
+			<div class="footer-bottom">
+				<a href=""><li class="social-icon"><i class="fa fa-facebook-f" aria-hidden="true"></i></li></a>
+				<a href=""><li class="social-icon"><i class="fa fa-instagram" aria-hidden="true"></i></li></a>
+				<a href=""><li class="social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></li></a>
+				<a href=""><li class="social-icon"><i class="fa fa-youtube-play" aria-hidden="true"></i></li></a>
+				<p>|</p>
+				<p>Written with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="/z">Z Coders</a></p>
+				<p>|</p>
+				<a href="/team">Core Team</a>
+			</div>
+
     </div>
 
     <div id="radial-menu" class="cm-container">
@@ -97,6 +132,15 @@
         <a class="cm-button cm-button-next" type="button" title="Next">&gt;</a>
       </div>
     </div>
+
+		<!-- <footer class="footer">
+			<div class="core">
+
+			</div>
+			<div class="z-coders">
+
+			</div>
+		</footer> -->
 
   </body>
   <script src="{{ URL::asset('js/lodash.core.js') }}"></script>

@@ -39,44 +39,44 @@ const menuData = [
   }
 ];
 
-const mobileMenuData = [
-  {
-    label: 'Home',
-    url: '/home'
-  },
-  {
-    label: 'Events',
-    url: '/events'
-  },
-  {
-    label: 'Workshops',
-    url: '/workshops'
-  },
-  {
-    label: 'Games',
-    url: '/games'
-  },
-  {
-    label: 'Lectures',
-    url: '/lectures'
-  },
-  {
-    label: 'Exhibitions',
-    url: '/exhibitions'
-  },
-  {
-    label: 'Our Sponsors',
-    url: '/sponsors'
-  },
-  {
-    label:'Login',
-    url:'/login'
-  },
-  {
-    label:'Register',
-    url:'/register'
-  }
-];
+// const mobileMenuData = [
+//   {
+//     label: 'Home',
+//     url: '/home'
+//   },
+//   {
+//     label: 'Events',
+//     url: '/events'
+//   },
+//   {
+//     label: 'Workshops',
+//     url: '/workshops'
+//   },
+//   {
+//     label: 'Games',
+//     url: '/games'
+//   },
+//   {
+//     label: 'Lectures',
+//     url: '/lectures'
+//   },
+//   {
+//     label: 'Exhibitions',
+//     url: '/exhibitions'
+//   },
+//   {
+//     label: 'Our Sponsors',
+//     url: '/sponsors'
+//   },
+//   {
+//     label:'Login',
+//     url:'/login'
+//   },
+//   {
+//     label:'Register',
+//     url:'/register'
+//   }
+// ];
 
 const menuDataURLS = ['home', 'workshops', 'events', 'games', 'sponsors', 'lectures', 'exhibitions'];
 
@@ -99,7 +99,7 @@ $(window).resize(function() {
 
 
 function loadBody() {
-  console.log();
+
   if (typeof(particlesJS) != "undefined") {
     particlesJS.load('particle-canvas', 'js/particlesjs-config-nasa.json', function() {
       console.log('callback - particles.js config loaded');
@@ -109,11 +109,20 @@ function loadBody() {
   loadRadialMenu();
 
   // Load list items in mobile navbar
-  for (var i = 0; i < mobileMenuData.length; i++) {
-    $('.modal-content').children('ol').append('<li class="navbar-li"><a href="'+mobileMenuData[i].url+'">'+mobileMenuData[i].label+'</li>');
-  }
+  // for (var i = 0; i < mobileMenuData.length; i++) {
+  //   $('.modal-content').children('ol').append('<li class="navbar-li"><a href="'+mobileMenuData[i].url+'">'+mobileMenuData[i].label+'</li>');
+  // }
 
   $('#base-hero').show();
+
+  // Populate chat items
+
+  $.get('/api/getchatmessages', function (data, status) {
+    data = JSON.parse(data);
+    for (var i = 0; i < data.messages.length; i++) {
+      $('.message-box-holder').append('<div class="message-box">'+data.messages[i]+'</div>');
+    }
+  });
 
 }
 
@@ -140,6 +149,57 @@ $('input').on("focus paste keyup", function () {
   $('.button').show();
 });
 
+// Form validation funcitons
+function validateMobile(mobile) {
+  var acceptedRegex = /^[0]?[789]\d{9}$/;
+  if (acceptedRegex.test(mobile)) {
+    return true;
+  }
+
+  return false;
+}
+
+
+function validateName(name) {
+  if (name.length > 0) {
+    return true;
+  }
+
+  return false;
+}
+
+function validateEmail(email) {
+  var acceptedRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (acceptedRegex.test(email)) {
+    return true;
+  }
+
+  return false;
+}
+
+function validateCollegeName(college) {
+  if (college.length > 0) {
+    return true;
+  }
+
+  return false;
+}
+
+function validatePasswords(p1, p2) {
+  if (pq === p2) {
+    return true;
+  }
+
+  return false;
+}
+
+function validatePassword(password) {
+  if (password.length >= 8) {
+    return true;
+  }
+
+  return false;
+}
 
 // submits login form
 $('#loginForm').submit(function () {
@@ -193,9 +253,8 @@ $('#registerForm').submit(function () {
   var name = $(this).find('input').eq(0).val();
   var mobile = $(this).find('input').eq(1).val();
   var email = $(this).find('input').eq(2).val();
-  var college = $(this).find('input').eq(3).val();
-  var password = $(this).find('input').eq(4).val();
-  var retype = $(this).find('input').eq(5).val();
+  var password = $(this).find('input').eq(5).val();
+  var retype = $(this).find('input').eq(6).val();
 
   if (!validateName(name)) {
     $('.help').eq(0).css({'color':'hsl(348, 100%, 61%)'});
@@ -215,21 +274,15 @@ $('#registerForm').submit(function () {
     return false;
   }
 
-  if(!validateCollegeName(college)){
-    $('.help').eq(3).css({'color':'hsl(348, 100%, 61%)'});
-    $('.help').eq(3).text('College name cannot be empty!');
-    return false;
-  }
-
   if(!validatePassword(password)){
-    $('.help').eq(4).css({'color':'hsl(348, 100%, 61%)'});
-    $('.help').eq(4).text('Enter a valid 8-digit password!');
+    $('.help').eq(3).css({'color':'hsl(348, 100%, 61%)'});
+    $('.help').eq(3).text('Enter a valid 8-digit password!');
     return false;
   }
 
-  // if(password != retype){
-  //   $('.help').eq(5).css({'color':'hsl(348, 100%, 61%)'});
-  //   $('.help').eq(5).text('Your passwords do not match!');
+  // if(!validatePasswords(password, retype)){
+  //   $('.help').eq(4).css({'color':'hsl(348, 100%, 61%)'});
+  //   $('.help').eq(4).text('Your passwords do not match!');
   //   return false;
   // }
 
@@ -426,59 +479,6 @@ $('#event-register').click(function () {
 
 // Functions below, do not edit unless
 // you know what you are doing
-
-
-// Form validation funcitons
-function validateMobile(mobile) {
-  var acceptedRegex = /^[0]?[789]\d{9}$/;
-  if (acceptedRegex.test(mobile)) {
-    return true;
-  }
-
-  return false;
-}
-
-
-function validateName(name) {
-  if (name.length > 0) {
-    return true;
-  }
-
-  return false;
-}
-
-function validateEmail(email) {
-  var acceptedRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if (acceptedRegex.test(email)) {
-    return true;
-  }
-
-  return false;
-}
-
-function validateCollegeName(college) {
-  if (college.length > 0) {
-    return true;
-  }
-
-  return false;
-}
-
-function validatePasswords(p1, p2) {
-  if (pq == p2) {
-    return true;
-  }
-
-  return false;
-}
-
-function validatePassword(password) {
-  if (password.length >= 8) {
-    return true;
-  }
-
-  return false;
-}
 
 
 // Loads radial menu

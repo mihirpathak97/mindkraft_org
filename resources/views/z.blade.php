@@ -126,13 +126,13 @@
 				<div class="content">
 					<div class="website">
 						<h1>Website Team</h1>
-            <p>Mihir Pathak</p>
-            <p>Dalbut Pelfrey</p>
+            <p>Mihir Pathak - 3rd CSE</p>
+            <p>Dalbut Pelfrey - 3rd EMT</p>
 					</div>
           <div class="app">
             <h1>App Team</h1>
-            <p>Vetha Gnanam</p>
-            <p>Mihir Pathak</p>
+            <p>Vetha Gnanam - 2nd EMT</p>
+            <p>Mihir Pathak - 3rd CSE</p>
           </div>
           <!-- <div class="social">
             <h1>Contact</h1>

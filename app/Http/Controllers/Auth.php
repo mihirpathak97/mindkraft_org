@@ -123,4 +123,38 @@ class Auth extends Controller
   }
 
 
+  public function userVerify(Request $request)
+  {
+
+    $prefix = env('DB_VIEW_PREFIX', '');
+
+    $path = explode('/', $request->path());
+
+    $id = $path[count($path) - 3];
+    $hash = $path[count($path) - 2];
+    $api_token = $path[count($path) - 1];
+
+    if ($hash == hash('sha256', $id)) {
+
+      // check if already done
+      $user = DB::select('SELECT * FROM '.$prefix.'enduser WHERE id=\''.$id.'\'');
+      $user = $user[0];
+
+      if ($user->is_verified == 1) {
+        return view('verify.done');
+      }
+
+      // set is_verified to 1
+      DB::update('UPDATE '.$prefix.'enduser SET is_verified = 1 where id=\''.$id.'\'');
+      return view('verify.success');
+
+    }
+
+    else {
+      return view('verify.failed');
+    }
+
+  }
+
+
 }

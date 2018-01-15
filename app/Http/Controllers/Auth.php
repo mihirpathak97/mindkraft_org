@@ -54,7 +54,12 @@ class Auth extends Controller
     $name = $request->input('name');
     $mobile = $request->input('mobile');
     $email = $request->input('email');
-    $college = $request->input('college');
+    if ($request->has('college')) {
+      $college = Controller::colleges_list[$request->input('college')];
+    }
+    else {
+      $college = $request->input('college_other');
+    }
     $password = $request->input('password');
 
     $query = 'INSERT INTO '.$prefix.'enduser (id, name, mobile, email, college, password) VALUES ( ?, ?, ?, ?, ?, PASSWORD( ? ))';
@@ -77,7 +82,7 @@ class Auth extends Controller
           }
           // If it's not a duplicate entry but something is still wrong
           else {
-            return "Error creating user account!<br>Please try again later";
+            return "Error creating user account!<br>Please check your input and try again later";
           }
         }
 

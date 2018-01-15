@@ -40,10 +40,6 @@ Route::prefix('auth')->group(function () {
   Route::get('/register/{name}/{mobile}/{email}/{college}/{password}', 'APIController@userAuthRegister');
   Route::get('/register/{name}/{mobile}/{email}/{college}/{register_no}/{password}', 'APIController@userAuthRegisterKarunya');
 
-  // Will return api_token when user is authenticated
-  // (Enabled when OTP framework is provided)
-  Route::get('/authenticate/{mobile}/{password}/{otp}', 'APIController@userAuthAuthenticate');
-
 });
 // Get Data
 Route::get('{api_token}/get/events', 'APIController@getEventsList');

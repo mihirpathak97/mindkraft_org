@@ -51,8 +51,8 @@ Route::get('{api_token}/get/workshops', 'APIController@getWorkshopsList');
 
 // Get Specific
 Route::get('{api_token}/get/event/{id}', 'APIController@getEventInfo');
-Route::get('{api_token}/get/event/{id}', 'APIController@getGameInfo');
-Route::get('{api_token}/get/event/{id}', 'APIController@getWorkshopInfo');
+Route::get('{api_token}/get/game/{id}', 'APIController@getGameInfo');
+Route::get('{api_token}/get/workshop/{id}', 'APIController@getWorkshopInfo');
 
 // Register for item
 Route::get('{api_token}/register/{userid}/{type}/{id}', 'APIController@registerToItem');

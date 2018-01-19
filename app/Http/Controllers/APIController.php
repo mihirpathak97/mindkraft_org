@@ -502,4 +502,73 @@ class APIController extends Controller
 
   }
 
+
+  /*
+  |--------------------------------------------------------------------------
+  | Register to Event
+  |--------------------------------------------------------------------------
+  |
+  | This call is used to register a userid to the specified event
+  | requires `api_token`
+  | Returns the result in JSON
+  |
+  */
+
+  public function registerToItem(Request $request)
+  {
+
+    $table_prefix = env('DB_TABLE_PREFIX', '');
+    $view_prefix = env('DB_VIEW_PREFIX', '');
+
+    $path = explode('/', $request->path());
+    $userid = $path[count($path) - 3];
+    $type = $path[count($path) - 2];
+    $eventid = $path[count($path) - 1];
+    $list_id = $type . '-' . $eventid;
+
+    if (!APIController::checkAPIToken($api_token)) {
+      return '{ "invalid_token": true }';
+    }
+
+    $list = DB::select('select * from '.$view_prefix.'event_registration where id=\''.$list_id.'\'');
+
+    if (count($list) == 0) {
+      // Create record and insert
+      DB::beginTransaction();
+      try {
+        DB::insert('insert into '.$table_prefix.'event_registration (id, registered_users) values(\''.$list_id.'\', \''.$userid.'\')');
+        DB::commit();
+      } catch (\Exception $e) {
+          DB::rollback();
+          return '{ "success": false, "message": "Error registering user! Please try again" }';
+      }
+
+    }
+
+    else {
+      // Check if user already registered
+      $list = $list[0];
+      $registered_users = explode(':', $list->registered_users);
+      if (in_array($userid, $registered_users)) {
+        return '{ "success": false, "message": "You have already registered for this event!" }';
+      }
+      else {
+        $registered_users = implode(':', $registered_users);
+        $registered_users .= ':'.$userid;
+        DB::beginTransaction();
+        try {
+          DB::insert('update '.$table_prefix.'event_registration set registered_users=\''.$registered_users.'\'');
+          DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            return '{ "success": false, "message": "Error registering user! Please try again" }';
+        }
+      }
+    }
+
+    return '{ "success": true, "message": "You have successfully registered for this event!" }';
+
+  }
+
+
 }

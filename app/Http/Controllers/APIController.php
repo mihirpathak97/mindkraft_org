@@ -521,6 +521,7 @@ class APIController extends Controller
     $view_prefix = env('DB_VIEW_PREFIX', '');
 
     $path = explode('/', $request->path());
+    $api_token = $path[count($path) - 5];
     $userid = $path[count($path) - 3];
     $type = $path[count($path) - 2];
     $eventid = $path[count($path) - 1];

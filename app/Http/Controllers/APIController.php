@@ -348,4 +348,228 @@ class APIController extends Controller
 
   }
 
+  /*
+  |--------------------------------------------------------------------------
+  | Get Specific Functions
+  |--------------------------------------------------------------------------
+  |
+  | All calls require `api_token`
+  | Returns an event's details in JSON
+  |
+  */
+
+  public function getEventInfo(Request $request)
+  {
+    /**
+     * Accepts `event_id`
+     * and returns event info in JSON
+     */
+
+     $prefix = env('DB_TABLE_PREFIX', '');
+
+     $path = explode('/', $request->path());
+     $api_token = $path[count($path) - 4];
+     $id = $path[count($path) - 1];
+
+     if (!APIController::checkAPIToken($api_token)) {
+       return '{ "invalid_token": true }';
+     }
+
+     $query = 'SELECT * FROM '.$prefix.'events_list WHERE id= ? ';
+     $event = DB::select($query, [$id]);
+
+     if (count($event) != 1) {
+       return '{ "invalid_id": true }';
+     }
+
+     $event = $event[0];
+
+     $json_result = '{ "id": "'.$event->id.'", '.
+       '"name": "'.$event->name.'", '.
+       '"department": "'.Controller::dept_list[$event->department].'", '.
+       '"type": "'.Controller::event_type[$event->type].'", '.
+       '"contact": "'.$event->contact.'", '.
+       '"fee": "'.$event->fee.'", '.
+       '"prize": "'.$event->prize.'", '.
+       '"about": "'.$event->about.'", '.
+       '"seats": "'.$event->seats.'", ';
+
+       if ($event->open) {
+         $json_result .= '"is_open": true ';
+       }
+       else {
+         $json_result .= '"is_open": false ';
+       }
+
+     $json_result .= ' }';
+
+     return $json_result;
+
+  }
+
+
+  public function getGameInfo(Request $request)
+  {
+    /**
+     * Accepts `game_id`
+     * and returns game info in JSON
+     */
+
+     $prefix = env('DB_TABLE_PREFIX', '');
+
+     $path = explode('/', $request->path());
+     $api_token = $path[count($path) - 4];
+     $id = $path[count($path) - 1];
+
+     if (!APIController::checkAPIToken($api_token)) {
+       return '{ "invalid_token": true }';
+     }
+
+     $query = 'SELECT * FROM '.$prefix.'games_list WHERE id= ? ';
+     $game = DB::select($query, [$id]);
+
+     if (count($game) != 1) {
+       return '{ "invalid_id": true }';
+     }
+
+     $game = $game[0];
+
+     $json_result = '{ "id": "'.$game->id.'", '.
+       '"name": "'.$game->name.'", '.
+       '"contact": "'.$game->contact.'", '.
+       '"fee": "'.$game->fee.'", '.
+       '"prize": "'.$game->prize.'", '.
+       '"about": "'.$game->about.'", '.
+       '"seats": "'.$game->seats.'", ';
+
+       if ($game->open) {
+         $json_result .= '"is_open": true ';
+       }
+       else {
+         $json_result .= '"is_open": false ';
+       }
+
+     $json_result .= ' }';
+
+     return $json_result;
+
+  }
+
+  public function getWorkshopInfo(Request $request)
+  {
+    /**
+     * Accepts `workshop_id`
+     * and returns workshop info in JSON
+     */
+
+     $prefix = env('DB_TABLE_PREFIX', '');
+
+     $path = explode('/', $request->path());
+     $api_token = $path[count($path) - 4];
+     $id = $path[count($path) - 1];
+
+     if (!APIController::checkAPIToken($api_token)) {
+       return '{ "invalid_token": true }';
+     }
+
+     $query = 'SELECT * FROM '.$prefix.'workshops_list WHERE id= ? ';
+     $workshop = DB::select($query, [$id]);
+
+     if (count($workshop) != 1) {
+       return '{ "invalid_id": true }';
+     }
+
+     $workshop = $workshop[0];
+
+     $json_result = '{ "id": "'.$workshop->id.'", '.
+       '"name": "'.$workshop->name.'", '.
+       '"department": "'.$workshop->department.'", '.
+       '"contact": "'.$workshop->contact.'", '.
+       '"fee": "'.$workshop->fee.'", '.
+       '"about": "'.$workshop->about.'", '.
+       '"seats": "'.$workshop->seats.'", ';
+
+       if ($workshop->open) {
+         $json_result .= '"is_open": true ';
+       }
+       else {
+         $json_result .= '"is_open": false ';
+       }
+
+     $json_result .= ' }';
+
+     return $json_result;
+
+  }
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | Register to Event
+  |--------------------------------------------------------------------------
+  |
+  | This call is used to register a userid to the specified event
+  | requires `api_token`
+  | Returns the result in JSON
+  |
+  */
+
+  public function registerToItem(Request $request)
+  {
+
+    $table_prefix = env('DB_TABLE_PREFIX', '');
+    $view_prefix = env('DB_VIEW_PREFIX', '');
+
+    $path = explode('/', $request->path());
+    $api_token = $path[count($path) - 5];
+    $userid = $path[count($path) - 3];
+    $type = $path[count($path) - 2];
+    $eventid = $path[count($path) - 1];
+    $list_id = $type . '-' . $eventid;
+
+    if (!APIController::checkAPIToken($api_token)) {
+      return '{ "invalid_token": true }';
+    }
+
+    $list = DB::select('select * from '.$view_prefix.'event_registration where id=\''.$list_id.'\'');
+
+    if (count($list) == 0) {
+      // Create record and insert
+      DB::beginTransaction();
+      try {
+        DB::insert('insert into '.$table_prefix.'event_registration (id, registered_users) values(\''.$list_id.'\', \''.$userid.'\')');
+        DB::commit();
+      } catch (\Exception $e) {
+          DB::rollback();
+          return '{ "success": false, "message": "Error registering user! Please try again" }';
+      }
+
+    }
+
+    else {
+      // Check if user already registered
+      $list = $list[0];
+      $registered_users = explode(':', $list->registered_users);
+      if (in_array($userid, $registered_users)) {
+        return '{ "success": false, "message": "You have already registered for this event!" }';
+      }
+      else {
+        $registered_users = implode(':', $registered_users);
+        $registered_users .= ':'.$userid;
+        DB::beginTransaction();
+        try {
+          DB::insert('update '.$table_prefix.'event_registration set registered_users=\''.$registered_users.'\'');
+          DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            return '{ "success": false, "message": "Error registering user! Please try again" }';
+        }
+      }
+    }
+
+    return '{ "success": true, "message": "You have successfully registered for this event!" }';
+
+  }
+
+
 }

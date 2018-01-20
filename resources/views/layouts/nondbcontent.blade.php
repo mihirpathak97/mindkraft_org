@@ -107,8 +107,6 @@
       <br><br>
       <h2 class="hero-head">@yield('title')</h2>
 
-			@section('body')
-			<!-- Inherit and implement body here -->
 			<div class="flex-center position-ref full-height">
 				<div class="content">
 					<div class="title">
@@ -116,7 +114,6 @@
 					</div>
 				</div>
 			</div>
-			@show
 
     </div>
 

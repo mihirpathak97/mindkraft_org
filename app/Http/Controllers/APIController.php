@@ -572,4 +572,86 @@ class APIController extends Controller
   }
 
 
+  /*
+  |--------------------------------------------------------------------------
+  | Search for Item
+  |--------------------------------------------------------------------------
+  |
+  | This call is used to search and event/game/workshop
+  | requires `api_token`
+  | Returns the result in JSON
+  |
+  */
+
+  public function searchForItem(Request $request)
+  {
+
+    $prefix = env('DB_VIEW_PREFIX', '');
+
+    $path = explode('/', $request->path());
+    $api_token = $path[count($path) - 3];
+    $search_string = $path[count($path) - 1];
+
+    if (!APIController::checkAPIToken($api_token)) {
+      return '{ "invalid_token": true }';
+    }
+
+    // Get events list that match the search string
+    $query = 'SELECT name, id FROM '.$prefix.'events_list WHERE name LIKE \'%'.$search_string.'%\'';
+    $events_list = DB::select($query);
+
+    $json_result = '{ "events": [';
+
+    for ($i=0; $i < count($events_list); $i++) {
+      if ($i == count($events_list) - 1) {
+        $json_result .= '{ "event_name": "'.$events_list[$i]->name.'", "event_id": "'.$events_list[$i]->id.'" }';
+      }
+      else {
+        $json_result .= '{ "event_name": "'.$events_list[$i]->name.'", "event_id": "'.$events_list[$i]->id.'" }, ';
+      }
+    }
+
+    $json_result .= '], ';
+
+    // Get games list that match the search string
+    $query = 'SELECT name, id FROM '.$prefix.'games_list WHERE name LIKE \'%'.$search_string.'%\'';
+    $games_list = DB::select($query);
+
+    $json_result .= '"games": [';
+
+    for ($i=0; $i < count($games_list); $i++) {
+      if ($i == count($games_list) - 1) {
+        $json_result .= '{ "game_name": "'.$games_list[$i]->name.'", "game_id": "'.$games_list[$i]->id.'" }';
+      }
+      else {
+        $json_result .= '{ "game_name": "'.$games_list[$i]->name.'", "game_id": "'.$games_list[$i]->id.'" }, ';
+      }
+    }
+
+    $json_result .= '], ';
+
+    // Get workshops list that match the search string
+    $query = 'SELECT name, id FROM '.$prefix.'workshops_list WHERE name LIKE \'%'.$search_string.'%\'';
+    $workshops_list = DB::select($query);
+
+    $json_result .= '"workshops": [';
+
+    for ($i=0; $i < count($workshops_list); $i++) {
+      if ($i == count($workshops_list) - 1) {
+        $json_result .= '{ "workshop_name": "'.$workshops_list[$i]->name.'", "workshop_id": "'.$workshops_list[$i]->id.'" }';
+      }
+      else {
+        $json_result .= '{ "workshop_name": "'.$workshops_list[$i]->name.'", "workshop_id": "'.$workshops_list[$i]->id.'" }, ';
+      }
+    }
+
+    $json_result .= '] }';
+
+    echo "$json_result";
+
+
+  }
+
+
+
 }

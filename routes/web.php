@@ -89,6 +89,18 @@ Route::get('/team', function () {
 
 Route::view('/z', 'z');
 
+// Static Pages
+Route::get('/schedule', function () {
+  return view('static.schedule');
+});
+
+Route::get('/accomodation', function () {
+  return view('static.accomodation');
+});
+
+Route::get('/app', function () {
+  return view('static.app');
+});
 
 // Auth Routes
 Route::get('/login', function () {

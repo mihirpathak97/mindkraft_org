@@ -410,10 +410,10 @@ class Controller extends BaseController
 
       for ($i=0; $i < count($messages); $i++) {
         if ($i == count($messages) - 1) {
-          $acc .= '"'.$messages[$i]->message.'"';
+          $acc .= json_encode($messages[$i]->message);
         }
         else {
-          $acc .= '"'.$messages[$i]->message.'",';
+          $acc .= json_encode($messages[$i]->message).', ';
         }
       }
 

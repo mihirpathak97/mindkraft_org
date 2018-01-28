@@ -55,23 +55,23 @@ Route::view('/register/{type}/{userid}/{eventid}', 'req.registerevent');
 
 
 // Misc. Routes (Static Pages)
-Route::view('/lectures', 'static.lectures');
+Route::view('/accomodation', 'static.accomodation');
+
+Route::view('/app', 'static.app');
 
 Route::view('/exhibitions', 'static.exhibitions');
+
+Route::view('/lectures', 'static.lectures');
+
+Route::view('/schedule', 'static.schedule');
 
 Route::view('/sponsors', 'static.sponsors');
 
 Route::view('/team', 'static.team');
 
-Route::view('/schedule', 'static.schedule');
-
 Route::redirect('/when', '/schedule');
 
-Route::view('/accomodation', 'static.accomodation');
-
 Route::view('/z', 'static.z');
-
-Route::view('/app', 'static.app');
 
 
 // Auth Routes

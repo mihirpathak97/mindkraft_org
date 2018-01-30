@@ -24,6 +24,7 @@ class CreateEnduserTable extends Migration
             $table->string('api_token')->unique();
             $table->integer('visit_count')->default(0);
             $table->boolean('allow_sponsor_promo')->default(false);
+            $table->boolean('require_accomodaiton')->default(false);
             $table->boolean('is_verified')->default(false);
             $table->timestamp('date_modified');
         });

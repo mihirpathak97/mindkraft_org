@@ -18,9 +18,7 @@ class CreateCpanelUsersTable extends Migration
             $table->binary('password');
             $table->timestamp('timestamp');
         });
-        DB::statement('insert into mindkraft18_cpanel_users (username, password) values (\'mihir\', password(\'ur15cs104\'))');
-        DB::statement('insert into mindkraft18_cpanel_users (username, password) values (\'dalbut\', password(\'ur15mt058\'))');
-        DB::statement('insert into mindkraft18_cpanel_users (username, password) values (\'vedha\', password(\'ur16mt019\'))');
+        DB::statement('insert into mindkraft18_cpanel_users (username, password) values (\'mihir\', password(\'Mi12971123581321\'))');
     }
 
     /**

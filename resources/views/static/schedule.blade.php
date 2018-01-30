@@ -11,7 +11,7 @@
   <head>
     @include('includes.meta')
 
-    <title>MindKraft | @yield('title')</title>
+    <title>MindKraft | Schedule</title>
 
     @include('includes.stylesheets')
   </head>
@@ -21,26 +21,29 @@
 				height: 40vh;
 		}
 
-		.flex-center {
-				align-items: center;
-				display: flex;
-				justify-content: center;
-		}
-
 		.position-ref {
 				position: relative;
 		}
 
 		.content {
 			text-align: center;
+			width: 80%;
+			display: block;
+			margin: auto;
 		}
 
-		.title {
-			color: hsl(0, 0%, 96%);
+		h1{
+			color: hsl(171, 100%, 41%) !important;
+		}
+
+		.body{
+			color: hsl(0, 0%, 96%) !important;
 			font-family: 'Raleway', sans-serif;
 			font-weight: 100;
-			font-size: 36px;
-			padding: 20px;
+			font-size: 18px;
+			text-align: center;
+      margin-bottom: 3rem;
+			padding: 10px;
 		}
 	</style>
 
@@ -55,19 +58,18 @@
 			@include('includes.mobilenav')
 
       <br><br>
-      <h2 class="hero-head">@yield('title')</h2>
+      <h2 class="hero-head">MindKraft 2018 Schedule</h2>
 
-			<div class="flex-center position-ref full-height">
+			<div class="position-ref full-height">
 				<div class="content">
-					<div class="title">
-						<p>This page will be up real soon! Stay tuned</p>
+					<div class="body">
+						<p>This year's MindKraft is being held from March 15 to March 17</p>
+            <p>More details will be updated when available.</p>
 					</div>
 				</div>
 			</div>
 
     </div>
-
-    @include('includes.radialmenu')
 
   </body>
   @include('includes.jsmin')

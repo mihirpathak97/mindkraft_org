@@ -18,6 +18,9 @@ class CreateNewsFeedTable extends Migration
         });
 
         DB::statement('insert into mindkraft18_news_feed (message) values (\'Registrations Open!!\')');
+        DB::statement('insert into mindkraft18_news_feed (message) values (\'Click <a href="/accomodation">here</a> for accomodation details!\')');
+
+
     }
 
     /**

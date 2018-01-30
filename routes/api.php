@@ -56,3 +56,6 @@ Route::get('{api_token}/get/workshop/{id}', 'APIController@getWorkshopInfo');
 
 // Register for item
 Route::get('{api_token}/register/{userid}/{type}/{id}', 'APIController@registerToItem');
+
+// Search item
+Route::get('{api_token}/search/{search_string}', 'APIController@searchForItem');

@@ -13,41 +13,25 @@
 
 
 // Base Routes
-Route::get('/', function () {
-    return view('home');
-});
+Route::view('/', 'home');
 
-Route::get('/home', function () {
-    return redirect('/');
-});
+Route::view('/home', '/');
 
 // Displaying Events/Workshops/Games
-Route::get('/events', function () {
-    return view('events');
-});
+Route::view('/events', 'events');
 
 Route::get('/events/{dept}', function ($dept) {
     $data = array('dept' => $dept);
     return view('events')->with($data);
 });
 
-Route::get('/workshops', function () {
-    return view('workshops');
-});
+Route::view('/games', 'games');
 
-Route::get('/games', function () {
-    return view('games');
-});
+Route::view('/workshops', 'workshops');
 
-Route::redirect('/gmaes', '/games');
+Route::view('/logout', 'logout');
 
-Route::get('/logout', function () {
-    return view('logout');
-});
-
-Route::get('/user', function () {
-    return view('user');
-});
+Route::view('/user', 'user');
 
 
 // Event Request Routes
@@ -70,36 +54,32 @@ Route::get('/games/{name}/{id}', function ($name, $id) {
 Route::view('/register/{type}/{userid}/{eventid}', 'req.registerevent');
 
 
-// Misc. Routes
-Route::get('/lectures', function () {
-    return view('lectures');
-});
+// Misc. Routes (Static Pages)
+Route::view('/accomodation', 'static.accomodation');
 
-Route::get('/exhibitions', function () {
-    return view('exhibitions');
-});
+Route::view('/app', 'static.app');
 
-Route::get('/sponsors', function () {
-    return view('sponsors');
-});
+Route::view('/exhibitions', 'static.exhibitions');
 
-Route::get('/team', function () {
-    return view('team');
-});
+Route::view('/lectures', 'static.lectures');
 
-Route::view('/z', 'z');
+Route::view('/schedule', 'static.schedule');
+
+Route::view('/sponsors', 'static.sponsors');
+
+Route::view('/team', 'static.team');
+
+Route::redirect('/when', '/schedule');
+
+Route::view('/z', 'static.z');
 
 
 // Auth Routes
-Route::get('/login', function () {
-    return view('login');
-});
+Route::view('/login', 'login');
 
 Route::post('userlogin', 'Auth@login');
 
-Route::get('/register', function () {
-    return view('register');
-});
+Route::view('/register', 'register');
 
 Route::post('userregister', 'Auth@register');
 
@@ -142,6 +122,13 @@ Route::prefix('admin')->group(function () {
 
 
 // Test route. Do all testing in this view
-Route::get('/test', function () {
-    return view('test');
+Route::view('/test', 'test');
+
+// SSL Verificaiton Routes
+Route::get('.well-known/acme-challenge/mi-IkmfH2aaLt10ygt7ZZtL5RvdhacjjvtZud8AbkuA', function () {
+  return response()->file('/media/audius/verify/mi-IkmfH2aaLt10ygt7ZZtL5RvdhacjjvtZud8AbkuA')
+});
+
+Route::get('.well-known/acme-challenge/TcwThEjSAgRpv3fHuphpeq6SwJjB_UTusZcXswcheQE', function () {
+  return response()->file('/media/audius/verify/TcwThEjSAgRpv3fHuphpeq6SwJjB_UTusZcXswcheQE')
 });

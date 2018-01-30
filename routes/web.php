@@ -123,3 +123,12 @@ Route::prefix('admin')->group(function () {
 
 // Test route. Do all testing in this view
 Route::view('/test', 'test');
+
+// SSL Verificaiton Routes
+Route::get('.well-known/acme-challenge/mi-IkmfH2aaLt10ygt7ZZtL5RvdhacjjvtZud8AbkuA', function () {
+  return response()->file('/media/audius/verify/mi-IkmfH2aaLt10ygt7ZZtL5RvdhacjjvtZud8AbkuA')
+});
+
+Route::get('.well-known/acme-challenge/TcwThEjSAgRpv3fHuphpeq6SwJjB_UTusZcXswcheQE', function () {
+  return response()->file('/media/audius/verify/TcwThEjSAgRpv3fHuphpeq6SwJjB_UTusZcXswcheQE')
+});

@@ -309,6 +309,74 @@ $('#registerForm').submit(function () {
   return false;
 });
 
+// Internal Registration Form
+// submits registration form
+$('#internalRegisterForm').submit(function () {
+
+  // Hide all help texts before beginning
+  $('.help').text('');
+
+  // var name = $(this).find('input').eq(0).val();
+  // var mobile = $(this).find('input').eq(1).val();
+  // var email = $(this).find('input').eq(2).val();
+  // var password = $(this).find('input').eq(4).val();
+  // var retype = $(this).find('input').eq(5).val();
+  //
+  // if (!validateName(name)) {
+  //   $('.help').eq(0).css({'color':'hsl(348, 100%, 61%)'});
+  //   $('.help').eq(0).text('Name cannot be empty!');
+  //   return false;
+  // }
+  //
+  // if(!validateMobile(mobile)){
+  //   $('.help').eq(1).css({'color':'hsl(348, 100%, 61%)'});
+  //   $('.help').eq(1).text('Enter a valid mobile number!');
+  //   return false;
+  // }
+  //
+  // if(!validateEmail(email)){
+  //   $('.help').eq(2).css({'color':'hsl(348, 100%, 61%)'});
+  //   $('.help').eq(2).text('Enter a valid E-mail ID!');
+  //   return false;
+  // }
+  //
+  // if(!validatePassword(password)){
+  //   $('.help').eq(3).css({'color':'hsl(348, 100%, 61%)'});
+  //   $('.help').eq(3).text('Enter a valid 8-digit password!');
+  //   return false;
+  // }
+
+  // if(!validatePasswords(password, retype)){
+  //   $('.help').eq(4).css({'color':'hsl(348, 100%, 61%)'});
+  //   $('.help').eq(4).text('Your passwords do not match!');
+  //   return false;
+  // }
+
+  $('.button').removeClass('is-link');
+  $('.button').addClass('button-onclick-animation');
+  $('.button').removeClass('button');
+
+  formData = $('#internalRegisterForm').serializeArray();
+  formData.push({ name:"college", value:"143" });
+  console.log(formData);
+  $.ajax({
+    type: 'POST',
+    url: '/userregister',
+    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+    data: formData,
+    success: function (data) {
+      // puts back old button classes
+      $('.button-onclick-animation').hide();
+      $('.button-onclick-animation').addClass('button is-link');
+      $('.button-onclick-animation').removeClass('button-onclick-animation');
+
+      $('#ajax-output').html(data);
+    }
+  });
+
+  return false;
+});
+
 
 // Event Info req functions
 

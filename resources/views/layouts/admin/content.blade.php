@@ -46,6 +46,7 @@
               <th>Mobile</th>
               <th>E-Mail</th>
               <th>College</th>
+              <th>Verified</th>
             </tr>
           </thead>
           <tbody>
@@ -56,6 +57,7 @@
                 <td><?php echo $record->mobile; ?></td>
                 <td><?php echo $record->email; ?></td>
                 <td><?php echo $record->college; ?></td>
+                <td><?php echo $record->is_verified; ?></td>
               </tr>
             <?php endforeach; ?>
           </tbody>

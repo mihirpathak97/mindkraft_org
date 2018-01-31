@@ -19,7 +19,7 @@
         <li class="navbar-li"><a href="/lectures">Lectures</a></li>
         <li class="navbar-li"><a href="/exhibitions">Exhibitions</a></li>
         <li class="navbar-li"><a href="/sponsors">Our Sponsors</a></li>
-        <li class="navbar-li"><a href="/contact">Contact</a></li>
+        <li class="navbar-li"><a href="/accomodation">Accomodation</a></li>
         <?php if (isset($username)): ?>
           <li class="navbar-li"><a href="/user"><?php echo $username; ?></a></li>
           <li class="navbar-li"><a href="/logout">Logout</a></li>
@@ -27,6 +27,8 @@
           <li class="navbar-li"><a href="/login">Login</a></li>
           <li class="navbar-li"><a href="/register">Register</a></li>
         <?php endif; ?>
+        <li class="navbar-li"><a href="/team">Core Team</a></li>
+        <li class="navbar-li"><a href="/z">Z Coders</a></li>
       </ol>
     </div>
     <button class="modal-close is-large" aria-label="close"></button>

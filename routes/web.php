@@ -81,6 +81,9 @@ Route::post('userlogin', 'Auth@login');
 
 Route::view('/register', 'register');
 
+Route::view('/register/internal', 'internal');
+Route::view('/register/external', 'external');
+
 Route::post('userregister', 'Auth@register');
 
 Route::get('verify/{userid}/{token}/{api_token}', 'Auth@userVerify');

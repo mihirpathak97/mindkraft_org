@@ -285,7 +285,7 @@ xmlns:o="urn:schemas-microsoft-com:office:office">
                                                 <tbody>
                                                   <tr>
                                                     <td style="word-wrap:break-word;font-size:0px;padding:0px;">
-                                                      <div style="font-size:1px;line-height:48px;white-space:nowrap;">�</div>
+                                                      <div style="font-size:1px;line-height:48px;white-space:nowrap;"></div>
                                                     </td>
                                                   </tr>
                                                 </tbody>

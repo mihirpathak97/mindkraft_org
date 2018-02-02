@@ -81,7 +81,7 @@ Route::post('userlogin', 'Auth@login');
 
 // Route::view('/register', 'register');
 
-// Disable 
+// Disable
 Route::view('/register', 'tempdisable');
 
 // Route::view('/register/internal', 'internal');

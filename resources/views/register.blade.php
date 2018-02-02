@@ -73,11 +73,6 @@
         <div class="full-height">
   				<div class="content">
   					<div class="title">
-  						<p>
-                Registration fee for students of Karunya Institute of Technology and Sciences will be deducted from your
-                eduserve account. <br>
-                External students need to pay a sum of ₹ 500 at the event venue after registration.
-              </p>
               <button type="button" class="button is-link big" onclick="JavaScript:window.location.assign('/register/internal')" name="button"><span class="font">Internal Students</span></button>
               <button type="button" class="button is-link big" onclick="JavaScript:window.location.assign('/register/external')" name="button"><span class="font">External Students</span></button>
   					</div>

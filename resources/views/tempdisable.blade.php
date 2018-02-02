@@ -50,10 +50,6 @@
 
     <div id="base-hero" class="select-disable">
 
-      @include('includes.nav')
-
-			@include('includes.mobilenav')
-
       <br><br>
       <h2 class="hero-head">Register</h2>
 
@@ -66,8 +62,6 @@
 			</div>
 
     </div>
-
-    @include('includes.radialmenu')
 
   </body>
   @include('includes.jsmin')

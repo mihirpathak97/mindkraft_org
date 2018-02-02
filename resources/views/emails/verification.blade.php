@@ -285,7 +285,7 @@ xmlns:o="urn:schemas-microsoft-com:office:office">
                                                 <tbody>
                                                   <tr>
                                                     <td style="word-wrap:break-word;font-size:0px;padding:0px;">
-                                                      <div style="font-size:1px;line-height:48px;white-space:nowrap;"> </div>
+                                                      <div style="font-size:1px;line-height:48px;white-space:nowrap;"></div>
                                                     </td>
                                                   </tr>
                                                 </tbody>
@@ -329,9 +329,9 @@ xmlns:o="urn:schemas-microsoft-com:office:office">
                                                         <p>This email was sent to you because you registered
                                                             using this id @ <a href="http://mindkraft.org">mindkraft.org</a> </p>
                                                         <p>
-                                                          <a href="<?php echo 'http://18.216.69.81/verify/'. $id . '/' . hash('sha256', $id) . '/' . $api_token; ?>" class="btn" mc:disable-tracking="">Confirm my email address</a>
+                                                          <a href="<?php echo 'http://mindkraft.org/verify/'. $id . '/' . hash('sha256', $id) . '/' . $api_token; ?>" class="btn" mc:disable-tracking="">Confirm my email address</a>
                                                         </p>
-                                                        <p>If you don’t know why you recieved this email, please ignore it.</p>
+                                                        <p>If you do not know why you recieved this email, please ignore it.</p>
                                                         <hr style="margin-top: 56px">
                                                         <p class="mb-0">With Regards,</p>
                                                         <p class="mb-0">MindKraft Tech Team</p>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
+<url>
+  <loc>https://mindkraft.org/</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/login</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/register</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/register/internal</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/register/external</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/workshops</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/games</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/lectures</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/exhibitions</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/sponsors</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/accomodation</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/schedule</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/when</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/app</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/team</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/z</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/ae</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/bt</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/bi</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/ce</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/cse</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/ece</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/eee</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/eie</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/fp</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/me</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/emt</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://mindkraft.org/events/snh</loc>
+  <lastmod>2018-02-02T08:10:29+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

@@ -79,10 +79,13 @@ Route::view('/login', 'login');
 
 Route::post('userlogin', 'Auth@login');
 
-Route::view('/register', 'register');
+// Route::view('/register', 'register');
 
-Route::view('/register/internal', 'internal');
-Route::view('/register/external', 'external');
+// Disable 
+Route::view('/register', 'tempdisable');
+
+// Route::view('/register/internal', 'internal');
+// Route::view('/register/external', 'external');
 
 Route::post('userregister', 'Auth@register');
 

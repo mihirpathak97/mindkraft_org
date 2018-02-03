@@ -15,7 +15,7 @@
 // Base Routes
 Route::view('/', 'home');
 
-Route::view('/home', '/');
+Route::redirect('/home', '/');
 
 // Displaying Events/Workshops/Games
 Route::view('/events', 'events');

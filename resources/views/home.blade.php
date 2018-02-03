@@ -14,6 +14,8 @@
     <title>MindKraft 2018</title>
 
     @include('includes.stylesheets')
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.css">
+		<script src="{{ URL::asset('js/countdown.js') }}" charset="utf-8"></script>
   </head>
 
 	<style media="screen">
@@ -37,16 +39,46 @@
 
 			@include('includes.mobilenav')
 
-			<img src="{{ URL::asset('images/kit-logo-white.png') }}" class="head-logo" alt="">
-			<h2 class="hero-presents">Presents</h2>
-			<div class="mk-div">
-				<img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
-				<h2 class="mk-2018">MindKraft 2018</h2>
+			<div id="fullpage">
+
+				<div class="section">
+					<img src="{{ URL::asset('images/kit-new.png') }}" class="head-logo" alt="">
+					<h2 class="hero-presents">Presents</h2>
+					<div class="mk-div">
+						<img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt="">
+						<h2 class="mk-2018">MindKraft 2018</h2>
+						<h2 class="hero-scroll">Scroll Down!</h2>
+					</div>
+				</div>
+
+				<div class="section">
+					<h2 class="hero-theme">Zenith of Intelligence</h2>
+					<h3 class="tag">The Engineers' Contrivance</h3>
+		      <h2 class="hero-date">15 March - 17 March</h2>
+					<div class="countdown">
+						<div class="days">
+							<h2></h2>
+							<h1 class="time-class">DAYS</h1>
+						</div>
+						<div class="hours">
+							<h2></h2>
+							<h1 class="time-class">HOURS</h1>
+						</div>
+						<div class="minutes">
+							<h2></h2>
+							<h1 class="time-class">MINS</h1>
+						</div>
+						<div class="seconds">
+							<h2></h2>
+							<h1 class="time-class">SECS</h1>
+						</div>
+					</div>
+				</div>
+
 			</div>
+
+
 			<!-- <img src="{{ URL::asset('images/mk-cropped.png') }}" class="mk-logo" alt=""> -->
-			<h2 class="hero-theme">Zenith of Intelligence</h2>
-			<h3 class="tag">The Engineers' Contrivance</h3>
-      <h2 class="hero-date">15 March - 16 March</h2>
 
 			<!-- Chat Box -->
 			<div class="message-box-holder">
@@ -80,4 +112,11 @@
 
   </body>
   @include('includes.js')
+	<script src="{{ URL::asset('js/countdown.js') }}" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js" charset="utf-8"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#fullpage').fullpage();
+	});
+	</script>
 </html>

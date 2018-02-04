@@ -120,7 +120,12 @@ Route::prefix('admin')->group(function () {
   Route::view('events', 'admin.events');
   Route::view('games', 'admin.games');
   Route::view('workshops', 'admin.workshops');
+
   Route::view('users', 'admin.users');
+  Route::get('users/{college}', function ($college) {
+    return view('admin.userlist', ['college' => $college]);
+  });
+  Route::view('users/kits', 'admin.userlist', ['college' => 'Karunya Institute of Technology and Sciences, Coimbatore']);
 
   // Auth Route
   Route::post('authenticate', 'AdminController@login');

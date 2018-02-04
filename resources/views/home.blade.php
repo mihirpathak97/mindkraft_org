@@ -87,8 +87,8 @@
 
 			<!-- Footer -->
 			<div class="footer-bottom">
-				<a href=""><li class="social-icon"><i class="fa fa-facebook-f" aria-hidden="true"></i></li></a>
-				<a href=""><li class="social-icon"><i class="fa fa-instagram" aria-hidden="true"></i></li></a>
+				<a href="https://facebook.com/mindfraftorg"><li class="social-icon"><i class="fa fa-facebook-f" aria-hidden="true"></i></li></a>
+				<a href="https://instagram.com/mindfraftorg"><li class="social-icon"><i class="fa fa-instagram" aria-hidden="true"></i></li></a>
 				<a href=""><li class="social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></li></a>
 				<a href=""><li class="social-icon"><i class="fa fa-youtube-play" aria-hidden="true"></i></li></a>
 				<p>|</p>

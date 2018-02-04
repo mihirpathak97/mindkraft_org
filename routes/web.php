@@ -127,6 +127,10 @@ Route::prefix('admin')->group(function () {
   });
   Route::view('users/kits', 'admin.userlist', ['college' => 'Karunya Institute of Technology and Sciences, Coimbatore']);
 
+  Route::get('/showinfo/{type}/{id}', function ($type, $id) {
+    return view('admin.showinfo', ['type' => $type, 'id' => $id]);
+  });
+
   // Auth Route
   Route::post('authenticate', 'AdminController@login');
 });

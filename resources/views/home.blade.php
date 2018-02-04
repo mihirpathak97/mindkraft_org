@@ -14,8 +14,8 @@
     <title>MindKraft 2018</title>
 
     @include('includes.stylesheets')
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.css">
-		<script src="{{ URL::asset('js/countdown.js') }}" charset="utf-8"></script>
   </head>
 
 	<style media="screen">
@@ -112,8 +112,11 @@
 
   </body>
   @include('includes.js')
+
 	<script src="{{ URL::asset('js/countdown.js') }}" charset="utf-8"></script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js" charset="utf-8"></script>
+
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$('#fullpage').fullpage();

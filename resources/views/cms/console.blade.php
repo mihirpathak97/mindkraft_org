@@ -93,7 +93,6 @@
                 <option value="eie">EIE</option>
                 <option value="eng">Department of English</option>
                 <option value="fp">Food Processing</option>
-                <option value="kubs">KUBS</option>
                 <option value="me">Mechanical</option>
                 <option value="emt">EMT</option>
                 <option value="nano">Nano Technology</option>
@@ -112,6 +111,10 @@
         <p class="ip-group">
           <label class="label">Prize (type 0 if none)</label>
           <input type="text" name="prize" class="input" value="" required>
+        </p>
+        <p class="ip-group">
+          <label class="label">Rules</label>
+          <textarea name="rules" class="textarea" required></textarea>
         </p>
         <p class="ip-group">
           <label class="label">Event Description</label>

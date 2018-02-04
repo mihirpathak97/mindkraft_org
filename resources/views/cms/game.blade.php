@@ -80,6 +80,10 @@
           <input type="text" name="prize" class="input" value="" required>
         </p>
         <p class="ip-group">
+          <label class="label">Rules</label>
+          <textarea name="rules" class="textarea" required></textarea>
+        </p>
+        <p class="ip-group">
           <label class="label">Game Description</label>
           <textarea name="about" class="textarea" required></textarea>
         </p>

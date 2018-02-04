@@ -20,6 +20,7 @@ class CreateEventsListTable extends Migration
             $table->string('department');
             $table->string('contact');
             $table->string('fee');
+            $table->string('rules');
             $table->string('prize');
             $table->longText('about');
             $table->integer('seats');

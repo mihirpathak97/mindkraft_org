@@ -18,6 +18,7 @@ class CreateGamesListTable extends Migration
           $table->string('name');
           $table->string('contact');
           $table->string('fee');
+          $table->string('rules');
           $table->string('prize');
           $table->longText('about');
           $table->integer('seats');

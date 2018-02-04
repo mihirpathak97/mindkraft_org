@@ -54,7 +54,6 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item is-tab is-active" href="#">Add A New Workshop</a>
-        <a class="navbar-item is-tab" @click="clone"><i class="fa fa-plus" aria-hidden="true"></i></a>
       </div>
     </div>
   </nav>

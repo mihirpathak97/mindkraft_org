@@ -4,6 +4,13 @@
   }
   $prefix = env('DB_TABLE_PREFIX', '');
   $list = DB::select('select * from '.$prefix.$table_name);
+
+  $alias = array(
+    'events_list' => 'Events List',
+    'games_list' => 'Games List',
+    'workshops_list' => 'Workshops List'
+  );
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +35,7 @@
       <nav class="navbar has-shadow">
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item is-tab is-active">{{ $table_name }}</a>
+            <a class="navbar-item is-tab is-active"><?php echo $alias[$table_name]; ?></a>
           </div>
         </div>
       </nav>

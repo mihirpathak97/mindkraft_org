@@ -7,7 +7,6 @@
   $prefix = env('DB_TABLE_PREFIX', '');
   $query = 'SELECT * from '.$prefix.'enduser WHERE college=?';
   $list = DB::select($query, [$college]);
-
 ?>
 
 <!DOCTYPE html>

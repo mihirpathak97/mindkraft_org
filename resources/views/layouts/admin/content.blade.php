@@ -4,10 +4,6 @@
   }
   $prefix = env('DB_TABLE_PREFIX', '');
   $list = DB::select('select * from '.$prefix.$table_name);
-
-  if ($table_name != 'enduser') {
-    $user_table = false;
-  }
 ?>
 
 <!DOCTYPE html>
@@ -36,33 +32,6 @@
           </div>
         </div>
       </nav>
-
-      <?php if ($table_name == 'enduser'): ?>
-        <table class="table card">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Full Name</th>
-              <th>Mobile</th>
-              <th>E-Mail</th>
-              <th>College</th>
-              <th>Verified</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($list as $record): ?>
-              <tr>
-                <td><?php echo $record->id; ?></td>
-                <td><?php echo $record->name; ?></td>
-                <td><?php echo $record->mobile; ?></td>
-                <td><?php echo $record->email; ?></td>
-                <td><?php echo $record->college; ?></td>
-                <td><?php echo $record->is_verified; ?></td>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-      <?php endif; ?>
 
       <?php if ($table_name == 'games_list'): ?>
         <div class="box">

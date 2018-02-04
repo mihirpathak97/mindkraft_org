@@ -54,7 +54,6 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item is-tab is-active" href="#">Add A New Game</a>
-        <a class="navbar-item is-tab" @click="clone"><i class="fa fa-plus" aria-hidden="true"></i></a>
       </div>
     </div>
   </nav>
@@ -77,7 +76,11 @@
         </p>
         <p class="ip-group">
           <label class="label">Prize (type 0 if none)</label>
-          <input type="text" name="prize" class="input" value="" required>
+          <textarea name="prize" class="textarea" value="" required></textarea>
+        </p>
+        <p class="ip-group">
+          <label class="label">Rules</label>
+          <textarea name="rules" class="textarea" required></textarea>
         </p>
         <p class="ip-group">
           <label class="label">Game Description</label>

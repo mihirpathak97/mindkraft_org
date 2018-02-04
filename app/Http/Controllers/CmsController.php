@@ -42,14 +42,15 @@ class CmsController extends Controller
       $contact = Controller::nl_replace($request->input('contact'));
       $fee = Controller::nl_replace($request->input('fee'));
       $prize = Controller::nl_replace($request->input('prize'));
+      $rules = Controller::nl_replace($request->input('rules'));
       $about = Controller::nl_replace($request->input('about'));
       $seats = Controller::nl_replace($request->input('seats'));
 
-      $query = 'INSERT INTO '.$prefix.'events_list (id, name, type, department, contact, fee, prize, about, seats) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+      $query = 'INSERT INTO '.$prefix.'events_list (id, name, type, department, contact, fee, prize, rules, about, seats) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
       tryinsert:
         try {
-          $result = DB::insert($query, [$id, $name, $type, $dept, $contact, $fee, $prize, $about, $seats]);
+          $result = DB::insert($query, [$id, $name, $type, $dept, $contact, $fee, $prize, $rules, $about, $seats]);
         } catch (\Illuminate\Database\QueryException $e) {
             if ($e->errorInfo[1] == 1062) {
               // Checks if generated user id is already taken
@@ -84,14 +85,15 @@ class CmsController extends Controller
       $contact = Controller::nl_replace($request->input('contact'));
       $fee = Controller::nl_replace($request->input('fee'));
       $prize = Controller::nl_replace($request->input('prize'));
+      $rules = Controller::nl_replace($request->input('rules'));
       $about = Controller::nl_replace($request->input('about'));
       $seats = Controller::nl_replace($request->input('seats'));
 
-      $query = 'INSERT INTO '.$prefix.'games_list (id, name, contact, fee, prize, about, seats) VALUES (?, ?, ?, ?, ?, ?, ?)';
+      $query = 'INSERT INTO '.$prefix.'games_list (id, name, contact, fee, prize, rules, about, seats) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
 
       tryinsert:
         try {
-          $result = DB::insert($query, [$id, $name, $contact, $fee, $prize, $about, $seats]);
+          $result = DB::insert($query, [$id, $name, $contact, $fee, $prize, $rules, $about, $seats]);
         } catch (\Illuminate\Database\QueryException $e) {
             if ($e->errorInfo[1] == 1062) {
               // Checks if generated user id is already taken

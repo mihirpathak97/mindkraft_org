@@ -391,6 +391,7 @@ class APIController extends Controller
        '"contact": "'.$event->contact.'", '.
        '"fee": "'.$event->fee.'", '.
        '"prize": "'.$event->prize.'", '.
+       '"rules": "'.$event->rules.'", '.
        '"about": "'.$event->about.'", '.
        '"seats": "'.$event->seats.'", ';
 
@@ -439,6 +440,7 @@ class APIController extends Controller
        '"contact": "'.$game->contact.'", '.
        '"fee": "'.$game->fee.'", '.
        '"prize": "'.$game->prize.'", '.
+       '"rules": "'.$game->rules.'", '.
        '"about": "'.$game->about.'", '.
        '"seats": "'.$game->seats.'", ';
 

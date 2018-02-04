@@ -5,7 +5,9 @@
     Redirect::to('admin')->send();
   }
   $prefix = env('DB_TABLE_PREFIX', '');
-
+  $query = 'SELECT * from '.$prefix.$type.'_list WHERE id=?';
+  $event = DB::select($query, [$id]);
+  $event = $event[0];
 ?>
 
 <!DOCTYPE html>
@@ -30,24 +32,14 @@
       <nav class="navbar has-shadow">
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item is-tab is-active">Users List</a>
+            <a class="navbar-item is-tab is-active"><?php $event->name; ?></a>
           </div>
         </div>
       </nav>
 
       <div class="box">
-        <?php
-          foreach (Controller::colleges_list as $college):
-            $query = 'SELECT * from '.$prefix.'enduser WHERE college=?';
-            $list = DB::select($query, [$college]);
-            if (count($list) > 0):
-        ?>
-          <a href="/admin/users/<?php echo $college ?>"><?php echo $college; ?></a><br><br>
-        <?php endif; ?>
-
-        <?php endforeach; ?>
+        <?php var_dump($event); ?>
       </div>
-
 
     </div>
   </body>

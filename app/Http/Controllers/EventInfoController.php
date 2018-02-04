@@ -47,6 +47,11 @@ class EventInfoController extends Controller
         $acc .= '"body": "'.$event->prize.'"}';
         return $acc;
       }
+      if ($param == 'rules') {
+        $acc = '{ "heading": "Rules",';
+        $acc .= '"body": "'.$event->rules.'"}';
+        return $acc;
+      }
 
       $acc = '{ "heading": "'.$param.'",';
       $acc .= '"body": "Not Available"}';
@@ -92,6 +97,11 @@ class EventInfoController extends Controller
       if ($param == 'prize') {
         $acc = '{ "heading": "Prize",';
         $acc .= '"body": "'.$event->prize.'"}';
+        return $acc;
+      }
+      if ($param == 'rules') {
+        $acc = '{ "heading": "Rules",';
+        $acc .= '"body": "'.$event->rules.'"}';
         return $acc;
       }
 

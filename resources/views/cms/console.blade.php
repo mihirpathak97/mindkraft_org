@@ -54,7 +54,6 @@
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item is-tab is-active" href="#">Add A New Event</a>
-        <a class="navbar-item is-tab" @click="clone"><i class="fa fa-plus" aria-hidden="true"></i></a>
       </div>
     </div>
   </nav>
@@ -93,7 +92,6 @@
                 <option value="eie">EIE</option>
                 <option value="eng">Department of English</option>
                 <option value="fp">Food Processing</option>
-                <option value="kubs">KUBS</option>
                 <option value="me">Mechanical</option>
                 <option value="emt">EMT</option>
                 <option value="nano">Nano Technology</option>
@@ -111,7 +109,11 @@
         </p>
         <p class="ip-group">
           <label class="label">Prize (type 0 if none)</label>
-          <input type="text" name="prize" class="input" value="" required>
+          <textarea name="prize" class="textarea" value="" required></textarea>
+        </p>
+        <p class="ip-group">
+          <label class="label">Rules</label>
+          <textarea name="rules" class="textarea" required></textarea>
         </p>
         <p class="ip-group">
           <label class="label">Event Description</label>

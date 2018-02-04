@@ -206,7 +206,6 @@
                 <option value="140">Kamaraj College of Engineering and Technology, Virudhunagar</option>
                 <option value="141">Karpagam College of Engineering, Coimbatore</option>
                 <option value="142">Karpagam Institute Of Technology, Coimbatore</option>
-                <option value="143">Karunya Institute of Technology and Sciences, Coimbatore</option>
                 <option value="144">Kathir College of Engineering, Coimbatore</option>
                 <option value="145">KCG College of Technology, Chennai</option>
                 <option value="146">KGISL Institute Of Technology, Coimbatore</option>

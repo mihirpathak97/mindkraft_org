@@ -53,6 +53,9 @@ Route::get('/games/{name}/{id}', function ($name, $id) {
 // Event Registration Route
 Route::view('/register/{type}/{userid}/{eventid}', 'req.registerevent');
 
+// Event Terms and Conditions
+Route::view('/register/terms', 'req.terms');
+
 
 // Misc. Routes (Static Pages)
 Route::view('/accomodation', 'static.accomodation');

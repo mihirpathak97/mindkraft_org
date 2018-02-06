@@ -92,8 +92,8 @@
         </ul>
         <div class="info-box">
           <div class="info-stuff">
-            <h2 class="heading">Info</h2><br>
-            <p class="body"><?php echo $event->about; ?></p>
+            <h2 class="heading"></h2><br>
+            <p class="body"></p>
           </div>
         </div>
       </div>
@@ -120,6 +120,18 @@
   <script type="text/javascript">
     var userid = '<?php if(session()->has('userid')){ echo session('userid'); }else { echo 'nil'; } ?>';
     var eventid = window.location.href.split('/')[window.location.href.split('/').length -1];
+    $(document).ready(function () {
+      $.ajax({
+        type: 'GET',
+        url: '/api/geteventinfo/'+eventid+'/about',
+        success: function (data) {
+          data = data.toString();
+          data = JSON.parse(data);
+          $('.info-stuff').children('.heading').text(data.heading);
+          $('.info-stuff').children('.body').html(data.body);
+        }
+      });
+    });
     $('.register-event').click(function () {
       $.ajax({
         type: 'GET',

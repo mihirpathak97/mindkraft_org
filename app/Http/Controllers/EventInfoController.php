@@ -20,7 +20,7 @@ class EventInfoController extends Controller
       $event = $event[0];
 
       if ($event->fee == '0') {
-        $event->fee = 'Free!';
+        $event->fee = 'No fee fot this event';
       }
 
       if ($event->prize == '0') {
@@ -29,27 +29,27 @@ class EventInfoController extends Controller
 
       if ($param == 'about') {
         $acc = '{ "heading": "Info",';
-        $acc .= '"body": "'.$event->about.'"}';
+        $acc .= '"body": '.json_encode($event->about).'}';
         return $acc;
       }
       if ($param == 'contact') {
         $acc = '{ "heading": "Contact",';
-        $acc .= '"body": "'.$event->contact.'"}';
+        $acc .= '"body": '.json_encode($event->contact).'}';
         return $acc;
       }
       if ($param == 'fee') {
         $acc = '{ "heading": "Fee",';
-        $acc .= '"body": "'.$event->fee.'"}';
+        $acc .= '"body": '.json_encode($event->fee).'}';
         return $acc;
       }
       if ($param == 'prize') {
         $acc = '{ "heading": "Prize",';
-        $acc .= '"body": "'.$event->prize.'"}';
+        $acc .= '"body": '.json_encode($event->prize).'}';
         return $acc;
       }
       if ($param == 'rules') {
         $acc = '{ "heading": "Rules",';
-        $acc .= '"body": "'.$event->rules.'"}';
+        $acc .= '"body": '.json_encode($event->rules).'}';
         return $acc;
       }
 

@@ -439,7 +439,7 @@ class Controller extends BaseController
     public static function slugify($string, $delimiter = '-')
     {
       $string = preg_replace('#[^\pL\d]+#u', '-', $string);
-      // Trim trailing -
+      // Trim trailing "-"
       $string = trim($string, '-');
       $clean = preg_replace('~[^-\w]+~', '', $string);
       $clean = strtolower($clean);
@@ -450,7 +450,8 @@ class Controller extends BaseController
 
     public function nl_replace($string)
     {
-      return str_replace(array("\r", "\n", "\r\n", "\n\r"), '<br>', $string);
+      // return str_replace(array("\r", "\n", "\r\n", "\n\r"), '<br>', $string);
+      return $string;
     }
 
 }

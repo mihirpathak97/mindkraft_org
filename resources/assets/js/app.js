@@ -383,6 +383,8 @@ $('#internalRegisterForm').submit(function () {
 function updateInfo(data) {
   data = data.toString();
   data = JSON.parse(data);
+  $('.info-stuff').children('.heading').text('');
+  $('.info-stuff').children('.body').html('');
   $('.info-stuff').children('.heading').text(data.heading);
   $('.info-stuff').children('.body').html(data.body);
 }

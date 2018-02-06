@@ -83,7 +83,7 @@
         <div class="box">
           <label class="checkbox">
             <input type="checkbox">
-            I agree to the <a href="#">terms and conditions</a>
+            I agree to the <a href="/register/terms" target="_blank">terms and conditions</a>
           </label>
           <br><br>
           <label class="checkbox">

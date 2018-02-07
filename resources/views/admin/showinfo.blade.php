@@ -43,7 +43,7 @@
             {{ csrf_field() }}
             <p class="ip-group">
               <label class="label">Name</label>
-              <input type="text" name="name" class="input" required>
+              <input type="text" name="name" class="input" value="<?php echo $event->name ?>" required>
             </p>
             <input type="text" name="id" value="<?php echo $event->id ?>" hidden>
             <p class="ip-group">
@@ -89,29 +89,29 @@
             <?php endif; ?>
             <p class="ip-group">
               <label class="label">Contact</label>
-              <textarea name="contact" class="textarea" required></textarea>
+              <textarea name="contact" class="textarea" required><?php echo $event->contact ?></textarea>
             </p>
             <p class="ip-group">
               <label class="label">Fee (type 0 if free)</label>
-              <input type="text" name="fee" class="input" required>
+              <input type="text" name="fee" class="input" value="<?php echo $event->fee ?>" required>
             </p>
             <?php if ($type != 'workshop'): ?>
               <p class="ip-group">
                 <label class="label">Prize (type 0 if none)</label>
-                <textarea name="prize" class="textarea" required></textarea>
+                <textarea name="prize" class="textarea" required><?php echo $event->prize ?></textarea>
               </p>
               <p class="ip-group">
                 <label class="label">Rules</label>
-                <textarea name="rules" class="textarea" required></textarea>
+                <textarea name="rules" class="textarea" required><?php echo $event->rules ?></textarea>
               </p>
             <?php endif; ?>
             <p class="ip-group">
               <label class="label">Description</label>
-              <textarea name="about" class="textarea" required></textarea>
+              <textarea name="about" class="textarea" required><?php echo $event->about ?></textarea>
             </p>
             <p class="ip-group">
               <label class="label">Available Seats</label>
-              <input type="text" name="seats" class="input" value="" required>
+              <input type="text" name="seats" class="input" value="<?php echo $event->seats ?>" required>
             </p>
             <input type="submit" name="" class="button is-link" value="Update">
           </form>
@@ -121,14 +121,11 @@
     </div>
   </body>
   <script type="text/javascript">
-    document.getElementsByName('name')[0].value = "<?php echo $event->name ?>";
-    document.getElementsByName('type')[0].value = "<?php echo $event->type ?>";
-    document.getElementsByName('department')[0].value = "<?php echo $event->department ?>";
-    document.getElementsByName('contact')[0].value = "<?php echo $event->contact ?>";
-    document.getElementsByName('fee')[0].value = "<?php echo $event->fee ?>";
-    document.getElementsByName('prize')[0].value = "<?php echo $event->prize ?>";
-    document.getElementsByName('rules')[0].value = "<?php echo $event->rules ?>";
-    document.getElementsByName('about')[0].value = "<?php echo $event->about ?>";
-    document.getElementsByName('seats')[0].value = "<?php echo $event->seats ?>";
+    <?php if ($type == 'event'): ?>
+      document.getElementsByName('type')[0].value = "<?php echo $event->type ?>";
+    <?php endif; ?>
+    <?php if ($type != 'games'): ?>
+      document.getElementsByName('department')[0].value = "<?php echo $event->department ?>";
+    <?php endif; ?>
   </script>
 </html>

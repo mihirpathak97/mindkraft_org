@@ -159,4 +159,48 @@ class CmsController extends Controller
       }
 
     }
+
+    // Modifer Functoins
+
+
+    public function modifyevent(Request $request)
+    {
+
+      $prefix = env('DB_TABLE_PREFIX', '');
+
+      $id = $request->input('id');
+      $name = $request->input('name');
+      $type = $request->input('type');
+      $dept = $request->input('department');
+      $contact = $request->input('contact');
+      $fee = $request->input('fee');
+      $prize = $request->input('prize');
+      $rules = $request->input('rules');
+      $about = $request->input('about');
+      $seats = $request->input('seats');
+
+        try {
+          $result = DB::table('events_list')
+                              ->where('id', $id)
+                              ->update([
+                                'name' => $name,
+                                'type' => $type,
+                                'department' => $dept,
+                                'contact' => $contact,
+                                'fee' => $fee,
+                                'prize' => $prize,
+                                'rules' => $rules,
+                                'about' => $about,
+                                'seats' => $seats
+                               ]);
+        } catch (\Illuminate\Database\QueryException $e) {
+            echo "Error updating event!<br>Please try again later<br><br>";
+            echo "<b>Error Message</b> <br>" . $e->getMessage();
+            return;
+          }
+
+      return "Successfully updated event!";
+
+    }
+
 }

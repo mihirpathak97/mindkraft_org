@@ -111,6 +111,11 @@ Route::prefix('cms')->group(function () {
   Route::post('addgame', 'CmsController@addgame');
   Route::post('addworkshop', 'CmsController@addworkshop');
 
+  // Modifier Routes
+  Route::post('modifyevent', 'CmsController@modifyevent');
+  Route::post('modifygame', 'CmsController@modifygame');
+  Route::post('modifyworkshop', 'CmsController@modifyworkshop');
+
 });
 
 

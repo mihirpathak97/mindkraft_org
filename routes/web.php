@@ -97,30 +97,6 @@ Route::post('userregister', 'Auth@register');
 Route::get('verify/{userid}/{token}/{api_token}', 'Auth@userVerify');
 
 
-// CMS Routes
-Route::prefix('cms')->group(function () {
-
-  Route::view('/', 'cms.main');
-  Route::view('console', 'cms.console');
-  Route::view('game', 'cms.game');
-  Route::view('workshop', 'cms.workshop');
-
-  // Auth Route
-  Route::post('authenticate', 'CmsController@login');
-
-  // Adder Routes
-  Route::post('addevent', 'CmsController@addevent');
-  Route::post('addgame', 'CmsController@addgame');
-  Route::post('addworkshop', 'CmsController@addworkshop');
-
-  // Modifier Routes
-  Route::post('modifyevent', 'CmsController@modifyevent');
-  Route::post('modifygame', 'CmsController@modifygame');
-  Route::post('modifyworkshop', 'CmsController@modifyworkshop');
-
-});
-
-
 // Admin Routes
 Route::prefix('admin')->group(function () {
 
@@ -139,6 +115,26 @@ Route::prefix('admin')->group(function () {
 
   Route::get('/showinfo/{type}/{id}', function ($type, $id) {
     return view('admin.showinfo', ['type' => $type, 'id' => $id]);
+  });
+
+  // CMS Routes
+  Route::prefix('cms')->group(function () {
+
+    Route::view('/', 'admin.cms.main');
+    Route::view('console', 'admin.cms.console');
+    Route::view('game', 'admin.cms.game');
+    Route::view('workshop', 'admin.cms.workshop');
+
+    // Adder Routes
+    Route::post('addevent', 'CmsController@addevent');
+    Route::post('addgame', 'CmsController@addgame');
+    Route::post('addworkshop', 'CmsController@addworkshop');
+
+    // Modifier Routes
+    Route::post('modifyevent', 'CmsController@modifyevent');
+    Route::post('modifygame', 'CmsController@modifygame');
+    Route::post('modifyworkshop', 'CmsController@modifyworkshop');
+
   });
 
   // Auth Route

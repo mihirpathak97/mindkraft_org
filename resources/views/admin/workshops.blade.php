@@ -1,1 +1,1 @@
-@extends('layouts.admin.content', ['table_name' => 'workshops_list'])
+@extends('admin.layouts.content', ['table_name' => 'workshops_list'])

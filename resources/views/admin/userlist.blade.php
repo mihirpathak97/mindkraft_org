@@ -7,7 +7,7 @@
   }
 
   $prefix = env('DB_TABLE_PREFIX', '');
-  $query = 'SELECT * from '.$prefix.'enduser WHERE college=? order by name asc';
+  $query = 'SELECT * from '.$prefix.'enduser WHERE college=? order by name';
   $list = DB::select($query, [$college]);
 ?>
 

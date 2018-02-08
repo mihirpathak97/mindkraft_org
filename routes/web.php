@@ -84,13 +84,13 @@ Route::view('/login', 'login');
 
 Route::post('userlogin', 'Auth@login');
 
-Route::view('/register', 'register');
+// Route::view('/register', 'register');
 
 // Disable
-// Route::view('/register', 'tempdisable');
+Route::view('/register', 'tempdisable');
 
-Route::view('/register/internal', 'internal');
-Route::view('/register/external', 'external');
+// Route::view('/register/internal', 'internal');
+// Route::view('/register/external', 'external');
 
 Route::post('userregister', 'Auth@register');
 

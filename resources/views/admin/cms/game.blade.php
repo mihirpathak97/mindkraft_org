@@ -37,13 +37,13 @@
       <nav class="tabs is-boxed">
         <ul>
           <li>
-            <a href="/cms/console">Event</a>
+            <a href="/admin/cms/console">Event</a>
           </li>
           <li class="is-active">
-            <a href="/cms/game">Games</a>
+            <a href="/admin/cms/game">Games</a>
           </li>
           <li>
-            <a href="/cms/workshop">Workshops</a>
+            <a href="/admin/cms/workshop">Workshops</a>
           </li>
         </ul>
       </nav></div>
@@ -63,7 +63,7 @@
 
   <div class="box">
     <article>
-      <form class="" action="/cms/addgame" method="post">
+      <form class="" action="/admin/cms/addgame" method="post">
         {{ csrf_field() }}
         <p class="ip-group">
           <label class="label">Game Name</label>

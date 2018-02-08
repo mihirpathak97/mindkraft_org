@@ -1,6 +1,9 @@
 <?php
-  if (!session()->has('cmsuser')) {
-    Redirect::to('cms')->send();
+  namespace App\Http\Controllers;
+  use URL, DB, Redirect;
+
+  if (!session()->has('adminuser') || !Controller::checkAdmin(session('adminuser'))) {
+    Redirect::to('admin')->send();
   }
 ?>
 <!DOCTYPE html>

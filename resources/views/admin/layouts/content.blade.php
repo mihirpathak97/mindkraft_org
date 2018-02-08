@@ -1,5 +1,8 @@
 <?php
-  if (!session()->has('adminuser')) {
+  namespace App\Http\Controllers;
+  use URL, DB, Redirect;
+
+  if (!session()->has('adminuser') || !Controller::checkAdmin(session('adminuser'))) {
     Redirect::to('admin')->send();
   }
   $prefix = env('DB_TABLE_PREFIX', '');

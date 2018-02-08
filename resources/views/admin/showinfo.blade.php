@@ -1,9 +1,11 @@
 <?php
   namespace App\Http\Controllers;
-  use DB, URL;
-  if (!session()->has('adminuser')) {
+  use URL, DB, Redirect;
+
+  if (!session()->has('adminuser') || !Controller::checkAdmin(session('adminuser'))) {
     Redirect::to('admin')->send();
   }
+
   $prefix = env('DB_TABLE_PREFIX', '');
   $query = 'SELECT * from '.$prefix.$type.'s_list WHERE id=?';
   $event = DB::select($query, [$id]);

@@ -120,7 +120,6 @@ Route::prefix('admin')->group(function () {
   // CMS Routes
   Route::prefix('cms')->group(function () {
 
-    Route::view('/', 'admin.cms.main');
     Route::view('console', 'admin.cms.console');
     Route::view('game', 'admin.cms.game');
     Route::view('workshop', 'admin.cms.workshop');

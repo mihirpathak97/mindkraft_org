@@ -19,44 +19,43 @@
  <body>
 
    <section class="hero is-primary">
-  <div class="hero-body" style="background:#383838">
-    <div class="container">
-      <div class="columns is-vcentered">
-        <div class="column">
-          <p class="title">
-            -$ DevConsole
-          </p>
+
+    <div class="hero-body" style="background:#383838">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p class="title">
+              -$ DevConsole
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
+    <div class="hero-foot">
+      <div class="container">
+        <nav class="tabs is-boxed">
+          <ul>
+            <li>
+              <a href="/admin/console">Admin Console</a>
+            </li>
+            <li class="is-active">
+              <a href="/admin/cms/console">CMS Console</a>
+            </li>
+          </ul>
+        </nav></div>
+      </div>
 
-  <div class="hero-foot">
-    <div class="container">
-      <nav class="tabs is-boxed">
-        <ul>
-          <li>
-            <a href="/admin/cms/console">Event</a>
-          </li>
-          <li>
-            <a href="/admin/cms/game">Games</a>
-          </li>
-          <li class="is-active">
-            <a href="/admin/cms/workshop">Workshops</a>
-          </li>
-        </ul>
-      </nav></div>
-    </div>
-
-</section>
+  </section>
 
 <div id="app">
 
   <nav class="navbar has-shadow">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item is-tab is-active" href="#">Add A New Workshop</a>
+        <a class="navbar-item is-tab" href="/admin/cms/console">Add Event</a>
+        <a class="navbar-item is-tab" href="/admin/cms/game">Add Game</a>
+        <a class="navbar-item is-tab is-active" href="/admin/cms/workshop">Add Workshop</a>
       </div>
     </div>
   </nav>

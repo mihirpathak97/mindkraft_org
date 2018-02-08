@@ -18,9 +18,46 @@
     @include('admin.includes.stylesheets')
   </head>
   <body>
+
+    <section class="hero is-primary">
+
+     <div class="hero-body" style="background:#383838">
+       <div class="container">
+         <div class="columns is-vcentered">
+           <div class="column">
+             <p class="title">
+               -$ DevConsole
+             </p>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="hero-foot">
+       <div class="container">
+         <nav class="tabs is-boxed">
+           <ul>
+             <li class="is-active">
+               <a href="/admin/console" id='active'>Admin Console</a>
+             </li>
+             <li>
+               <a href="/admin/cms/console">CMS Console</a>
+             </li>
+           </ul>
+         </nav></div>
+       </div>
+
+   </section>
+
     <div id="app">
 
-      @include('admin.includes.topnav')
+      <nav class="navbar has-shadow">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item is-tab is-active">Dashboard</a>
+          </div>
+        </div>
+      </nav>
 
       <div class="box">
         <article>

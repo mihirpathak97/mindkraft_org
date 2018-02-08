@@ -14,6 +14,12 @@
     'workshops_list' => 'Workshops List'
   );
 
+  $type = array(
+    'events_list' => 'event',
+    'games_list' => 'game',
+    'workshops_list' => 'workshop'
+  );
+
 ?>
 
 <!DOCTYPE html>
@@ -70,29 +76,80 @@
         </div>
       </nav>
 
-      <?php if ($table_name == 'games_list'): ?>
-        <div class="box">
-          <?php foreach ($list as $record): ?>
-            <a href="/admin/showinfo/game/<?php echo $record->id ?>"><?php echo $record->name ?></a><br><br>
-          <?php endforeach; ?>
-        </div>
-      <?php endif; ?>
+      <table class="table card">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Department</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
 
-      <?php if ($table_name == 'events_list'): ?>
-        <div class="box">
-          <?php foreach ($list as $record): ?>
-            <a href="/admin/showinfo/event/<?php echo $record->id ?>"><?php echo $record->name ?></a><br><br>
-          <?php endforeach; ?>
-        </div>
-      <?php endif; ?>
+          <?php if ($table_name == 'events_list'): ?>
+            <?php foreach ($list as $record): ?>
+              <tr>
+                <td><?php echo $record->name ?></td>
+                <td><?php echo $record->id ?></td>
+                <td><?php echo Controller::dept_list[$record->department] ?></td>
+                <?php
+                  $q = 'select * from '.$prefix.'event_registration where id=?';
+                  $data = DB::select($q, [$type[$table_name].'-'.$record->id]);
+                  if (count($data) > 0):
+                ?>
+                  <td><a href="/admin/showinfo/event/<?php echo $record->id ?>">Show Registered Users</a></td>
+                <?php else: ?>
+                  <td>No Users Have Registered</td>
+                <?php endif; ?>
+                <td><a href="/admin/showinfo/event/<?php echo $record->id ?>">Update Info</a></td>
+              </tr>
+            <?php endforeach; ?>
+          <?php endif; ?>
 
-      <?php if ($table_name == 'workshops_list'): ?>
-        <div class="box">
-          <?php foreach ($list as $record): ?>
-            <a href="/admin/showinfo/workshop/<?php echo $record->id ?>"><?php echo $record->name ?></a><br><br>
-          <?php endforeach; ?>
-        </div>
-      <?php endif; ?>
+          <?php if ($table_name == 'games_list'): ?>
+              <?php foreach ($list as $record): ?>
+                <tr>
+                  <td><?php echo $record->name ?></td>
+                  <td><?php echo $record->id ?></td>
+                  <?php
+                    $q = 'select * from '.$prefix.'event_registration where id=?';
+                    $data = DB::select($q, [$type[$table_name].'-'.$record->id]);
+                    if (count($data) > 0):
+                  ?>
+                    <td><a href="/admin/showinfo/game/<?php echo $record->id ?>">Show Registered Users</a></td>
+                  <?php else: ?>
+                    <td>No Users Have Registered</td>
+                  <?php endif; ?>
+                  <td><a href="/admin/showinfo/game/<?php echo $record->id ?>">Update Info</a></td>
+                </tr>
+              <?php endforeach; ?>
+          <?php endif; ?>
+
+          <?php if ($table_name == 'workshops_list'): ?>
+            <?php foreach ($list as $record): ?>
+              <tr>
+                <td><?php echo $record->name ?></td>
+                <td><?php echo $record->id ?></td>
+                <td><?php echo Controller::dept_list[$record->department] ?></td>
+                <?php
+                  $q = 'select * from '.$prefix.'event_registration where id=?';
+                  $data = DB::select($q, [$type[$table_name].'-'.$record->id]);
+                  if (count($data) > 0):
+                ?>
+                  <td><a href="/admin/showinfo/workshop/<?php echo $record->id ?>">Show Registered Users</a></td>
+                <?php else: ?>
+                  <td>No Users Have Registered</td>
+                <?php endif; ?>
+                <td><a href="/admin/showinfo/workshop/<?php echo $record->id ?>">Update Info</a></td>
+              </tr>
+            <?php endforeach; ?>
+          <?php endif; ?>
+
+        </tbody>
+      </table>
+
 
     </div>
   </body>

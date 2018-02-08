@@ -117,6 +117,10 @@ Route::prefix('admin')->group(function () {
     return view('admin.showinfo', ['type' => $type, 'id' => $id]);
   });
 
+  Route::get('/showinfo/{type}/{id}/users', function ($type, $id) {
+    return view('admin.showusers', ['type' => $type, 'id' => $id]);
+  });
+
   // CMS Routes
   Route::prefix('cms')->group(function () {
 

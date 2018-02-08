@@ -72,6 +72,8 @@ Route::view('/sponsors', 'static.sponsors');
 
 Route::view('/team', 'static.team');
 
+Route::view('/terms', 'static.terms');
+
 Route::redirect('/when', '/schedule');
 
 Route::view('/z', 'static.z');

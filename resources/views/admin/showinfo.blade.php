@@ -73,7 +73,7 @@
 
       <div class="box">
         <article>
-          <form class="" action="/cms/modifyevent" method="post">
+          <form class="" action="/admin/cms/modify<?php echo $type?>" method="post">
             {{ csrf_field() }}
             <p class="ip-group">
               <label class="label">Name</label>

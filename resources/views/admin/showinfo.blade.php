@@ -1,13 +1,16 @@
 <?php
   namespace App\Http\Controllers;
-  use DB, URL;
-  if (!session()->has('adminuser')) {
+  use URL, DB, Redirect;
+
+  if (!session()->has('adminuser') || !Controller::checkAdmin(session('adminuser'))) {
     Redirect::to('admin')->send();
   }
+
   $prefix = env('DB_TABLE_PREFIX', '');
   $query = 'SELECT * from '.$prefix.$type.'s_list WHERE id=?';
   $event = DB::select($query, [$id]);
   $event = $event[0];
+
 ?>
 
 <!DOCTYPE html>
@@ -27,19 +30,50 @@
     }
   </style>
   <body>
+    <section class="hero is-primary">
+
+     <div class="hero-body" style="background:#383838">
+       <div class="container">
+         <div class="columns is-vcentered">
+           <div class="column">
+             <p class="title">
+               -$ DevConsole
+             </p>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="hero-foot">
+       <div class="container">
+         <nav class="tabs is-boxed">
+           <ul>
+             <li class="is-active">
+               <a href="/admin/console" id='active'>Admin Console</a>
+             </li>
+             <li>
+               <a href="/admin/cms/console">CMS Console</a>
+             </li>
+           </ul>
+         </nav></div>
+       </div>
+
+   </section>
     <div id="app">
 
       <nav class="navbar has-shadow">
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item is-tab is-active"><?php echo $event->name ?> (<?php echo $type ?>)</a>
+            <a class="navbar-item is-tab" href="/admin/console">Dashboard</a>
+            <a class="navbar-item is-tab" href="/admin/<?php echo $type ?>s"><?php echo ucfirst($type) ?>s List</a>
+            <a class="navbar-item is-tab is-active"><?php echo $event->name ?></a>
           </div>
         </div>
       </nav>
 
       <div class="box">
         <article>
-          <form class="" action="/cms/modifyevent" method="post">
+          <form class="" action="/admin/cms/modify<?php echo $type?>" method="post">
             {{ csrf_field() }}
             <p class="ip-group">
               <label class="label">Name</label>

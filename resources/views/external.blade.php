@@ -20,6 +20,26 @@
     .container{
       margin-top: 10%;
     }
+    .outer{
+      width: 40%;
+      display: block;
+      padding-bottom: 3rem;
+      margin: auto;
+    }
+    .terms{
+      color: #f5f5f5;
+      font-family: 'Raleway', sans-serif;
+      font-size: 24px;
+      text-align: center;
+    }
+    @media screen and (max-width: 769px){
+      .outer{
+        width: 95%;
+      }
+      .terms{
+        font-size: 20px;
+      }
+    }
   </style>
 
   <body>
@@ -41,6 +61,12 @@
           <h2>A user is already logged in!</h2>
 
       <?php else: ?>
+
+        <div class="outer">
+          <p class="terms">
+            By registering, you agree to the terms and conditions mentioned <a href="/terms" target="_blank">here.</a>
+          </p>
+        </div>
 
         <form class="" id="registerForm">
           <div class="field card">

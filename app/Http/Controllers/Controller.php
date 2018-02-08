@@ -400,6 +400,20 @@ class Controller extends BaseController
 
     }
 
+    // Checks authernication of admin user
+    public static function checkAdmin($uname)
+    {
+      $prefix = env('DB_VIEW_PREFIX', '');
+      $user = DB::select('select * from '.$prefix.'cpanel_users where username=\''.$uname.'\'');
+
+      if (count($user) > 0) {
+        return true;
+      }
+
+      return false;
+
+    }
+
     public function getChatMessages()
     {
 

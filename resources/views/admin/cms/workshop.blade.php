@@ -1,6 +1,9 @@
 <?php
-  if (!session()->has('cmsuser')) {
-    Redirect::to('cms')->send();
+  namespace App\Http\Controllers;
+  use URL, DB, Redirect;
+
+  if (!session()->has('adminuser') || !Controller::checkAdmin(session('adminuser'))) {
+    Redirect::to('admin')->send();
   }
 ?>
 <!DOCTYPE html>
@@ -16,66 +19,54 @@
  <body>
 
    <section class="hero is-primary">
-  <div class="hero-body" style="background:#383838">
-    <div class="container">
-      <div class="columns is-vcentered">
-        <div class="column">
-          <p class="title">
-            -$ DevConsole
-          </p>
+
+    <div class="hero-body" style="background:#383838">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p class="title">
+              -$ DevConsole
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
+    <div class="hero-foot">
+      <div class="container">
+        <nav class="tabs is-boxed">
+          <ul>
+            <li>
+              <a href="/admin/console">Admin Console</a>
+            </li>
+            <li class="is-active">
+              <a href="/admin/cms/console">CMS Console</a>
+            </li>
+          </ul>
+        </nav></div>
+      </div>
 
-  <div class="hero-foot">
-    <div class="container">
-      <nav class="tabs is-boxed">
-        <ul>
-          <li class="is-active">
-            <a href="/cms/console" id='active'>Event</a>
-          </li>
-          <li >
-            <a href="/cms/game">Games</a>
-          </li>
-          <li>
-            <a href="/cms/workshop">Workshops</a>
-          </li>
-        </ul>
-      </nav></div>
-    </div>
-
-</section>
+  </section>
 
 <div id="app">
 
   <nav class="navbar has-shadow">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item is-tab is-active" href="#">Add A New Event</a>
+        <a class="navbar-item is-tab" href="/admin/cms/console">Add Event</a>
+        <a class="navbar-item is-tab" href="/admin/cms/game">Add Game</a>
+        <a class="navbar-item is-tab is-active" href="/admin/cms/workshop">Add Workshop</a>
       </div>
     </div>
   </nav>
 
   <div class="box">
     <article>
-      <form class="" action="/cms/addevent" method="post">
+      <form class="" action="/admin/cms/addworkshop" method="post">
         {{ csrf_field() }}
         <p class="ip-group">
-          <label class="label">Event Name</label>
+          <label class="label">Workshop Name</label>
           <input type="text" name="name" class="input" value="" required>
-        </p>
-        <p class="ip-group">
-          <label class="label">Event Type</label>
-          <div class="control">
-            <div class="select">
-              <select class="select" name="type">
-                <option value="tech" selected>Technical</option>
-                <option value="nontech">Non Technical</option>
-              </select>
-            </div>
-          </div>
         </p>
         <p class="ip-group">
           <label class="label">Department</label>
@@ -92,6 +83,7 @@
                 <option value="eie">EIE</option>
                 <option value="eng">Department of English</option>
                 <option value="fp">Food Processing</option>
+                <option value="kubs">KUBS</option>
                 <option value="me">Mechanical</option>
                 <option value="emt">EMT</option>
                 <option value="nano">Nano Technology</option>
@@ -108,15 +100,7 @@
           <input type="text" name="fee" class="input" value="" required>
         </p>
         <p class="ip-group">
-          <label class="label">Prize (type 0 if none)</label>
-          <textarea name="prize" class="textarea" value="" required></textarea>
-        </p>
-        <p class="ip-group">
-          <label class="label">Rules</label>
-          <textarea name="rules" class="textarea" required></textarea>
-        </p>
-        <p class="ip-group">
-          <label class="label">Event Description</label>
+          <label class="label">Workshop Description</label>
           <textarea name="about" class="textarea" required></textarea>
         </p>
         <p class="ip-group">

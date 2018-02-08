@@ -77,7 +77,7 @@
                 Any violation of the mentioned rules will be reported to your college and the case will be severely dealt with.
               </li>
               <li>The organizing committe is not responsibe for any loss/theft of property.</li>
-              <li>The organizing committe will not take responsibility for any form of damage to any person or property during the course of MindKraft '18.</li>
+              <li>The organizing committe will not take responsibility for any form of damage to any person or personal property during the course of MindKraft '18.</li>
               <li>In case of any discrepancy, the decision of the organizing committe is final.</li>
             </p>
 					</div>

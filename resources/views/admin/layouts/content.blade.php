@@ -20,6 +20,11 @@
     'workshops_list' => 'workshop'
   );
 
+  function getByDepartment($dept, $prefix, $table_name)
+  {
+    return count(DB::select('select * from '.$prefix.$table_name.' where department=\''.$dept.'\''));
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -75,6 +80,26 @@
           </div>
         </div>
       </nav>
+
+      <div class="box">
+        <h1><b>Statistics</b></h1>
+        <br><br>
+        <p>Total Events - <b><?php echo count($list) ?></b></p>
+        <br>
+        <h2><b>Department Wise Statistics</b></h2>
+        <br>
+        <?php if ($table_name != 'games_list'): ?>
+          <?php
+            foreach (Controller::dept_list as $key => $value):
+            $count = getByDepartment($key, $prefix, $table_name);
+          ?>
+          <?php if ($count != 0): ?>
+            <p><?php echo $value ?> - <b><?php echo $count ?></b></p>
+          <?php endif; ?>
+          <?php endforeach; ?>
+        <?php endif; ?>
+        <br><br>
+      </div>
 
       <table class="table card">
         <thead>

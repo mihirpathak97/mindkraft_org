@@ -24,16 +24,16 @@
   // get users from each year
   function getByYear($year, $prefix, $college)
   {
-    if ($year = 1) {
+    if ($year == 1) {
       $condition = 'UR_17%';
     }
-    if ($year = 2) {
+    if ($year == 2) {
       $condition = 'UR16%';
     }
-    if ($year = 3) {
+    if ($year == 3) {
       $condition = 'UR15%';
     }
-    if ($year = 4) {
+    if ($year == 4) {
       $condition = 'UR14%';
     }
 

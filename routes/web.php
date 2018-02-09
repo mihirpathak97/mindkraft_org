@@ -59,41 +59,27 @@ Route::view('/register/terms', 'req.terms');
 
 // Misc. Routes (Static Pages)
 Route::view('/accomodation', 'static.accomodation');
-
 Route::view('/app', 'static.app');
-
 Route::view('/exhibitions', 'static.exhibitions');
-
 Route::view('/debates', 'static.debates');
-
 Route::view('/schedule', 'static.schedule');
-
 Route::view('/sponsors', 'static.sponsors');
-
 Route::view('/team', 'static.team');
-
 Route::view('/terms', 'static.terms');
-
-Route::redirect('/when', '/schedule');
-
 Route::view('/z', 'static.z');
 
+// Helper Routes
+Route::redirect('/when', '/schedule');
 
 // Auth Routes
 Route::view('/login', 'login');
-
 Route::post('userlogin', 'Auth@login');
-
 Route::view('/register', 'register');
-
-// Disable
+// Disable Registration
 // Route::view('/register', 'tempdisable');
-
 Route::view('/register/internal', 'internal');
 Route::view('/register/external', 'external');
-
 Route::post('userregister', 'Auth@register');
-
 Route::get('verify/{userid}/{token}/{api_token}', 'Auth@userVerify');
 
 

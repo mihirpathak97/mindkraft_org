@@ -22,16 +22,16 @@ const menuData = [
     url: 'workshops'
   },
   {
-    label: 'Games',
-    url: 'games'
+    label: 'Accomodation',
+    url: 'accomodation'
   },
   {
     label: 'Sponsors',
     url: 'sponsors'
   },
   {
-    label: 'Lectures',
-    url: 'lectures'
+    label: 'Debates',
+    url: 'debates'
   },
   {
     label: 'Exhibitions',
@@ -78,7 +78,7 @@ const menuData = [
 //   }
 // ];
 
-const menuDataURLS = ['home', 'workshops', 'events', 'games', 'sponsors', 'lectures', 'exhibitions'];
+const menuDataURLS = ['home', 'workshops', 'events', 'accomodation', 'sponsors', 'debates', 'exhibitions'];
 
 const breakpoint = 769;
 
@@ -564,7 +564,8 @@ function loadRadialMenu() {
 
   var url_arr = window.location.href.split('/');
   var selected = url_arr[3];
-
+  console.log(selected);
+  console.log(menuDataURLS.indexOf(selected));
   if (menuDataURLS.indexOf(selected) == -1) {
     if (menuDataURLS.indexOf(url_arr[url_arr.length - 2]) != -1) {
       selected = url_arr[url_arr.length - 2];

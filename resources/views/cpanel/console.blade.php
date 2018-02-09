@@ -110,12 +110,30 @@
         </table>
       <?php endif; ?>
 
-      <?php if($access_level == 3): ?>
+      <?php
+        if ($access_level == 3) {
+          $prefix = env('DB_TABLE_PREFIX', '');
+          $user = DB::select('select * from '.$prefix.'cpanel_mapping where username=\''.session('cpaneluser').'\'');
+          $user = $user[0];
+          function getEventName($id)
+          {
+            $prefix = env('DB_TABLE_PREFIX', '');
+            $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
+            return $event[0]->name;
+          }
+          $events = exolode(':', $user->events); ?>
 
-        <div class="box">
-          <h1 class="center"><b>401 - Access Forbidden</b></h1>
-        </div>
-      <?php endif; ?>
+            <div class="box">
+              <article>
+                <?php foreach ($events as $event): ?>
+                  <a href="/cpanel/showinfo/event/<?php echo $event->id ?>"><?php echo getEventName($event->id) ?></a>
+                <?php endforeach; ?>
+              </article>
+            </div>
+
+      <?php
+        }
+      ?>
 
     </div>
   </body>

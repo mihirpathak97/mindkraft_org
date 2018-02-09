@@ -6,7 +6,7 @@
     Redirect::to('admin')->send();
   }
   $prefix = env('DB_TABLE_PREFIX', '');
-  $list = DB::select('select * from '.$prefix.$table_name);
+  $list = DB::select('select * from '.$prefix.$table_name.' order by name');
 
   $alias = array(
     'events_list' => 'Events List',

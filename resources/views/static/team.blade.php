@@ -82,26 +82,21 @@
 						<p class="gold">Vignesh L - 3rd EEE</p>
 						<p class="gold">Mihir Pathak - 3rd CSE</p>
 						<p>Jestin Varghese - 4th ME</p>
-						<p>Amit K Reji - 4th CSE</p>
-						<p>Adarsh S Monippally - 4th EMT</p>
 						<p>Amy Paul - 5th VC</p>
 						<p>Jerin V John - 4th ME</p>
-						<p>Koshy Sam - 4th ME</p>
-						<p>Mohit George - 4th ME</p>
-						<p>Praharsha Siddela - 4th ME</p>
 						<p>Allan Thomash Cabral - 3rd ME</p>
 						<p>Ancy Johnson - 3rd AE</p>
 						<p>Anosh Xavier - 3rd CSE</p>
 						<p>Effrim Riffon - 3rd ME</p>
 						<p>Gautham Chandra - 3rd ME</p>
+						<p>Gideon - 3rd BM</p>
 						<p>Naveen Philip - 3rd ME</p>
 						<p>Navya Darla - 3rd ECE</p>
-						<p>K V Nivethitha - 3rd CSE</p>
+						<p>K V Nivathitha - 3rd CSE</p>
 						<p>Rony Y Raj - 3rd CE</p>
 						<p>Selva - 3rd</p>
 						<p>Stephan Raj - 3rd BT</p>
 						<p>Subin P Sajan - 3rd ME</p>
-						<p>Vijay Gideon Manekshaw - 3rd ECE</p>
 						<p>Akilhia - 2nd FP</p>
 						<p>Vetha Gnanam - 2nd EMT</p>
 					</div>

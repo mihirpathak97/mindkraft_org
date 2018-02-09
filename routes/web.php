@@ -130,5 +130,14 @@ Route::prefix('admin')->group(function () {
   Route::post('authenticate', 'AdminController@login');
 });
 
+
+// CPanel Routes
+Route::prefix('cpanel')-group(function () {
+
+  
+
+});
+
+
 // Test route. Do all testing in this view
 Route::view('/test', 'test');

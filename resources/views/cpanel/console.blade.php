@@ -58,7 +58,7 @@
         </div>
       </nav>
 
-      <?php if ($access_level <= 1): ?>
+      <?php if ($access_level == 1): ?>
         <div class="box">
           <article>
             <a href="/cpanel/events">Events List</a><br><br>
@@ -70,8 +70,51 @@
         </div>
       <?php endif; ?>
 
-      <?php if ($access_level == 2): ?>
-        <p>Forbidden</p>
+      <?php
+      if($access_level == 2):
+        $prefix = env('DB_TABLE_PREFIX', '');
+        $list = DB::select('select * from '.$prefix.'events_list order by name');
+      ?>
+
+        <div class="box">
+          <h1><b>Statistics</b></h1>
+          <br><br>
+          <p>Total Events - <b><?php echo count($list) ?></b></p>
+        </div>
+
+        <table class="table card">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Department</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($list as $record): ?>
+              <tr>
+                <td><?php echo $record->name ?></td>
+                <td><?php echo Controller::dept_list[$record->department] ?></td>
+                <?php
+                  $q = 'select * from '.$prefix.'event_registration where id=?';
+                  $data = DB::select($q, ['event-'.$record->id]);
+                  if (count($data) > 0):
+                ?>
+                  <td><a href="/cpanel/showinfo/event/<?php echo $record->id ?>">Show Registered Users</a></td>
+                <?php else: ?>
+                  <td>No Users Have Registered</td>
+                <?php endif; ?>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      <?php endif; ?>
+
+      <?php if($access_level == 3): ?>
+
+        <div class="box">
+          <h1 class="center"><b>401 - Access Forbidden</b></h1>
+        </div>
       <?php endif; ?>
 
     </div>

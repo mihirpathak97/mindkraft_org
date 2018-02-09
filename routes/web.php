@@ -134,7 +134,11 @@ Route::prefix('admin')->group(function () {
 // CPanel Routes
 Route::prefix('cpanel')->group(function () {
 
+  Route::view('/', 'cpanel.main');
+  Route::view('console', 'cpanel.console');
 
+  // Auth Route
+  Route::post('authenticate', 'CpanelController@login');
 
 });
 

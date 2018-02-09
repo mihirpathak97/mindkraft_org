@@ -111,7 +111,7 @@ Route::prefix('admin')->group(function () {
   Route::get('users/{college}', function ($college) {
     return view('admin.userlist', ['college' => $college]);
   });
-  Route::view('kits', 'admin.userlist', ['college' => 'Karunya Institute of Technology and Sciences, Coimbatore']);
+  Route::view('kits', 'admin.kitsusers', ['college' => 'Karunya Institute of Technology and Sciences, Coimbatore']);
 
   Route::get('/showinfo/{type}/{id}', function ($type, $id) {
     return view('admin.showinfo', ['type' => $type, 'id' => $id]);

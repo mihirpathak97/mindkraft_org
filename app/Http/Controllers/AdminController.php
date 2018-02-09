@@ -19,7 +19,7 @@ class AdminController extends Controller
 
     $user = DB::select($query, [$username, $password]);
 
-    if (count($user) == 1) {
+    if (count($user) == 1 && $user[0]->access_level == 0) {
       session([
         'adminuser' => $user[0]->username,
       ]);

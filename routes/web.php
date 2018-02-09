@@ -137,9 +137,9 @@ Route::prefix('cpanel')->group(function () {
   Route::view('/', 'cpanel.main');
   Route::view('console', 'cpanel.console');
 
-  Route::view('events', 'admin.events');
-  Route::view('games', 'admin.games');
-  Route::view('workshops', 'admin.workshops');
+  Route::view('events', 'cpanel.events');
+  Route::view('games', 'cpanel.games');
+  Route::view('workshops', 'cpanel.workshops');
 
   Route::view('users', 'cpanel.users');
   Route::get('users/{college}', function ($college) {

@@ -71,6 +71,8 @@
 
     </div>
 
+		@include('includes.radialmenu')
+
   </body>
   @include('includes.jsmin')
 </html>

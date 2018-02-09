@@ -1,3 +1,3 @@
 @extends('layouts.nondbcontent')
 
-@section('title', 'Lectures')
+@section('title', 'Debates')

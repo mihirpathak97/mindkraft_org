@@ -64,7 +64,7 @@ Route::view('/app', 'static.app');
 
 Route::view('/exhibitions', 'static.exhibitions');
 
-Route::view('/lectures', 'static.lectures');
+Route::view('/debates', 'static.debates');
 
 Route::view('/schedule', 'static.schedule');
 

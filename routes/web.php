@@ -132,9 +132,9 @@ Route::prefix('admin')->group(function () {
 
 
 // CPanel Routes
-Route::prefix('cpanel')-group(function () {
+Route::prefix('cpanel')->group(function () {
 
-  
+
 
 });
 

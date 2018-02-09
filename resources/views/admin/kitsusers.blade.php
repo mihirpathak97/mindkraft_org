@@ -21,6 +21,27 @@
     return count(DB::select($query, [$college]));
   }
 
+  // get users from each year
+  function getByYear($year, $prefix, $college)
+  {
+    if ($year = 1) {
+      $condition = 'UR_17%';
+    }
+    if ($year = 2) {
+      $condition = 'UR16%';
+    }
+    if ($year = 3) {
+      $condition = 'UR15%';
+    }
+    if ($year = 4) {
+      $condition = 'UR14%';
+    }
+
+    $query = 'SELECT * from '.$prefix.'enduser WHERE college=? and register_number like \''.$condition.'\'';
+    return count(DB::select($query, [$college]));
+
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -87,6 +108,13 @@
         <br><br>
         <p>Total Users - <b><?php echo count($list) ?></b></p>
         <p>Verified Users - <b><?php echo getVerified($prefix, $college); ?></b></p>
+        <br>
+        <h2><b>Years Wise Statistics</b></h2>
+        <br>
+        <p>1st Years - <b><?php echo getByYear(1, $prefix, $college); ?></b></p>
+        <p>2nd Years - <b><?php echo getByYear(2, $prefix, $college); ?></b></p>
+        <p>3rd Years - <b><?php echo getByYear(3, $prefix, $college); ?></b></p>
+        <p>4th Years - <b><?php echo getByYear(4, $prefix, $college); ?></b></p>
         <br><br>
         <a class="button is-link" href="/admin/users/<?php echo $college ?>/download">Download List</a>
       </div>
@@ -94,22 +122,20 @@
       <table class="table card">
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Registration Number</th>
             <th>Full Name</th>
             <th>Mobile</th>
             <th>E-Mail</th>
-            <th>College</th>
             <th>Verified</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($list as $record): ?>
             <tr>
-              <td><?php echo $record->id; ?></td>
+              <td><?php echo $record->register_number; ?></td>
               <td><?php echo $record->name; ?></td>
               <td><?php echo $record->mobile; ?></td>
               <td><?php echo $record->email; ?></td>
-              <td><?php echo $record->college; ?></td>
               <td><?php echo yesNo($record->is_verified); ?></td>
             </tr>
           <?php endforeach; ?>

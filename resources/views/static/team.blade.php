@@ -92,7 +92,7 @@
 						<p>Gideon - 3rd BM</p>
 						<p>Naveen Philip - 3rd ME</p>
 						<p>Navya Darla - 3rd ECE</p>
-						<p>K V Nivethitha - 3rd CSE</p>
+						<p>K V Nivathitha - 3rd CSE</p>
 						<p>Rony Y Raj - 3rd CE</p>
 						<p>Selva - 3rd</p>
 						<p>Stephan Raj - 3rd BT</p>

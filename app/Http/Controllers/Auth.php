@@ -74,14 +74,19 @@ class Auth extends Controller
     if ($request->has('reg_no')) {
       $reg_no = $request->input('reg_no');
     }
+    if ($request->has('state')) {
+      $state = Controller::states_list[$request->input('state')];
+    }
     $password = $request->input('password');
     $api_token = Controller::generateRandomString(64);
 
+    // Internal
     if (isset($reg_no)) {
       $query = 'INSERT INTO '.$prefix.'enduser (id, name, mobile, email, college, register_number, password, api_token) VALUES ( ?, ?, ?, ?, ?, ?, PASSWORD( ? ), ?)';
     }
+    // External
     else {
-      $query = 'INSERT INTO '.$prefix.'enduser (id, name, mobile, email, college, password, api_token) VALUES ( ?, ?, ?, ?, ?, PASSWORD( ? ), ?)';
+      $query = 'INSERT INTO '.$prefix.'enduser (id, name, mobile, email, college, state, password, api_token) VALUES ( ?, ?, ?, ?, ?, ?, PASSWORD( ? ), ?)';
     }
 
     tryinsert:
@@ -90,7 +95,7 @@ class Auth extends Controller
           $result = DB::insert($query, [$id, $name, $mobile, $email, $college, $reg_no, $password, $api_token]);
         }
         else {
-          $result = DB::insert($query, [$id, $name, $mobile, $email, $college, $password, $api_token]);
+          $result = DB::insert($query, [$id, $name, $mobile, $email, $college, $state, $password, $api_token]);
         }
       } catch (\Illuminate\Database\QueryException $e) {
           if ($e->errorInfo[1] == 1062) {

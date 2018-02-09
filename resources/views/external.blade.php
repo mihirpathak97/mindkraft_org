@@ -435,6 +435,48 @@
             <div class="control">
               <input class="input" type="text" name="college_other">
             </div>
+            <label class="label">State</label>
+            <div class="control">
+              <select class="" name="state" required>
+                <option disabled selected value=""> -- select an option -- </option>
+                <option value="1">Andra Pradesh</option>
+                <option value="2">Arunachal Pradesh</option>
+                <option value="3">Assam</option>
+                <option value="4">Bihar</option>
+                <option value="5">Chhattisgarh</option>
+                <option value="6">Goa</option>
+                <option value="7">Gujarat</option>
+                <option value="8">Haryana</option>
+                <option value="9">Himachal Pradesh</option>
+                <option value="10">Jammu and Kashmir</option>
+                <option value="11">Jharkhand</option>
+                <option value="12">Karnataka</option>
+                <option value="13">Kerala</option>
+                <option value="14">Madya Pradesh</option>
+                <option value="15">Maharashtra</option>
+                <option value="16">Manipur</option>
+                <option value="17">Meghalaya</option>
+                <option value="18">Mizoram</option>
+                <option value="19">Nagaland</option>
+                <option value="20">Orissa</option>
+                <option value="21">Punjab</option>
+                <option value="22">Rajasthan</option>
+                <option value="23">Sikkim</option>
+                <option value="24">Tamil Nadu</option>
+                <option value="25">Telangana</option>
+                <option value="26">Tripura</option>
+                <option value="27">Uttaranchal</option>
+                <option value="28">Uttar Pradesh</option>
+                <option value="29">West Bengal</option>
+                <option value="30">Andaman and Nicobar Islands</option>
+                <option value="31">Chandigarh</option>
+                <option value="32">Dadra and Nagar Haveli</option>
+                <option value="33">Daman and Diu</option>
+                <option value="34">Lakshadweep</option>
+                <option value="35">New Delhi</option>
+                <option value="36">Puducherry</option>
+              </select>
+            </div>
             <label class="label">Password</label>
             <div class="control">
               <input class="input" type="password" name="password" placeholder="Password" required>

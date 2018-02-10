@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateCpanelUsers2 extends Migration
+class SetUsernameUniqueCpanelUsers extends Migration
 {
     /**
      * Run the migrations.

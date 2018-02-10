@@ -10,6 +10,8 @@
   $query = 'SELECT * from '.$prefix.'enduser WHERE college=? order by name';
   $list = DB::select($query, [$college]);
 
+  $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
+
 ?>
 
 <!DOCTYPE html>
@@ -68,32 +70,41 @@
         </div>
       </nav>
 
-      <div class="box">
-        <h1><b>Statistics</b></h1>
-        <br><br>
-        <p>College Name - <b><?php echo $college ?></b></p>
-        <p>Total Users - <b><?php echo count($list) ?></b></p>
-        <br><br>
-      </div>
+      <?php if ($access_level == 1): ?>
+        <div class="box">
+          <h1><b>Statistics</b></h1>
+          <br><br>
+          <p>College Name - <b><?php echo $college ?></b></p>
+          <p>Total Users - <b><?php echo count($list) ?></b></p>
+          <br><br>
+        </div>
 
-      <table class="table card">
-        <thead>
-          <tr>
-            <th>Full Name</th>
-            <th>Mobile</th>
-            <th>E-Mail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($list as $record): ?>
+        <table class="table card">
+          <thead>
             <tr>
-              <td><?php echo $record->name; ?></td>
-              <td><?php echo $record->mobile; ?></td>
-              <td><?php echo $record->email; ?></td>
+              <th>Full Name</th>
+              <th>Mobile</th>
+              <th>E-Mail</th>
             </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <?php foreach ($list as $record): ?>
+              <tr>
+                <td><?php echo $record->name; ?></td>
+                <td><?php echo $record->mobile; ?></td>
+                <td><?php echo $record->email; ?></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+
+      <?php else: ?>
+
+        <div class="box">
+          <p><b>401 - Unauthorized Access</b></p>
+        </div>
+
+      <?php endif; ?>
 
     </div>
   </body>

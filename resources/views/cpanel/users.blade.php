@@ -8,6 +8,8 @@
 
   $prefix = env('DB_TABLE_PREFIX', '');
 
+  $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
+
 ?>
 
 <!DOCTYPE html>
@@ -66,18 +68,27 @@
         </div>
       </nav>
 
-      <div class="box">
-        <?php
-          foreach (Controller::colleges_list as $college):
-            $query = 'SELECT * from '.$prefix.'enduser WHERE college=?';
-            $list = DB::select($query, [$college]);
-            if (count($list) > 0):
-        ?>
-          <a href="/cpanel/users/<?php echo $college ?>"><?php echo $college; ?></a><br><br>
-        <?php endif; ?>
+      <?php if ($access_level == 1): ?>
+        <div class="box">
+          <?php
+            foreach (Controller::colleges_list as $college):
+              $query = 'SELECT * from '.$prefix.'enduser WHERE college=?';
+              $list = DB::select($query, [$college]);
+              if (count($list) > 0):
+          ?>
+            <a href="/cpanel/users/<?php echo $college ?>"><?php echo $college; ?></a><br><br>
+          <?php endif; ?>
 
-        <?php endforeach; ?>
-      </div>
+          <?php endforeach; ?>
+        </div>
+
+      <?php else: ?>
+
+        <div class="box">
+          <p><b>401 - Unauthorized Access</b></p>
+        </div>
+
+      <?php endif; ?>
 
 
     </div>

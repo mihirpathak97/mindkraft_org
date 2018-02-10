@@ -134,7 +134,29 @@ Route::prefix('admin')->group(function () {
 // CPanel Routes
 Route::prefix('cpanel')->group(function () {
 
+  Route::view('/', 'cpanel.main');
+  Route::view('console', 'cpanel.console');
 
+  Route::view('events', 'cpanel.events');
+  Route::view('games', 'cpanel.games');
+  Route::view('workshops', 'cpanel.workshops');
+
+  Route::view('users', 'cpanel.users');
+  Route::get('users/{college}', function ($college) {
+    return view('cpanel.userlist', ['college' => $college]);
+  });
+  Route::view('kits', 'cpanel.kitsusers', ['college' => 'Karunya Institute of Technology and Sciences, Coimbatore']);
+
+  Route::get('/showinfo/{type}/{id}', function ($type, $id) {
+    return view('cpanel.showinfo', ['type' => $type, 'id' => $id]);
+  });
+
+  Route::get('/showinfo/{type}/{id}/users', function ($type, $id) {
+    return view('cpanel.showusers', ['type' => $type, 'id' => $id]);
+  });
+
+  // Auth Route
+  Route::post('authenticate', 'CpanelController@login');
 
 });
 

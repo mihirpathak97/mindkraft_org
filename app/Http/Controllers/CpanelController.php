@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller
+class CpanelController extends Controller
 {
   // login logic
   public function login(Request $request)
@@ -19,14 +19,27 @@ class AdminController extends Controller
 
     $user = DB::select($query, [$username, $password]);
 
-    if (count($user) == 1 && $user[0]->access_level == 0) {
+    if (count($user) == 1) {
       session([
-        'adminuser' => $user[0]->username,
+        'cpaneluser' => $user[0]->username,
       ]);
-      return redirect('/admin/console');
+      return redirect('/cpanel/console');
     }
     else {
-      return redirect('admin');
+      return redirect('cpanel');
+    }
+  }
+
+  public static function getAccessLevel($user)
+  {
+    $prefix = env('DB_TABLE_PREFIX', '');
+    $query = 'SELECT * FROM '.$prefix.'cpanel_users WHERE username=?';
+    $user = DB::select($query, [$user]);
+    if (count($user) == 1) {
+      return $user[0]->access_level;
+    }
+    else {
+      return -1;
     }
   }
 }

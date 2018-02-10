@@ -82,7 +82,6 @@
             <th>Full Name</th>
             <th>Mobile</th>
             <th>E-Mail</th>
-            <th>College</th>
           </tr>
         </thead>
         <tbody>

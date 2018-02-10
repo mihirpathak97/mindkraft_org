@@ -31,6 +31,8 @@
 
   }
 
+  $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
+
 ?>
 
 <!DOCTYPE html>
@@ -89,40 +91,50 @@
         </div>
       </nav>
 
-      <div class="box">
-        <h1><b>Statistics</b></h1>
-        <br><br>
-        <p>Total Users - <b><?php echo count($list) ?></b></p>
-        <br>
-        <h2><b>Years Wise Statistics</b></h2>
-        <br>
-        <p>1st Years - <b><?php echo getByYear(1, $prefix, $college); ?></b></p>
-        <p>2nd Years - <b><?php echo getByYear(2, $prefix, $college); ?></b></p>
-        <p>3rd Years - <b><?php echo getByYear(3, $prefix, $college); ?></b></p>
-        <p>4th Years - <b><?php echo getByYear(4, $prefix, $college); ?></b></p>
-        <br><br>
-      </div>
+      <?php if ($access_level == 1): ?>
+        <div class="box">
+          <h1><b>Statistics</b></h1>
+          <br><br>
+          <p>Total Users - <b><?php echo count($list) ?></b></p>
+          <br>
+          <h2><b>Years Wise Statistics</b></h2>
+          <br>
+          <p>1st Years - <b><?php echo getByYear(1, $prefix, $college); ?></b></p>
+          <p>2nd Years - <b><?php echo getByYear(2, $prefix, $college); ?></b></p>
+          <p>3rd Years - <b><?php echo getByYear(3, $prefix, $college); ?></b></p>
+          <p>4th Years - <b><?php echo getByYear(4, $prefix, $college); ?></b></p>
+          <br><br>
+        </div>
 
-      <table class="table card">
-        <thead>
-          <tr>
-            <th>Registration Number</th>
-            <th>Full Name</th>
-            <th>Mobile</th>
-            <th>E-Mail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($list as $record): ?>
+        <table class="table card">
+          <thead>
             <tr>
-              <td><?php echo $record->register_number; ?></td>
-              <td><?php echo $record->name; ?></td>
-              <td><?php echo $record->mobile; ?></td>
-              <td><?php echo $record->email; ?></td>
+              <th>Registration Number</th>
+              <th>Full Name</th>
+              <th>Mobile</th>
+              <th>E-Mail</th>
             </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <?php foreach ($list as $record): ?>
+              <tr>
+                <td><?php echo $record->register_number; ?></td>
+                <td><?php echo $record->name; ?></td>
+                <td><?php echo $record->mobile; ?></td>
+                <td><?php echo $record->email; ?></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+
+      <?php else: ?>
+
+        <div class="box">
+          <p><b>401 - Unauthorized Access</b></p>
+        </div>
+
+      <?php endif; ?>
+
 
     </div>
   </body>

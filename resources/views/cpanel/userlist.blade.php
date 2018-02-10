@@ -71,6 +71,7 @@
       <div class="box">
         <h1><b>Statistics</b></h1>
         <br><br>
+        <p>College Name - <b><?php echo $college ?></b></p>
         <p>Total Users - <b><?php echo count($list) ?></b></p>
         <br><br>
       </div>
@@ -90,7 +91,6 @@
               <td><?php echo $record->name; ?></td>
               <td><?php echo $record->mobile; ?></td>
               <td><?php echo $record->email; ?></td>
-              <td><?php echo $record->college; ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

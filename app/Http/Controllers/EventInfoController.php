@@ -20,7 +20,7 @@ class EventInfoController extends Controller
       $event = $event[0];
 
       if ($event->fee == '0') {
-        $event->fee = 'No fee fot this event.';
+        $event->fee = 'Fee details will be added later.';
       }
 
       if ($event->prize == '0') {

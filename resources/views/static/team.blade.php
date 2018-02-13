@@ -71,8 +71,8 @@
 			<div class="position-ref full-height">
 				<div class="content">
 					<div class="faculty">
-						<h1>Facluties</h1>
-						<p><b>Orgainzing Secretary - </b>Dr. V. Jagathesan (Department of Electrical Sciences)</p>
+						<h1>Orgainzing Secretary</h1>
+						<p>Dr. V. Jagathesan (Department of Electrical Sciences)</p>
 					</div>
 					<div class="students">
 						<h1>Student Co-Ordinators</h1>
@@ -97,7 +97,7 @@
 						<p>Selva - 3rd</p>
 						<p>Stephan Raj - 3rd BT</p>
 						<p>Subin P Sajan - 3rd ME</p>
-						<p>Akilhia - 2nd FP</p>
+						<p>Alekhya Alex - 2nd FP</p>
 						<p>Vetha Gnanam - 2nd EMT</p>
 					</div>
 				</div>

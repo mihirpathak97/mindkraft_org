@@ -59,7 +59,7 @@
               <input class="input" type="text" name="email" placeholder="E-Mail ID" required>
             </div>
             <p class="help"></p>
-            <label class="label">Registration Numnber</label>
+            <label class="label">Registration Number</label>
             <div class="control">
               <input class="input" type="text" name="reg_no" placeholder="XXYYDDNNNN" required>
             </div>

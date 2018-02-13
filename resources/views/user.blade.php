@@ -1,63 +1,82 @@
+<?php
+  namespace App\Http\Controllers;
+  use URL, DB;
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+  if (session()->has('userid') && Controller::checkUserId(session('userid'))) {
+    $username = session('username');
 
-        <title>MindKraft | User</title>
+    $prefix = env('DB_VIEW_PREFIX', '');
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    $user = DB::select('select * from '.$prefix.'enduser where id=\''.session('userid').'\'')[0];
 
-        <!-- Styles -->
-        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+  }
 
-        <style>
-            html, body {
-                background-color: #222;
-                color: hsl(0, 0%, 96%);
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+  function verificatonStatus($value){
+    return $value == true ? 'Verified' : 'Not Verified!';
+  }
 
-            .full-height {
-                height: 100vh;
-            }
+?>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+<html lang="{{ app()->getLocale() }}">
+  <head>
+    @include('includes.meta')
 
-            .position-ref {
-                position: relative;
-            }
+    <title>MindKraft | User</title>
 
-            .content {
-                text-align: center;
-            }
+    @include('includes.stylesheets')
+  </head>
 
-            .title {
-                font-size: 36px;
-                padding: 20px;
-            }
-            .title i{
-              font-size: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title">
-                    This page will be up real soon! Stay tuned <i class="em em-smiley"></i>
-                </div>
-            </div>
+  <style media="screen">
+    .container{
+      margin-top: 10%;
+      width: 75%;
+      display: block;
+      margin: auto;
+    }
+    #base-hero .field{
+      padding-bottom: 3%;
+    }
+    .container p{
+      color: white !important;
+      font-family: 'Raleway', sans-serif;
+      text-align: left;
+      font-size: 24px;
+      padding: 10px;
+    }
+  </style>
+
+  <body>
+
+    <!-- Actual body -->
+
+    <div id="base-hero" class="select-disable">
+
+      @include('includes.nav')
+
+      @include('includes.mobilenav')
+
+      <br><br><br>
+
+      <h2 class="hero-head">User Details</h2>
+
+      <?php if (session()->has('username')): ?>
+
+        <div class="container">
+          <p> <b>Name</b> - <?php echo $user->name; ?> </p>
+          <p> <b>Mobile Number</b> - <?php echo $user->mobile; ?> </p>
+          <p> <b>E-mail ID</b> - <?php echo $user->email; ?> </p>
+          <p> <b>College Name</b> - <?php echo $user->college; ?> </p>
+          <p> <b>Account Verification Status</b> - <?php echo verificatonStatus($user->is_verified); ?> </p>
         </div>
-    </body>
+
+      <?php else: ?>
+
+        <h2>You Must Login First</h2>
+
+        <?php endif; ?>
+
+    </div>
+
+  </body>
+  @include('includes.jsmin')
 </html>

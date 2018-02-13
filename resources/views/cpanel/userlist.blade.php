@@ -72,6 +72,8 @@
 
       <?php if ($access_level == 1): ?>
         <div class="box">
+          <h1><b>College Name </b> - <?php echo $college ?></h1>
+          <br><br>
           <h1><b>Statistics</b></h1>
           <br><br>
           <p>College Name - <b><?php echo $college ?></b></p>

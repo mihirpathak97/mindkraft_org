@@ -83,6 +83,8 @@
       </nav>
 
       <div class="box">
+        <h1><b>College Name </b> - <?php echo $college ?></h1>
+        <br><br>
         <h1><b>Statistics</b></h1>
         <br><br>
         <p>Total Users - <b><?php echo count($list) ?></b></p>
@@ -98,7 +100,6 @@
             <th>Full Name</th>
             <th>Mobile</th>
             <th>E-Mail</th>
-            <th>College</th>
             <th>Verified</th>
           </tr>
         </thead>
@@ -109,7 +110,6 @@
               <td><?php echo $record->name; ?></td>
               <td><?php echo $record->mobile; ?></td>
               <td><?php echo $record->email; ?></td>
-              <td><?php echo $record->college; ?></td>
               <td><?php echo yesNo($record->is_verified); ?></td>
             </tr>
           <?php endforeach; ?>

@@ -71,11 +71,11 @@
         </p>
         <p class="ip-group">
           <label class="label">Cpanel Password</label>
-          <input type="text" name="name" class="input" value="" required>
+          <input type="text" name="password" class="input" value="" required>
         </p>
         <p class="ip-group">
           <label class="label">Event ID</label>
-          <input type="text" name="name" class="input" value="" required>
+          <input type="text" name="id" class="input" value="" required>
         </p>
         <input type="submit" name="" class="button is-link" value="Submit">
       </form>

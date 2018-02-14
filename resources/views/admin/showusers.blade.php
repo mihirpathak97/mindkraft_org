@@ -7,10 +7,16 @@
   }
   $prefix = env('DB_TABLE_PREFIX', '');
   $query = 'select * from '.$prefix.'event_registration where id=?';
-  $record = DB::select($query, [$type.'-'.$id]);
-  $record = $record[0];
+  $list = DB::select($query, [$type.'-'.$id]);
+  $list = $list[0];
 
   $name = DB::select('select name from '.$prefix.$type.'s_list where id=\''.$id.'\'')[0]->name;
+
+  function getInfo($id, $prefix)
+  {
+    $query = 'select * from '.$prefix.'enduser where id=?';
+    return DB::select($query, [$id])[0];
+  }
 
 ?>
 
@@ -70,9 +76,29 @@
       </nav>
 
 
-      <div class="box">
-        <?php var_dump($record) ?>
-      </div>
+      <table class="table card">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Mobile</th>
+            <th>E-Mail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          foreach (explode(':', $list) as $record:
+            $record = getInfo($record, $prefix);
+          ?>
+            <tr>
+              <td><?php echo $record->id; ?></td>
+              <td><?php echo $record->name; ?></td>
+              <td><?php echo $record->mobile; ?></td>
+              <td><?php echo $record->email; ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
 
 
     </div>

@@ -18,6 +18,8 @@
     return DB::select($query, [$id])[0];
   }
 
+  $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
+
 ?>
 
 <!DOCTYPE html>
@@ -72,29 +74,36 @@
         </div>
       </nav>
 
-
-
-      <table class="table card">
-        <thead>
-          <tr>
-            <th>Full Name</th>
-            <th>Mobile</th>
-            <th>E-Mail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          foreach (explode(':', $list->registered_users) as $record):
-            $record = getInfo($record, $prefix);
-          ?>
+      <?php if ($access_level <= 2): ?>
+        <table class="table card">
+          <thead>
             <tr>
-              <td><?php echo $record->name; ?></td>
-              <td><?php echo $record->mobile; ?></td>
-              <td><?php echo $record->email; ?></td>
+              <th>Full Name</th>
+              <th>Mobile</th>
+              <th>E-Mail</th>
             </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <?php
+            foreach (explode(':', $list->registered_users) as $record):
+              $record = getInfo($record, $prefix);
+            ?>
+              <tr>
+                <td><?php echo $record->name; ?></td>
+                <td><?php echo $record->mobile; ?></td>
+                <td><?php echo $record->email; ?></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+
+      <?php else: ?>
+
+        <div class="box">
+          <p><b>401 - Unauthorized Access</b></p>
+        </div>
+
+      <?php endif; ?>
 
 
     </div>

@@ -87,7 +87,7 @@
         </thead>
         <tbody>
           <?php
-          foreach (explode(':', $list) as $record:
+          foreach (explode(':', $list->registered_users) as $record):
             $record = getInfo($record, $prefix);
           ?>
             <tr>

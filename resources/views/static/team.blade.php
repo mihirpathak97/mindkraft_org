@@ -87,7 +87,7 @@
 						<p>Allan Thomash Cabral - 3rd ME</p>
 						<p>Ancy Johnson - 3rd AE</p>
 						<p>Anosh Xavier - 3rd CSE</p>
-						<p>Effrim Riffon - 3rd ME</p>
+						<p>Effrim Riffon - 3rd CE</p>
 						<p>Gautham Chandra - 3rd ME</p>
 						<p>Gideon - 3rd BM</p>
 						<p>Naveen Philip - 3rd ME</p>

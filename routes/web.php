@@ -113,11 +113,13 @@ Route::prefix('admin')->group(function () {
     Route::view('console', 'admin.cms.console');
     Route::view('game', 'admin.cms.game');
     Route::view('workshop', 'admin.cms.workshop');
+    Route::view('cpanel', 'admin.cms.cpanel');
 
     // Adder Routes
     Route::post('addevent', 'CmsController@addevent');
     Route::post('addgame', 'CmsController@addgame');
     Route::post('addworkshop', 'CmsController@addworkshop');
+    Route::post('addcpaneluser', 'CmsController@addcpaneluser');
 
     // Modifier Routes
     Route::post('modifyevent', 'CmsController@modifyevent');

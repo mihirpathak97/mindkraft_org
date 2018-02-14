@@ -215,7 +215,7 @@ class CmsController extends Controller
 
       $access_level = 3;
 
-      $query = 'INSERT INTO '.$prefix.'cpanel_users (username, password, access_level) VALUES (?, ?, ?)';
+      $query = 'INSERT INTO '.$prefix.'cpanel_users (username, password, access_level) VALUES (?, PASSWORD(?), ?)';
       $query2 = 'INSERT INTO '.$prefix.'cpanel_mapping (username, events) VALUES (?, ?)';
 
       tryinsert:

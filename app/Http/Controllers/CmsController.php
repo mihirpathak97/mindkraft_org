@@ -203,4 +203,47 @@ class CmsController extends Controller
 
     }
 
+
+    public function addcpaneluser(Request $request)
+    {
+
+      $prefix = env('DB_TABLE_PREFIX', '');
+
+      $name = $request->input('name');
+      $password = $request->input('password');
+      $id = $request->input('id');
+
+      $access_level = 3;
+
+      $query = 'INSERT INTO '.$prefix.'cpanel_users (username, password, access_level) VALUES (?, PASSWORD(?), ?)';
+      $query2 = 'INSERT INTO '.$prefix.'cpanel_mapping (username, events) VALUES (?, ?)';
+
+      tryinsert:
+        try {
+          $result = DB::insert($query, [$name, $password, $access_level]);
+          $result2 = DB::insert($query2, [$name, $id]);
+        } catch (\Illuminate\Database\QueryException $e) {
+            if ($e->errorInfo[1] == 1062) {
+              // Checks if generated user id is already taken
+              if (stripos($e->getMessage(), 'for key \'events_list_id_unique\'') != false) {
+                $id = Controller::generateRandomString();
+                goto tryinsert;
+              }
+              else {
+                return $e->getMessage();
+              }
+            }
+            // If it's not a duplicate entry but something is still wrong
+            else {
+              echo "Error adding event!<br>Please try again later<br><br>";
+              echo "<b>Error Message</b> <br>" . $e->getMessage();
+            }
+          }
+
+      if (isset($result) && $result) {
+        return "Successfully added event!";
+      }
+
+    }
+
 }

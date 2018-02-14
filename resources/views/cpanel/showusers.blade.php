@@ -2,8 +2,8 @@
   namespace App\Http\Controllers;
   use URL, DB, Redirect;
 
-  if (!session()->has('adminuser') || !Controller::checkAdmin(session('adminuser'))) {
-    Redirect::to('admin')->send();
+  if (!session()->has('cpaneluser') || !Controller::checkAdmin(session('cpaneluser'))) {
+    Redirect::to('cpanel')->send();
   }
   $prefix = env('DB_TABLE_PREFIX', '');
   $query = 'select * from '.$prefix.'event_registration where id=?';
@@ -17,6 +17,8 @@
     $query = 'select * from '.$prefix.'enduser where id=?';
     return DB::select($query, [$id])[0];
   }
+
+  $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
 
 ?>
 
@@ -53,10 +55,7 @@
          <nav class="tabs is-boxed">
            <ul>
              <li class="is-active">
-               <a href="/admin/console" id='active'>Admin Console</a>
-             </li>
-             <li>
-               <a href="/admin/cms/console">CMS Console</a>
+               <a href="/cpanel/console" id='active'>Admin Console</a>
              </li>
            </ul>
          </nav></div>
@@ -68,37 +67,43 @@
       <nav class="navbar has-shadow">
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item is-tab" href="/admin/console">Dashboard</a>
-            <a class="navbar-item is-tab" href="/admin/<?php echo $type ?>s"><?php echo ucfirst($type) ?>s List</a>
+            <a class="navbar-item is-tab" href="/cpanel/console">Dashboard</a>
+            <a class="navbar-item is-tab" href="/cpanel/<?php echo $type ?>s"><?php echo ucfirst($type) ?>s List</a>
             <a class="navbar-item is-tab is-active"><?php echo $name ?></a>
           </div>
         </div>
       </nav>
 
-
-      <table class="table card">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Full Name</th>
-            <th>Mobile</th>
-            <th>E-Mail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          foreach (explode(':', $list->registered_users) as $record):
-            $record = getInfo($record, $prefix);
-          ?>
+      <?php if ($access_level <= 2): ?>
+        <table class="table card">
+          <thead>
             <tr>
-              <td><?php echo $record->id; ?></td>
-              <td><?php echo $record->name; ?></td>
-              <td><?php echo $record->mobile; ?></td>
-              <td><?php echo $record->email; ?></td>
+              <th>Full Name</th>
+              <th>Mobile</th>
+              <th>E-Mail</th>
             </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <?php
+            foreach (explode(':', $list->registered_users) as $record):
+              $record = getInfo($record, $prefix);
+            ?>
+              <tr>
+                <td><?php echo $record->name; ?></td>
+                <td><?php echo $record->mobile; ?></td>
+                <td><?php echo $record->email; ?></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+
+      <?php else: ?>
+
+        <div class="box">
+          <p><b>401 - Unauthorized Access</b></p>
+        </div>
+
+      <?php endif; ?>
 
 
     </div>

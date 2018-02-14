@@ -100,7 +100,7 @@
                   $data = DB::select($q, ['event-'.$record->id]);
                   if (count($data) > 0):
                 ?>
-                  <td><a href="/cpanel/showinfo/event/<?php echo $record->id ?>">Show Registered Users</a></td>
+                  <td><a href="/cpanel/showinfo/event/<?php echo $record->id ?>/users">Show Registered Users</a></td>
                 <?php else: ?>
                   <td>No Users Have Registered</td>
                 <?php endif; ?>
@@ -121,15 +121,64 @@
             $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
             return $event[0]->name;
           }
-          $events = exolode(':', $user->events); ?>
+
+          function getInfo($id, $prefix)
+          {
+            $query = 'select * from '.$prefix.'enduser where id=?';
+            return DB::select($query, [$id])[0];
+          }
+
+          $event = $user->events;
+
+          // Get users list
+          $query = 'select * from '.$prefix.'event_registration where id=?';
+          $list = DB::select($query, ['event-'.$event]);
+
+          ?>
+
+          <?php
+          if (count($list) == 1):
+            $list = $list[0];
+          ?>
 
             <div class="box">
-              <article>
-                <?php foreach ($events as $event): ?>
-                  <a href="/cpanel/showinfo/event/<?php echo $event->id ?>"><?php echo getEventName($event->id) ?></a>
-                <?php endforeach; ?>
-              </article>
+              <p><b>Event Name</b> - <?php echo getEventName($event) ?> </p>
+              <br>
+              <p><b>Registered Users</b> - <?php echo count(explode(':', $list->registered_users)); ?></p>
+              <br><br>
+              <table class="table card">
+                <thead>
+                  <tr>
+                    <th>Full Name</th>
+                    <th>Mobile</th>
+                    <th>E-Mail</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  foreach (explode(':', $list->registered_users) as $record):
+                    $record = getInfo($record, $prefix);
+                  ?>
+                    <tr>
+                      <td><?php echo $record->name; ?></td>
+                      <td><?php echo $record->mobile; ?></td>
+                      <td><?php echo $record->email; ?></td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
             </div>
+
+
+          <?php else: ?>
+
+            <div class="box">
+              <p> <b>Event Name</b> - <?php echo getEventName($event) ?> </p>
+              <br>
+              <p>No Users Have Registered!</p>
+            </div>
+
+          <?php endif; ?>
 
       <?php
         }

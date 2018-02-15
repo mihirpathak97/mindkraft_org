@@ -109,6 +109,7 @@
             <th>E-Mail</th>
             <th>College</th>
             <th>Verified</th>
+            <th>Login Attempts</th>
           </tr>
         </thead>
         <tbody>
@@ -125,6 +126,7 @@
                 <td><?php echo $record->email; ?></td>
                 <td><?php echo $record->college; ?></td>
                 <td><?php echo yesNo($record->is_verified); ?></td>
+                <td><?php echo $record->visit_count; ?></td>
               </tr>
             <?php endif; ?>
           <?php endforeach; ?>

@@ -8,6 +8,20 @@
 
   $prefix = env('DB_TABLE_PREFIX', '');
 
+  function yesNo($value){
+    return $value == true ? 'Yes' : 'No';
+  }
+
+  function inCollegeList($college)
+  {
+    foreach (Controller::colleges_list as $key => $value) {
+      if ($college == $value) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -82,6 +96,42 @@
         <?php endforeach; ?>
       </div>
 
+      <div class="box">
+        <p><b>Other College Students - </b></p>
+      </div>
+
+      <table class="table card">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Mobile</th>
+            <th>E-Mail</th>
+            <th>College</th>
+            <th>Verified</th>
+            <th>Login Attempts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $query = 'SELECT * from '.$prefix.'enduser order by name';
+          $list = DB::select($query);
+          ?>
+          <?php foreach ($list as $record): ?>
+            <?php if (!inCollegeList($record->college)): ?>
+              <tr>
+                <td><?php echo $record->id; ?></td>
+                <td><?php echo $record->name; ?></td>
+                <td><?php echo $record->mobile; ?></td>
+                <td><?php echo $record->email; ?></td>
+                <td><?php echo $record->college; ?></td>
+                <td><?php echo yesNo($record->is_verified); ?></td>
+                <td><?php echo $record->visit_count; ?></td>
+              </tr>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
 
     </div>
   </body>

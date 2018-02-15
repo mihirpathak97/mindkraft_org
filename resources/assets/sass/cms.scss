@@ -41,7 +41,11 @@
  h1{
    text-align: center;
    display: inline-block;
- }
+}
+
+table{
+  margin-bottom: 3rem;
+}
 
  @media screen and (max-width:480px) {
    #home, #away{

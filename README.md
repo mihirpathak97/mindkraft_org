@@ -9,9 +9,7 @@ Copyright (c) 2017 Z Coders All Rights Reserved.
 
 ## Development Team
 
-**Website Designed By** - Mihir Pathak
-
-**REST API Designed By** - Mihir Pathak
+**Website Designed and REST API Designed By** - Mihir Pathak
 
 **App Designed By** - Vetha Gnanam
 
@@ -30,7 +28,6 @@ Actual Code Statistics (Excluding Framework)
 | LESS                | 1          | 31           | 2          | 121
 | JSON                | 2          | 0            | 0          | 116
 | Vuejs Component     | 1          | 2            | 0          | 21
-|                     |            |              |            |
 | **SUM**             | 122        | 2759         | 3571       | 13868
 
 

@@ -163,5 +163,14 @@ Route::prefix('cpanel')->group(function () {
 });
 
 
+// Resource Routes
+Route::prefix('resources')->group(function () {
+
+  // IEEE Paper Presentation Format
+  Route::redirect('ieee', '/resources/ieee-format.doc');
+
+});
+
+
 // Test route. Do all testing in this view
 Route::view('/test', 'test');

@@ -14,6 +14,7 @@
     <title>MindKraft | Z Coders</title>
 
     @include('includes.stylesheets')
+		<link rel="stylesheet" href="{{ URL::asset('css/team.css') }}">
   </head>
 
 	<style media="screen">
@@ -72,24 +73,24 @@
 			@include('includes.mobilenav')
 
       <br><br>
-      <h2 class="hero-head">Z Coders</h2>
+      <h2 class="hero-head">Website Team</h2>
 
 			<div class="position-ref full-height">
 				<div class="content">
-					<div class="website">
-						<h1>Website Team</h1>
-            <p>Mihir Pathak - 3rd CSE</p>
+					<div class="main-cordinators">
+						<div class="item">
+							<figure>
+								<img src="{{ URL::asset('images/profile/mihir.jpg') }}">
+								<div class="contact">
+									<a href="https://twitter.com/mihirpathak97" class="tw"></a>
+									<a href="" class="in"></a>
+									<a href="" class="gp"></a>
+									<a href="mailto:me@mihirpathak.xyz" class="ma"></a>
+								</div>
+							</figure>
+							<h1>Mihir Pathak<br>3rd CSE</h1>
+						</div>
 					</div>
-          <div class="app">
-            <h1>App Team</h1>
-            <p>Vetha Gnanam - 2nd EMT</p>
-            <p>Mihir Pathak - 3rd CSE</p>
-          </div>
-          <!-- <div class="social">
-            <h1>Contact</h1>
-            <a href="https://bitbucket.org/z_coders" target="_blank"><i class="fa fa-bitbucket" aria-hidden="true"></i></a>
-            <a href="https://github.com/z-coders" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-          </div> -->
 				</div>
 			</div>
 

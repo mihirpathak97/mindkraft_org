@@ -122,6 +122,13 @@
             return $event[0]->name;
           }
 
+          function getCollegeName($id)
+          {
+            $prefix = env('DB_TABLE_PREFIX', '');
+            $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
+            return $event[0]->college;
+          }
+
           function getInfo($id, $prefix)
           {
             $query = 'select * from '.$prefix.'enduser where id=?';
@@ -144,6 +151,8 @@
             <div class="box">
               <p><b>Event Name</b> - <?php echo getEventName($event) ?> </p>
               <br>
+              <p><b>Department</b> - <?php echo getCollegeName($event) ?></p>
+              <br>
               <p><b>Registered Users</b> - <?php echo count(explode(':', $list->registered_users)); ?></p>
               <br><br>
               <table class="table card">
@@ -152,6 +161,7 @@
                     <th>Full Name</th>
                     <th>Mobile</th>
                     <th>E-Mail</th>
+                    <th>College</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -163,6 +173,7 @@
                       <td><?php echo $record->name; ?></td>
                       <td><?php echo $record->mobile; ?></td>
                       <td><?php echo $record->email; ?></td>
+                      <td><?php echo $record->college; ?></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>

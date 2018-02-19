@@ -17,6 +17,8 @@ Copyright (c) 2017 Z Coders All Rights Reserved.
 
 ## Statistics
 
+Actual Code Statistics (Excluding Framework)
+
 | Language            |Files       | Blank Lines  | Comment    | Code
 | --------------------|:-----------|:-------------|:-----------|:--------
 | Blade               | 70         | 807          | 196        | 4929

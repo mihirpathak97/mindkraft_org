@@ -9,10 +9,7 @@ Copyright (c) 2017 Z Coders All Rights Reserved.
 
 ## Development Team
 
-**Website Team**
-
-* Mihir Pathak
-* Dalbut Pelfrey
+**Website Designed By** - Mihir Pathak
 
 **REST API Designed By** - Mihir Pathak
 

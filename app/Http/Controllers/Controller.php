@@ -414,6 +414,26 @@ class Controller extends BaseController
       'snh' => 'Science and Humanities'
     );
 
+    // Departments list for workshops
+    const dept_list_workshop = array(
+      'ac' => 'Department of Agriculture'
+      'ae' => 'Aerospace Engineering',
+      'bt' => 'Bio Technology',
+      'bi' => 'Bio Informatics',
+      'ce' => 'Civil Engineering',
+      'cse' => 'Computer Science',
+      'ece' => 'Electronics and Communication',
+      'eee' => 'Electrical and Eclectronics',
+      'eie' => 'Electronics and Instrumentation',
+      'fp' => 'Foop Processing',
+      'me' => 'Mechanical Engineering',
+      'emt' => 'Media Technology',
+      'nano' => 'Nano Technology',
+      'phy' => 'Physics',
+      'chem' => 'Chemistry',
+      'math' => 'Maths'
+    );
+
     // Event Types
     const event_type = array(
       'tech' => 'Technical',

@@ -416,7 +416,7 @@ class Controller extends BaseController
 
     // Departments list for workshops
     const dept_list_workshop = array(
-      'ac' => 'Department of Agriculture'
+      'ac' => 'Department of Agriculture',
       'ae' => 'Aerospace Engineering',
       'bt' => 'Bio Technology',
       'bi' => 'Bio Informatics',

@@ -398,6 +398,7 @@ class Controller extends BaseController
 
     // Departments list
     const dept_list = array(
+      // 'ac' => 'Department of Agriculture'
       'ae' => 'Aerospace Engineering',
       'bt' => 'Bio Technology',
       'bi' => 'Bio Informatics',

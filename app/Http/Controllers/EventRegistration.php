@@ -46,7 +46,7 @@ class EventRegistration extends Controller
           $registered_users .= ':'.$userid;
           DB::beginTransaction();
           try {
-            DB::insert('update '.$table_prefix.'event_registration set registered_users=\''.$registered_users.'\'');
+            DB::insert('update '.$table_prefix.'event_registration set registered_users=\''.$registered_users.'\' where id=\''.$list->id.'\'');
             DB::commit();
           } catch (\Exception $e) {
               DB::rollback();

@@ -122,11 +122,14 @@
             return $event[0]->name;
           }
 
-          function getCollegeName($id)
+          function getDepartmentName($id)
           {
             $prefix = env('DB_TABLE_PREFIX', '');
             $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
-            return $event[0]->college;
+            if (isset($event[0]->department)) {
+              return $event[0]->department;
+            }
+            return 'NIL';
           }
 
           function getInfo($id, $prefix)
@@ -159,7 +162,7 @@
             <div class="box">
               <p><b>Event Name</b> - <?php echo getEventName($event) ?> </p>
               <br>
-              <p><b>Department</b> - <?php echo getCollegeName($event) ?></p>
+              <p><b>Department</b> - <?php echo getDepartmentName($event) ?></p>
               <br>
               <p><b>Registered Users</b> - <?php echo count(explode(':', $list->registered_users)); ?></p>
               <br><br>

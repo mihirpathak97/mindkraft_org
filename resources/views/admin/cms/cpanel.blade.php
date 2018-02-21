@@ -82,7 +82,7 @@
           <label class="label">Type</label>
           <div class="control">
             <div class="select">
-              <select class="select" name="type">
+              <select class="select" name="type" required>
                 <option value="event" selected>Event</option>
                 <option value="game">Game</option>
                 <option value="workshop">Workshop</option>

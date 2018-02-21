@@ -135,8 +135,15 @@
             return DB::select($query, [$id])[0];
           }
 
-          $event = explode('-', $user->events)[1];
-          $type = explode('-'. $user->events)[0];
+          // NOTE: Due to older ID type in events, it is necessary to check type
+          if (count(explode('-', $user->events)) == 2) {
+            $event = explode('-', $user->events)[1];
+            $type = explode('-'. $user->events)[0];
+          }
+          else {
+            $event = explode('-', $user->events)[1];
+            $type = 'event';
+          }
 
           // Get users list
           $query = 'select * from '.$prefix.'event_registration where id=?';

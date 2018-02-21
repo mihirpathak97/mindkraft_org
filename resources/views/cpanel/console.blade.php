@@ -141,7 +141,7 @@
             $type = explode('-'. $user->events)[0];
           }
           else {
-            $event = explode('-', $user->events)[1];
+            $event = $user->events;
             $type = 'event';
           }
 

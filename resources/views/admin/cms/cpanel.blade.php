@@ -54,9 +54,10 @@
   <nav class="navbar has-shadow">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item is-tab is-active" href="/admin/cms/console">Add Event</a>
+        <a class="navbar-item is-tab" href="/admin/cms/console">Add Event</a>
         <a class="navbar-item is-tab" href="/admin/cms/game">Add Game</a>
         <a class="navbar-item is-tab" href="/admin/cms/workshop">Add Workshop</a>
+        <a class="navbar-item is-tab is-active" href="/admin/cms/cpanel">Cpanel Users</a>
       </div>
     </div>
   </nav>

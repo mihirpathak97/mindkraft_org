@@ -212,6 +212,7 @@ class CmsController extends Controller
       $name = $request->input('name');
       $password = $request->input('password');
       $id = $request->input('id');
+      $type = $request->input('type');
 
       $access_level = 3;
 
@@ -221,7 +222,7 @@ class CmsController extends Controller
       tryinsert:
         try {
           $result = DB::insert($query, [$name, $password, $access_level]);
-          $result2 = DB::insert($query2, [$name, $id]);
+          $result2 = DB::insert($query2, [$name, $type.'-'.$id]);
         } catch (\Illuminate\Database\QueryException $e) {
             if ($e->errorInfo[1] == 1062) {
               // Checks if generated user id is already taken

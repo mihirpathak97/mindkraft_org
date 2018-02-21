@@ -135,11 +135,12 @@
             return DB::select($query, [$id])[0];
           }
 
-          $event = $user->events;
+          $event = explode('-', $user->events)[1];
+          $type = explode('-'. $user->events)[0];
 
           // Get users list
           $query = 'select * from '.$prefix.'event_registration where id=?';
-          $list = DB::select($query, ['event-'.$event]);
+          $list = DB::select($query, [$type.'-'.$event]);
 
           ?>
 

@@ -117,7 +117,7 @@
 				      </div>
 				      <div class="item">
 				        <figure>
-				          <img src="{{ URL::asset('images/profile/nobody.jpg') }}">
+				          <img src="{{ URL::asset('images/profile/vignesh.jpg') }}">
 				          <div class="contact">
 				            <a href="" class="tw"></a>
 				            <a href="" class="fb"></a>
@@ -130,11 +130,11 @@
 				    </div>
 
 						<div class="promotion">
-							<h2><i class="fa fa-newspaper"></i>Promotion and Media</h2>
+							<h2><i class="fa fa-newspaper"></i>Promotion, Media & Debates</h2>
 							<div class="promotion-inner">
 								<div class="item">
 					        <figure>
-					          <img src="{{ URL::asset('images/profile/nobody.jpg') }}">
+					          <img src="{{ URL::asset('images/profile/vignesh.jpg') }}">
 					          <div class="contact">
 					            <a href="" class="tw"></a>
 					            <a href="" class="fb"></a>
@@ -200,7 +200,7 @@
 							<div class="tech-inner">
 								<div class="item">
 					        <figure>
-					          <img src="{{ URL::asset('images/profile/nobody.jpg') }}">
+					          <img src="{{ URL::asset('images/profile/gideon.jpg') }}">
 					          <div class="contact">
 					            <a href="" class="tw"></a>
 					            <a href="" class="fb"></a>
@@ -225,21 +225,39 @@
 							</div>
 						</div>
 
+						<div class="sponsors">
+							<h2>Sponsorship & Tech Talks</h2>
+							<div class="sponsors-inner">
+								<div class="item">
+									<figure>
+										<img src="{{ URL::asset('images/profile/nobody.jpg') }}">
+										<div class="contact">
+											<a href="" class="tw"></a>
+											<a href="" class="fb"></a>
+											<a href="" class="gp"></a>
+											<a href="" class="ma"></a>
+										</div>
+									</figure>
+									<h1>Justin Varghese<br>4th ME</h1>
+								</div>
+								<div class="item">
+									<figure>
+										<img src="{{ URL::asset('images/profile/nobody.jpg') }}">
+										<div class="contact">
+											<a href="" class="tw"></a>
+											<a href="" class="fb"></a>
+											<a href="" class="gp"></a>
+											<a href="" class="ma"></a>
+										</div>
+									</figure>
+									<h1>Jerin John<br>4th ME</h1>
+								</div>
+							</div>
+						</div>
+
 						<div class="food">
 							<h2>Food Stalls</h2>
 							<div class="food-inner">
-								<div class="item">
-					        <figure>
-					          <img src="{{ URL::asset('images/profile/nobody.jpg') }}">
-					          <div class="contact">
-					            <a href="" class="tw"></a>
-					            <a href="" class="fb"></a>
-					            <a href="" class="gp"></a>
-					            <a href="" class="ma"></a>
-					          </div>
-					        </figure>
-					        <h1>Vignesh L<br>3rd EEE</h1>
-					      </div>
 								<div class="item">
 					        <figure>
 					          <img src="{{ URL::asset('images/profile/mobin.jpg') }}">
@@ -254,7 +272,7 @@
 					      </div>
 								<div class="item">
 					        <figure>
-					          <img src="{{ URL::asset('images/profile/nobody.jpg') }}">
+					          <img src="{{ URL::asset('images/profile/gautham.jpg') }}">
 					          <div class="contact">
 					            <a href="" class="tw"></a>
 					            <a href="" class="fb"></a>
@@ -263,6 +281,18 @@
 					          </div>
 					        </figure>
 					        <h1>Gautham<br>3rd ME</h1>
+					      </div>
+								<div class="item">
+					        <figure>
+					          <img src="{{ URL::asset('images/profile/vignesh.jpg') }}">
+					          <div class="contact">
+					            <a href="" class="tw"></a>
+					            <a href="" class="fb"></a>
+					            <a href="" class="gp"></a>
+					            <a href="" class="ma"></a>
+					          </div>
+					        </figure>
+					        <h1>Vignesh L<br>3rd EEE</h1>
 					      </div>
 							</div>
 						</div>
@@ -314,6 +344,18 @@
 							<div class="souvenir-inner">
 								<div class="item">
 									<figure>
+										<img src="{{ URL::asset('images/profile/gideon.jpg') }}">
+										<div class="contact">
+											<a href="" class="tw"></a>
+											<a href="" class="fb"></a>
+											<a href="" class="gp"></a>
+											<a href="" class="ma"></a>
+										</div>
+									</figure>
+									<h1>Gideon<br>3rd BM</h1>
+								</div>
+								<div class="item">
+									<figure>
 										<img src="{{ URL::asset('images/profile/alekhya.jpg') }}">
 										<div class="contact">
 											<a href="" class="tw"></a>
@@ -358,12 +400,12 @@
 						</div>
 
 
-						<div class="sponsors">
-							<h2>Sponsorship Team</h2>
-							<div class="sponsors-inner">
+						<div class="games">
+							<h2>Games</h2>
+							<div class="games-inner">
 								<div class="item">
 									<figure>
-										<img src="{{ URL::asset('images/profile/nobody.jpg') }}">
+										<img src="{{ URL::asset('images/profile/effrim.png') }}">
 										<div class="contact">
 											<a href="" class="tw"></a>
 											<a href="" class="fb"></a>
@@ -371,11 +413,11 @@
 											<a href="" class="ma"></a>
 										</div>
 									</figure>
-									<h1>Justin Varghese<br>4th ME</h1>
+									<h1>Effrim Riffon<br>3rd CE</h1>
 								</div>
 								<div class="item">
 									<figure>
-										<img src="{{ URL::asset('images/profile/nobody.jpg') }}">
+										<img src="{{ URL::asset('images/profile/allan.jpg') }}">
 										<div class="contact">
 											<a href="" class="tw"></a>
 											<a href="" class="fb"></a>
@@ -383,7 +425,7 @@
 											<a href="" class="ma"></a>
 										</div>
 									</figure>
-									<h1>Jerin John<br>4th ME</h1>
+									<h1>Allan Thomas Cabral<br>3rd ME</h1>
 								</div>
 							</div>
 						</div>

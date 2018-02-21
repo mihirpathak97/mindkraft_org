@@ -160,8 +160,8 @@ class CmsController extends Controller
 
     }
 
-    // Modifer Functoins
 
+    // Modifer Functoins
 
     public function modifyevent(Request $request)
     {
@@ -200,6 +200,40 @@ class CmsController extends Controller
           }
 
       return "Successfully updated event!";
+
+    }
+
+    public function modifyworkshop(Request $request)
+    {
+
+      $prefix = env('DB_TABLE_PREFIX', '');
+
+      $id = $request->input('id');
+      $name = $request->input('name');
+      $dept = $request->input('department');
+      $contact = $request->input('contact');
+      $fee = $request->input('fee');
+      $about = $request->input('about');
+      $seats = $request->input('seats');
+
+        try {
+          $result = DB::table('workshops_list')
+                              ->where('id', $id)
+                              ->update([
+                                'name' => $name,
+                                'department' => $dept,
+                                'contact' => $contact,
+                                'fee' => $fee,
+                                'about' => $about,
+                                'seats' => $seats
+                               ]);
+        } catch (\Illuminate\Database\QueryException $e) {
+            echo "Error updating workshop!<br>Please try again later<br><br>";
+            echo "<b>Error Message</b> <br>" . $e->getMessage();
+            return;
+          }
+
+      return "Successfully updated workshop!";
 
     }
 

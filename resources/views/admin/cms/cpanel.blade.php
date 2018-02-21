@@ -75,8 +75,20 @@
           <input type="text" name="password" class="input" value="" required>
         </p>
         <p class="ip-group">
-          <label class="label">Event ID</label>
+          <label class="label">Event/Workshop/Game ID</label>
           <input type="text" name="id" class="input" value="" required>
+        </p>
+        <p class="ip-group">
+          <label class="label">Type</label>
+          <div class="control">
+            <div class="select">
+              <select class="select" name="type">
+                <option value="event" selected>Event</option>
+                <option value="game">Game</option>
+                <option value="workshop">Workshop</option>
+              </select>
+            </div>
+          </div>
         </p>
         <input type="submit" name="" class="button is-link" value="Submit">
       </form>

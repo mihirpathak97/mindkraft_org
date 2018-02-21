@@ -157,7 +157,7 @@
               <tr>
                 <td><?php echo $record->name ?></td>
                 <td><?php echo $record->id ?></td>
-                <td><?php echo Controller::dept_list[$record->department] ?></td>
+                <td><?php echo Controller::dept_list_workshop[$record->department] ?></td>
                 <?php
                   $q = 'select * from '.$prefix.'event_registration where id=?';
                   $data = DB::select($q, [$type[$table_name].'-'.$record->id]);

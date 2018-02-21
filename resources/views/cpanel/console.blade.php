@@ -127,7 +127,7 @@
             $prefix = env('DB_TABLE_PREFIX', '');
             $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
             if (isset($event[0]->department)) {
-              if (isset(Controller::dept_list[$event[0]->department]) {
+              if (isset(Controller::dept_list[$event[0]->department])) {
                 return Controller::dept_list[$event[0]->department];
               }
               else {

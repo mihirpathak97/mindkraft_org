@@ -143,7 +143,7 @@
                     $data = DB::select($q, [$type[$table_name].'-'.$record->id]);
                     if (count($data) > 0):
                   ?>
-                    <td><a href="/admin/showinfo/game/<?php echo $record->id ?>">Show Registered Users</a></td>
+                    <td><a href="/admin/showinfo/game/<?php echo $record->id ?>/users">Show Registered Users</a></td>
                   <?php else: ?>
                     <td>No Users Have Registered</td>
                   <?php endif; ?>
@@ -163,7 +163,7 @@
                   $data = DB::select($q, [$type[$table_name].'-'.$record->id]);
                   if (count($data) > 0):
                 ?>
-                  <td><a href="/admin/showinfo/workshop/<?php echo $record->id ?>">Show Registered Users</a></td>
+                  <td><a href="/admin/showinfo/workshop/<?php echo $record->id ?>/users">Show Registered Users</a></td>
                 <?php else: ?>
                   <td>No Users Have Registered</td>
                 <?php endif; ?>

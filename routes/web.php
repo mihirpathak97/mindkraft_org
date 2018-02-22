@@ -61,12 +61,17 @@ Route::view('/register/terms', 'req.terms');
 Route::view('/accomodation', 'static.accomodation');
 Route::view('/app', 'static.app');
 Route::view('/exhibitions', 'static.exhibitions');
-Route::view('/debates', 'static.debates');
 Route::view('/schedule', 'static.schedule');
 Route::view('/sponsors', 'static.sponsors');
 Route::view('/team', 'static.team');
 Route::view('/terms', 'static.terms');
 Route::view('/z', 'static.z');
+
+
+// Debate Routes
+Route::view('/debates', 'static.debates');
+Route::view('/debates/mock_parliament', 'static.debates.mock');
+
 
 // Helper Routes
 Route::redirect('/when', '/schedule');

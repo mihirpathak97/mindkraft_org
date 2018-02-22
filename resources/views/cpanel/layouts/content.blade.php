@@ -121,7 +121,7 @@
                     $data = DB::select($q, [$type[$table_name].'-'.$record->id]);
                     if (count($data) > 0):
                   ?>
-                    <td><a href="/cpanel/showinfo/event/<?php echo $record->id ?>">Show Registered Users</a></td>
+                    <td><a href="/cpanel/showinfo/event/<?php echo $record->id ?>/users">Show Registered Users</a></td>
                   <?php else: ?>
                     <td>No Users Have Registered</td>
                   <?php endif; ?>
@@ -150,13 +150,13 @@
               <?php foreach ($list as $record): ?>
                 <tr>
                   <td><?php echo $record->name ?></td>
-                  <td><?php echo Controller::dept_list[$record->department] ?></td>
+                  <td><?php echo Controller::dept_list_workshop[$record->department] ?></td>
                   <?php
                     $q = 'select * from '.$prefix.'event_registration where id=?';
                     $data = DB::select($q, [$type[$table_name].'-'.$record->id]);
                     if (count($data) > 0):
                   ?>
-                    <td><a href="/cpanel/showinfo/workshop/<?php echo $record->id ?>">Show Registered Users</a></td>
+                    <td><a href="/cpanel/showinfo/workshop/<?php echo $record->id ?>/users">Show Registered Users</a></td>
                   <?php else: ?>
                     <td>No Users Have Registered</td>
                   <?php endif; ?>

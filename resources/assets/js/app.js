@@ -102,7 +102,7 @@ function loadBody() {
 
   if (typeof(particlesJS) != "undefined") {
     particlesJS.load('particle-canvas', 'js/particlesjs-config-nasa.json', function() {
-      console.log('callback - particles.js config loaded');
+      // console.log('callback - particles.js config loaded');
     });
   }
 
@@ -358,7 +358,7 @@ $('#internalRegisterForm').submit(function () {
 
   formData = $('#internalRegisterForm').serializeArray();
   formData.push({ name:"college", value:"143" });
-  console.log(formData);
+  // console.log(formData);
   $.ajax({
     type: 'POST',
     url: '/userregister',
@@ -564,8 +564,8 @@ function loadRadialMenu() {
 
   var url_arr = window.location.href.split('/');
   var selected = url_arr[3];
-  console.log(selected);
-  console.log(menuDataURLS.indexOf(selected));
+  // console.log(selected);
+  // console.log(menuDataURLS.indexOf(selected));
   if (menuDataURLS.indexOf(selected) == -1) {
     if (menuDataURLS.indexOf(url_arr[url_arr.length - 2]) != -1) {
       selected = url_arr[url_arr.length - 2];
@@ -652,7 +652,7 @@ function CircleMenu(target, data, selectedByKey, opt, func) {
 				that.next();
 			});
 		}else {
-			console.log('%c CircleMenu ', 'background: #4bd187; color: #333', 'No data');
+			// console.log('%c CircleMenu ', 'background: #4bd187; color: #333', 'No data');
 			target.hide();
 		}
 	}
@@ -814,7 +814,7 @@ function CircleMenu(target, data, selectedByKey, opt, func) {
 				that.currentSelected = offset;
 			}
 		}else {
-			console.log('%c CircleMenu ', 'background: #4bd187; color: #333', 'Can\'t find selected item "'+selectedByKey+'" with offset "'+offset+'"');
+			// console.log('%c CircleMenu ', 'background: #4bd187; color: #333', 'Can\'t find selected item "'+selectedByKey+'" with offset "'+offset+'"');
 			target.hide();
 		}
 	}

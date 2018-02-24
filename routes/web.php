@@ -25,9 +25,14 @@ Route::get('/events/{dept}', function ($dept) {
     return view('events')->with($data);
 });
 
-Route::view('/games', 'games');
-
 Route::view('/workshops', 'workshops');
+
+Route::get('/workshops/{dept}', function ($dept) {
+    $data = array('dept' => $dept);
+    return view('workshops')->with($data);
+});
+
+Route::view('/games', 'games');
 
 Route::view('/logout', 'logout');
 
@@ -40,8 +45,8 @@ Route::get('/events/{dept}/{name}/{id}', function ($dept, $name, $id) {
     return view('req.event')->with($data);
 });
 
-Route::get('/workshops/{name}/{id}', function ($name, $id) {
-    $data = array('name' => $name, 'id' => $id);
+Route::get('/workshops/{dept}/{name}/{id}', function ($dept, $name, $id) {
+    $data = array('dept' => $dept, 'name' => $name, 'id' => $id);
     return view('req.workshop')->with($data);
 });
 

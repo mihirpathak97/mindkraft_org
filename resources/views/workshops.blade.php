@@ -58,7 +58,7 @@
       <?php
         if (isset($dept)){
           if ($dept == 'snh') {
-            $stmt = $pdo->query("SELECT * FROM $view_prefix" . "workshops_list WHERE department in ('chem', 'phy', 'math', 'nano') GROUP BY id HAVING COUNT(*) = 4");
+            $stmt = $pdo->query("SELECT * FROM $view_prefix" . "workshops_list WHERE department in ('chem', 'phy', 'math', 'nano')");
   					$result = $stmt->fetchAll();
           }
           else {

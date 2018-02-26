@@ -16,7 +16,7 @@
   <head>
     @include('includes.meta')
 
-    <title>MindKraft 2018 | Events</title>
+    <title>MindKraft 2018 | Workshops</title>
 
     @include('includes.stylesheets')
   </head>

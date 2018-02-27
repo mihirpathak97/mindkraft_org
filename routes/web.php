@@ -81,6 +81,10 @@ Route::view('/debates/mock_parliament', 'static.debates.mock');
 // Helper Routes
 Route::redirect('/when', '/schedule');
 
+// T-Shir Registration
+Route::view('register/tshirt', 'tshirt-register');
+Route::post('register/tshirt/register', 'Auth@tshirtRegister');
+
 // Auth Routes
 Route::view('/login', 'login');
 Route::post('userlogin', 'Auth@login');
@@ -118,8 +122,8 @@ Route::prefix('admin')->group(function () {
   });
 
   // Web Mailer Route
-  Route::view('mailer', 'mailer');
-  Route::view('mailer.send', 'AdminController@MailSender');
+  Route::view('mailer', 'admin.mailer');
+  Route::post('mailer/send', 'AdminController@MailSender');
 
   // CMS Routes
   Route::prefix('cms')->group(function () {

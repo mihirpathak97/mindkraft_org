@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\BulkMailer;
+use App\Mail\SimpleMailer;
 
 class AdminController extends Controller
 {
@@ -36,7 +36,7 @@ class AdminController extends Controller
   {
     $data = ['subject' => $request->input('subject'), 'body' => $request->input('body'), 'from' => $request->input('from')];
     $emails = ['mihirr@karunya.edu.in'];
-    Mail::to($emails)->send(new VerificationEmail($data));
+    Mail::to($emails)->send(new SimpleMailer($data));
     return "E-mail was sent successfully";
   }
 

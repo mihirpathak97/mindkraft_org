@@ -42,6 +42,9 @@
             <li class="is-active">
               <a href="/admin/cms/console">CMS Console</a>
             </li>
+            <li>
+              <a href="/admin/mailer">Mailer</a>
+            </li>
           </ul>
         </nav></div>
       </div>

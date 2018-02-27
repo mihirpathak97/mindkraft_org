@@ -119,6 +119,7 @@ Route::prefix('admin')->group(function () {
 
   // Web Mailer Route
   Route::view('mailer', 'mailer');
+  Route::view('mailer.send', 'AdminController@MailSender');
 
   // CMS Routes
   Route::prefix('cms')->group(function () {

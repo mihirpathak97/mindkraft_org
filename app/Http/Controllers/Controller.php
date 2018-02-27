@@ -530,7 +530,7 @@ class Controller extends BaseController
     }
 
     // Tshir registration
-    public function tshirtRegister()
+    public function tshirtRegister(Request $request)
     {
       $prefix = env('DB_TABLE_PREFIX', '');
 

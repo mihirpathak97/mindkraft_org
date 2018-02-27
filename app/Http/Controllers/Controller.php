@@ -529,4 +529,43 @@ class Controller extends BaseController
       return $string;
     }
 
+    // Tshir registration
+    public function tshirtRegister()
+    {
+      $prefix = env('DB_TABLE_PREFIX', '');
+
+      $name = $request->input('name');
+      $reg_no = $request->input('reg_no');
+      $gender = $request->input('gender');
+      $email = $request->input('email');
+      $ugpg = $request->input('ugpg');
+      $school = $request->input('school');
+      $size = $request->input('size');
+
+      $map = array(
+        'eng' => 'School of Engineering and Technology',
+        'arts' => 'School of Arts, Science and Media',
+        'agri' => 'School of Agriculture and Biosciences',
+        'mba' => 'School of Management and Law'
+      );
+
+      $query = 'INSERT INTO '.$prefix.'tshirt_registration VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+      tryinsert:
+        try {
+          $result = DB::insert($query, ['NULL', $name, $reg_no, $gender, $email, $ugpg, $map[$school], $size]);
+        } catch (\Illuminate\Database\QueryException $e) {
+            if ($e->errorInfo[1] == 1062) {
+              return "You have already registered!";
+            }
+            // If it's not a duplicate entry but something is still wrong
+            else {
+              return "Error creating user account!<br>Please check your input and try again later";
+            }
+          }
+
+      if (isset($result) && $result) {
+        return "Successfully registered!";
+      }
+    }
+
 }

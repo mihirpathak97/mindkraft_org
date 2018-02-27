@@ -549,7 +549,7 @@ class Controller extends BaseController
         'mba' => 'School of Management and Law'
       );
 
-      $query = 'INSERT INTO '.$prefix.'tshirt_registration VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+      $query = 'INSERT INTO tshirt_registration VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
       tryinsert:
         try {
           $result = DB::insert($query, ['NULL', $name, $reg_no, $gender, $email, $ugpg, $map[$school], $size]);

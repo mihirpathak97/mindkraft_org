@@ -36,7 +36,7 @@
 
       <h2 class="hero-head">Register</h2>
 
-        <form class="" id="tshirtRegisterForm" action="/register/tshirt/register">
+        <form class="" id="tshirtRegisterForm" method="post" action="/register/tshirt/register">
           {{ csrf_field() }}
           <div class="field card">
             <label class="label">Full Name</label>

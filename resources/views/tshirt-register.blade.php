@@ -36,7 +36,8 @@
 
       <h2 class="hero-head">Register</h2>
 
-        <form class="" id="tshirtRegisterForm">
+        <form class="" id="tshirtRegisterForm" action="/register/tshirt/register">
+          {{ csrf_field() }}
           <div class="field card">
             <label class="label">Full Name</label>
             <div class="control">
@@ -100,30 +101,30 @@
 
 
   <script type="text/javascript">
-  $('#tshirtRegisterForm').submit(function () {
-
-    $('.button').removeClass('is-link');
-    $('.button').addClass('button-onclick-animation');
-    $('.button').removeClass('button');
-
-    formData = $('#tshirtRegisterForm').serializeArray();
-    $.ajax({
-      type: 'POST',
-      url: '/register/tshirt/register',
-      headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-      data: formData,
-      success: function (data) {
-        // puts back old button classes
-        $('.button-onclick-animation').hide();
-        $('.button-onclick-animation').addClass('button is-link');
-        $('.button-onclick-animation').removeClass('button-onclick-animation');
-
-        $('#ajax-output').html(data);
-      }
-    });
-
-    return false;
-  });
+  // $('#tshirtRegisterForm').submit(function () {
+  //
+  //   $('.button').removeClass('is-link');
+  //   $('.button').addClass('button-onclick-animation');
+  //   $('.button').removeClass('button');
+  //
+  //   formData = $('#tshirtRegisterForm').serializeArray();
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: '/register/tshirt/register',
+  //     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+  //     data: formData,
+  //     success: function (data) {
+  //       // puts back old button classes
+  //       $('.button-onclick-animation').hide();
+  //       $('.button-onclick-animation').addClass('button is-link');
+  //       $('.button-onclick-animation').removeClass('button-onclick-animation');
+  //
+  //       $('#ajax-output').html(data);
+  //     }
+  //   });
+  //
+  //   return false;
+  // });
   </script>
 
 </html>

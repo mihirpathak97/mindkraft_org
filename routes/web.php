@@ -117,6 +117,9 @@ Route::prefix('admin')->group(function () {
     return view('admin.showusers', ['type' => $type, 'id' => $id]);
   });
 
+  // Web Mailer Route
+  Route::view('mailer', 'mailer');
+
   // CMS Routes
   Route::prefix('cms')->group(function () {
 

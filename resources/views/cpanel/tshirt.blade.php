@@ -8,6 +8,8 @@
 
   $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
 
+  $list = DB::select('select * from mindkraft18_tshirt_registration order by name');
+
 ?>
 
 <!DOCTYPE html>

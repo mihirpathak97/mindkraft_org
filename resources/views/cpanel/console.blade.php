@@ -171,30 +171,31 @@
               <br>
               <p><b>Registered Users</b> - <?php echo count(explode(':', $list->registered_users)); ?></p>
               <br><br>
-              <table class="table card">
-                <thead>
-                  <tr>
-                    <th>Full Name</th>
-                    <th>Mobile</th>
-                    <th>E-Mail</th>
-                    <th>College</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  foreach (explode(':', $list->registered_users) as $record):
-                    $record = getInfo($record, $prefix);
-                  ?>
-                    <tr>
-                      <td><?php echo $record->name; ?></td>
-                      <td><?php echo $record->mobile; ?></td>
-                      <td><?php echo $record->email; ?></td>
-                      <td><?php echo $record->college; ?></td>
-                    </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
             </div>
+
+            <table class="table card" style="margin: 0px auto">
+              <thead>
+                <tr>
+                  <th>Full Name</th>
+                  <th>Mobile</th>
+                  <th>E-Mail</th>
+                  <th>College</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                foreach (explode(':', $list->registered_users) as $record):
+                  $record = getInfo($record, $prefix);
+                ?>
+                  <tr>
+                    <td><?php echo $record->name; ?></td>
+                    <td><?php echo $record->mobile; ?></td>
+                    <td><?php echo $record->email; ?></td>
+                    <td><?php echo $record->college; ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
 
 
           <?php else: ?>

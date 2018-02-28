@@ -89,7 +89,8 @@
           <div class="control">
             <div class="select">
               <select class="select" name="department">
-                <option value="ae" selected>Aerospace</option>
+                <option value="ac" selected>Agriculture</option>
+                <option value="ae">Aerospace</option>
                 <option value="bt">Bio Technology</option>
                 <option value="bi">Bio Informatics</option>
                 <option value="ce">Civil</option>

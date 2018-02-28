@@ -146,7 +146,7 @@
           // NOTE: Due to older ID type in events, it is necessary to check type
           if (count(explode('-', $user->events)) == 2) {
             $event = explode('-', $user->events)[1];
-            $type = explode('-'. $user->events)[0];
+            $type = explode('-', $user->events)[0];
           }
           else {
             $event = $user->events;

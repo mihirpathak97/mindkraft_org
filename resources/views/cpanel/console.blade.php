@@ -232,6 +232,7 @@
             <th>Registration Number</th>
             <th>Gender</th>
             <th>Size</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -243,6 +244,7 @@
               <td><?php echo strtoupper($record->register_number); ?></td>
               <td><?php echo $record->gender; ?></td>
               <td><?php echo strtoupper($record->size); ?></td>
+              <td><a href="/cpanel/showinfo/tshirt/<?php echo $record->register_number ?>">Update Info</a></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

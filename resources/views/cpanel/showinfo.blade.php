@@ -139,12 +139,4 @@ $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
 
     </div>
   </body>
-  <script type="text/javascript">
-    <?php if ($type == 'event'): ?>
-      document.getElementsByName('type')[0].value = "<?php echo $event->type ?>";
-    <?php endif; ?>
-    <?php if ($type != 'games'): ?>
-      document.getElementsByName('department')[0].value = "<?php echo $event->department ?>";
-    <?php endif; ?>
-  </script>
 </html>

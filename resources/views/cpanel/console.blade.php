@@ -240,9 +240,9 @@
           ?>
             <tr>
               <td><?php echo $record->name; ?></td>
-              <td><?php echo $record->register_number; ?></td>
+              <td><?php echo strtoupper($record->register_number); ?></td>
               <td><?php echo $record->gender; ?></td>
-              <td><?php echo $record->size; ?></td>
+              <td><?php echo strtoupper($record->size); ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

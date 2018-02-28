@@ -65,6 +65,14 @@ $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
       if ($access_level == 9):
         $user = DB::select('select * from tshirt_registration where register_number=\''.$id.'\'');
         $user = $user[0];
+
+        $rev_map = array(
+          'School of Engineering and Technology' => 'eng',
+          'School of Arts, Science and Media' => 'arts',
+          'School of Agriculture and Biosciences' => 'agri',
+          'School of Management and Law' => 'mba'
+        );
+
       ?>
       <div class="box">
         <article>
@@ -133,16 +141,18 @@ $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
           </form>
         </article>
       </div>
+
+      <script type="text/javascript">
+        document.getElementsByName('gender')[0].value = "<?php echo $user->gender ?>";
+        document.getElementsByName('ugpg')[0].value = "<?php echo $user->ugpg ?>";
+        document.getElementsByName('school')[0].value = "<?php echo $rev_map[$user->school] ?>";
+        document.getElementsByName('size')[0].value = "<?php echo $user->size ?>";
+      </script>
+
       <?php endif; ?>
 
 
 
     </div>
   </body>
-  <script type="text/javascript">
-    document.getElementsByName('gender')[0].value = "<?php echo $user->gender ?>";
-    document.getElementsByName('ugpg')[0].value = "<?php echo $user->ugpg ?>";
-    document.getElementsByName('school')[0].value = "<?php echo $user->school ?>";
-    document.getElementsByName('size')[0].value = "<?php echo $user->size ?>";
-  </script>
 </html>

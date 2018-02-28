@@ -5,25 +5,6 @@
   if (!session()->has('cpaneluser') || !Controller::checkAdmin(session('cpaneluser'))) {
     Redirect::to('cpanel')->send();
   }
-  $prefix = env('DB_TABLE_PREFIX', '');
-  $list = DB::select('select * from '.$prefix.$table_name.' order by name');
-
-  $alias = array(
-    'events_list' => 'Events List',
-    'games_list' => 'Games List',
-    'workshops_list' => 'Workshops List'
-  );
-
-  $type = array(
-    'events_list' => 'event',
-    'games_list' => 'game',
-    'workshops_list' => 'workshop'
-  );
-
-  function getByDepartment($dept, $prefix, $table_name)
-  {
-    return count(DB::select('select * from '.$prefix.$table_name.' where department=\''.$dept.'\''));
-  }
 
   $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
 

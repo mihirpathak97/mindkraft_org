@@ -77,7 +77,7 @@ $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
             <input type="text" name="reg_no" value="<?php echo $id ?>" hidden>
             <p class="ip-group">
               <label class="label">Registration Number</label>
-              <input type="text" value="<?php echo $user->reg_no ?>" class="input" disabled>
+              <input type="text" value="<?php echo $user->register_number ?>" class="input" disabled>
             </p>
             <p class="ip-group">
               <label class="label">Gender</label>

@@ -115,17 +115,17 @@
           $prefix = env('DB_TABLE_PREFIX', '');
           $user = DB::select('select * from '.$prefix.'cpanel_mapping where username=\''.session('cpaneluser').'\'');
           $user = $user[0];
-          function getEventName($id)
+          function getEventName($id, $type)
           {
             $prefix = env('DB_TABLE_PREFIX', '');
-            $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
+            $event = DB::select('select * from '.$prefix.$type.'s_list where id=\''.$id.'\'');
             return $event[0]->name;
           }
 
-          function getDepartmentName($id)
+          function getDepartmentName($id, $type)
           {
             $prefix = env('DB_TABLE_PREFIX', '');
-            $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
+            $event = DB::select('select * from '.$prefix.$type.'s_list where id=\''.$id.'\'');
             if (isset($event[0]->department)) {
               if (isset(Controller::dept_list[$event[0]->department])) {
                 return Controller::dept_list[$event[0]->department];
@@ -165,9 +165,9 @@
           ?>
 
             <div class="box">
-              <p><b>Event Name</b> - <?php echo getEventName($event) ?> </p>
+              <p><b>Event Name</b> - <?php echo getEventName($event, $type) ?> </p>
               <br>
-              <p><b>Department</b> - <?php echo getDepartmentName($event) ?></p>
+              <p><b>Department</b> - <?php echo getDepartmentName($event, $type) ?></p>
               <br>
               <p><b>Registered Users</b> - <?php echo count(explode(':', $list->registered_users)); ?></p>
               <br><br>

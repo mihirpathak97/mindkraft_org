@@ -54,10 +54,6 @@
                 <option value="Female">Female</option>
               </select>
             </div>
-            <label class="label">University E-Mail ID</label>
-            <div class="control">
-              <input class="input" type="text" name="email" placeholder="E-Mail ID" required>
-            </div>
             <label class="label">UG/PG</label>
             <div class="control">
               <select class="" name="ugpg" required>

@@ -174,7 +174,6 @@ class Auth extends Controller
     $name = $request->input('name');
     $reg_no = $request->input('reg_no');
     $gender = $request->input('gender');
-    $email = $request->input('email');
     $ugpg = $request->input('ugpg');
     $school = $request->input('school');
     $size = $request->input('size');
@@ -186,10 +185,10 @@ class Auth extends Controller
       'mba' => 'School of Management and Law'
     );
 
-    $query = 'INSERT INTO tshirt_registration VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    $query = 'INSERT INTO tshirt_registration VALUES (?, ?, ?, ?, ?, ?)';
     tryinsert:
       try {
-        $result = DB::insert($query, ['NULL', $name, $reg_no, $gender, $email, $ugpg, $map[$school], $size]);
+        $result = DB::insert($query, [$name, $reg_no, $gender, $ugpg, $map[$school], $size]);
       } catch (\Illuminate\Database\QueryException $e) {
           if ($e->errorInfo[1] == 1062) {
             return "You have already registered!";

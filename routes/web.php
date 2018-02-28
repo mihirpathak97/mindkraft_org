@@ -175,7 +175,7 @@ Route::prefix('cpanel')->group(function () {
     return view('cpanel.showusers', ['type' => $type, 'id' => $id]);
   });
 
-  Route::get('/tshirt', 'cpanel.tshirt');
+  Route::view('/tshirt', 'cpanel.tshirt');
 
   // Update T-shirt Info
   Route::get('/showinfo/tshirt/{id}', function ($type, $id) {

@@ -184,7 +184,7 @@ class Auth extends Controller
       'mba' => 'School of Management and Law'
     );
 
-    $query = 'INSERT INTO tshirt_registration VALUES (?, ?, ?, ?, ?, ?)';
+    $query = 'INSERT INTO mindkraft18_tshirt_registration VALUES (?, ?, ?, ?, ?, ?)';
     tryinsert:
       try {
         $result = DB::insert($query, [$name, $reg_no, $gender, $ugpg, $map[$school], $size]);

@@ -63,7 +63,7 @@ $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
 
       <?php
       if ($access_level == 9):
-        $user = DB::select('select * from tshirt_registration where register_number=\''.$id.'\'');
+        $user = DB::select('select * from mindkraft18_tshirt_registration where register_number=\''.$id.'\'');
         $user = $user[0];
 
         $rev_map = array(

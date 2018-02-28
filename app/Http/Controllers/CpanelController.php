@@ -77,5 +77,6 @@ class CpanelController extends Controller
       }
 
     return "Successfully updated!";
+  }
 
 }

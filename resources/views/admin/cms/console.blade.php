@@ -101,7 +101,7 @@
                 <option value="fp">Food Processing</option>
                 <option value="me">Mechanical</option>
                 <option value="emt">EMT</option>
-                <option value="nano">Nano Technology</option>
+                <option value="snh">SNH</option>
               </select>
             </div>
           </div>

@@ -139,4 +139,10 @@ $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
 
     </div>
   </body>
+  <script type="text/javascript">
+    document.getElementsByName('gender')[0].value = "<?php echo $user->gender ?>";
+    document.getElementsByName('ugpg')[0].value = "<?php echo $user->ugpg ?>";
+    document.getElementsByName('school')[0].value = "<?php echo $user->school ?>";
+    document.getElementsByName('size')[0].value = "<?php echo $user->size ?>";
+  </script>
 </html>

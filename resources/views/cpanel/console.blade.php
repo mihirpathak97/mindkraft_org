@@ -201,7 +201,7 @@
           <?php else: ?>
 
             <div class="box">
-              <p> <b>Event Name</b> - <?php echo getEventName($event) ?> </p>
+              <p> <b>Event Name</b> - <?php echo getEventName($event, $type) ?> </p>
               <br>
               <p>No Users Have Registered!</p>
             </div>

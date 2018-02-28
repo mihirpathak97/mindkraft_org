@@ -225,7 +225,7 @@
         <br><br>
       </div>
 
-      <table class="table card">
+      <table class="table card" style="margin: 0px auto">
         <thead>
           <tr>
             <th>Full Name</th>

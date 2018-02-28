@@ -169,7 +169,6 @@ class Auth extends Controller
   // Tshir registration
   public function tshirtRegister(Request $request)
   {
-    $prefix = env('DB_TABLE_PREFIX', '');
 
     $name = $request->input('name');
     $reg_no = $request->input('reg_no');

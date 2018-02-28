@@ -42,4 +42,40 @@ class CpanelController extends Controller
       return -1;
     }
   }
+
+  public function updateTshirtInfo(Request $request)
+  {
+    $name = $request->input('name');
+    $reg_no = $request->input('reg_no');
+    $gender = $request->input('gender');
+    $ugpg = $request->input('ugpg');
+    $school = $request->input('school');
+    $size = $request->input('size');
+
+    $map = array(
+      'eng' => 'School of Engineering and Technology',
+      'arts' => 'School of Arts, Science and Media',
+      'agri' => 'School of Agriculture and Biosciences',
+      'mba' => 'School of Management and Law'
+    );
+
+
+    try {
+      $result = DB::table('tshirt_registration')
+                          ->where('register_number', $reg_no)
+                          ->update([
+                            'name' => $name,
+                            'gender' => $gender,
+                            'ugpg' => $ugpg,
+                            'school' => $map[$school],
+                            'size' => $size,
+                           ]);
+    } catch (\Illuminate\Database\QueryException $e) {
+        echo "Error updating!<br>Please try again later<br><br>";
+        echo "<b>Error Message</b> <br>" . $e->getMessage();
+        return;
+      }
+
+    return "Successfully updated!";
+
 }

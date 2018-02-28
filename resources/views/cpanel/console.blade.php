@@ -66,6 +66,7 @@
             <a href="/cpanel/workshops">Workshops List</a><br><br>
             <a href="/cpanel/users">Users List By College</a><br><br>
             <a href="/cpanel/kits">KITS Users List</a><br><br>
+            <a href="/cpanel/tshirt">MindKraft T-Shirt Registration</a><br><br>
           </article>
         </div>
       <?php endif; ?>

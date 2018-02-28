@@ -215,7 +215,7 @@
       <!-- ACC 9 -->
       <?php
         if ($access_level == 9):
-          $list = DB::select('select * from tshirt_registration');
+          $list = DB::select('select * from tshirt_registration order by name');
       ?>
 
       <div class="box">

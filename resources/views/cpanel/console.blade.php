@@ -211,6 +211,45 @@
         }
       ?>
 
+
+      <!-- ACC 9 -->
+      <?php
+        if ($access_level == 9):
+          $list = DB::select('select * from tshirt_registration');
+      ?>
+
+      <div class="box">
+        <p><b>MindKraft T-Shirt Registration</b></p>
+        <br>
+        <p><b>Total Registrations</b> - <?php echo count($list) ?></p>
+        <br><br>
+      </div>
+
+      <table class="table card">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Registration Number</th>
+            <th>Gender</th>
+            <th>Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+            foreach ($list as $record):
+          ?>
+            <tr>
+              <td><?php echo $record->name; ?></td>
+              <td><?php echo $record->register_number; ?></td>
+              <td><?php echo $record->gender; ?></td>
+              <td><?php echo $record->size; ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+
+      <?php endif; ?>
+
     </div>
   </body>
 </html>

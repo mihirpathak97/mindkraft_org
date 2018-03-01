@@ -76,6 +76,7 @@ Route::view('/z', 'static.z');
 // Debate Routes
 Route::view('/debates', 'static.debates');
 Route::view('/debates/mock_parliament', 'static.debates.mock');
+Route::view('/debates/agro_war', 'static.debates.agrowar');
 
 
 // Helper Routes

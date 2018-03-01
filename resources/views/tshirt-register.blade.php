@@ -36,7 +36,7 @@
 
       <h2 class="hero-head">MindKraft 2018 T-Shirt Registration</h2>
 
-        <p>Registration for T-Shirts are closed</p>
+      <h2 class="hero-head">Registration are closed!</h2>
 
     </div>
 

@@ -186,6 +186,12 @@
 									</figure>
 									<h1>Jerin John<br>4th ME</h1>
 								</div>
+								<div class="item">
+									<figure>
+										<img src="{{ URL::asset('images/profile/naveen.jpg') }}">
+									</figure>
+									<h1>Naveen Jacob<br>3rd ME</h1>
+								</div>
 							</div>
 						</div>
 
@@ -230,9 +236,9 @@
 					      </div>
 								<div class="item">
 					        <figure>
-					          <img src="{{ URL::asset('images/profile/rony.jpg') }}">
+					          <img src="{{ URL::asset('images/profile/rony.png') }}">
 					        </figure>
-					        <h1>Rony Raj<br>3rd ME</h1>
+					        <h1>Rony Raj<br>3rd CE</h1>
 					      </div>
 								<div class="item">
 					        <figure>
@@ -294,6 +300,24 @@
 										<img src="{{ URL::asset('images/profile/allan.jpg') }}">
 									</figure>
 									<h1>Allan Thomas Cabral<br>3rd ME</h1>
+								</div>
+							</div>
+						</div>
+
+						<div class="cultural">
+							<h2>Cultural Team</h2>
+							<div class="cultural-inner">
+								<div class="item">
+									<figure>
+										<img src="{{ URL::asset('images/profile/gautham.jpg') }}">
+									</figure>
+									<h1>Gautham Chandra<br>3rd ME</h1>
+								</div>
+								<div class="item">
+									<figure>
+										<img src="{{ URL::asset('images/profile/navya.jpg') }}">
+									</figure>
+									<h1>Navya Darla<br>3rd EC</h1>
 								</div>
 							</div>
 						</div>

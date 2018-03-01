@@ -66,6 +66,7 @@
             <a href="/cpanel/workshops">Workshops List</a><br><br>
             <a href="/cpanel/users">Users List By College</a><br><br>
             <a href="/cpanel/kits">KITS Users List</a><br><br>
+            <a href="/cpanel/tshirt">MindKraft T-Shirt Registration</a><br><br>
           </article>
         </div>
       <?php endif; ?>
@@ -115,17 +116,17 @@
           $prefix = env('DB_TABLE_PREFIX', '');
           $user = DB::select('select * from '.$prefix.'cpanel_mapping where username=\''.session('cpaneluser').'\'');
           $user = $user[0];
-          function getEventName($id)
+          function getEventName($id, $type)
           {
             $prefix = env('DB_TABLE_PREFIX', '');
-            $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
+            $event = DB::select('select * from '.$prefix.$type.'s_list where id=\''.$id.'\'');
             return $event[0]->name;
           }
 
-          function getDepartmentName($id)
+          function getDepartmentName($id, $type)
           {
             $prefix = env('DB_TABLE_PREFIX', '');
-            $event = DB::select('select * from '.$prefix.'events_list where id=\''.$id.'\'');
+            $event = DB::select('select * from '.$prefix.$type.'s_list where id=\''.$id.'\'');
             if (isset($event[0]->department)) {
               if (isset(Controller::dept_list[$event[0]->department])) {
                 return Controller::dept_list[$event[0]->department];
@@ -146,7 +147,7 @@
           // NOTE: Due to older ID type in events, it is necessary to check type
           if (count(explode('-', $user->events)) == 2) {
             $event = explode('-', $user->events)[1];
-            $type = explode('-'. $user->events)[0];
+            $type = explode('-', $user->events)[0];
           }
           else {
             $event = $user->events;
@@ -165,42 +166,43 @@
           ?>
 
             <div class="box">
-              <p><b>Event Name</b> - <?php echo getEventName($event) ?> </p>
+              <p><b>Event Name</b> - <?php echo getEventName($event, $type) ?> </p>
               <br>
-              <p><b>Department</b> - <?php echo getDepartmentName($event) ?></p>
+              <p><b>Department</b> - <?php echo getDepartmentName($event, $type) ?></p>
               <br>
               <p><b>Registered Users</b> - <?php echo count(explode(':', $list->registered_users)); ?></p>
               <br><br>
-              <table class="table card">
-                <thead>
-                  <tr>
-                    <th>Full Name</th>
-                    <th>Mobile</th>
-                    <th>E-Mail</th>
-                    <th>College</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  foreach (explode(':', $list->registered_users) as $record):
-                    $record = getInfo($record, $prefix);
-                  ?>
-                    <tr>
-                      <td><?php echo $record->name; ?></td>
-                      <td><?php echo $record->mobile; ?></td>
-                      <td><?php echo $record->email; ?></td>
-                      <td><?php echo $record->college; ?></td>
-                    </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
             </div>
+
+            <table class="table card" style="margin: 0px auto">
+              <thead>
+                <tr>
+                  <th>Full Name</th>
+                  <th>Mobile</th>
+                  <th>E-Mail</th>
+                  <th>College</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                foreach (explode(':', $list->registered_users) as $record):
+                  $record = getInfo($record, $prefix);
+                ?>
+                  <tr>
+                    <td><?php echo $record->name; ?></td>
+                    <td><?php echo $record->mobile; ?></td>
+                    <td><?php echo $record->email; ?></td>
+                    <td><?php echo $record->college; ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
 
 
           <?php else: ?>
 
             <div class="box">
-              <p> <b>Event Name</b> - <?php echo getEventName($event) ?> </p>
+              <p> <b>Event Name</b> - <?php echo getEventName($event, $type) ?> </p>
               <br>
               <p>No Users Have Registered!</p>
             </div>
@@ -215,7 +217,7 @@
       <!-- ACC 9 -->
       <?php
         if ($access_level == 9):
-          $list = DB::select('select * from tshirt_registration');
+          $list = DB::select('select * from mindkraft18_tshirt_registration order by name');
       ?>
 
       <div class="box">
@@ -225,13 +227,14 @@
         <br><br>
       </div>
 
-      <table class="table card">
+      <table class="table card" style="margin: 0px auto">
         <thead>
           <tr>
             <th>Full Name</th>
             <th>Registration Number</th>
             <th>Gender</th>
             <th>Size</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -240,9 +243,10 @@
           ?>
             <tr>
               <td><?php echo $record->name; ?></td>
-              <td><?php echo $record->register_number; ?></td>
+              <td><?php echo strtoupper($record->register_number); ?></td>
               <td><?php echo $record->gender; ?></td>
-              <td><?php echo $record->size; ?></td>
+              <td><?php echo strtoupper($record->size); ?></td>
+              <td><a href="/cpanel/showinfo/tshirt/<?php echo $record->register_number ?>">Update Info</a></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

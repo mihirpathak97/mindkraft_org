@@ -398,7 +398,7 @@ class Controller extends BaseController
 
     // Departments list
     const dept_list = array(
-      // 'ac' => 'Department of Agriculture'
+      'ac' => 'Agriculture and Bio Sciences',
       'ae' => 'Aerospace Engineering',
       'bt' => 'Bio Technology',
       'bi' => 'Bio Informatics',
@@ -407,10 +407,9 @@ class Controller extends BaseController
       'ece' => 'Electronics and Communication',
       'eee' => 'Electrical and Eclectronics',
       'eie' => 'Electronics and Instrumentation',
-      'fp' => 'Foop Processing',
+      'fp' => 'Food Processing',
       'me' => 'Mechanical Engineering',
-      'emt' => 'Media Technology',
-      // 'nano' => 'Nano Technology',
+      'emt' => 'Media and Communication',
       'snh' => 'Science and Humanities'
     );
 
@@ -425,9 +424,9 @@ class Controller extends BaseController
       'ece' => 'Electronics and Communication',
       'eee' => 'Electrical and Eclectronics',
       'eie' => 'Electronics and Instrumentation',
-      'fp' => 'Foop Processing',
+      'fp' => 'Food Processing',
       'me' => 'Mechanical Engineering',
-      'emt' => 'Media Technology',
+      'emt' => 'Media and Communication',
       'nano' => 'Nano Technology',
       'phy' => 'Physics',
       'chem' => 'Chemistry',

@@ -34,7 +34,7 @@
 
       <br><br><br>
 
-      <h2 class="hero-head">Register</h2>
+      <h2 class="hero-head">MindKraft 2018 T-Shirt Registration</h2>
 
         <form class="" id="tshirtRegisterForm">
           {{ csrf_field() }}
@@ -53,10 +53,6 @@
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
-            </div>
-            <label class="label">University E-Mail ID</label>
-            <div class="control">
-              <input class="input" type="text" name="email" placeholder="E-Mail ID" required>
             </div>
             <label class="label">UG/PG</label>
             <div class="control">

@@ -218,12 +218,16 @@
       <?php
         if ($access_level == 9):
           $list = DB::select('select * from mindkraft18_tshirt_registration order by name');
+
       ?>
 
       <div class="box">
         <p><b>MindKraft T-Shirt Registration</b></p>
         <br>
-        <p><b>Total Registrations</b> - <?php echo count($list) ?></p>
+        <p><b>Total Registrations</b> - <?php echo count($list) ?></p><br>
+        <p><b>Statistics</b></p>
+        <p><b>Male</b></p>
+        <p>Small - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Male\' and size=\'s\'')); ?></p>
         <br><br>
       </div>
 

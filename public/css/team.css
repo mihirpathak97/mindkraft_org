@@ -113,14 +113,14 @@ figure .contact a {
       text-align: center;
     }
 
-.promotion h2, .exhibition h2, .workshop h2, .tech h2, .food h2, .decoration h2, .souvenir h2, .certifate h2, .design h2, .hospitality h2, .sponsors h2, .games h2{
+.promotion h2, .exhibition h2, .workshop h2, .tech h2, .food h2, .decoration h2, .souvenir h2, .certifate h2, .design h2, .hospitality h2, .sponsors h2, .games h2, .cultural h2{
   margin-top: 5rem;
   font-family: 'Roboto', sans-serif !important;
   color: hsl(171, 100%, 41%);
   cursor: pointer;
 }
 
-.promotion-inner, .exhibition-inner, .workshop-inner, .tech-inner, .food-inner, .decoration-inner, .souvenir-inner, .certifate-inner, .design-inner, .hospitality-inner, .sponsors-inner, .games-inner{
+.promotion-inner, .exhibition-inner, .workshop-inner, .tech-inner, .food-inner, .decoration-inner, .souvenir-inner, .certifate-inner, .design-inner, .hospitality-inner, .sponsors-inner, .games-inner, .cultural-inner{
   /* display: none; */
   transition: all 1s ease;
 }

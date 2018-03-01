@@ -120,18 +120,6 @@
             <?php foreach ($list as $record): ?>
               <tr>
                 <td><?php echo $record->name ?></td>
-                <td><?php echo $record->id ?></td>
-                <td><?php echo Controller::dept_list[$record->department] ?></td>
-                <?php
-                  $q = 'select * from '.$prefix.'event_registration where id=?';
-                  $data = DB::select($q, [$type[$table_name].'-'.$record->id]);
-                  if (count($data) > 0):
-                ?>
-                  <td><a href="/admin/showinfo/event/<?php echo $record->id ?>/users">Show Registered Users</a></td>
-                <?php else: ?>
-                  <td>No Users Have Registered</td>
-                <?php endif; ?>
-                <td><a href="/admin/showinfo/event/<?php echo $record->id ?>">Update Info</a></td>
               </tr>
             <?php endforeach; ?>
           <?php endif; ?>
@@ -159,18 +147,6 @@
             <?php foreach ($list as $record): ?>
               <tr>
                 <td><?php echo $record->name ?></td>
-                <td><?php echo $record->id ?></td>
-                <td><?php echo Controller::dept_list_workshop[$record->department] ?></td>
-                <?php
-                  $q = 'select * from '.$prefix.'event_registration where id=?';
-                  $data = DB::select($q, [$type[$table_name].'-'.$record->id]);
-                  if (count($data) > 0):
-                ?>
-                  <td><a href="/admin/showinfo/workshop/<?php echo $record->id ?>/users">Show Registered Users</a></td>
-                <?php else: ?>
-                  <td>No Users Have Registered</td>
-                <?php endif; ?>
-                <td><a href="/admin/showinfo/workshop/<?php echo $record->id ?>">Update Info</a></td>
               </tr>
             <?php endforeach; ?>
           <?php endif; ?>

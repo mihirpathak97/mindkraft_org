@@ -16,7 +16,7 @@
         <li class="navbar-li"><a href="/events">Events</a></li>
         <li class="navbar-li"><a href="/workshops">Workshops</a></li>
         <li class="navbar-li"><a href="/games">Games</a></li>
-        <li class="navbar-li"><a href="/lectures">Lectures</a></li>
+        <li class="navbar-li"><a href="/debates">Debates</a></li>
         <li class="navbar-li"><a href="/exhibitions">Exhibitions</a></li>
         <li class="navbar-li"><a href="/sponsors">Our Sponsors</a></li>
         <li class="navbar-li"><a href="/accomodation">Accomodation</a></li>

@@ -234,6 +234,14 @@
         <p>XXL - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Male\' having size like \'xxl%\'')); ?></p>
         <p>XXXL - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Male\' having size like \'xxxl%\'')); ?></p>
         <br><br>
+        <p><b>Female (<?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Female\'')); ?>)</b></p>
+        <p>Small - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Female\' having size like \'s%\'')); ?></p>
+        <p>Medium - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Female\' having size like \'m%\'')); ?></p>
+        <p>Large - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Female\' having size like \'l%\'')); ?></p>
+        <p>XL - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Female\' having size like \'xl%\'')); ?></p>
+        <p>XXL - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Female\' having size like \'xxl%\'')); ?></p>
+        <p>XXXL - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Female\' having size like \'xxxl%\'')); ?></p>
+        <br><br>
       </div>
 
       <table class="table card" style="margin: 0px auto">

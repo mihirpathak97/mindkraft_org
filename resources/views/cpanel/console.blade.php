@@ -227,8 +227,8 @@
         <p><b>Total Registrations</b> - <?php echo count($list) ?></p><br>
         <p><b>Statistics</b></p>
         <p><b>Male</b></p>
-        <p>Small - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Male\' and size=\'s\'')); ?></p>
-        <p>XXL - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where size=\'xxl\'')); ?></p>
+        <p>Small - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where gender=\'Male\' and size like \'%s%\'')); ?></p>
+        <p>XXL - <?php echo count(DB::select('select * from mindkraft18_tshirt_registration where size like \'%xxl%\'')); ?></p>
         <br><br>
       </div>
 

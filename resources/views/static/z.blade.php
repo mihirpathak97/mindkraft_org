@@ -81,12 +81,6 @@
 						<div class="item">
 							<figure>
 								<img src="{{ URL::asset('images/profile/mihir.jpg') }}">
-								<div class="contact">
-									<a href="https://twitter.com/mihirpathak97" class="tw"></a>
-									<a href="" class="in"></a>
-									<a href="" class="gp"></a>
-									<a href="mailto:me@mihirpathak.xyz" class="ma"></a>
-								</div>
 							</figure>
 							<h1>Mihir Pathak<br>3rd CSE</h1>
 						</div>

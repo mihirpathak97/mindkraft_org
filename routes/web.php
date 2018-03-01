@@ -82,8 +82,8 @@ Route::view('/debates/mock_parliament', 'static.debates.mock');
 Route::redirect('/when', '/schedule');
 
 // T-Shir Registration
-Route::view('register/tshirt', 'tshirt-register');
-Route::post('register/tshirt/register', 'Auth@tshirtRegister');
+// Route::view('register/tshirt', 'tshirt-register');
+// Route::post('register/tshirt/register', 'Auth@tshirtRegister');
 
 // Auth Routes
 Route::view('/login', 'login');

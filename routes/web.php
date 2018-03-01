@@ -76,6 +76,7 @@ Route::view('/z', 'static.z');
 // Debate Routes
 Route::view('/debates', 'static.debates');
 Route::view('/debates/mock_parliament', 'static.debates.mock');
+Route::view('/debates/scenario_of_south_indian_rivers', 'static.debates.south-rivers');
 
 
 // Helper Routes

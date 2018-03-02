@@ -41,7 +41,7 @@
 			font-family: 'Raleway', sans-serif;
 			font-weight: 100;
 			font-size: 18px;
-			text-align: center;
+			text-align: left;
       margin-bottom: 3rem;
 			padding: 10px;
 		}

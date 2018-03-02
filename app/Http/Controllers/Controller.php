@@ -430,7 +430,8 @@ class Controller extends BaseController
       'nano' => 'Nano Technology',
       'phy' => 'Physics',
       'chem' => 'Chemistry',
-      'math' => 'Maths'
+      'math' => 'Maths',
+      'snh' => 'Science and Humanities'
     );
 
     // Event Types

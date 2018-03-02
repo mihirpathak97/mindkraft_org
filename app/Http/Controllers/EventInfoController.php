@@ -134,7 +134,7 @@ class EventInfoController extends Controller
       }
       if ($param == 'contact') {
         $acc = '{ "heading": "Contact",';
-        $acc .= '"body": "'.$event->contact.'"}';
+        $acc .= '"body": "'.str_replace(array("\r", "\n"), '', $event->contact).'"}';
         return $acc;
       }
       if ($param == 'fee') {

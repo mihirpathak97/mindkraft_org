@@ -36,6 +36,8 @@
     <div class="body">
       <img class="parliament" src="{{ URL::asset('images/debates/parliament.jpg') }}" alt="">
       <h3><a style="color: hsl(171, 100%, 41%)" href="/debates/mock_parliament">Mock Indian Parliament</a></h1>
+      <br>
+      <h3><a style="color: hsl(171, 100%, 41%)" href="/debates/agro_war">Agro War</a></h1>
     </div>
   </div>
 </div>

@@ -30,7 +30,7 @@
 <div class="full-height">
   <div class="content">
     <div class="body">
-      <h3><a style="color: hsl(171, 100%, 41%)" href="/exhibition/camera_exhibition">Camera Exhibition</a></h1>
+      <h3><a style="color: hsl(171, 100%, 41%)" href="/exhibitions/camera_exhibition">Camera Exhibition</a></h1>
     </div>
   </div>
 </div>

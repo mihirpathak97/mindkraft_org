@@ -65,7 +65,6 @@ Route::view('/register/terms', 'req.terms');
 // Misc. Routes (Static Pages)
 Route::view('/accomodation', 'static.accomodation');
 Route::view('/app', 'static.app');
-Route::view('/exhibitions', 'static.exhibitions');
 Route::view('/schedule', 'static.schedule');
 Route::view('/sponsors', 'static.sponsors');
 Route::view('/team', 'static.team');
@@ -77,6 +76,11 @@ Route::view('/z', 'static.z');
 Route::view('/debates', 'static.debates');
 Route::view('/debates/mock_parliament', 'static.debates.mock');
 Route::view('/debates/agro_war', 'static.debates.agrowar');
+
+
+// Exhibition Routes
+Route::view('/exhibitions', 'static.exhibitions');
+Route::view('/exhibitions/camera_exhibition', 'static.exhibitions.camera');
 
 
 // Helper Routes

@@ -41,7 +41,7 @@
 			font-family: 'Raleway', sans-serif;
 			font-weight: 100;
 			font-size: 18px;
-			text-align: center;
+			text-align: left;
       margin-bottom: 3rem;
 			padding: 10px;
 		}
@@ -63,8 +63,17 @@
 			<div class="position-ref full-height">
 				<div class="content">
 					<div class="body">
-						<p>Accomodation will be provided for students those who have opted for it during registration.</p>
-            <p>More details will be available soon!</p>
+						<p>
+							We are pleased to inform that your accommodation will be arranged at Karunya Institute of Technology and Sciences during the course of
+							MindKraft 2018 at a very nominal fare of <b>₹ 250 per night without food</b> and <b>₹ 400 with 3 meals a day</b>.
+							The provided accommodation will be within the Campus and hence will spare you travelling worries.
+							The pleasant climate in the Karunya campus will make you feel at home and at ease with the surroundings.
+							As your host we’re excited to have you and wish you a wonderful stay and an enjoyable, rejuvenating experience in Karunya.
+						</p>
+						<p><b>Note</b> - Rooms are subject to demand and will be allotted on first come first serve basis.</p>
+						<br>
+						<p><b>Contact</b></p>
+						<p>Vignesh - 9491082989</p>
 					</div>
 				</div>
 			</div>

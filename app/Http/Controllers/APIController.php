@@ -388,11 +388,11 @@ class APIController extends Controller
        '"name": "'.$event->name.'", '.
        '"department": "'.Controller::dept_list[$event->department].'", '.
        '"type": "'.Controller::event_type[$event->type].'", '.
-       '"contact": "'.$event->contact.'", '.
+       '"contact": '.json_encode($event->contact).', '.
        '"fee": "'.$event->fee.'", '.
        '"prize": "'.$event->prize.'", '.
-       '"rules": "'.$event->rules.'", '.
-       '"about": "'.$event->about.'", '.
+       '"rules": '.json_encode($event->rules).', '.
+       '"about": '.json_encode($event->about).', '.
        '"seats": "'.$event->seats.'", ';
 
        if ($event->open) {
@@ -486,9 +486,9 @@ class APIController extends Controller
      $json_result = '{ "id": "'.$workshop->id.'", '.
        '"name": "'.$workshop->name.'", '.
        '"department": "'.$workshop->department.'", '.
-       '"contact": "'.$workshop->contact.'", '.
+       '"contact": '.json_encode($workshop->contact).', '.
        '"fee": "'.$workshop->fee.'", '.
-       '"about": "'.$workshop->about.'", '.
+       '"about": '.json_encode($workshop->about).', '.
        '"seats": "'.$workshop->seats.'", ';
 
        if ($workshop->open) {

@@ -132,6 +132,18 @@
 									</figure>
 									<h1>Effrim Rifon<br>3rd CE</h1>
 								</div>
+								<div class="item">
+									<figure>
+										<img src="{{ URL::asset('images/profile/stephen.jpg') }}">
+									</figure>
+									<h1>Stephenraj<br>3rd BT</h1>
+								</div>
+								<div class="item">
+									<figure>
+										<img src="{{ URL::asset('images/profile/selva.jpg') }}">
+									</figure>
+									<h1>Selvakumar<br>3rd BT</h1>
+								</div>
 							</div>
 						</div>
 

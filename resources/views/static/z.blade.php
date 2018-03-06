@@ -77,14 +77,44 @@
 
 			<div class="position-ref full-height">
 				<div class="content">
-					<div class="main-cordinators">
-						<div class="item">
-							<figure>
-								<img src="{{ URL::asset('images/profile/mihir.jpg') }}">
-							</figure>
-							<h1>Mihir Pathak<br>3rd CSE</h1>
-						</div>
+					<div class="tech">
+						<h2>Website and REST API Designed By</h2>
+							<div class="tech-inner">
+								<div class="item">
+									<figure>
+										<img src="{{ URL::asset('images/profile/mihir.jpg') }}">
+									</figure>
+									<h1>
+										Mihir Pathak<br>3rd CSE<br>
+										<b>PS</b>: I didn't come up with the name "Z Coders"  
+									</h1>
+								</div>
+							</div>
 					</div>
+
+					<br>
+
+					<div class="tech">
+						<h2>Android App Designed By</h2>
+							<div class="tech-inner">
+								<div class="item">
+									<figure>
+										<img src="{{ URL::asset('images/profile/vedha.jpg') }}">
+									</figure>
+									<h1>Vedha<br>2nd EMT</h1>
+								</div>
+							</div>
+					</div>
+
+					<div class="tech" style="margin-top:7rem; margin-bottom:7rem"	>
+							<div class="tech-inner">
+								<div class="item">
+									<h1>All department images and other logos courtesy of Sri Ganesh (3rd EMT)</h1>
+								</div>
+							</div>
+					</div>
+
+
 				</div>
 			</div>
 

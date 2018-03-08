@@ -61,6 +61,8 @@
             <hr class="m-y-md">
             <input type="submit" form="login-form" name="" value="Login" class="btn btn-primary btn-lg">
         </div>
+        <br><br>
+        <h4>For any queries contact Mihir Pathak - 8825800413</h4>
       </div>
       </div>
   </body>

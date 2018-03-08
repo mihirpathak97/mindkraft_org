@@ -73,7 +73,7 @@
 						<p><b>Note</b> - Rooms are subject to demand and will be allotted on first come first serve basis.</p>
 						<br>
 						<p><b>Contact</b></p>
-						<p>Vignesh - 9491082989</p>
+						<p>Vignesh - 9791082989</p>
 					</div>
 				</div>
 			</div>

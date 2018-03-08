@@ -15,7 +15,10 @@
   function getInfo($id, $prefix)
   {
     $query = 'select * from '.$prefix.'enduser where id=?';
-    return DB::select($query, [$id])[0];
+    if (count(DB::select($query, [$id])) == 1) {
+      return DB::select($query, [$id])[0];
+    }
+    return false;
   }
 
 ?>
@@ -92,6 +95,9 @@
           <?php
           foreach (explode(':', $list->registered_users) as $record):
             $record = getInfo($record, $prefix);
+            if (!$record) {
+              continue;
+            }
           ?>
             <tr>
               <td><?php echo $record->id; ?></td>

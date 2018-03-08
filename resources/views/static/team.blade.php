@@ -156,12 +156,6 @@
 					        </figure>
 					        <h1>Renious<br>2nd MTECH FP<br>9787744647</h1>
 					      </div>
-								<div class="item">
-					        <figure>
-					          <img src="{{ URL::asset('images/profile/akash.jpg') }}">
-					        </figure>
-					        <h1>Akash<br>2nd EEE<br>9500175255</h1>
-					      </div>
 							</div>
 						</div>
 

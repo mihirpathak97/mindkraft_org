@@ -73,7 +73,7 @@
 			@include('includes.mobilenav')
 
       <br><br>
-      <h2 class="hero-head">Website Team</h2>
+      <h2 class="hero-head">Z Coders</h2>
 
 			<div class="position-ref full-height">
 				<div class="content">
@@ -86,7 +86,7 @@
 									</figure>
 									<h1>
 										Mihir Pathak<br>3rd CSE<br>
-										<b>PS</b>: I didn't come up with the name "Z Coders"  
+										<b>PS</b>: I didn't come up with the name "Z Coders"
 									</h1>
 								</div>
 							</div>

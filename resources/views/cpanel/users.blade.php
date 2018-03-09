@@ -70,6 +70,8 @@
 
       <?php if ($access_level == 1): ?>
         <div class="box">
+          <p><b>Total External Registrations</b> <?php echo count(DB::select('select * from mindkraft18_enduser where not college=\'Karunya Institute of Technology and Sciences, Coimbatore\'')); ?></p>
+          <br><br>
           <?php
             foreach (Controller::colleges_list as $college):
               $query = 'SELECT * from '.$prefix.'enduser WHERE college=?';

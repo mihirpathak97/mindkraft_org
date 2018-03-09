@@ -54,6 +54,7 @@
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item is-tab is-active">Dashboard</a>
+            <a href="/cpanel/logot" class="navbar-item is-tab">Logout</a>
           </div>
         </div>
       </nav>

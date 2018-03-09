@@ -79,4 +79,14 @@ class CpanelController extends Controller
     return "Successfully updated!";
   }
 
+
+  public function logout()
+  {
+    if (session()->has('cpaneluser')) {
+      session()->forget('cpaneluser');
+    }
+
+    Redirect::to('home')->send();
+  }
+
 }

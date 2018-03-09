@@ -190,6 +190,7 @@ Route::prefix('cpanel')->group(function () {
 
   // Auth Route
   Route::post('authenticate', 'CpanelController@login');
+  Route::get('logout', 'CpanelController@logout');
 
 });
 

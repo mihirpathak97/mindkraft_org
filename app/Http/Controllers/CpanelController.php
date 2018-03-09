@@ -87,7 +87,7 @@ class CpanelController extends Controller
       session()->forget('cpaneluser');
     }
 
-    Redirect::to('home')->send();
+    Redirect::to('cpanel')->send();
   }
 
 }

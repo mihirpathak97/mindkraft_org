@@ -80,7 +80,7 @@
         <?php
           foreach ($events_list as $event) {
             $users = DB::select('select * from mindkraft18_event_registration where id=\'event-'.$event->id.'\'');
-            if (count($users) == 0) {
+            if (count($users) == 1) {
               $users = $users[0]->registered_users;
             }
             else {
@@ -96,7 +96,7 @@
         <?php
           foreach ($workshops_list as $workshop) {
             $users = DB::select('select * from mindkraft18_event_registration where id=\'workshop-'.$workshop->id.'\'');
-            if (count($users) == 0) {
+            if (count($users) == 1) {
               $users = $users[0]->registered_users;
             }
             else {

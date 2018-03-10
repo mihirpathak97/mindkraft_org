@@ -55,7 +55,7 @@ class AdminController extends Controller
 
     $msg = 'Hi,%0AThank you for registering at MindKraft 2018.%0A%0A';
 
-    $msg .= 'Your Name: '.$user->name.'%0A';
+    $msg .= 'Your Name: '.$user->name.'%0A%0A';
     $msg .= 'Registered Events - %0A';
 
     // Populate Events

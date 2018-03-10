@@ -56,7 +56,6 @@ class AdminController extends Controller
     $msg = 'Hi,%0AThank you for registering at MindKraft 2018.%0A%0A';
 
     $msg .= 'Your Name: '.$user->name.'%0A';
-    $msg .= 'Your Registered Mobile Number: '.$user->mobile.'%0A%0A';
     $msg .= 'Registered Events - %0A';
 
     // Populate Events
@@ -73,7 +72,7 @@ class AdminController extends Controller
       }
     }
 
-    $msg .= 'Registered Workshops - %0A';
+    $msg .= '%0ARegistered Workshops - %0A';
 
     // Populate Workshops
     foreach ($workshops_list as $workshop) {
@@ -89,9 +88,7 @@ class AdminController extends Controller
       }
     }
 
-    $msg .= '%0A%0A';
-
-    $msg .= 'With Regards,%0AMindKraft Organizing Committee';
+    $msg .= '%0AWith Regards,%0AMindKraft Organizing Committee';
 
     $msg = urlencode($msg);
     $msg = str_replace('%25', '%', $msg);

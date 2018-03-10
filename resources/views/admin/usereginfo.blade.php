@@ -7,7 +7,7 @@
   }
 
   $prefix = env('DB_TABLE_PREFIX', '');
-  $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'');
+  $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
 
   $events_list = DB::select('select * from '.$prefix.'events_list');
   $workshops_list = DB::select('select * from '.$prefix.'workshops_list');

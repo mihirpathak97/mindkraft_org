@@ -127,7 +127,6 @@
       type: 'POST',
       url: '/admin/user/<?php echo $user->id ?>/approve',
       headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-      data: formData,
       success: function (data) {
         $('#ajax-output').html(data);
       }

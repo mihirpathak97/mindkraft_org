@@ -106,10 +106,35 @@
               echo $workshop->name . '<br>';
             }
           }
-        ?>
-      </div>
+        ?><br>
 
+        <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
+
+        <br>
+
+        <p id="ajax-output"></p>
+
+        <br>
+
+      </div>
 
     </div>
   </body>
+  <script type="text/javascript">
+  $('#button').click(function () {
+
+    $.ajax({
+      type: 'POST',
+      url: '/admin/user/<?php echo $user->id ?>/approve',
+      headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+      data: formData,
+      success: function (data) {
+        $('#ajax-output').html(data);
+      }
+    });
+
+    return false;
+  });
+  </script>
+
 </html>

@@ -40,4 +40,11 @@ class AdminController extends Controller
     return "E-mail was sent successfully";
   }
 
+
+  public function approveUser(Request $request)
+  {
+    return "working";
+  }
+
+
 }

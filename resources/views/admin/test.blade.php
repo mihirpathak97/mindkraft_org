@@ -1,8 +1,7 @@
 <?php
 $prefix = env('DB_VIEW_PREFIX', '');
 
-$path = explode('/', $request->path());
-$id = $path[count($path) - 2];
+$id = 'MosNBjiWTQbC0nPO';
 
 $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
 
@@ -72,5 +71,5 @@ $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $curl_scraped_page = curl_exec($ch);
 curl_close($ch);
-echo $curl_scraped_page;  
+echo $curl_scraped_page;
 ?>

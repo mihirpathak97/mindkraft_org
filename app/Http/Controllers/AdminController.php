@@ -73,7 +73,7 @@ class AdminController extends Controller
       }
     }
 
-    $msg .= '%0A';
+    $msg .= 'Registered Workshops - %0A';
 
     // Populate Workshops
     foreach ($workshops_list as $workshop) {

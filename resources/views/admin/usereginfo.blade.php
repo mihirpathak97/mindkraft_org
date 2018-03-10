@@ -123,12 +123,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
   <script type="text/javascript">
   $('#button').click(function () {
+    console.log('sent');
     $.ajax({
       type: 'POST',
       url: '/admin/user/<?php echo $user->id ?>/approve',
       headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
       data: formData,
       success: function (data) {
+        console.log('done');
         $('#ajax-output').html(data);
       }
     });

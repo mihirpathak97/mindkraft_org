@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class CpanelController extends Controller
 {
@@ -77,6 +78,16 @@ class CpanelController extends Controller
       }
 
     return "Successfully updated!";
+  }
+
+
+  public function logout()
+  {
+    if (session()->has('cpaneluser')) {
+      session()->forget('cpaneluser');
+    }
+
+    Redirect::to('cpanel')->send();
   }
 
 }

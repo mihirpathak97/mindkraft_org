@@ -248,7 +248,7 @@
 					      </div>
 								<div class="item">
 					        <figure>
-					          <img src="{{ URL::asset('images/profile/nobody.jpg') }}">
+					          <img src="{{ URL::asset('images/profile/ancy.jpg') }}">
 					        </figure>
 					        <h1>Ancy<br>3rd AE</h1>
 					      </div>

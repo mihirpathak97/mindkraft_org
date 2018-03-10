@@ -86,8 +86,32 @@
         </div>
       <?php }else { ?>
 				<div class="games">
-					<h2 class="hero-head">Events</h2>
+					<h2 class="hero-head">Popular Events</h2>
 	        <br><br>
+					<!-- Static Content -->
+					<div class="columns">
+						<div class="column is-one-third">
+							<div class="game-card">
+								<h3 class="dept-head">Mr/Ms Technico</h3>
+								<p class="know-more"><a href="/events/eie/mr_ms_technico/apKjL3EOwyPoFZA4">Know More</a></p>
+							</div>
+						</div>
+						<div class="column is-one-third">
+							<div class="game-card">
+								<h3 class="dept-head">Automazioni – The Smart Initiative</h3>
+								<p class="know-more"><a href="/events/eie/automazioni_the_smart_initiative/BtuXXy0VDmcGLSYV">Know More</a></p>
+							</div>
+						</div>
+						<div class="column is-one-third">
+							<div class="game-card">
+								<h3 class="dept-head">Elite Students Conclave</h3>
+								<p class="know-more"><a href="/events/eie/elite_students_conclave/oBTpmt42Y5lg2oGh">Know More</a></p>
+							</div>
+						</div>
+					</div>
+					<br><br><br>
+					<h2 class="hero-head">Departments</h2>
+					<br><br>
 					<?php for ($i=0; $i < count(Controller::dept_list); $i+=4) { ?>
 						<div class="columns">
 							<?php foreach (array_slice(Controller::dept_list, $i, 4) as $key => $value) { ?>

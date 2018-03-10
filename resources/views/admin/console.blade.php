@@ -67,6 +67,7 @@
           <a href="/admin/events">Events List</a><br><br>
           <a href="/admin/games">Games List</a><br><br>
           <a href="/admin/workshops">Workshops List</a><br><br>
+          <a href="/admin/debates">Debates List</a><br><br>
           <a href="/admin/users">Users List By College</a><br><br>
           <a href="/admin/kits">KITS Users List</a><br><br>
         </article>

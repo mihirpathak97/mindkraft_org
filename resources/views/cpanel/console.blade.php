@@ -40,7 +40,7 @@
          <nav class="tabs is-boxed">
            <ul>
              <li class="is-active">
-               <a href="/cpanl/console" id='active'>Admin Console</a>
+               <a href="/cpanel/console" id='active'>Admin Console</a>
              </li>
            </ul>
          </nav></div>
@@ -54,6 +54,7 @@
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item is-tab is-active">Dashboard</a>
+            <a href="/cpanel/logout" class="navbar-item is-tab">Logout</a>
           </div>
         </div>
       </nav>

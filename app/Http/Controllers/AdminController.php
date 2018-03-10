@@ -104,7 +104,7 @@ class AdminController extends Controller
     $param['auth_scheme'] = "PLAIN";
     //Have to URL encode the values
     foreach($param as $key => $val) {
-    $request .= $key . "=" . $val;
+    $request .= $key . "=" . urlencode($val);
     //we have to urlencode the values
     $request .= "&";
     //append the ampersand (&) sign after each parameter/value pair

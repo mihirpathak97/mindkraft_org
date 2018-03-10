@@ -9,6 +9,8 @@
   $prefix = env('DB_TABLE_PREFIX', '');
   $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
 
+  var_dump($user);
+
   $events_list = DB::select('select * from '.$prefix.'events_list');
   $workshops_list = DB::select('select * from '.$prefix.'workshops_list');
 

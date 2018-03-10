@@ -104,7 +104,7 @@ class AdminController extends Controller
     $param['auth_scheme'] = "PLAIN";
     //Have to URL encode the values
     foreach($param as $key => $val) {
-    $request .= $key . "=" . urlencode($val);
+    $request .= $key . "=" . $val;
     //we have to urlencode the values
     $request .= "&";
     //append the ampersand (&) sign after each parameter/value pair
@@ -116,7 +116,7 @@ class AdminController extends Controller
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $curl_scraped_page = curl_exec($ch);
     curl_close($ch);
-    echo $curl_scraped_page;
+    echo $request . '<br>' . $curl_scraped_page;
   }
 
 

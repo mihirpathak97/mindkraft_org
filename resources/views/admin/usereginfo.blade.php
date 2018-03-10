@@ -73,10 +73,10 @@
 
       <div class="box">
         <br><br>
-        <p><b>Name</b></p>
-        <p><b>College</b></p>
-        <p><b>Registration Number</b></p>
-        <p><b>Events Registered</b></p><br>
+        <p><b>Name</b> - <?php $user->name ?></p>
+        <p><b>College</b> - <?php $user->college ?></p>
+        <p><b>Registration Number</b> - <?php $user->register_number ?></p><br>
+        <p><b>Events Registered</b></p>
         <?php
           foreach ($events_list as $event) {
             $users = DB::select('select * from mindkraft18_event_registration where id=\'event-'.$event->id.'\'');
@@ -92,7 +92,7 @@
           }
         ?>
         <br>
-        <p><b>Workshops Registered</b></p><br>
+        <p><b>Workshops Registered</b></p>
         <?php
           foreach ($workshops_list as $workshop) {
             $users = DB::select('select * from mindkraft18_event_registration where id=\'workshop-'.$workshop->id.'\'');

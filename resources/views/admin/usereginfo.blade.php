@@ -9,8 +9,6 @@
   $prefix = env('DB_TABLE_PREFIX', '');
   $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
 
-  var_dump($user);
-
   $events_list = DB::select('select * from '.$prefix.'events_list');
   $workshops_list = DB::select('select * from '.$prefix.'workshops_list');
 
@@ -75,9 +73,9 @@
 
       <div class="box">
         <br><br>
-        <p><b>Name</b> - <?php $user->name ?></p>
-        <p><b>College</b> - <?php $user->college ?></p>
-        <p><b>Registration Number</b> - <?php $user->register_number ?></p><br>
+        <p><b>Name</b> - <?php echo $user->name ?></p>
+        <p><b>College</b> - <?php echo $user->college ?></p>
+        <p><b>Registration Number</b> - <?php echo $user->register_number ?></p><br>
         <p><b>Events Registered</b></p>
         <?php
           foreach ($events_list as $event) {

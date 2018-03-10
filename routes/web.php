@@ -134,7 +134,7 @@ Route::prefix('admin')->group(function () {
 
   Route::post('/user/{id}/approve', 'AdminController@approveUser');
 
-  Route::get('test', 'admin.test');
+  Route::view('test', 'admin.test');
 
   // Web Mailer Route
   Route::view('mailer', 'admin.mailer');

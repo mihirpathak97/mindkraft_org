@@ -53,11 +53,11 @@ class AdminController extends Controller
     $events_list = DB::select('select * from '.$prefix.'events_list');
     $workshops_list = DB::select('select * from '.$prefix.'workshops_list');
 
-    $msg = 'Hi,%0aThank you for registering at MindKraft 2018.%0a%0a';
+    $msg = 'Hi,%0AThank you for registering at MindKraft 2018.%0A%0A';
 
-    $msg .= 'Your Name: '.$user->name.'%0a';
-    $msg .= 'Your Registered Mobile Number: '.$user->mobile.'%0a%0a';
-    $msg .= 'Registered Events - %0a';
+    $msg .= 'Your Name: '.$user->name.'%0A';
+    $msg .= 'Your Registered Mobile Number: '.$user->mobile.'%0A%0A';
+    $msg .= 'Registered Events - %0A';
 
     // Populate Events
     foreach ($events_list as $event) {
@@ -69,11 +69,11 @@ class AdminController extends Controller
         continue;
       }
       if (in_array($id, explode(':', $users))) {
-        $msg .= $event->name . '%0a';
+        $msg .= $event->name . '%0A';
       }
     }
 
-    $msg .= '%0a';
+    $msg .= '%0A';
 
     // Populate Workshops
     foreach ($workshops_list as $workshop) {
@@ -85,13 +85,13 @@ class AdminController extends Controller
         continue;
       }
       if (in_array($id, explode(':', $users))) {
-        $msg .= $workshop->name . '%0a';
+        $msg .= $workshop->name . '%0A';
       }
     }
 
-    $msg .= '%0a%0a';
+    $msg .= '%0A%0A';
 
-    $msg .= 'With Regards,%0aMindKraft Organizing Committee';
+    $msg .= 'With Regards,%0AMindKraft Organizing Committee';
 
     $request = "";
     $param['method'] = "sendMessage";

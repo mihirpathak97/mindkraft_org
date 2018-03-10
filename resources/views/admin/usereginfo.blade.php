@@ -95,7 +95,13 @@
         <p><b>Workshops Registered</b></p><br>
         <?php
           foreach ($workshops_list as $workshop) {
-            $users = DB::select('select * from mindkraft18_event_registration where id=\'workshop-'.$workshop->id.'\'')[0]->registered_users;
+            $users = DB::select('select * from mindkraft18_event_registration where id=\'workshop-'.$workshop->id.'\'');
+            if (count($users) == 0) {
+              $users = $users[0]->registered_users
+            }
+            else {
+              continue;
+            }
             if (in_array($id, explode(':', $users))) {
               echo $workshop->name . '<br>';
             }

@@ -79,7 +79,13 @@
         <p><b>Events Registered</b></p><br>
         <?php
           foreach ($events_list as $event) {
-            $users = DB::select('select * from mindkraft18_event_registration where id=\'event-'.$event->id.'\'')[0]->registered_users;
+            $users = DB::select('select * from mindkraft18_event_registration where id=\'event-'.$event->id.'\'');
+            if (count($users) == 0) {
+              $users = $users[0]->registered_users
+            }
+            else {
+              continue;
+            }
             if (in_array($id, explode(':', $users))) {
               echo $event->name . '<br>';
             }

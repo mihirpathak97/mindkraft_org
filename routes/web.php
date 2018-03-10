@@ -132,7 +132,7 @@ Route::prefix('admin')->group(function () {
     return view('admin.usereginfo', ['id' => $id]);
   });
 
-  Route::post('/user/list/{id}/approve', 'AdminController@approveUser');
+  Route::post('/user/{id}/approve', 'AdminController@approveUser');
 
   // Web Mailer Route
   Route::view('mailer', 'admin.mailer');

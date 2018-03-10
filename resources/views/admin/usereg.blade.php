@@ -85,7 +85,7 @@
               <td><?php echo $record->id ?></td>
               <td><?php echo $record->mobile ?></td>
               <td><?php echo $record->college ?></td>
-              <td><a href="admin/user/<?php echo $record->id ?>">Show Info</a></td>
+              <td><a href="/admin/user/<?php echo $record->id ?>">Show Info</a></td>
             </tr>
           <?php endforeach; ?>
 

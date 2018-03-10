@@ -109,11 +109,8 @@
         ?><br>
 
         <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
-
-        <br>
-
+        <br><br>
         <p id="ajax-output"></p>
-
         <br>
 
       </div>

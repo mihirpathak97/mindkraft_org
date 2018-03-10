@@ -126,6 +126,12 @@ Route::prefix('admin')->group(function () {
     return view('admin.showusers', ['type' => $type, 'id' => $id]);
   });
 
+  // User Registration
+  Route::view('/user/list', 'admin.usereg');
+  Route::get('/user/{id}', function ($id) {
+    return view('admin.usereginfo', ['id' => $id]);
+  });
+
   // Web Mailer Route
   Route::view('mailer', 'admin.mailer');
   Route::post('mailer/send', 'AdminController@MailSender');

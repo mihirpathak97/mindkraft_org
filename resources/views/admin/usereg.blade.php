@@ -5,20 +5,25 @@
   if (!session()->has('adminuser') || !Controller::checkAdmin(session('adminuser'))) {
     Redirect::to('admin')->send();
   }
+  $prefix = env('DB_TABLE_PREFIX', '');
+  $list = DB::select('select * from '.$prefix.'enduser order by name');
+
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
-
     @include('admin.includes.meta')
-
     <title>Admin Console</title>
-
     @include('admin.includes.stylesheets')
   </head>
+  <style media="screen">
+    .card{
+      margin: auto;
+      margin-top: 2rem;
+    }
+  </style>
   <body>
-
     <section class="hero is-primary">
 
      <div class="hero-body" style="background:#383838">
@@ -51,28 +56,43 @@
        </div>
 
    </section>
-
     <div id="app">
 
       <nav class="navbar has-shadow">
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item is-tab is-active">Dashboard</a>
+            <a class="navbar-item is-tab" href="/admin/console">Dashboard</a>
+            <a class="navbar-item is-tab is-active">Users List</a>
           </div>
         </div>
       </nav>
 
-      <div class="box">
-        <article>
-          <a href="/admin/events">Events List</a><br><br>
-          <a href="/admin/games">Games List</a><br><br>
-          <a href="/admin/workshops">Workshops List</a><br><br>
-          <a href="/admin/debates">Debates List</a><br><br>
-          <a href="/admin/users">Users List By College</a><br><br>
-          <a href="/admin/kits">KITS Users List</a><br><br>
-          <a href="/admin/user/list">User Registration</a><br><br>
-        </article>
-      </div>
+      <table class="table card">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Number</th>
+            <th>College</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <?php foreach ($list as $record): ?>
+            <tr>
+              <td><?php echo $record->name ?></td>
+              <td><?php echo $record->id ?></td>
+              <td><?php echo $record->mobile ?></td>
+              <td><?php echo $record->college ?></td>
+              <td><a href="admin/user/<?php echo $record->id ?>">Show Info</a></td>
+            </tr>
+          <?php endforeach; ?>
+
+        </tbody>
+      </table>
+
+
     </div>
   </body>
 </html>

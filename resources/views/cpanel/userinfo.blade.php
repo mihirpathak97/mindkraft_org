@@ -11,8 +11,9 @@
   $prefix = env('DB_TABLE_PREFIX', '');
   $user = DB::select('select * from '.$prefix.'enduser where id=\''.Request::input('mobile').'\'');
 
-  if (!count($user) > 0) {
-    return "User Not Found!";
+  if (count($user) == 0) {
+    echo "User Not Found!";
+    return
   }
 
   $user = $user[0];

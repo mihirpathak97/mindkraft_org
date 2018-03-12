@@ -192,7 +192,7 @@
 
               formData = new FormData();
 
-              document.querySelectorAll('input.workshop').forEach(function (currentValue, currentIndex, listObj) {
+              document.querySelectorAll('input.checkbox.workshop').forEach(function (currentValue, currentIndex, listObj) {
                 console.log(currentValue);
               });
 

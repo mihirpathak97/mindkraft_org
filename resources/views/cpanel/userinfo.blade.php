@@ -194,7 +194,7 @@
               formData.append('workshops', '');
 
               document.querySelectorAll('input.checkbox.workshop').forEach(function (currentValue, currentIndex, listObj) {
-                formData.append('workshops', currentValue.getAttribute('name');
+                formData.append('workshops', currentValue.getAttribute('name'));
               });
 
               console.log(formData);

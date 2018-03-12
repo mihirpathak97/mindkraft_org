@@ -23,6 +23,28 @@
 
   $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
 
+
+  function checkUserStatus($id)
+  {
+    if (count(DB::select('select * from midkraft18_user_status where id=\''.$id.'\'')) > 0 ) {
+      return true;
+    }
+    return false;
+  }
+
+  function checkPaymentStatus($workshop, $user)
+  {
+    $user == DB::select('select * from mindkraft18_payment_info where id=\''.$id.'\'')[0];
+
+    if (in_array($workshop, explode(':', $user->payed_for))) {
+      return true;
+    }
+
+    return false;
+
+  }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -182,6 +204,10 @@
               });
             });
             </script>
+
+          <?php else: ?>
+
+            Please approve user in order to access payment gateway.
 
           <?php endif; ?>
 

@@ -204,6 +204,7 @@ Route::prefix('cpanel')->group(function () {
   });
 
   Route::post('/user/{id}/approve', 'AdminController@approveUser');
+  Route::post('/user/{id}/pay', 'AdminController@makePayment');
 
   // Auth Route
   Route::post('authenticate', 'CpanelController@login');

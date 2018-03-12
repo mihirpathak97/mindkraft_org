@@ -184,8 +184,11 @@
                 }
               }
             ?><br>
-            <input type="text" class="input" name="amt" value=""><br>
+            <input type="text" class="input" name="amt" value=""><br><br>
             <button type="button" id="pay" class="button is-link">Pay Now</button>
+
+            <br><br>
+            <p id="ajax-output"></p>
 
             <script type="text/javascript">
             $('#pay').click(function () {
@@ -194,17 +197,16 @@
               formData.set('workshops', '');
 
               document.querySelectorAll('input.checkbox.workshop').forEach(function (currentValue, currentIndex, listObj) {
-                formData.set('workshops', formData.get('workshops') + ':' + currentValue.getAttribute('name'));
+                formData.set('workshops', formData.get('workshops') + currentValue.getAttribute('name') + ':');
               });
-
-              console.log(formData.get('workshops'));
 
               $.ajax({
                 type: 'POST',
                 url: '/cpanel/user/<?php echo $user->id ?>/pay',
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data: formData,
                 success: function (data) {
-                  $('#ajax-output').html(data);
+                  $('#ajax').html(data);
                 }
               });
             });

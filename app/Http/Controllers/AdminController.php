@@ -130,4 +130,10 @@ class AdminController extends Controller
   }
 
 
+  public function makePayment(Request $request)
+  {
+    return $request->input('workshops');
+  }
+
+
 }

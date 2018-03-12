@@ -191,10 +191,13 @@
             $('#pay').click(function () {
 
               formData = new FormData();
+              formData.append('workshops', '');
 
               document.querySelectorAll('input.checkbox.workshop').forEach(function (currentValue, currentIndex, listObj) {
-                console.log(currentValue);
+                formData.append('workshops', currentValue.getAttribute('name');
               });
+
+              console.log(formData);
 
               $.ajax({
                 type: 'POST',

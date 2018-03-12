@@ -198,6 +198,13 @@ Route::prefix('cpanel')->group(function () {
   });
   Route::post('/update/tshirt/{id}', 'CpanelController@updateTshirtInfo');
 
+  // User Approval
+  Route::post('/user/info', function () {
+    return view('cpanel.userinfo');
+  });
+
+  Route::post('/user/{id}/approve', 'AdminController@approveUser');
+
   // Auth Route
   Route::post('authenticate', 'CpanelController@login');
   Route::get('logout', 'CpanelController@logout');

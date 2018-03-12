@@ -278,6 +278,20 @@
 
       <?php endif; ?>
 
+      <!-- ACC 10 -->
+      <div class="box">
+        <article>
+          <form class="" action="/cpanel/userinfo" method="post">
+            {{ csrf_field() }}
+            <p class="ip-group">
+              <label class="label">Registered Mobile Number</label>
+              <input type="text" name="mobile" class="input" value="" required>
+            </p>
+            <input type="submit" name="" class="button is-link" value="Submit">
+          </form>
+        </article>
+      </div>
+
     </div>
   </body>
 </html>

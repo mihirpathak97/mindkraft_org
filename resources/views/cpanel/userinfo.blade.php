@@ -92,7 +92,7 @@
               else {
                 continue;
               }
-              if (in_array($id, explode(':', $users))) {
+              if (in_array($user->id, explode(':', $users))) {
                 echo $event->name . '<br>';
               }
             }
@@ -108,7 +108,7 @@
               else {
                 continue;
               }
-              if (in_array($id, explode(':', $users))) {
+              if (in_array($user->id, explode(':', $users))) {
                 echo $workshop->name . '<br>';
               }
             }

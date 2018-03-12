@@ -71,7 +71,7 @@
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item is-tab" href="/cpanel/console">Dashboard</a>
-            <a class="navbar-item is-tab is-active"><?php echo $alias[$table_name]; ?></a>
+            <a class="navbar-item is-tab is-active">User Info</a>
           </div>
         </div>
       </nav>

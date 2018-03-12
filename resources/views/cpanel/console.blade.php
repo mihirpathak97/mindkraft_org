@@ -281,7 +281,7 @@
       <!-- ACC 10 -->
       <div class="box">
         <article>
-          <form class="" action="/cpanel/userinfo" method="post">
+          <form class="" action="/cpanel/user/info" method="post">
             {{ csrf_field() }}
             <p class="ip-group">
               <label class="label">Registered Mobile Number</label>

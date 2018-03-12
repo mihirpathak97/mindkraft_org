@@ -12,7 +12,7 @@
   $user = DB::select('select * from '.$prefix.'enduser where id=\''.$request->input('mobile').'\'');
 
   if (!count($user) > 0) {
-    return "User Not Found!"
+    return "User Not Found!";
   }
 
   $user = $user[0];

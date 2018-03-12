@@ -204,9 +204,7 @@
                 type: 'POST',
                 url: '/cpanel/user/<?php echo $user->id ?>/pay',
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                processData: false,
-                contentType: false,
-                data: formData,
+                data: {'workshops': formData.get('workshops')},
                 success: function (data) {
                   $('#ajax').html(data);
                 }

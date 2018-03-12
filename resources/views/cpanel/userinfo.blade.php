@@ -32,9 +32,9 @@
     return false;
   }
 
-  function checkPaymentStatus($workshop, $user)
+  function checkPaymentStatus($workshop, $id)
   {
-    $user == DB::select('select * from mindkraft18_payment_info where id=\''.$user.'\'')[0];
+    $user = DB::select('select * from mindkraft18_payment_info where id=\''.$id.'\'')[0];
 
     if (in_array($workshop, explode(':', $user->payed_for))) {
       return true;

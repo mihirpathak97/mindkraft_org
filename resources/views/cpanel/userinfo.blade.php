@@ -135,6 +135,58 @@
         });
         </script>
 
+        <div class="box">
+          <b>Payment</b>
+          <?php if (checkUserStatus($user->id)): ?>
+            <b>Workshops</b><br>
+            <?php
+              foreach ($workshops_list as $workshop) {
+                $users = DB::select('select * from mindkraft18_event_registration where id=\'workshop-'.$workshop->id.'\'');
+                if (count($users) == 1) {
+                  $users = $users[0]->registered_users;
+                }
+                else {
+                  continue;
+                }
+                if (in_array($user->id, explode(':', $users))) {
+                  if (checkPaymentStatus($workshop->id, $user->id)) {
+                    echo $workshop->name . ' - ' . '<b>Paid</b>' . '<br>';
+                  }
+                  else {
+                    echo $workshop->name . ' - Tick to pay <input type="checkbox" class="input workshop" name="'. $workshop->id .'">'.'<br>';
+                    echo '<b>Fees</b><br>' . $workshop->fee.'<br>';
+                  }
+                }
+              }
+            ?><br>
+            <input type="number" name="amt" value="">
+            <button type="button" id="pay" class="button is-link">Pay Now</button>
+
+            <script type="text/javascript">
+            $('#pay').click(function () {
+
+              formData = new FormData();
+
+              document.querySelectorAll('input.workshop').forEach(function (currentValue, currentIndex, listObj) {
+                console.log(currentValue);
+              });
+
+              $.ajax({
+                type: 'POST',
+                url: '/cpanel/user/<?php echo $user->id ?>/pay',
+                data:
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                success: function (data) {
+                  $('#ajax-output').html(data);
+                }
+              });
+            });
+            </script>
+
+          <?php endif; ?>
+
+        </div>
+
         <?php else: ?>
         <div class="box">
           <b>401 - Unauthorized Access!</b>

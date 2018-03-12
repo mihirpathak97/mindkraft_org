@@ -9,7 +9,7 @@
   $request = new Request();
 
   $prefix = env('DB_TABLE_PREFIX', '');
-  $user = DB::select('select * from '.$prefix.'enduser where id=\''.$request->input('mobile').'\'');
+  $user = DB::select('select * from '.$prefix.'enduser where id=\''.Request::input('mobile').'\'');
 
   if (!count($user) > 0) {
     return "User Not Found!";

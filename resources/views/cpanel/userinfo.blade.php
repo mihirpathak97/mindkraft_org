@@ -178,7 +178,7 @@
                     echo $workshop->name . ' - ' . '<b>Paid</b>' . '<br>';
                   }
                   else {
-                    echo $workshop->name . ' - Tick to pay <input type="checkbox" class="input workshop" name="'. $workshop->id .'">'.'<br>';
+                    echo $workshop->name . ' - Tick to pay <input type="checkbox" class="checkbox workshop" name="'. $workshop->id .'">'.'<br>';
                     echo '<b>Fees</b><br>' . $workshop->fee.'<br>';
                   }
                 }
@@ -199,7 +199,6 @@
               $.ajax({
                 type: 'POST',
                 url: '/cpanel/user/<?php echo $user->id ?>/pay',
-                data:
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 success: function (data) {
                   $('#ajax-output').html(data);

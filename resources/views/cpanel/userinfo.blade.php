@@ -135,9 +135,13 @@
             }
           ?><br>
 
-          <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
-          <br><br>
-          <p id="ajax-output"></p>
+          <?php if (!checkUserStatus($user->id)): ?>
+            <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
+            <br><br>
+            <p id="ajax-output"></p>
+          <?php else: ?>
+            <b>User is approved!</b>
+          <?php endif; ?>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -180,7 +184,7 @@
                 }
               }
             ?><br>
-            <input type="number" name="amt" value="">
+            <input type="text" class="input" name="amt" value=""><br>
             <button type="button" id="pay" class="button is-link">Pay Now</button>
 
             <script type="text/javascript">

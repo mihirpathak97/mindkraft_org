@@ -132,7 +132,7 @@ class AdminController extends Controller
 
   public function makePayment(Request $request)
   {
-    var_dump($request->all());
+    var_dump($request->input('workshops'));
   }
 
 

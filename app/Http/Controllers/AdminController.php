@@ -50,6 +50,16 @@ class AdminController extends Controller
 
     $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
 
+    // Add user to approved list and payment list
+    try {
+      DB::statement('insert into mindkraft18_approved_enduser values(\''.$user->id.'\')');
+      DB::statement('insert into mindkraft18_payment_info values(\''.$user->id.'\', \'main\')');
+    } catch (\Exception $e) {
+      return 'Error!';
+    }
+
+    // Populate and send Message
+
     $events_list = DB::select('select * from '.$prefix.'events_list');
     $workshops_list = DB::select('select * from '.$prefix.'workshops_list');
 

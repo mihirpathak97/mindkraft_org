@@ -100,7 +100,6 @@
 
       <?php if ($access_level == 10): ?>
         <div class="box">
-          <br><br>
           <p><b>Name</b> - <?php echo $user->name ?></p>
           <p><b>College</b> - <?php echo $user->college ?></p>
           <p><b>Registration Number</b> - <?php echo $user->register_number ?></p><br>
@@ -139,8 +138,6 @@
           <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
           <br><br>
           <p id="ajax-output"></p>
-          <br>
-
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -156,6 +153,8 @@
           });
         });
         </script>
+
+        <br><br>
 
         <div class="box">
           <b>Payment</b>
@@ -212,6 +211,8 @@
           <?php endif; ?>
 
         </div>
+
+        <br><br>
 
         <?php else: ?>
         <div class="box">

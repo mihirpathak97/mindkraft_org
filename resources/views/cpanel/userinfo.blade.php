@@ -188,7 +188,7 @@
             <button type="button" id="pay" class="button is-link">Pay Now</button>
 
             <br><br>
-            <p id="ajax-output"></p>
+            <p id="ajax"></p>
 
             <script type="text/javascript">
             $('#pay').click(function () {

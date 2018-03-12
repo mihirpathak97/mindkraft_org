@@ -13,7 +13,7 @@
 
   if (count($user) == 0) {
     echo "User Not Found!";
-    return
+    return;
   }
 
   $user = $user[0];

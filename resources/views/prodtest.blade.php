@@ -35,7 +35,7 @@ function generatereceipt($user, $for)
     $reply = '{ "success": true, "receipt": "'.$receipt.'", for: '.json_encode($for).', "user": "'.$user->id.'" }';
   }
   else {
-    $reply = '{ "success": false };
+    $reply = '{ "success": false }';
   }
 
   return $reply;

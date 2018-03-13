@@ -23,7 +23,7 @@
 
   <style media="screen">
     <?php
-      foreach (Controller::dept_list as $key => $dept_name) {
+      foreach (Controller::dept_list_workshop as $key => $dept_name) {
         echo
         ".".$key."{
           background-image: url(/images/dept/$key.jpg);

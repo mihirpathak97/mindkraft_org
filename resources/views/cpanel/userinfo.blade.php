@@ -224,12 +224,16 @@
               printWindow = window.open('', 'PRINT', 'height=400, width=600');
               printWindow.document.write('<html><head><br><br><title>MindKraft Registrtion Invoice</title><br><br>');
               printWindow.document.write('<h2 align="center">Karunya Institute of Technology and Sciences</h2><br>');
+              printWindow.document.write('<h3 align="center">MindKraft 2018</h3><br>');
               printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
               printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
               printWindow.document.write('<br><b>Payment has been accepted for the following</b> - <br><br>');
               Object.keys(payed).forEach(function(key) {
                 printWindow.document.write(key + '<span style="float:right">'+payed[key]+'</span>' + '<br>');
+                if (key == 'MindKraft Register') {
+                  printWindow.document.write('<br><b>Workshops</b><br>');
+                }
               });
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/

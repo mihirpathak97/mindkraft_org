@@ -661,7 +661,7 @@ class APIController extends Controller
     $id = $path[count($path) - 1];
 
     if ($id == 'main') {
-      return 'MindKraft Registration'
+      return 'MindKraft Registration';
     }
 
     return DB::select('select * from mindkraft18_workshops_list where id=\''.$id.'\'')[0]->name;

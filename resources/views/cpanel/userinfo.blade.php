@@ -200,6 +200,7 @@
               data = JSON.parse(data);
 
               var payed = [];
+              var fees = [];
 
               Object.keys(data.for).forEach(function(key) {
                 console.log(key + '-' + data.for[key]);
@@ -209,6 +210,7 @@
                   success: function (data) {
                     console.log(data);
                     payed.push(data);
+                    fees.push(this.data.for[key]);
                   }
                 });
               });
@@ -221,7 +223,7 @@
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
               printWindow.document.write('<br><b>Payment has been accepted for the following</b> - <br><br>');
               payed.forEach(function (item, index) {
-                printWindow.document.write(item + '<span style="float:right">'+data.for[index]+'</span>' + '<br>');
+                printWindow.document.write(item + '<span style="float:right">'+fees[index]+'</span>' + '<br>');
               });
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/

@@ -75,7 +75,7 @@ class AdminController extends Controller
 
       $result = DB::insert($query, [$receipt, $user->id, $final]);
 
-      $uid = DB::select('select * from mindkraft18_enduser_id where id=\''.$user->id.'\'')[0];
+      $uid = DB::select('select * from mindkraft18_enduser_id where id=\''.$user->id.'\'')[0]->mk_id;
 
       if ($result) {
         $reply = '{ "success": true, "receipt": "'.$receipt.'", "for": '.json_encode($for).', "user": "'.$uid.'" }';

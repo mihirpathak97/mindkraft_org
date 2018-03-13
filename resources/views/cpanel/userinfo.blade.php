@@ -50,9 +50,9 @@
   function getFee($workshop, $user)
   {
     if ($user->college == 'Karunya Institute of Technology and Sciences, Coimbatore') {
-      return DB::select('select * from mindkraft18_workshop_details')[0]->fee_internal;
+      return DB::select('select * from mindkraft18_workshop_details where id=\''$workshop->id'\'')[0]->fee_internal;
     }
-    return DB::select('select * from mindkraft18_workshop_details')[0]->fee_external;
+    return DB::select('select * from mindkraft18_workshop_details where id=\''$workshop->id'\'')[0]->fee_external;
   }
 
 
@@ -146,14 +146,14 @@
                 }
                 else {
                   echo $workshop->name . ' - Tick to pay <input type="checkbox" class="checkbox workshop" fee="'.getFee($workshop, $user).'" name="'. $workshop->id .'">'.'<br>';
-                  echo '<b>Fees</b><br>' . getFee($workshop, $user).'<br>';
+                  echo '<b>Fees</b> - ' . getFee($workshop, $user).'<br>';
                 }
               }
             }
           ?><br>
 
           <?php if (!checkUserStatus($user->id)): ?>
-            <b>Total Amount To Be Payed </b> - Rs. <span id="amt">0</span>
+            <b>Total Amount To Be Payed </b> - Rs. <span id="amt">0</span><br><br>
             <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
             <br><br>
             <p id="ajax-output"></p>
@@ -166,7 +166,7 @@
         <script type="text/javascript">
         $('.checkbox').change(function () {
           if (this.checked) {
-            $('#amt').text(parseInt($('#amt').text) + parseInt(his.getAttribute("fee")));
+            $('#amt').text(parseInt($('#amt').text) + parseInt(this.getAttribute("fee")));
           }
         });
         $('#button').click(function () {

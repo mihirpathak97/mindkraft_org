@@ -655,7 +655,7 @@ class APIController extends Controller
   }
 
 
-  function getReceiptInfo()
+  function getReceiptInfo(Request $request)
   {
     $path = explode('/', $request->path());
     $id = $path[count($path) - 1];

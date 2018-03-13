@@ -198,7 +198,16 @@
               printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
               printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
-              printWindow.document.write(data.for);
+              Object.keys(obj).forEach(function(key) {
+                console.log(obj[key]);
+                $.ajax({
+                  type: 'GET',
+                  url: '/api/open/get/workshop/' + obj[key],
+                  success: function (data) {
+                    console.log(data);
+                    printWindow.document.write(data);
+                  }
+                });
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/
               printWindow.print();

@@ -20,6 +20,8 @@ Route::get('/getworkshopinfo/{id}/{param}', 'EventInfoController@getWorkshopInfo
 Route::get('/prepareuserregister/{type}/{userid}/{eventid}', 'EventInfoController@prepareUserRegister');
 Route::get('/getchatmessages', 'Controller@getChatMessages');
 
+Route::get('/open/get/workshop/{id}', 'APIController@getReceiptInfo');
+
 // Event Registration Route
 Route::get('/register/{type}/{userid}/{eventid}', 'EventRegistration@register');
 

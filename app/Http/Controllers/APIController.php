@@ -655,5 +655,18 @@ class APIController extends Controller
   }
 
 
+  function getReceiptInfo()
+  {
+    $path = explode('/', $request->path());
+    $id = $path[count($path) - 1];
+
+    if ($id == 'main') {
+      return 'MindKraft Registration'
+    }
+
+    return DB::select('select * from mindkraft18_workshops_list where id=\''.$id.'\'')[0]->name;
+
+  }
+
 
 }

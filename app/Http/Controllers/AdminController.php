@@ -57,7 +57,7 @@ class AdminController extends Controller
 
       $last = DB::select('select * from mindkraft18_receipt_details');
       $last = $last[count($last) - 1];
-      $receipt = $last->number + 1;
+      $receipt = str_pad($last->number + 1, 6, "0", STR_PAD_LEFT);
 
       if (!checkUserStatus($user->id)) {
         $final = 'main:';
@@ -69,22 +69,25 @@ class AdminController extends Controller
       $i = 0;
 
       foreach ($for as $item => $fee) {
-        $final .= $item . '-' . $fee;
-        if (! ++$i === count($for)) {
-          $final .= ':';
-        }
+        $final .= $item . '-' . $fee . ':';
       }
 
-      DB::insert('insert into mindkraft18_receipt_details values (\''.$receipt.'\', \''.$user->id.'\', \''.$final.'\'');
+      $query = 'insert into mindkraft18_receipt_details values (?, ?, ?)';
 
-      $reply = '{ "success": true, "receipt": "'.$receipt.'", for: '.json_encode($for).', "user": "'.$user->id.'" }';
+      $result = DB::insert($query, [$receipt, $user->id, $final]);
+
+      if ($result) {
+        $reply = '{ "success": true, "receipt": "'.$receipt.'", for: '.json_encode($for).', "user": "'.$user->id.'" }';
+      }
+      else {
+        $reply = '{ "success": false }';
+      }
 
       return $reply;
 
     }
 
     $prefix = env('DB_VIEW_PREFIX', '');
-
     $path = explode('/', $request->path());
     $id = $path[count($path) - 2];
 
@@ -92,7 +95,7 @@ class AdminController extends Controller
 
 
     $for = ['main' => '300'];
-    $workshop_array = explode(':', $request->input('workshops'));
+    $workshop_array = explode(':', $request->input('workshops')); 
 
     function isInternal($user)
     {
@@ -103,14 +106,14 @@ class AdminController extends Controller
     }
 
     foreach ($workshop_array as $workshop) {
-      if (strlen($workshop) == 16) {
+      if (strlen($workshop) > 1) {
         if (isInternal($user)) {
-          $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_internal;
+          $fee = DB::select('select * from mindkraft18_workshop_details where id=\''.$workshop.'\'')[0]->fee_internal;
         }
         else {
-          $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_external;
+          $fee = DB::select('select * from mindkraft18_workshop_details where id=\''.$workshop.'\'')[0]->fee_external;
         }
-        array_push($for, 'workshop-'.$workshop, $fee);
+        $for[$workshop] = $fee;
       }
     }
 
@@ -125,7 +128,7 @@ class AdminController extends Controller
         DB::statement('update mindkraft18_payment_info set payed_for=\''.$new.'\') where id=\''.$user->id.'\'');
       }
     } catch (\Exception $e) {
-      return '{ "success": false, "reason": "SQL Error!" }';
+      return '{ "success": false, "reason": "SQL Error!", "message": '.json_encode($e->getMessage()).' }';
     }
 
     // // Populate and send Message

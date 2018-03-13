@@ -77,7 +77,7 @@ class AdminController extends Controller
       $result = DB::insert($query, [$receipt, $user->id, $final]);
 
       if ($result) {
-        $reply = '{ "success": true, "receipt": "'.$receipt.'", for: '.json_encode($for).', "user": "'.$user->id.'" }';
+        $reply = '{ "success": true, "receipt": "'.$receipt.'", "for": '.json_encode($for).', "user": "'.$user->id.'" }';
       }
       else {
         $reply = '{ "success": false }';
@@ -95,7 +95,7 @@ class AdminController extends Controller
 
 
     $for = ['main' => '300'];
-    $workshop_array = explode(':', $request->input('workshops')); 
+    $workshop_array = explode(':', $request->input('workshops'));
 
     function isInternal($user)
     {

@@ -68,7 +68,7 @@
           }
       ?>
         <div class="games">
-          <h2 class="hero-head"><?php echo Controller::dept_list[$dept]; ?></h2>
+          <h2 class="hero-head"><?php echo Controller::dept_list_workshop[$dept]; ?></h2>
           <br><br>
 					<?php if ($stmt->rowCount() == 0): ?>
 						<div class="not-avail-content">

@@ -152,13 +152,15 @@
             }
           ?><br>
 
+          <b>Total Amount To Be Payed </b> - Rs. <span id="amt">0</span><br><br>
+          <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
+          <br><br>
+          <p id="ajax-output"></p>
+
           <?php if (!checkUserStatus($user->id)): ?>
-            <b>Total Amount To Be Payed </b> - Rs. <span id="amt">0</span><br><br>
-            <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
-            <br><br>
-            <p id="ajax-output"></p>
+            <b>Note </b> - Please collect extra registration fee of Rs. 300 along with the total amount
           <?php else: ?>
-            <b>User is approved!</b>
+            <p>User is already approved no need to collect registration fee</p>
           <?php endif; ?>
         </div>
 

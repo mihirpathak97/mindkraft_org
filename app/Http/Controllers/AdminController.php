@@ -44,6 +44,14 @@ class AdminController extends Controller
   public function approveUser(Request $request)
   {
 
+    function checkUserStatus($id)
+    {
+      if (count(DB::select('select * from mindkraft18_approved_enduser where id=\''.$id.'\'')) > 0 ) {
+        return true;
+      }
+      return false;
+    }
+
     function generatereceipt($user, $for)
     {
 
@@ -51,7 +59,12 @@ class AdminController extends Controller
       $last = $last[count($last) - 1];
       $receipt = $last->number + 1;
 
-      $final = '';
+      if (!checkUserStatus($user->id)) {
+        $final = 'main:';
+      }
+      else {
+        $final = '';
+      }
 
       $i = 0;
 
@@ -77,12 +90,42 @@ class AdminController extends Controller
 
     $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
 
+
+    $for = ['main' => '300'];
+    $workshop_array = explode(':', $request->input('workshops'));
+
+    function isInternal($user)
+    {
+      if ($user->college == 'Karunya Institute of Technology and Sciences, Coimbatore') {
+        return true;
+      }
+      return false;
+    }
+
+    foreach ($workshop_array as $workshop) {
+      if (strlen($workshop) == 16) {
+        if (isInternal($user)) {
+          $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_internal;
+        }
+        else {
+          $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_external;
+        }
+        array_push($for, 'workshop-'.$workshop, $fee);
+      }
+    }
+
     // Add user to approved list and payment list
     try {
-      DB::statement('insert into mindkraft18_approved_enduser values(\''.$user->id.'\')');
-      DB::statement('insert into mindkraft18_payment_info values(\''.$user->id.'\', \'main\')');
+      if (!checkUserStatus($user->id)) {
+        DB::statement('insert into mindkraft18_approved_enduser values(\''.$user->id.'\')');
+        DB::statement('insert into mindkraft18_payment_info values(\''.$user->id.'\', \''.'main:'.implode(':', $workshop_array).'\')');
+      }
+      else {
+        $new = DB::select('select * from mindkraft18_payment_info where id=\''.$user->id.'\'')[0]->payed_for . implode(':', $workshop_array);
+        DB::statement('update mindkraft18_payment_info set payed_for=\''.$new.'\') where id=\''.$user->id.'\'');
+      }
     } catch (\Exception $e) {
-      return '{ "success": false, "reason": "SQL Error!" }' . $e->getMessage();
+      return '{ "success": false, "reason": "SQL Error!" }';
     }
 
     // // Populate and send Message
@@ -154,33 +197,8 @@ class AdminController extends Controller
     // $curl_scraped_page = curl_exec($ch);
     // curl_close($ch);
 
-    $for = ['main' => '300'];
-    $workshop_array = explode(':', $request->input('workshops'));
-
-    function isInternal($user)
-    {
-      if ($user->college == 'Karunya Institute of Technology and Sciences, Coimbatore') {
-        return true;
-      }
-      return false;
-    }
-
-    foreach ($workshop_array as $workshop) {
-      if (strlen($workshop) == 16) {
-        if (isInternal($user)) {
-          $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_internal;
-        }
-        else {
-          $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_external;
-        }
-        array_push($for, 'workshop-'.$workshop, $fee);
-      }
-    }
-
     return generatereceipt($user, $for);
-
   }
-
 
   public function makePayment(Request $request)
   {

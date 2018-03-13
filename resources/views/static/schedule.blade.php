@@ -66,7 +66,8 @@
 						<p>This year's MindKraft is being held from March 15 to March 17</p>
             <p>More details will be updated when available.</p>
 						<br>
-						<p>Click <a href="/resources/event-schedule">here</a> to download Technical Events Schedule and Prize details </p>
+						<p>Click <a href="/resources/event-schedule">here</a> to download Technical Events Schedule and venue details </p>
+						<p>Click <a href="/resources/prize.pdf">here</a> to download Prize details </p>
 						<p>Click <a href="/resources/workshop-schedule">here</a> to download Workshops Schedule</p>
 					</div>
 				</div>

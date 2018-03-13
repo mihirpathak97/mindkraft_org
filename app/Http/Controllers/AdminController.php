@@ -43,6 +43,32 @@ class AdminController extends Controller
 
   public function approveUser(Request $request)
   {
+
+    function generatereceipt($user, $for)
+    {
+      $last = DB::select('select * from mindkraft18_receipt_details');
+      $last = $last[count($last) - 1];
+      $receipt = $last->number + 1;
+
+      $final = '';
+
+      $i = 0;
+
+      foreach ($for as $item => $fee) {
+        $final .= $item . '-' . $fee;
+        if (! ++$i === count($for)) {
+          $final .= ':';
+        }
+      }
+
+      DB::insert('insert into mindkraft18_receipt_details values (\''.$receipt.'\', \''.$user->id.'\', \''.$final.'\'');
+
+      $reply = '{ "success": true, "receipt": "'.$receipt.'", for: '.json_encode($for).', "user": "'.$user->id.'" }';
+
+      return $reply;
+
+    }
+
     $prefix = env('DB_VIEW_PREFIX', '');
 
     $path = explode('/', $request->path());
@@ -55,78 +81,103 @@ class AdminController extends Controller
       DB::statement('insert into mindkraft18_approved_enduser values(\''.$user->id.'\')');
       DB::statement('insert into mindkraft18_payment_info values(\''.$user->id.'\', \'main\')');
     } catch (\Exception $e) {
-      return 'Error!';
+      return '{ "success": false, "reason": "SQL Error!" }';
     }
 
-    // Populate and send Message
+    // // Populate and send Message
+    //
+    // $events_list = DB::select('select * from '.$prefix.'events_list');
+    // $workshops_list = DB::select('select * from '.$prefix.'workshops_list');
+    //
+    // $msg = 'Hi,%0AThank you for registering at MindKraft 2018.%0A%0A';
+    //
+    // $msg .= 'Your Name: '.$user->name.'%0A%0A';
+    // $msg .= 'Registered Events - %0A';
+    //
+    // // Populate Events
+    // foreach ($events_list as $event) {
+    //   $users = DB::select('select * from mindkraft18_event_registration where id=\'event-'.$event->id.'\'');
+    //   if (count($users) == 1) {
+    //     $users = $users[0]->registered_users;
+    //   }
+    //   else {
+    //     continue;
+    //   }
+    //   if (in_array($id, explode(':', $users))) {
+    //     $msg .= $event->name . '%0A';
+    //   }
+    // }
+    //
+    // $msg .= '%0ARegistered Workshops - %0A';
+    //
+    // // Populate Workshops
+    // foreach ($workshops_list as $workshop) {
+    //   $users = DB::select('select * from mindkraft18_event_registration where id=\'workshop-'.$workshop->id.'\'');
+    //   if (count($users) == 1) {
+    //     $users = $users[0]->registered_users;
+    //   }
+    //   else {
+    //     continue;
+    //   }
+    //   if (in_array($id, explode(':', $users))) {
+    //     $msg .= $workshop->name . '%0A';
+    //   }
+    // }
+    //
+    // $msg .= '%0AWith Regards,%0AMindKraft Organizing Committee';
+    //
+    // $msg = urlencode($msg);
+    // $msg = str_replace('%25', '%', $msg);
+    //
+    // $request = "";
+    // $param['method'] = "sendMessage";
+    // $param['send_to'] = $user->mobile;
+    // $param['msg'] = $msg;
+    // $param['userid'] = "2000162130";
+    // $param['password'] = "SkyLAwn";
+    // $param['v'] = "1.1";
+    // $param['msg_type'] = "TEXT"; //Can be "FLASH”/"UNICODE_TEXT"/”BINARY”
+    // $param['auth_scheme'] = "PLAIN";
+    // //Have to URL encode the values
+    // foreach($param as $key => $val) {
+    // $request .= $key . "=" . $val;
+    // //we have to urlencode the values
+    // $request .= "&";
+    // //append the ampersand (&) sign after each parameter/value pair
+    // }
+    // $request = substr($request, 0, strlen($request)-1);
+    // //remove final (&) sign from the request
+    // $url = "http://enterprise.smsgupshup.com/GatewayAPI/rest?" . $request;
+    // $ch = curl_init($url);
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // $curl_scraped_page = curl_exec($ch);
+    // curl_close($ch);
 
-    $events_list = DB::select('select * from '.$prefix.'events_list');
-    $workshops_list = DB::select('select * from '.$prefix.'workshops_list');
+    $for = ['main': '300'];
+    $workshop_array = explode(':', $request->input('workshops');
 
-    $msg = 'Hi,%0AThank you for registering at MindKraft 2018.%0A%0A';
-
-    $msg .= 'Your Name: '.$user->name.'%0A%0A';
-    $msg .= 'Registered Events - %0A';
-
-    // Populate Events
-    foreach ($events_list as $event) {
-      $users = DB::select('select * from mindkraft18_event_registration where id=\'event-'.$event->id.'\'');
-      if (count($users) == 1) {
-        $users = $users[0]->registered_users;
+    function isInternal($user)
+    {
+      if ($user->college == 'Karunya Institute of Technology and Sciences, Coimbatore') {
+        return true;
       }
-      else {
-        continue;
-      }
-      if (in_array($id, explode(':', $users))) {
-        $msg .= $event->name . '%0A';
+      return false;
+    }
+
+    foreach ($workshop_array as $workshop) {
+      if (strlen($workshop) == 16) {
+        if (isInternal($user)) {
+          $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_internal;
+        }
+        else {
+          $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_external;
+        }
+        array_push($for, 'workshop-'.$workshop, $fee);
       }
     }
 
-    $msg .= '%0ARegistered Workshops - %0A';
+    return generatereceipt($user, $for);
 
-    // Populate Workshops
-    foreach ($workshops_list as $workshop) {
-      $users = DB::select('select * from mindkraft18_event_registration where id=\'workshop-'.$workshop->id.'\'');
-      if (count($users) == 1) {
-        $users = $users[0]->registered_users;
-      }
-      else {
-        continue;
-      }
-      if (in_array($id, explode(':', $users))) {
-        $msg .= $workshop->name . '%0A';
-      }
-    }
-
-    $msg .= '%0AWith Regards,%0AMindKraft Organizing Committee';
-
-    $msg = urlencode($msg);
-    $msg = str_replace('%25', '%', $msg);
-
-    $request = "";
-    $param['method'] = "sendMessage";
-    $param['send_to'] = $user->mobile;
-    $param['msg'] = $msg;
-    $param['userid'] = "2000162130";
-    $param['password'] = "SkyLAwn";
-    $param['v'] = "1.1";
-    $param['msg_type'] = "TEXT"; //Can be "FLASH”/"UNICODE_TEXT"/”BINARY”
-    $param['auth_scheme'] = "PLAIN";
-    //Have to URL encode the values
-    foreach($param as $key => $val) {
-    $request .= $key . "=" . $val;
-    //we have to urlencode the values
-    $request .= "&";
-    //append the ampersand (&) sign after each parameter/value pair
-    }
-    $request = substr($request, 0, strlen($request)-1);
-    //remove final (&) sign from the request
-    $url = "http://enterprise.smsgupshup.com/GatewayAPI/rest?" . $request;
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $curl_scraped_page = curl_exec($ch);
-    curl_close($ch);
-    echo $curl_scraped_page;
   }
 
 

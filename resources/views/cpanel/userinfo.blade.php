@@ -319,7 +319,7 @@
               Object.keys(payed).forEach(function(key) {
                 total = total + parseInt(payed[key]);
               });
-              printWindow.document.write('<br>Recieved with thanks a sum of ₹'+total+' towards <br>');
+              printWindow.document.write('<br>Recieved with thanks a sum of <b>₹ '+total+'</b> towards - <br>');
               printWindow.document.write('<br><b>Total in Words</b>' + '<span style="margin-left: 30px"> RUPEES '+numberToEnglish(total).toUpperCase()+' ONLY</span>' + '<br><br>');
               Object.keys(payed).forEach(function(key) {
                 printWindow.document.write(key + '<span style="float:right">₹ '+payed[key]+'</span>' + '<br>');

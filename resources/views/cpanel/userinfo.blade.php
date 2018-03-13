@@ -34,12 +34,14 @@
 
   function checkPaymentStatus($workshop, $id)
   {
-    $user = DB::select('select * from mindkraft18_payment_info where id=\''.$id.'\'')[0];
 
-    if (in_array($workshop, explode(':', $user->payed_for))) {
-      return true;
+    $user = DB::select('select * from mindkraft18_payment_info where id=\''.$id.'\'');
+
+    if (count($user) > 0) {
+      if (in_array($workshop, explode(':', $user[0]->payed_for))) {
+        return true;
+      }
     }
-
     return false;
 
   }

@@ -95,9 +95,9 @@
 				<div class="games">
 					<h2 class="hero-head">Workshops</h2>
 	        <br><br>
-					<?php for ($i=0; $i < count(Controller::dept_list); $i+=4) { ?>
+					<?php for ($i=0; $i < count(Controller::dept_list_workshop); $i+=4) { ?>
 						<div class="columns">
-							<?php foreach (array_slice(Controller::dept_list, $i, 4) as $key => $value) { ?>
+							<?php foreach (array_slice(Controller::dept_list_workshop, $i, 4) as $key => $value) { ?>
 								<div class="column is-one-quarter">
 									<a href="/workshops/<?php echo $key ?>">
 										<div class="card game-card <?php echo $key ?> game-card-dept">

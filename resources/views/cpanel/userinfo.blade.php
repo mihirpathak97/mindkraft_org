@@ -208,7 +208,7 @@
                     printWindow.document.write(data);
                   }
                 });
-              }
+              });
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/
               printWindow.print();

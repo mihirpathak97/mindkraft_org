@@ -56,7 +56,7 @@ function isInternal($user)
 }
 
 foreach ($workshop_array as $workshop) {
-  if (strlen($workshop) == 16) {
+  if (strlen($workshop) > 1) {
     if (isInternal($user)) {
       $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_internal;
     }

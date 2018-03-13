@@ -218,6 +218,8 @@ Route::prefix('resources')->group(function () {
 
   // IEEE Paper Presentation Format
   Route::redirect('ieee', '/resources/ieee-format.doc');
+  Route::redirect('event-schedule', '/resources/events.pdf');
+  Route::redirect('workshop-schedule', '/resources/workshops.pdf');
 
 });
 

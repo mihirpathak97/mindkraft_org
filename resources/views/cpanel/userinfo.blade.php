@@ -130,12 +130,19 @@
                 continue;
               }
               if (in_array($user->id, explode(':', $users))) {
-                echo $workshop->name . '<br>';
+                if (checkPaymentStatus($workshop->id, $user->id)) {
+                  echo $workshop->name . ' - ' . '<b>Paid</b>' . '<br>';
+                }
+                else {
+                  echo $workshop->name . ' - Tick to pay <input type="checkbox" class="checkbox workshop" fee="'.getFee($workshop).'" name="'. $workshop->id .'">'.'<br>';
+                  echo '<b>Fees</b><br>' . getFee($workshop).'<br>';
+                }
               }
             }
           ?><br>
 
           <?php if (!checkUserStatus($user->id)): ?>
+            <b>Total Amount To Be Payed </b> - Rs. <span id="amt">0</span>
             <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
             <br><br>
             <p id="ajax-output"></p>
@@ -146,13 +153,28 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript">
+        $('.checkbox').change(function () {
+          if (this.checked) {
+            $('#amt').text(parseInt($('#amt').text) + parseInt(his.getAttribute("fee")));
+          }
+        });
         $('#button').click(function () {
+
+          formData = new FormData();
+          formData.set('workshops', '');
+
+          document.querySelectorAll('input.checkbox.workshop').forEach(function (currentValue, currentIndex, listObj) {
+            if (currentValue.checked) {
+              formData.set('workshops', formData.get('workshops') + currentValue.getAttribute('name') + ':');
+            }
+          });
+
           $.ajax({
             type: 'POST',
             url: '/cpanel/user/<?php echo $user->id ?>/approve',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            data: {'workshops': formData.get('workshops')},
             success: function (data) {
-              console.log(data);
               data = JSON.parse(data);
               printWindow = window.open('', 'PRINT', 'height=400, width=600');
               printWindow.document.write('<html><head><title>MindKraft Registrtion Invoice</title>');
@@ -165,68 +187,6 @@
           });
         });
         </script>
-
-        <br><br>
-
-        <div class="box">
-          <b>Payment</b>
-          <?php if (checkUserStatus($user->id)): ?>
-            <b>Workshops</b><br>
-            <?php
-              foreach ($workshops_list as $workshop) {
-                $users = DB::select('select * from mindkraft18_event_registration where id=\'workshop-'.$workshop->id.'\'');
-                if (count($users) == 1) {
-                  $users = $users[0]->registered_users;
-                }
-                else {
-                  continue;
-                }
-                if (in_array($user->id, explode(':', $users))) {
-                  if (checkPaymentStatus($workshop->id, $user->id)) {
-                    echo $workshop->name . ' - ' . '<b>Paid</b>' . '<br>';
-                  }
-                  else {
-                    echo $workshop->name . ' - Tick to pay <input type="checkbox" class="checkbox workshop" name="'. $workshop->id .'">'.'<br>';
-                    echo '<b>Fees</b><br>' . $workshop->fee.'<br>';
-                  }
-                }
-              }
-            ?><br>
-            <input type="text" class="input" name="amt" value=""><br><br>
-            <button type="button" id="pay" class="button is-link">Pay Now</button>
-
-            <br><br>
-            <p id="ajax"></p>
-
-            <script type="text/javascript">
-            $('#pay').click(function () {
-
-              formData = new FormData();
-              formData.set('workshops', '');
-
-              document.querySelectorAll('input.checkbox.workshop').forEach(function (currentValue, currentIndex, listObj) {
-                formData.set('workshops', formData.get('workshops') + currentValue.getAttribute('name') + ':');
-              });
-
-              $.ajax({
-                type: 'POST',
-                url: '/cpanel/user/<?php echo $user->id ?>/pay',
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                data: {'workshops': formData.get('workshops')},
-                success: function (data) {
-                  $('#ajax').html(data);
-                }
-              });
-            });
-            </script>
-
-          <?php else: ?>
-
-            Please approve user in order to access payment gateway.
-
-          <?php endif; ?>
-
-        </div>
 
         <br><br>
 

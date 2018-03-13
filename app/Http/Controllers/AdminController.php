@@ -82,7 +82,7 @@ class AdminController extends Controller
       DB::statement('insert into mindkraft18_approved_enduser values(\''.$user->id.'\')');
       DB::statement('insert into mindkraft18_payment_info values(\''.$user->id.'\', \'main\')');
     } catch (\Exception $e) {
-      return '{ "success": false, "reason": "SQL Error!" }';
+      return '{ "success": false, "reason": "SQL Error!" }' . $e->getMessage();
     }
 
     // // Populate and send Message

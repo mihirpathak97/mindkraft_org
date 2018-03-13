@@ -59,7 +59,7 @@
         if (isset($dept)){
           // NOTE: Getting all snh Departments in one go until new department images are ready.
           if ($dept == 'snh') {
-            $stmt = $pdo->query("SELECT * FROM $view_prefix" . "workshops_list WHERE department in ('chem', 'phy', 'math', 'nano', 'snh')");
+            $stmt = $pdo->query("SELECT * FROM $view_prefix" . "workshops_list WHERE department in ('chem', 'math', 'snh')");
   					$result = $stmt->fetchAll();
           }
           else {

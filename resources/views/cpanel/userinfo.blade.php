@@ -221,8 +221,6 @@
                 payed[getEventName(key)] = data.for[key];
               });
 
-              console.log(fees);
-
               printWindow = window.open('', 'PRINT', 'height=400, width=600');
               printWindow.document.write('<html><head><br><br><title>MindKraft Registrtion Invoice</title><br><br>');
               printWindow.document.write('<h2 align="center">Karunya Institute of Technology and Sciences</h2><br>');

@@ -114,13 +114,13 @@
 					        </figure>
 					        <h1>Vignesh L<br>3rd EEE</h1>
 					      </div>
+								<div class="item">
+					        <figure>
+					          <img src="{{ URL::asset('images/profile/akash.jpg') }}">
+					        </figure>
+					        <h1>Akash<br>2nd EE</h1>
+					      </div>
 							</div>
-							<div class="item">
-				        <figure>
-				          <img src="{{ URL::asset('images/profile/akash.jpg') }}">
-				        </figure>
-				        <h1>Akash<br>2nd EE</h1>
-				      </div>
 						</div>
 
 						<div class="exhibition">

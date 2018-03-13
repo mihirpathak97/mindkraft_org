@@ -315,17 +315,18 @@
               printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
               printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
-              printWindow.document.write('<br><b>Payment has been accepted for the following</b> - <br><br>');
               var total = 0;
               Object.keys(payed).forEach(function(key) {
-                printWindow.document.write(key + '<span style="float:right">₹ '+payed[key]+'</span>' + '<br>');
                 total = total + parseInt(payed[key]);
+              });
+              printWindow.document.write('<br>Recieved with thanks a sum of ₹'+total+' towards <br>');
+              printWindow.document.write('<br><b>Total in Words</b>' + '<span style="margin-left: 30px"> RUPEES '+numberToEnglish(total).toUpperCase()+' ONLY</span>' + '<br><br>');
+              Object.keys(payed).forEach(function(key) {
+                printWindow.document.write(key + '<span style="float:right">₹ '+payed[key]+'</span>' + '<br>');
                 if (key.indexOf('MindKraft') != -1) {
                   printWindow.document.write('<br><b>Workshops</b><br>');
                 }
               });
-              printWindow.document.write('<br><b>Total</b>' + '<span style="float:right"> ₹ '+total+'</span>' + '<br>');
-              printWindow.document.write('<br><b>Total in Words</b>' + '<span style="margin-left: 30px"> RUPEES '+numberToEnglish(total).toUpperCase()+' ONLY</span>' + '<br>');
               printWindow.document.write('<br><br><br><br><b>Cashier</b>' + '<span style="float:right"><b>Organizing Secretary<br>MindKraft 2018</b></span>')
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/

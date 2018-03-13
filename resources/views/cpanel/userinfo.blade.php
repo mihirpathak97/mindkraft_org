@@ -200,8 +200,7 @@
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
               Object.keys(data.for).forEach(function(key) {
                 console.log(key + '-' + data.for[key]);
-                $.ajax({
-                  type: 'GET',
+                $.get({
                   url: '/api/open/get/workshop/' + key,
                   success: function (data) {
                     console.log(data);

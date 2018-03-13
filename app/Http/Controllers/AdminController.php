@@ -54,7 +54,6 @@ class AdminController extends Controller
 
     function generatereceipt($user, $for)
     {
-
       $last = DB::select('select * from mindkraft18_receipt_details');
       $last = $last[count($last) - 1];
       $receipt = str_pad($last->number + 1, 6, "0", STR_PAD_LEFT);
@@ -76,8 +75,10 @@ class AdminController extends Controller
 
       $result = DB::insert($query, [$receipt, $user->id, $final]);
 
+      $uid = DB::select('select * from mindkraft18_enduser_id where id=\''.$user->id.'\'')[0];
+
       if ($result) {
-        $reply = '{ "success": true, "receipt": "'.$receipt.'", "for": '.json_encode($for).', "user": "'.$user->id.'" }';
+        $reply = '{ "success": true, "receipt": "'.$receipt.'", "for": '.json_encode($for).', "user": "'.$uid.'" }';
       }
       else {
         $reply = '{ "success": false }';
@@ -122,6 +123,10 @@ class AdminController extends Controller
       if (!checkUserStatus($user->id)) {
         DB::statement('insert into mindkraft18_approved_enduser values(\''.$user->id.'\')');
         DB::statement('insert into mindkraft18_payment_info values(\''.$user->id.'\', \''.'main:'.implode(':', $workshop_array).'\')');
+        $last = DB::select('select * from mindkraft18_enduser_id');
+        $last = $last[count($last) - 1];
+        $uid = str_pad($last->mk_id + 1, 4, "0", STR_PAD_LEFT);
+        DB::insert('insert into mindkraft18_enduser_id id=\''.$user->id.'\', \''.$uid.'\'');
       }
       else {
         $new = DB::select('select * from mindkraft18_payment_info where id=\''.$user->id.'\'')[0]->payed_for . implode(':', $workshop_array);

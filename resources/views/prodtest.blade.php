@@ -32,6 +32,8 @@ function generatereceipt($user, $for)
 
   DB::insert('insert into mindkraft18_receipt_details values (\''.$receipt.'\', \''.$user->id.'\', \''.$final.'\'');
 
+  echo 'insert into mindkraft18_receipt_details values (\''.$receipt.'\', \''.$user->id.'\', \''.$final.'\'';
+
   $reply = '{ "success": true, "receipt": "'.$receipt.'", for: '.json_encode($for).', "user": "'.$user->id.'" }';
 
   return $reply;
@@ -63,7 +65,7 @@ foreach ($workshop_array as $workshop) {
     else {
       $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_external;
     }
-    array_push($for, 'workshop-'.$workshop, $fee);
+    array_push($for, $workshop, $fee);
   }
 }
 

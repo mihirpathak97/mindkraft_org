@@ -194,8 +194,10 @@
               console.log(data);
               data = JSON.parse(data);
               printWindow = window.open('', 'PRINT', 'height=400, width=600');
-              printWindow.document.write('<html><head><title>MindKraft Registrtion Invoice</title>');
-              printWindow.document.write(data.user);
+              printWindow.document.write('<html><head><br><br><title>MindKraft Registrtion Invoice</title><br><br>');
+              printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
+              printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
+              printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
               printWindow.document.write(data.for);
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/

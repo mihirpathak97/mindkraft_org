@@ -152,6 +152,7 @@
             url: '/cpanel/user/<?php echo $user->id ?>/approve',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (data) {
+              console.log(data);
               data = JSON.parse(data);
               printWindow = window.open('', 'PRINT', 'height=400, width=600');
               printWindow.document.write('<html><head><title>MindKraft Registrtion Invoice</title>');

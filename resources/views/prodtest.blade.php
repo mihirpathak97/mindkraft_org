@@ -24,10 +24,7 @@ function generatereceipt($user, $for)
   $i = 0;
 
   foreach ($for as $item => $fee) {
-    $final .= $item . '-' . $fee;
-    if (! ++$i === count($for)) {
-      $final .= ':';
-    }
+    $final .= $item . '-' . $fee . ':';
   }
 
   DB::insert('insert into mindkraft18_receipt_details values (\''.$receipt.'\', \''.$user->id.'\', \''.$final.'\'');
@@ -60,10 +57,10 @@ function isInternal($user)
 foreach ($workshop_array as $workshop) {
   if (strlen($workshop) > 1) {
     if (isInternal($user)) {
-      $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_internal;
+      $fee = DB::select('select * from mindkraft18_workshop_details where id=\''$workshop'\'')[0]->fee_internal;
     }
     else {
-      $fee = DB::select('select * from mindkraft18_workshop_details')[0]->fee_external;
+      $fee = DB::select('select * from mindkraft18_workshop_details where id=\''$workshop'\'')[0]->fee_external;
     }
     array_push($for, $workshop, $fee);
   }

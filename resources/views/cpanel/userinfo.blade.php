@@ -199,21 +199,29 @@
               console.log(data);
               data = JSON.parse(data);
 
-              var payed = [];
-              var fees = [];
+              var payed = {};
 
-              Object.keys(data.for).forEach(function(key) {
-                console.log(key + '-' + data.for[key]);
+              function getEventName(key) {
+                var key = '';
                 $.get({
                   async: false,
                   url: '/api/open/get/workshop/' + key,
                   success: function (data) {
                     console.log(data);
-                    payed.push(data);
-                    fees.push(this.data.for[key]);
+                    key = data;
                   }
                 });
+
+                return key;
+
+              }
+
+              Object.keys(data.for).forEach(function(key) {
+                console.log(key + '-' + data.for[key]);
+                payed[getEventName(key)] = data.for[key];
               });
+
+              console.log(fees);
 
               printWindow = window.open('', 'PRINT', 'height=400, width=600');
               printWindow.document.write('<html><head><br><br><title>MindKraft Registrtion Invoice</title><br><br>');
@@ -222,8 +230,8 @@
               printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
               printWindow.document.write('<br><b>Payment has been accepted for the following</b> - <br><br>');
-              payed.forEach(function (item, index) {
-                printWindow.document.write(item + '<span style="float:right">'+fees[index]+'</span>' + '<br>');
+              Object.keys(payed).forEach(function(key) {
+                printWindow.document.write(key + '<span style="float:right">'+payed[key]+'</span>' + '<br>');
               });
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/

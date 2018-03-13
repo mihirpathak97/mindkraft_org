@@ -226,3 +226,5 @@ Route::prefix('resources')->group(function () {
 
 // Test route. Do all testing in this view
 Route::view('/test', 'test');
+
+Route::view('/prodtest', 'prodtest');

@@ -309,9 +309,9 @@
               });
 
               printWindow = window.open('', 'PRINT', 'height=400, width=600');
-              printWindow.document.write('<html><head><br><br><title>MindKraft Registrtion Invoice</title><br><br>');
+              printWindow.document.write('<html><head><title>MindKraft Registrtion Invoice</title><br>');
               printWindow.document.write('<img src="https://mindkraft.org/images/mk-cropped.png" width="40px" height="40px" style="float:left; margin-left:170px; margin-right:10px; margin-top:15px">');
-              printWindow.document.write('<h2>MindKraft 2018</h2><br>');
+              printWindow.document.write('<h2>MindKraft 2018</h2>');
               printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
               printWindow.document.write('<b>User ID: </b> - MK-'+ data.user +'<br>');
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
@@ -327,7 +327,7 @@
                   printWindow.document.write('<br><b>Workshops</b><br>');
                 }
               });
-              printWindow.document.write('<br><br><br><br><b>Cashier</b>' + '<span style="float:right"><b>Organizing Secretary<br>MindKraft 2018</b></span>')
+              printWindow.document.write('<br><br><b>Cashier</b>' + '<span style="float:right"><b>Organizing Secretary<br>MindKraft 2018</b></span>')
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/
               printWindow.print();

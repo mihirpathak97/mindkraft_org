@@ -126,7 +126,7 @@ class AdminController extends Controller
         $last = DB::select('select * from mindkraft18_enduser_id');
         $last = $last[count($last) - 1];
         $uid = str_pad($last->mk_id + 1, 4, "0", STR_PAD_LEFT);
-        DB::insert('insert into mindkraft18_enduser_id id=\''.$user->id.'\', \''.$uid.'\'');
+        DB::insert('insert into mindkraft18_enduser_id values (id=\''.$user->id.'\', \''.$uid.'\')');
       }
       else {
         $new = DB::select('select * from mindkraft18_payment_info where id=\''.$user->id.'\'')[0]->payed_for . implode(':', $workshop_array);

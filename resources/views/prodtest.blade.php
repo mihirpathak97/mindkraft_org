@@ -27,9 +27,16 @@ function generatereceipt($user, $for)
     $final .= $item . '-' . $fee . ':';
   }
 
-  DB::insert('insert into mindkraft18_receipt_details values (\''.str($receipt).'\', \''.str($user->id).'\', \''.str($final).'\'');
+  $query = 'insert into mindkraft18_receipt_details values (?, ?, ?)';
 
-  $reply = '{ "success": true, "receipt": "'.$receipt.'", for: '.json_encode($for).', "user": "'.$user->id.'" }';
+  $result = DB::insert($query, [$receipt, $user->id, $final]);
+
+  if ($result) {
+    $reply = '{ "success": true, "receipt": "'.$receipt.'", for: '.json_encode($for).', "user": "'.$user->id.'" }';
+  }
+  else {
+    $reply = '{ "success": false };
+  }
 
   return $reply;
 

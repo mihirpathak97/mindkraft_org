@@ -325,7 +325,7 @@
                 }
               });
               printWindow.document.write('<br><b>Total</b>' + '<span style="float:right"> ₹ '+total+'</span>' + '<br>');
-              printWindow.document.write('<br><b>Total in Words</b>' + '<span style="margin-left: 30px"> ₹ '+numberToEnglish(total)+'</span>' + '<br>');
+              printWindow.document.write('<br><b>Total in Words</b>' + '<span style="margin-left: 30px"> RUPEES '+numberToEnglish(total).toUpperCase()+' ONLY</span>' + '<br>');
               printWindow.document.write('<br><br><br><br><b>Cashier</b>' + '<span style="float:right"><b>Organizing Secretary<br>MindKraft 2018</b></span>')
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/

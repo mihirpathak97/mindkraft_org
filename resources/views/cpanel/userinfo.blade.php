@@ -50,9 +50,9 @@
   function getFee($workshop, $user)
   {
     if ($user->college == 'Karunya Institute of Technology and Sciences, Coimbatore') {
-      return DB::select('select * from mindkraft18_workshop_details where id=\''$workshop->id'\'')[0]->fee_internal;
+      return DB::select('select * from mindkraft18_workshop_details where id=\''.$workshop->id.'\'')[0]->fee_internal;
     }
-    return DB::select('select * from mindkraft18_workshop_details where id=\''$workshop->id'\'')[0]->fee_external;
+    return DB::select('select * from mindkraft18_workshop_details where id=\''.$workshop->id.'\'')[0]->fee_external;
   }
 
 

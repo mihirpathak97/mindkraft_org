@@ -153,13 +153,13 @@
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (data) {
               data = JSON.parse(data);
-                printWindow = window.open('', 'PRINT', 'height=400, width=600');
-                printWindow.document.write('<html><head><title>MindKraft Registrtion Invoice</title>');
-                printWindow.document.write(data);
-                mywindow.document.close(); // necessary for IE >= 10
-                mywindow.focus(); // necessary for IE >= 10*/
-                mywindow.print();
-                mywindow.close();
+              printWindow = window.open('', 'PRINT', 'height=400, width=600');
+              printWindow.document.write('<html><head><title>MindKraft Registrtion Invoice</title>');
+              printWindow.document.write(data.toString());
+              printWindow.document.close(); // necessary for IE >= 10
+              printWindow.focus(); // necessary for IE >= 10*/
+              printWindow.print();
+              printWindow.close();
             }
           });
         });

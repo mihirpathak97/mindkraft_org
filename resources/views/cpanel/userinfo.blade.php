@@ -223,8 +223,8 @@
 
               printWindow = window.open('', 'PRINT', 'height=400, width=600');
               printWindow.document.write('<html><head><br><br><title>MindKraft Registrtion Invoice</title><br><br>');
-              printWindow.document.write('<img src="https://mindkraft.org/images/mk-cropped.png" width="40px" height="40px" style="float:left; margin-left:20px; margin-top:20px">');
-              printWindow.document.write('<h2 align="center">MindKraft 2018</h2><br>');
+              printWindow.document.write('<img src="https://mindkraft.org/images/mk-cropped.png" width="40px" height="40px" style="float:left; margin-left:80px; margin-top:20px">');
+              printWindow.document.write('<h2>MindKraft 2018</h2><br>');
               printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
               printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');

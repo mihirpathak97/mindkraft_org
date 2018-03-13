@@ -77,7 +77,7 @@ class AdminController extends Controller
       $result = DB::insert($query, [$receipt, $user->id, $final]);
 
       if ($result) {
-        $reply = '{ "success": true, "receipt": "'.$receipt.'", "for": '.json_encode($for).', "user": "'.$user->id.'" }';
+        $reply = '{ "success": true, "receipt": "'.$receipt.'", "for": '.json_encode($final).', "user": "'.$user->id.'" }';
       }
       else {
         $reply = '{ "success": false }';

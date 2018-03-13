@@ -204,7 +204,6 @@
               Object.keys(data.for).forEach(function(key) {
                 console.log(key + '-' + data.for[key]);
                 printWindow.document.write(key + '<br>')
-                });
               });
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/

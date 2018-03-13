@@ -223,7 +223,7 @@
 
               printWindow = window.open('', 'PRINT', 'height=400, width=600');
               printWindow.document.write('<html><head><br><br><title>MindKraft Registrtion Invoice</title><br><br>');
-              printWindow.document.write('<h2 align="center">Karunya Institute of Technology and Sciences</h2><br>');
+              printWindow.document.write('<h2 align="center">Karunya Institute of Technology and Sciences</h2>');
               printWindow.document.write('<h3 align="center">MindKraft 2018</h3><br>');
               printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
               printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
@@ -231,7 +231,7 @@
               printWindow.document.write('<br><b>Payment has been accepted for the following</b> - <br><br>');
               Object.keys(payed).forEach(function(key) {
                 printWindow.document.write(key + '<span style="float:right">'+payed[key]+'</span>' + '<br>');
-                if (key == 'MindKraft Register') {
+                if (key.indexOf('MindKraft') != -1) {
                   printWindow.document.write('<br><b>Workshops</b><br>');
                 }
               });

@@ -78,8 +78,8 @@ try {
     DB::statement('update mindkraft18_payment_info set payed_for=\''.$new.'\') where id=\''.$user->id.'\'');
   }
 } catch (\Exception $e) {
-  return '{ "success": false, "reason": "SQL Error!" }';
+  echo '{ "success": false, "reason": "SQL Error!" }';
 }
 
-return generatereceipt($user, $for);
+ echo generatereceipt($user, $for);
 ?>

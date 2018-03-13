@@ -199,10 +199,10 @@
               printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
               Object.keys(data.for).forEach(function(key) {
-                console.log(data.for[key]);
+                console.log(key + '-' + data.for[key]);
                 $.ajax({
                   type: 'GET',
-                  url: '/api/open/get/workshop/' + obj[key],
+                  url: '/api/open/get/workshop/' + key,
                   success: function (data) {
                     console.log(data);
                     printWindow.document.write(data);

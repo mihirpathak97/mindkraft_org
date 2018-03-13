@@ -202,17 +202,17 @@
               var payed = {};
 
               function getEventName(key) {
-                var key = '';
+                var rsp = '';
                 $.get({
                   async: false,
                   url: '/api/open/get/workshop/' + key,
                   success: function (data) {
                     console.log(data);
-                    key = data;
+                    rsp = data;
                   }
                 });
 
-                return key;
+                return rsp;
 
               }
 

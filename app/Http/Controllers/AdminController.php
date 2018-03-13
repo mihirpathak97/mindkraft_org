@@ -46,6 +46,7 @@ class AdminController extends Controller
 
     function generatereceipt($user, $for)
     {
+
       $last = DB::select('select * from mindkraft18_receipt_details');
       $last = $last[count($last) - 1];
       $receipt = $last->number + 1;
@@ -153,7 +154,7 @@ class AdminController extends Controller
     // $curl_scraped_page = curl_exec($ch);
     // curl_close($ch);
 
-    $for = ['main': '300'];
+    $for = ['main' => '300'];
     $workshop_array = explode(':', $request->input('workshops');
 
     function isInternal($user)

@@ -166,9 +166,10 @@
         <script type="text/javascript">
         $('.checkbox').change(function () {
           if (this.checked) {
-            console.log(parseInt($('#amt').text));
-            console.log(parseInt(this.getAttribute("fee")));
-            $('#amt').text(parseInt($('#amt').text) + parseInt(this.getAttribute("fee")));
+            $('#amt').text(parseInt($('#amt').text()) + parseInt(this.getAttribute("fee")));
+          }
+          else {
+            $('#amt').text(parseInt($('#amt').text()) - parseInt(this.getAttribute("fee")));
           }
         });
         $('#button').click(function () {

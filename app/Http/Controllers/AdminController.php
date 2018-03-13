@@ -125,7 +125,7 @@ class AdminController extends Controller
       }
       else {
         $new = DB::select('select * from mindkraft18_payment_info where id=\''.$user->id.'\'')[0]->payed_for . implode(':', $workshop_array);
-        DB::statement('update mindkraft18_payment_info set payed_for=\''.$new.'\') where id=\''.$user->id.'\'');
+        DB::statement('update mindkraft18_payment_info set payed_for=\''.$new.'\' where id=\''.$user->id.'\'');
       }
     } catch (\Exception $e) {
       return '{ "success": false, "reason": "SQL Error!", "message": '.json_encode($e->getMessage()).' }';

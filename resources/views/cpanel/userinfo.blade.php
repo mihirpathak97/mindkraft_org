@@ -214,7 +214,7 @@
               printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
               printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
-              printWindow.document.write('<br><b>Payment has been accepted for the following</b> - <br>');
+              printWindow.document.write('<br><b>Payment has been accepted for the following</b> - <br><br>');
               payed.forEach(function (item, index) {
                 printWindow.document.write(item + '<br>');
               });

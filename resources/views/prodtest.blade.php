@@ -39,8 +39,6 @@ function generatereceipt($user, $for)
 }
 
 $prefix = env('DB_VIEW_PREFIX', '');
-
-$path = explode('/', $request->path());
 $id = 'MosNBjiWTQbC0nPO';
 
 $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];

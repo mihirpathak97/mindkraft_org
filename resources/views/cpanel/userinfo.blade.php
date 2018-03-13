@@ -45,6 +45,15 @@
   }
 
 
+  function getFee($workshop, $user)
+  {
+    if ($user->college == 'Karunya Institute of Technology and Sciences, Coimbatore') {
+      return DB::select('select * from mindkraft18_workshop_details')[0]->fee_internal;
+    }
+    return DB::select('select * from mindkraft18_workshop_details')[0]->fee_external;
+  }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -134,8 +143,8 @@
                   echo $workshop->name . ' - ' . '<b>Paid</b>' . '<br>';
                 }
                 else {
-                  echo $workshop->name . ' - Tick to pay <input type="checkbox" class="checkbox workshop" fee="'.getFee($workshop).'" name="'. $workshop->id .'">'.'<br>';
-                  echo '<b>Fees</b><br>' . getFee($workshop).'<br>';
+                  echo $workshop->name . ' - Tick to pay <input type="checkbox" class="checkbox workshop" fee="'.getFee($workshop, $user).'" name="'. $workshop->id .'">'.'<br>';
+                  echo '<b>Fees</b><br>' . getFee($workshop, $user).'<br>';
                 }
               }
             }

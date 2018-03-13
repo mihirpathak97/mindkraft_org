@@ -191,22 +191,30 @@
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             data: {'workshops': formData.get('workshops')},
             success: function (data) {
+
               console.log(data);
               data = JSON.parse(data);
-              printWindow = window.open('', 'PRINT', 'height=400, width=600');
-              printWindow.document.write('<html><head><br><br><title>MindKraft Registrtion Invoice</title><br><br>');
-              printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
-              printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
-              printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
+
+              var payed = [];
+
               Object.keys(data.for).forEach(function(key) {
                 console.log(key + '-' + data.for[key]);
                 $.get({
                   url: '/api/open/get/workshop/' + key,
                   success: function (data) {
                     console.log(data);
-                    printWindow.document.write(data);
+                    payed.push(data);
                   }
                 });
+              });
+
+              printWindow = window.open('', 'PRINT', 'height=400, width=600');
+              printWindow.document.write('<html><head><br><br><title>MindKraft Registrtion Invoice</title><br><br>');
+              printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
+              printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
+              printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
+              payed.forEach(function (item, index) {
+                printWindow.document.write(item + '<br>');
               });
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/

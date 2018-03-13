@@ -27,7 +27,7 @@ function generatereceipt($user, $for)
     $final .= $item . '-' . $fee . ':';
   }
 
-  DB::insert('insert into mindkraft18_receipt_details values (\''.$receipt.'\', \''.$user->id.'\', \''.$final.'\'');
+  DB::insert('insert into mindkraft18_receipt_details values (\''.str($receipt).'\', \''.str($user->id).'\', \''.str($final).'\'');
 
   $reply = '{ "success": true, "receipt": "'.$receipt.'", for: '.json_encode($for).', "user": "'.$user->id.'" }';
 

@@ -313,7 +313,7 @@
               printWindow.document.write('<img src="https://mindkraft.org/images/mk-cropped.png" width="40px" height="40px" style="float:left; margin-left:170px; margin-right:10px; margin-top:15px">');
               printWindow.document.write('<h2>MindKraft 2018</h2><br>');
               printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
-              printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
+              printWindow.document.write('<b>User ID: </b> - MK-'+ data.user +'<br>');
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
               var total = 0;
               Object.keys(payed).forEach(function(key) {

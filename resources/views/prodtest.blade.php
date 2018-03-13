@@ -12,7 +12,7 @@ function generatereceipt($user, $for)
 
   $last = DB::select('select * from mindkraft18_receipt_details');
   $last = $last[count($last) - 1];
-  $receipt = $last->number + 1;
+  $receipt = str_pad($last->number + 1, 6, "0", STR_PAD_LEFT);
 
   if (!checkUserStatus($user->id)) {
     $final = 'main:';
@@ -28,8 +28,6 @@ function generatereceipt($user, $for)
   }
 
   DB::insert('insert into mindkraft18_receipt_details values (\''.$receipt.'\', \''.$user->id.'\', \''.$final.'\'');
-
-  echo 'insert into mindkraft18_receipt_details values (\''.$receipt.'\', \''.$user->id.'\', \''.$final.'\'';
 
   $reply = '{ "success": true, "receipt": "'.$receipt.'", for: '.json_encode($for).', "user": "'.$user->id.'" }';
 
@@ -62,7 +60,7 @@ foreach ($workshop_array as $workshop) {
     else {
       $fee = DB::select('select * from mindkraft18_workshop_details where id=\''.$workshop.'\'')[0]->fee_external;
     }
-    array_push($for, $workshop, $fee);
+    $for[$workshop] = $fee;
   }
 }
 

@@ -198,8 +198,8 @@
               printWindow.document.write('<b>Name: </b> - <?php echo $user->name ?><br>');
               printWindow.document.write('<b>User ID: </b> - <?php echo $user->id ?><br>');
               printWindow.document.write('<b>Receipt Number: </b> - ' + data.receipt + '<br>');
-              Object.keys(obj).forEach(function(key) {
-                console.log(obj[key]);
+              Object.keys(data.for).forEach(function(key) {
+                console.log(data.for[key]);
                 $.ajax({
                   type: 'GET',
                   url: '/api/open/get/workshop/' + obj[key],

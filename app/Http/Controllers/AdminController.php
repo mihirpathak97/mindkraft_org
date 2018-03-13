@@ -155,7 +155,7 @@ class AdminController extends Controller
     // curl_close($ch);
 
     $for = ['main' => '300'];
-    $workshop_array = explode(':', $request->input('workshops');
+    $workshop_array = explode(':', $request->input('workshops'));
 
     function isInternal($user)
     {

@@ -195,7 +195,8 @@
               data = JSON.parse(data);
               printWindow = window.open('', 'PRINT', 'height=400, width=600');
               printWindow.document.write('<html><head><title>MindKraft Registrtion Invoice</title>');
-              printWindow.document.write(data.toString());
+              printWindow.document.write(data.user);
+              printWindow.document.write(data.for);
               printWindow.document.close(); // necessary for IE >= 10
               printWindow.focus(); // necessary for IE >= 10*/
               printWindow.print();

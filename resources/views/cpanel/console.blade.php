@@ -7,6 +7,15 @@
   }
 
   $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
+
+  function checkUserStatus($id)
+  {
+    if (count(DB::select('select * from mindkraft18_approved_enduser where id=\''.$id.'\'')) > 0 ) {
+      return true;
+    }
+    return false;
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -195,7 +204,7 @@
                     continue;
                   }
                 ?>
-                  <tr>
+                  <tr <?php if(!checkUserStatus($record->id)) echo 'bgcolor="red"' ?>>
                     <td><?php echo $record->name; ?></td>
                     <td><?php echo $record->mobile; ?></td>
                     <td><?php echo $record->email; ?></td>

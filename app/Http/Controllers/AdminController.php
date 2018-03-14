@@ -125,89 +125,31 @@ class AdminController extends Controller
     // Add user to approved list and payment list
     try {
       if (!checkUserStatus($user->id)) {
+
         DB::statement('insert into mindkraft18_approved_enduser values(\''.$user->id.'\')');
         DB::statement('insert into mindkraft18_payment_info values(\''.$user->id.'\', \''.'main:'.implode(':', $workshop_array).'\')');
+
+        // Generate new MK ID
         $last = DB::select('select * from mindkraft18_enduser_id');
         $last = $last[count($last) - 1];
         $uid = str_pad($last->mk_id + 1, 4, "0", STR_PAD_LEFT);
         DB::statement('insert into mindkraft18_enduser_id values (\''.$user->id.'\', \''.$uid.'\')');
       }
       else {
+        // Check and add
+        $payed_for = DB::select('select * from mindkraft18_payment_info where id=\''.$user->id.'\'')[0]->payed_for;
+        foreach (explode(':', $payed_for) as $item) {
+          if (in_array($item, $workshop_array)) {
+            unset($workshop_array[array_search($item, $workshop_array)]);
+          }
+        }
+        // Then append remaining items to payed_for
         $new = DB::select('select * from mindkraft18_payment_info where id=\''.$user->id.'\'')[0]->payed_for . implode(':', $workshop_array);
         DB::statement('update mindkraft18_payment_info set payed_for=\''.$new.'\' where id=\''.$user->id.'\'');
       }
     } catch (\Exception $e) {
       return '{ "success": false, "reason": "SQL Error!", "message": '.json_encode($e->getMessage()).' }';
     }
-
-    // // Populate and send Message
-    //
-    // $events_list = DB::select('select * from '.$prefix.'events_list');
-    // $workshops_list = DB::select('select * from '.$prefix.'workshops_list');
-    //
-    // $msg = 'Hi,%0AThank you for registering at MindKraft 2018.%0A%0A';
-    //
-    // $msg .= 'Your Name: '.$user->name.'%0A%0A';
-    // $msg .= 'Registered Events - %0A';
-    //
-    // // Populate Events
-    // foreach ($events_list as $event) {
-    //   $users = DB::select('select * from mindkraft18_event_registration where id=\'event-'.$event->id.'\'');
-    //   if (count($users) == 1) {
-    //     $users = $users[0]->registered_users;
-    //   }
-    //   else {
-    //     continue;
-    //   }
-    //   if (in_array($id, explode(':', $users))) {
-    //     $msg .= $event->name . '%0A';
-    //   }
-    // }
-    //
-    // $msg .= '%0ARegistered Workshops - %0A';
-    //
-    // // Populate Workshops
-    // foreach ($workshops_list as $workshop) {
-    //   $users = DB::select('select * from mindkraft18_event_registration where id=\'workshop-'.$workshop->id.'\'');
-    //   if (count($users) == 1) {
-    //     $users = $users[0]->registered_users;
-    //   }
-    //   else {
-    //     continue;
-    //   }
-    //   if (in_array($id, explode(':', $users))) {
-    //     $msg .= $workshop->name . '%0A';
-    //   }
-    // }
-    //
-    // $msg .= '%0AWith Regards,%0AMindKraft Organizing Committee';
-    //
-    // $msg = urlencode($msg);
-    // $msg = str_replace('%25', '%', $msg);
-    //
-    // $request = "";
-    // $param['method'] = "sendMessage";
-    // $param['send_to'] = $user->mobile;
-    // $param['msg'] = $msg;
-    // $param['userid'] = "2000162130";
-    // $param['password'] = "SkyLAwn";
-    // $param['v'] = "1.1";
-    // $param['msg_type'] = "TEXT"; //Can be "FLASH”/"UNICODE_TEXT"/”BINARY”
-    // $param['auth_scheme'] = "PLAIN";
-    // //Have to URL encode the values
-    // foreach($param as $key => $val) {
-    // $request .= $key . "=" . $val;
-    // //we have to urlencode the values
-    // $request .= "&";
-    // //append the ampersand (&) sign after each parameter/value pair
-    // }
-    // $request = substr($request, 0, strlen($request)-1);
-    // //remove final (&) sign from the request
-    // $url = "http://enterprise.smsgupshup.com/GatewayAPI/rest?" . $request;
-    // $ch = curl_init($url);
-    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    // $curl_scraped_page = curl_exec($ch);
-    // curl_close($ch);
 
     return generatereceipt($user, $for);
   }

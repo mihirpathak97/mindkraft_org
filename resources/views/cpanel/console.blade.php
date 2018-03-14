@@ -18,7 +18,7 @@
 
   function paymentStatus($id, $workshop)
   {
-    $payed_for = DB::select('select * from mindkraft18mindkraft18_payment_info where id=\''.$id.'\'')[0]->payed_for;
+    $payed_for = DB::select('select * from mindkraft18_payment_info where id=\''.$id.'\'')[0]->payed_for;
     if (in_array($workshop, explode(':', $payed_for))) {
       return true;
     }

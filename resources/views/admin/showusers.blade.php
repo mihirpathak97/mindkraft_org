@@ -131,7 +131,7 @@
               continue;
             }
           ?>
-            <tr bgcolor="<?php echo getColor($record->id, $type, $event) ?>">
+            <tr bgcolor="<?php echo getColor($record->id, $type, $id) ?>">
               <td><?php echo $record->id; ?></td>
               <td><?php echo $record->name; ?></td>
               <td><?php echo $record->mobile; ?></td>

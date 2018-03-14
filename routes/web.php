@@ -208,13 +208,13 @@ Route::prefix('cpanel')->group(function () {
 
   // Games Registraion
   Route::post('/register/paintball',  function () {
-    return view('cpanel.paintball');
+    return view('cpanel.games.paintball');
   });
   Route::post('/register/laser',  function () {
-    return view('cpanel.laser');
+    return view('cpanel.games.laser');
   });
   Route::post('/register/atv',  function () {
-    return view('cpanel.atv');
+    return view('cpanel.games.atv');
   });
 
   Route::post('/user/{id}/register/{game}', 'AdminController@registerGame');

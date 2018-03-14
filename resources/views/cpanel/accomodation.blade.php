@@ -186,6 +186,11 @@
             data: {'from': $('#from').val(), 'to': $('#to').val(), 'total': $('#total').text(), 'food': message},
             success: function (data) {
 
+              message = '0';
+              if ($('.checkbox').checked) {
+                message = '1';
+              }
+
               console.log(data);
               data = JSON.parse(data);
 

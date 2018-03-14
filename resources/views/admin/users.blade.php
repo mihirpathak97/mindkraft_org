@@ -101,7 +101,7 @@
           $list = DB::select($query);
           ?>
           <?php foreach ($list as $record): ?>
-            <?php if ($record->college != 'Karunya Institute of Technology and Sciences, Coimbatore'): ?>
+            <?php if (true): ?>
               <tr>
                 <td><?php echo $record->name; ?></td>
                 <td><?php echo $record->mobile; ?></td>

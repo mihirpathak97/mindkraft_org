@@ -185,7 +185,7 @@
             type: 'POST',
             url: '/cpanel/user/<?php echo $user->id ?>/accomodation',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            data: {'from': $('#from').val(), 'to': $('#to').val(), 'total': $('#total').val(), 'food': message},
+            data: {'from': $('#from').val(), 'to': $('#to').val(), 'total_fee': $('#total').val(), 'food': message},
             success: function (data) {
 
               console.log(data);

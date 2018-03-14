@@ -144,9 +144,11 @@
           console.log('changed');
           if (this.checked) {
             $('#per').text('400');
+            message = '1';
           }
           else {
             $('#per').text('250');
+            message = '0';
           }
         });
 
@@ -172,11 +174,6 @@
           if (!checkValidity()) {
             alert('Please enter a valid date!');
             return false;
-          }
-
-          message = '0';
-          if ($('input[type="checkbox"]').checked) {
-            message = '1';
           }
 
           $.ajax({

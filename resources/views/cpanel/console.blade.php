@@ -219,15 +219,12 @@
       <?php
         }
       ?>
-
-
-      <!-- ACC 9 -->
       <?php
         if ($access_level == 9):
           $list = DB::select('select * from mindkraft18_tshirt_registration order by name');
 
       ?>
-
+      <!-- ACC 9 -->
       <div class="box">
         <p><b>MindKraft T-Shirt Registration</b></p>
         <br>
@@ -283,6 +280,59 @@
         <div class="box">
           <article>
             <form class="" action="/cpanel/user/info" method="post">
+              {{ csrf_field() }}
+              <p class="ip-group">
+                <label class="label">Registered Mobile Number</label>
+                <input type="text" name="mobile" class="input" value="" required>
+              </p>
+              <input type="submit" name="" class="button is-link" value="Submit">
+            </form>
+          </article>
+        </div>
+      <?php endif; ?>
+
+      <!-- Paintball -->
+      <?php if ($access_level == 901): ?>
+        <!-- ACC 101 -->
+        <div class="box">
+          <article>
+            <form class="" action="/cpanel/register/paintball" method="post">
+              {{ csrf_field() }}
+              <p class="ip-group">
+                <label class="label">Registered Mobile Number</label>
+                <input type="text" name="mobile" class="input" value="" required>
+              </p>
+              <input type="submit" name="" class="button is-link" value="Submit">
+            </form>
+          </article>
+        </div>
+      <?php endif; ?>
+
+
+      <!-- Laser Tag -->
+      <?php if ($access_level == 902): ?>
+        <!-- ACC 101 -->
+        <div class="box">
+          <article>
+            <form class="" action="/cpanel/register/laser" method="post">
+              {{ csrf_field() }}
+              <p class="ip-group">
+                <label class="label">Registered Mobile Number</label>
+                <input type="text" name="mobile" class="input" value="" required>
+              </p>
+              <input type="submit" name="" class="button is-link" value="Submit">
+            </form>
+          </article>
+        </div>
+      <?php endif; ?>
+
+
+      <!-- ATV -->
+      <?php if ($access_level == 903): ?>
+        <!-- ACC 101 -->
+        <div class="box">
+          <article>
+            <form class="" action="/cpanel/register/atv" method="post">
               {{ csrf_field() }}
               <p class="ip-group">
                 <label class="label">Registered Mobile Number</label>

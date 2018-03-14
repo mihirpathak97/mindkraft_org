@@ -208,9 +208,89 @@ class AdminController extends Controller
     return generatereceipt($user, $for);
   }
 
-  public function makePayment(Request $request)
+  public function registerGame(Request $request)
   {
-    var_dump($request->input('workshops'));
+    $last = DB::select('select * from mindkraft18_receipt_details');
+    $last = $last[count($last) - 1];
+    $receipt = str_pad($last->number + 1, 6, "0", STR_PAD_LEFT);
+
+    function checkUserStatus($id)
+    {
+      if (count(DB::select('select * from mindkraft18_approved_enduser where id=\''.$id.'\'')) > 0 ) {
+        return true;
+      }
+      return false;
+    }
+
+    function generatereceipt($user, $for)
+    {
+      $last = DB::select('select * from mindkraft18_receipt_details');
+      $last = $last[count($last) - 1];
+      $receipt = str_pad($last->number + 1, 6, "0", STR_PAD_LEFT);
+
+      $final = '';
+
+      foreach ($for as $item => $fee) {
+        $final .= $item . '-' . $fee . ':';
+      }
+
+      $query = 'insert into mindkraft18_receipt_details values (?, ?, ?)';
+
+      $result = DB::insert($query, [$receipt, $user->id, $final]);
+
+      $uid = DB::select('select * from mindkraft18_enduser_id where id=\''.$user->id.'\'')[0]->mk_id;
+
+      if ($result) {
+        $reply = '{ "success": true, "receipt": "'.$receipt.'", "for": '.json_encode($for).', "user": "'.$uid.'" }';
+      }
+      else {
+        $reply = '{ "success": false }';
+      }
+
+      return $reply;
+
+    }
+
+
+    $prefix = env('DB_VIEW_PREFIX', '');
+    $path = explode('/', $request->path());
+    $id = $path[count($path) - 2];
+
+    $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
+
+    if ($request->has('paintball')) {
+      $game = 'paintball';
+    }
+    elseif ($request->has('laser')) {
+      $game = 'laser';
+    }
+    elseif ($request->has('atv')) {
+      $game = 'atv';
+    }
+    else {
+      return '{ "success": false, "reason": "Invalid game!" }';
+    }
+
+    $for = [$game => $request->input($game)];
+
+    // Add user to approved list and payment list
+    try {
+      if (checkUserStatus($user->id)) {
+        if (count(DB::select('select * from mindkraft18_games_registration where id=\''.$user->id.'-'.$game.'\'')) == 1) {
+          // Increase times
+          DB::statement('update mindkraft18_games_registration set times= times + 1');
+        }
+        else {
+          // Else insert new
+          DB::statement('insert into mindkraft18_games_registration values (\''.$user->id.'-'.$game.'\', \'1\')');
+        }
+      }
+    } catch (\Exception $e) {
+      return '{ "success": false, "reason": "SQL Error!", "message": '.json_encode($e->getMessage()).' }';
+    }
+
+    return generatereceipt($user, $for);
+
   }
 
 

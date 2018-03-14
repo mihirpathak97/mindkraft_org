@@ -206,6 +206,15 @@ Route::prefix('cpanel')->group(function () {
   Route::post('/user/{id}/approve', 'AdminController@approveUser');
   Route::post('/user/{id}/pay', 'AdminController@makePayment');
 
+  // Games Registraion
+  Route::view('/register/paintball', 'cpanel.paintball');
+  Route::view('/register/laser', 'cpanel.paintball');
+  Route::view('/register/atv', 'cpanel.paintball');
+
+  Route::post('/user/{id}/register/{game}', 'AdminController@registerGame');
+
+
+
   // Auth Route
   Route::post('authenticate', 'CpanelController@login');
   Route::get('logout', 'CpanelController@logout');

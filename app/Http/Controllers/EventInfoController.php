@@ -20,7 +20,7 @@ class EventInfoController extends Controller
       $event = $event[0];
 
       if ($event->fee == '0') {
-        $event->fee = 'Fee details will be added later.';
+        $event->fee = 'No seperate fee required for this event.';
       }
 
       if ($event->prize == '0') {
@@ -72,7 +72,7 @@ class EventInfoController extends Controller
       $event = $event[0];
 
       if ($event->fee == '0') {
-        $event->fee = 'Free!';
+        $event->fee = 'No seperate fee required for this event.';
       }
 
       if ($event->prize == '0') {
@@ -124,7 +124,7 @@ class EventInfoController extends Controller
       $event = $event[0];
 
       if ($event->fee == '0') {
-        $event->fee = 'Free!';
+        $event->fee = 'No seperate fee required for this event.';
       }
 
       if ($param == 'about') {

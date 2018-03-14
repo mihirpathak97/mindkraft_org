@@ -291,7 +291,7 @@ class AdminController extends Controller
 
     $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
 
-    $for = ['accomodation' => $request->input('total')];
+    $for = ['accomodation' => (string) $request->input('total')];
 
     // Add user to approved list and payment list
     try {

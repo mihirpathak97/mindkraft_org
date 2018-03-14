@@ -285,7 +285,7 @@
               function getExtraMessage() {
                 days = parseInt($('#to').val()) - parseInt($('#from').val());
                 acc = ' - ' + days + ' day(s)';
-                if (message == 'yes') {
+                if (message == '1') {
                   acc += ' with food';
                 }
                 return acc;

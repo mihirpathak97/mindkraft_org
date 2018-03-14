@@ -57,19 +57,19 @@
 		      <h2 class="hero-date">15 March - 17 March</h2>
 					<div class="countdown">
 						<div class="days">
-							<h2></h2>
+							<h2>0</h2>
 							<h1 class="time-class">DAYS</h1>
 						</div>
 						<div class="hours">
-							<h2></h2>
+							<h2>0</h2>
 							<h1 class="time-class">HOURS</h1>
 						</div>
 						<div class="minutes">
-							<h2></h2>
+							<h2>0</h2>
 							<h1 class="time-class">MINS</h1>
 						</div>
 						<div class="seconds">
-							<h2></h2>
+							<h2>0</h2>
 							<h1 class="time-class">SECS</h1>
 						</div>
 					</div>
@@ -112,8 +112,6 @@
 
   </body>
   @include('includes.js')
-
-	<script src="{{ URL::asset('js/countdown.js') }}" charset="utf-8"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js" charset="utf-8"></script>
 

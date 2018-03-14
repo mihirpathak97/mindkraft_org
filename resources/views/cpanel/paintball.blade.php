@@ -203,12 +203,6 @@
 
               }
 
-                return rsp;
-
-              }
-
-            });
-
               Object.keys(data.for).forEach(function(key) {
                 console.log(key + '-' + data.for[key]);
                 payed[key] = data.for[key];
@@ -235,6 +229,7 @@
               printWindow.focus(); // necessary for IE >= 10*/
               printWindow.print();
               printWindow.close();
+
             }
           });
         });

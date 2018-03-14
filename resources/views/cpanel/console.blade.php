@@ -16,6 +16,28 @@
     return false;
   }
 
+  function paymentStatus($id, $workshop)
+  {
+    $payed_for = DB::select('select * from mindkraft18mindkraft18_payment_info where id=\''.$id.'\'')[0]->payed_for;
+    if (in_array($workshop, explode(':', $payed_for))) {
+      return true;
+    }
+    return false;
+  }
+
+  function getColor($id, $type, $workshop)
+  {
+    if (!checkUserStatus($id)) {
+      return '#ff3860';
+    }
+    if ($type == 'workshop' && !paymentStatus($id, $workshop)) {
+      return '#ffdd57';
+    }
+
+    return '';
+
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -204,7 +226,7 @@
                     continue;
                   }
                 ?>
-                  <tr <?php if(!checkUserStatus($record->id)) echo 'bgcolor="#ff3860"' ?>>
+                  <tr bgcolor="<?php echo getColor($record->id, $type, $event) ?>">
                     <td><?php echo $record->name; ?></td>
                     <td><?php echo $record->mobile; ?></td>
                     <td><?php echo $record->email; ?></td>

@@ -89,15 +89,9 @@
           <p><b>Registration Number</b> - <?php echo $user->register_number ?></p><br>
 
           <?php if (!checkUserStatus($user->id)): ?>
-            <b>Note </b> - Please collect extra registration fee of Rs. 300 along with the total amount
+            <br><b>Note</b> - User is not approved!<br>
           <?php else: ?>
-            <p>User is already approved no need to collect registration fee</p>
-          <?php endif; ?>
-
-          <b>Total Amount To Be Payed </b> - Rs. 120<span id="amt">0</span><br><br>
-          <?php if (!checkUserStatus($user->id)): ?>
-            <b>Note</b> - User is not approved!<br>
-          <?php else: ?>
+            <b>Total Amount To Be Payed </b> - Rs. 120<br><br>
             <button type="button" id="button" class="button is-link" name="button">Make Payment</button>
           <?php endif; ?>
           <br><br>

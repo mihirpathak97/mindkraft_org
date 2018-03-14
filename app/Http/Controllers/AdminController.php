@@ -282,7 +282,7 @@ class AdminController extends Controller
       if (checkUserStatus($user->id)) {
         if (count(DB::select('select * from mindkraft18_games_registration where id=\''.$user->id.'-'.$game.'\'')) == 1) {
           // Increase times
-          DB::statement('update mindkraft18_games_registration set times= times + 1');
+          DB::statement('update mindkraft18_games_registration set times= times + 1 where id=\''.$user->id.'-'.$game.'\'');
         }
         else {
           // Else insert new

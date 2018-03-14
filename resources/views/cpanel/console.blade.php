@@ -311,7 +311,7 @@
 
       <?php endif; ?>
 
-      <?php if ($access_level == 10): ?>
+      <?php if ($access_level == 99): ?>
         <!-- ACC 10 -->
         <div class="box">
           <article>

@@ -140,7 +140,7 @@
         <script type="text/javascript">
 
         // Update Per Day Charges
-        $('.checkbox').change(function () {
+        $('input[type="checkbox"]').change(function () {
           console.log('changed');
           if (this.checked) {
             $('#per').text('400');

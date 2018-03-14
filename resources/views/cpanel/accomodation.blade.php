@@ -179,7 +179,7 @@
             message = '1';
           }
 
-          console.log({'from': $('#from').val(), 'to': $('#to').val(), 'total': $('#total').val(), 'food': message});
+          console.log({'from': $('#from').val(), 'to': $('#to').val(), 'total': $('#total').text(), 'food': message});
 
           $.ajax({
             type: 'POST',

@@ -109,7 +109,7 @@
         </div>
       </nav>
 
-      <?php if ($access_level == 10): ?>
+      <?php if ($access_level == 99): ?>
         <div class="box">
           <p><b>Name</b> - <?php echo $user->name ?></p>
           <p><b>College</b> - <?php echo $user->college ?></p>

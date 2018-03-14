@@ -219,7 +219,12 @@ Route::prefix('cpanel')->group(function () {
 
   Route::post('/user/{id}/register/{game}', 'AdminController@registerGame');
 
+  // Accomodation
+  Route::post('/user/accomodation',  function () {
+    return view('cpanel.accomodation');
+  });
 
+  Route::post('/user/{id}/register/accomodation', 'AdminController@registerAccomodation');
 
   // Auth Route
   Route::post('authenticate', 'CpanelController@login');

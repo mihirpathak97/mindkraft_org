@@ -240,4 +240,71 @@ class AdminController extends Controller
   }
 
 
+  // Register Accomodation
+  public function registerAccomodation(Request $request)
+  {
+    $last = DB::select('select * from mindkraft18_receipt_details');
+    $last = $last[count($last) - 1];
+    $receipt = str_pad($last->number + 1, 6, "0", STR_PAD_LEFT);
+
+    function checkUserStatus($id)
+    {
+      if (count(DB::select('select * from mindkraft18_approved_enduser where id=\''.$id.'\'')) > 0 ) {
+        return true;
+      }
+      return false;
+    }
+
+    function generatereceipt($user, $for)
+    {
+      $last = DB::select('select * from mindkraft18_receipt_details');
+      $last = $last[count($last) - 1];
+      $receipt = str_pad($last->number + 1, 6, "0", STR_PAD_LEFT);
+
+      $final = '';
+
+      foreach ($for as $item => $fee) {
+        $final .= $item . '-' . $fee . ':';
+      }
+
+      $query = 'insert into mindkraft18_receipt_details values (?, ?, ?)';
+
+      $result = DB::insert($query, [$receipt, $user->id, $final]);
+
+      $uid = DB::select('select * from mindkraft18_enduser_id where id=\''.$user->id.'\'')[0]->mk_id;
+
+      if ($result) {
+        $reply = '{ "success": true, "receipt": "'.$receipt.'", "for": '.json_encode($for).', "user": "'.$uid.'" }';
+      }
+      else {
+        $reply = '{ "success": false }';
+      }
+
+      return $reply;
+
+    }
+
+
+    $prefix = env('DB_VIEW_PREFIX', '');
+    $path = explode('/', $request->path());
+    $id = $path[count($path) - 3];
+
+    $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
+
+    $for = ['accomodation' => $request->input($total)];
+
+    // Add user to approved list and payment list
+    try {
+      if (checkUserStatus($user->id)) {
+        DB::statement('insert into mindkraft18_acc_registration values (\''.$user->id.'\', \''.$request->input('from').'\', \''.$request->input('to').'\', \''.$request->input('food').'\')');
+      }
+    } catch (\Exception $e) {
+      return '{ "success": false, "reason": "SQL Error!", "message": '.json_encode($e->getMessage()).' }';
+    }
+
+    return generatereceipt($user, $for);
+
+  }
+
+
 }

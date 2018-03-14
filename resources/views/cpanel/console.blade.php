@@ -204,7 +204,7 @@
                     continue;
                   }
                 ?>
-                  <tr <?php if(!checkUserStatus($record->id)) echo 'bgcolor="red"' ?>>
+                  <tr <?php if(!checkUserStatus($record->id)) echo 'bgcolor="#ff3860"' ?>>
                     <td><?php echo $record->name; ?></td>
                     <td><?php echo $record->mobile; ?></td>
                     <td><?php echo $record->email; ?></td>

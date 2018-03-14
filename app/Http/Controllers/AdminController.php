@@ -293,10 +293,6 @@ class AdminController extends Controller
 
     $for = ['accomodation' => $request->input('total')];
 
-    if ($request->has('total')) {
-      return $request->all();
-    }
-
     // Add user to approved list and payment list
     try {
       if (checkUserStatus($user->id)) {

@@ -94,8 +94,12 @@ class AdminController extends Controller
 
     $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
 
-
-    $for = ['main' => '300'];
+    if (!checkUserStatus($user->id)) {
+      $for = ['main' => '300'];
+    }
+    else {
+      $for = [];
+    }
     $workshop_array = explode(':', $request->input('workshops'));
 
     function isInternal($user)

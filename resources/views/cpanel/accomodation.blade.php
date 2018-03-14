@@ -179,6 +179,8 @@
             message = 'yes';
           }
 
+          console.log({'from': $('#from').val(), 'to': $('#to').val(), 'total': $('#total').val(), 'food': message});
+
           $.ajax({
             type: 'POST',
             url: '/cpanel/user/<?php echo $user->id ?>/accomodation',

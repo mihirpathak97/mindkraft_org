@@ -206,7 +206,12 @@
               <p><b>Department</b> - <?php echo getDepartmentName($event, $type) ?></p>
               <br>
               <p><b>Registered Users</b> - <?php echo count(explode(':', $list->registered_users)); ?></p>
-              <br><br>
+              <br>
+              <b>Legends</b>
+              <p><b>Red</b> - Unapproved [Ask student to approve registration at counter]</p>
+              <?php if ($type == 'workshop'): ?>
+                <p><b>Yellow</b> - Workshop fee unpaid</p><br>
+              <?php endif; ?>
             </div>
 
             <table class="table card" style="margin: 0px auto">

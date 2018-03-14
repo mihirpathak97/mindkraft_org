@@ -184,7 +184,6 @@ class EventInfoController extends Controller
           if (count($event_list) > 0) {
             $registered_users = explode(':', $event_list[0]->registered_users);
             if (count($registered_users) >= $event->seats){
-              echo count($registered_users) . " " . $event->seats;
               return "Sorry, all seats are full!";
             }
           }

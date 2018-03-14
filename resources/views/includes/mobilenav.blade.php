@@ -18,6 +18,7 @@
         <li class="navbar-li"><a href="/games">Games</a></li>
         <li class="navbar-li"><a href="/debates">Debates</a></li>
         <li class="navbar-li"><a href="/exhibitions">Exhibitions</a></li>
+        <li class="navbar-li"><a href="/when">Schedule</a></li>
         <li class="navbar-li"><a href="/sponsors">Our Sponsors</a></li>
         <li class="navbar-li"><a href="/accomodation">Accomodation</a></li>
         <?php if (isset($username)): ?>

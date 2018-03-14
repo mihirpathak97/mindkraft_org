@@ -198,6 +198,14 @@ Route::prefix('cpanel')->group(function () {
   });
   Route::post('/update/tshirt/{id}', 'CpanelController@updateTshirtInfo');
 
+  // User Approval
+  Route::post('/user/info', function () {
+    return view('cpanel.userinfo');
+  });
+
+  Route::post('/user/{id}/approve', 'AdminController@approveUser');
+  Route::post('/user/{id}/pay', 'AdminController@makePayment');
+
   // Auth Route
   Route::post('authenticate', 'CpanelController@login');
   Route::get('logout', 'CpanelController@logout');
@@ -210,6 +218,8 @@ Route::prefix('resources')->group(function () {
 
   // IEEE Paper Presentation Format
   Route::redirect('ieee', '/resources/ieee-format.doc');
+  Route::redirect('event-schedule', '/resources/events.pdf');
+  Route::redirect('workshop-schedule', '/resources/workshops.pdf');
 
 });
 

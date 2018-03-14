@@ -410,6 +410,7 @@ class Controller extends BaseController
       'fp' => 'Food Processing',
       'me' => 'Mechanical Engineering',
       'emt' => 'Media and Communication',
+      'ksm' => 'School of Management',
       'snh' => 'Science and Humanities'
     );
 
@@ -429,8 +430,8 @@ class Controller extends BaseController
       'emt' => 'Media and Communication',
       'nano' => 'Nano Technology',
       'phy' => 'Physics',
-      'chem' => 'Chemistry',
-      'math' => 'Maths',
+      // 'chem' => 'Chemistry',
+      // 'math' => 'Maths',
       'snh' => 'Science and Humanities'
     );
 

@@ -278,6 +278,22 @@
 
       <?php endif; ?>
 
+      <?php if ($access_level == 10): ?>
+        <!-- ACC 10 -->
+        <div class="box">
+          <article>
+            <form class="" action="/cpanel/user/info" method="post">
+              {{ csrf_field() }}
+              <p class="ip-group">
+                <label class="label">Registered Mobile Number</label>
+                <input type="text" name="mobile" class="input" value="" required>
+              </p>
+              <input type="submit" name="" class="button is-link" value="Submit">
+            </form>
+          </article>
+        </div>
+      <?php endif; ?>
+
     </div>
   </body>
 </html>

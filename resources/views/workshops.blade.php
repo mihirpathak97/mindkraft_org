@@ -23,7 +23,7 @@
 
   <style media="screen">
     <?php
-      foreach (Controller::dept_list as $key => $dept_name) {
+      foreach (Controller::dept_list_workshop as $key => $dept_name) {
         echo
         ".".$key."{
           background-image: url(/images/dept/$key.jpg);
@@ -59,7 +59,7 @@
         if (isset($dept)){
           // NOTE: Getting all snh Departments in one go until new department images are ready.
           if ($dept == 'snh') {
-            $stmt = $pdo->query("SELECT * FROM $view_prefix" . "workshops_list WHERE department in ('chem', 'phy', 'math', 'nano', 'snh')");
+            $stmt = $pdo->query("SELECT * FROM $view_prefix" . "workshops_list WHERE department in ('chem', 'math', 'snh')");
   					$result = $stmt->fetchAll();
           }
           else {
@@ -68,7 +68,7 @@
           }
       ?>
         <div class="games">
-          <h2 class="hero-head"><?php echo Controller::dept_list[$dept]; ?></h2>
+          <h2 class="hero-head"><?php echo Controller::dept_list_workshop[$dept]; ?></h2>
           <br><br>
 					<?php if ($stmt->rowCount() == 0): ?>
 						<div class="not-avail-content">
@@ -95,9 +95,9 @@
 				<div class="games">
 					<h2 class="hero-head">Workshops</h2>
 	        <br><br>
-					<?php for ($i=0; $i < count(Controller::dept_list); $i+=4) { ?>
+					<?php for ($i=0; $i < count(Controller::dept_list_workshop); $i+=4) { ?>
 						<div class="columns">
-							<?php foreach (array_slice(Controller::dept_list, $i, 4) as $key => $value) { ?>
+							<?php foreach (array_slice(Controller::dept_list_workshop, $i, 4) as $key => $value) { ?>
 								<div class="column is-one-quarter">
 									<a href="/workshops/<?php echo $key ?>">
 										<div class="card game-card <?php echo $key ?> game-card-dept">

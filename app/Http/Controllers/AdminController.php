@@ -254,7 +254,7 @@ class AdminController extends Controller
 
     $prefix = env('DB_VIEW_PREFIX', '');
     $path = explode('/', $request->path());
-    $id = $path[count($path) - 2];
+    $id = $path[count($path) - 3];
 
     $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
 

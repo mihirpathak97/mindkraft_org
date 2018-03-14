@@ -86,13 +86,35 @@
         </div>
       </nav>
 
+      <div class="box">
+        <p><b>Total External Registrations</b> - <?php echo count(DB::select('select * from mindkraft18_enduser where not college=\'Karunya Institute of Technology and Sciences, Coimbatore\'')); ?></p>
+        <br><br>
+        <?php
+          foreach (Controller::colleges_list as $college):
+            $query = 'SELECT * from '.$prefix.'enduser WHERE college=?';
+            $list = DB::select($query, [$college]);
+            if (count($list) > 0):
+        ?>
+          <a href="/admin/users/<?php echo $college ?>"><?php echo $college; ?></a><br><br>
+        <?php endif; ?>
+
+        <?php endforeach; ?>
+      </div>
+
+      <div class="box">
+        <p><b>Other College Students - </b></p>
+      </div>
+
       <table class="table card">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Full Name</th>
             <th>Mobile</th>
             <th>E-Mail</th>
             <th>College</th>
+            <th>Verified</th>
+            <th>Login Attempts</th>
           </tr>
         </thead>
         <tbody>
@@ -101,12 +123,15 @@
           $list = DB::select($query);
           ?>
           <?php foreach ($list as $record): ?>
-            <?php if (true): ?>
+            <?php if (!inCollegeList($record->college)): ?>
               <tr>
+                <td><?php echo $record->id; ?></td>
                 <td><?php echo $record->name; ?></td>
                 <td><?php echo $record->mobile; ?></td>
                 <td><?php echo $record->email; ?></td>
                 <td><?php echo $record->college; ?></td>
+                <td><?php echo yesNo($record->is_verified); ?></td>
+                <td><?php echo $record->visit_count; ?></td>
               </tr>
             <?php endif; ?>
           <?php endforeach; ?>

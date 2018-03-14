@@ -207,9 +207,15 @@ Route::prefix('cpanel')->group(function () {
   Route::post('/user/{id}/pay', 'AdminController@makePayment');
 
   // Games Registraion
-  Route::view('/register/paintball', 'cpanel.paintball');
-  Route::view('/register/laser', 'cpanel.paintball');
-  Route::view('/register/atv', 'cpanel.paintball');
+  Route::post('/register/paintball',  function () {
+    return view('cpanel.paintball');
+  });
+  Route::post('/register/laser',  function () {
+    return view('cpanel.laser');
+  });
+  Route::post('/register/atv',  function () {
+    return view('cpanel.atv');
+  });
 
   Route::post('/user/{id}/register/{game}', 'AdminController@registerGame');
 

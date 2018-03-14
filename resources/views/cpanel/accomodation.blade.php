@@ -175,7 +175,7 @@
           }
 
           message = '0';
-          if ($('.checkbox').checked) {
+          if ($('input[type="checkbox"]').checked) {
             message = '1';
           }
 
@@ -185,11 +185,6 @@
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             data: {'from': $('#from').val(), 'to': $('#to').val(), 'total': $('#total').text(), 'food': message},
             success: function (data) {
-
-              message = '0';
-              if ($('.checkbox').checked) {
-                message = '1';
-              }
 
               console.log(data);
               data = JSON.parse(data);

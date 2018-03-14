@@ -207,7 +207,7 @@
 
               }
 
-              console.log(data);
+            });
 
               Object.keys(data.for).forEach(function(key) {
                 console.log(key + '-' + data.for[key]);

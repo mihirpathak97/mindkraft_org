@@ -100,28 +100,6 @@
           <b>ATV</b> - <?php echo getAtvCount() ?>
         </div>
 
-        <table class="table card">
-          <thead>
-            <tr>
-              <th>Full Name</th>
-              <th>Mobile</th>
-              <th>E-Mail</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            foreach (explode(':', $list->registered_users) as $record):
-              $record = getInfo($record, $prefix);
-            ?>
-              <tr bgcolor="<?php echo getColor($record->id, $type, $id) ?>">
-                <td><?php echo $record->name; ?></td>
-                <td><?php echo $record->mobile; ?></td>
-                <td><?php echo $record->email; ?></td>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-
       <?php else: ?>
 
         <div class="box">

@@ -126,7 +126,7 @@
               <td><?php echo $record->name; ?></td>
               <td><?php echo $record->mobile; ?></td>
               <td><?php echo $record->email; ?></td>
-              <td><?php echo isExternal($record->id); ?></td>
+              <td>1</td>
               <td><a href="/cpanel/user/<?php $record->id ?>">Payed For</a></td>
             </tr>
           <?php endforeach; ?>

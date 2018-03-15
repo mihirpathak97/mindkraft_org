@@ -103,27 +103,7 @@
         <br>
       </div>
 
-      <table class="table card">
-        <thead>
-          <tr>
-            <th>Full Name</th>
-            <th>Mobile</th>
-            <th>E-Mail</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($list as $record): ?>
-            <tr>
-              <td><?php echo $record->name; ?></td>
-              <td><?php echo $record->mobile; ?></td>
-              <td><?php echo $record->email; ?></td>
-              <td><?php echo isExternal($record->id); ?></td>
-              <td><a href="/cpanel/user/<?php $record->id ?>">Payed For</a></td>
-            </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
+      
 
     </div>
   </body>

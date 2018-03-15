@@ -116,7 +116,7 @@
           <p><b>Registration Number</b> - <?php echo $user->register_number ?></p><br>
           <?php
             if (!checkUserStatus($user->id)) {
-              echo $workshop->name . ' - Tick to pay <input type="checkbox" class="checkbox workshop" fee="300" name="main">'.'<br>';
+              echo 'MindKraft Registration - Tick to pay <input type="checkbox" class="checkbox workshop" fee="300" name="main">'.'<br>';
               echo '<b>Fees</b> - 300<br>';
             }
           ?>

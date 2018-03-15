@@ -6,12 +6,11 @@
     Redirect::to('cpanel')->send();
   }
   $prefix = env('DB_TABLE_PREFIX', '');
-  $atv = DB::select('select * from '.$prefix.'games_registration where id like \'%atv\'');
 
   function getPaintballCount()
   {
     $count = 0;
-    $paintball = DB::select('select * from '.$prefix.'games_registration where id like \'%paintball\'');
+    $paintball = DB::select('select * from mindkraft18_games_registration where id like \'%paintball\'');
     foreach ($paintball as $item) {
       $count += $item->times;
     }
@@ -21,7 +20,7 @@
   function getLaserCount()
   {
     $count = 0;
-    $laser = DB::select('select * from '.$prefix.'games_registration where id like \'%laser\'');
+    $laser = DB::select('select * from mindkraft18_games_registration where id like \'%laser\'');
     foreach ($laser as $item) {
       $count += $item->times;
     }
@@ -31,7 +30,7 @@
   function getAtvCount()
   {
     $count = 0;
-    $atv = DB::select('select * from '.$prefix.'games_registration where id like \'%atv\'');
+    $atv = DB::select('select * from mindkraft18_games_registration where id like \'%atv\'');
     foreach ($atv as $item) {
       $count += $item->times;
     }

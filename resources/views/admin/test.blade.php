@@ -30,7 +30,8 @@ foreach ($list as $item) {
   }
 }
 
-echo 'Main - '.($main - 9900);
+echo $main_count . ' External Registrations<br>';
+echo 'Main - '.$main . '<br>';
 echo "Workshop - ".$workshop;
 
 ?>

@@ -113,7 +113,13 @@
         <div class="box">
           <p><b>Name</b> - <?php echo $user->name ?></p>
           <p><b>College</b> - <?php echo $user->college ?></p>
-          <p><b>Registration Number</b> - <?php echo $user->register_number ?></p><br>
+          <p><b>Registration Number</b> - <?php echo $user->register_number ?></p><br><br>
+          <?php if (!checkUserStatus($user->id)): ?>
+            <?php
+              echo 'MindKraft Registration' . ' - Tick to pay <input type="checkbox" class="checkbox workshop" fee="300" name="main">'.'<br>';
+              echo '<b>Fees</b> - Rs. 300<br>';
+            ?>
+          <?php endif; ?>
           <p><b>Events Registered</b></p>
           <?php
             foreach ($events_list as $event) {

@@ -7,7 +7,7 @@
   }
 
   $prefix = env('DB_TABLE_PREFIX', '');
-  $list = DB::select('SELECT * from '.$prefix.'approved_enduser order by name');
+  $list = DB::select('SELECT * from '.$prefix.'approved_enduser');
 
 
   // Counts internal participants

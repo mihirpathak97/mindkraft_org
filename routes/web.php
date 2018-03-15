@@ -126,15 +126,8 @@ Route::prefix('admin')->group(function () {
     return view('admin.showusers', ['type' => $type, 'id' => $id]);
   });
 
-  // User Registration
-  Route::view('/user/list', 'admin.usereg');
-  Route::get('/user/{id}', function ($id) {
-    return view('admin.usereginfo', ['id' => $id]);
-  });
-
-  Route::post('/user/{id}/approve', 'AdminController@approveUser');
-
-  Route::view('test', 'admin.test');
+  // Approved Users
+  Route::view('/approved', 'admin.approved');
 
   // Web Mailer Route
   Route::view('mailer', 'admin.mailer');
@@ -160,10 +153,6 @@ Route::prefix('admin')->group(function () {
     Route::post('modifyworkshop', 'CmsController@modifyworkshop');
 
   });
-
-  Route::view('approved', 'admin.approved');
-
-  Route::view('test', 'admin.test');
 
   // Auth Route
   Route::post('authenticate', 'AdminController@login');

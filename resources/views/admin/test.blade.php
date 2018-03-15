@@ -24,7 +24,7 @@ foreach ($list as $item) {
       if ($workshop_id != 'main') {
         $fee = getWorkshopFee($workshop_id);
         if ($fee == 0) {
-          echo $workshop_id;
+          echo $workshop_id . ',';
         }
         $workshop += $fee;
       }

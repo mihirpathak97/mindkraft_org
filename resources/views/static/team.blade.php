@@ -73,7 +73,7 @@
 				<div class="content">
 					<div class="faculty">
 						<h1>Orgainzing Secretary</h1>
-						<p>Dr. V. Jagathesan (Department of Electrical Sciences)</p>
+						<p>Dr. V. Jegathesan (Department of Electrical Sciences)</p>
 					</div>
 					<div class="students">
 						<h1>Student Co-Ordinators</h1>

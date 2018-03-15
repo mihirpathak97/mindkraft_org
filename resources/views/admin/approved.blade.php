@@ -7,7 +7,7 @@
   }
 
   $prefix = env('DB_TABLE_PREFIX', '');
-  $query = 'SELECT * from '.$prefix.'approved_enduser';
+  $query = 'SELECT * from '.$prefix.'enduser order by name';
   $list = DB::select($query);
 
   function yesNo($value){
@@ -20,11 +20,19 @@
     return count(DB::select('SELECT * from '.$prefix.'approved_enduser'));
   }
 
+  function checkUserStatus($id)
+  {
+    if (count(DB::select('select * from mindkraft18_approved_enduser where id=\''.$id.'\'')) > 0 ) {
+      return true;
+    }
+    return false;
+  }
+
   function countInternal($list)
   {
     $count = 0;
     foreach ($list as $item) {
-      if ($item->college == 'Karunya Institute of Technology and Sciences, Coimbatore') {
+      if ($item->college == 'Karunya Institute of Technology and Sciences, Coimbatore' && checkUserStatus($item->id)) {
         $count++;
       }
     }
@@ -103,7 +111,27 @@
         <br>
       </div>
 
-      
+      <table class="table card">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Mobile</th>
+            <th>E-Mail</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($list as $record): ?>
+            <tr>
+              <td><?php echo $record->name; ?></td>
+              <td><?php echo $record->mobile; ?></td>
+              <td><?php echo $record->email; ?></td>
+              <td><?php echo isExternal($record->id); ?></td>
+              <td><a href="/cpanel/user/<?php $record->id ?>">Payed For</a></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
 
     </div>
   </body>

@@ -7,7 +7,7 @@
   }
 
   $prefix = env('DB_TABLE_PREFIX', '');
-  $query = 'SELECT * from '.$prefix.'approved_enduser order by name';
+  $query = 'SELECT * from '.$prefix.'approved_enduser';
   $list = DB::select($query);
 
   function yesNo($value){

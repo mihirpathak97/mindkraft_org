@@ -20,6 +20,37 @@
 
   $access_level = CpanelController::getAccessLevel(session('cpaneluser'));
 
+
+  // Color Coding
+  function checkUserStatus($id)
+  {
+    if (count(DB::select('select * from mindkraft18_approved_enduser where id=\''.$id.'\'')) > 0 ) {
+      return true;
+    }
+    return false;
+  }
+
+  function paymentStatus($id, $workshop)
+  {
+    $payed_for = DB::select('select * from mindkraft18_payment_info where id=\''.$id.'\'')[0]->payed_for;
+    if (in_array($workshop, explode(':', $payed_for))) {
+      return true;
+    }
+    return false;
+  }
+
+  function getColor($id, $type, $workshop)
+  {
+    if (!checkUserStatus($id)) {
+      return '#ff3860';
+    }
+    if ($type == 'workshop' && !paymentStatus($id, $workshop)) {
+      return '#ffdd57';
+    }
+
+    return '';
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +119,7 @@
             foreach (explode(':', $list->registered_users) as $record):
               $record = getInfo($record, $prefix);
             ?>
-              <tr>
+              <tr bgcolor="<?php echo getColor($record->id, $type, $id) ?>">
                 <td><?php echo $record->name; ?></td>
                 <td><?php echo $record->mobile; ?></td>
                 <td><?php echo $record->email; ?></td>

@@ -8,10 +8,10 @@ $workshop = 0;
 
 function getWorkshopFee($id)
 {
-  // if (count(DB::select('select * from mindkraft18_workshop_details where id=\''.$id.'\'')) > 0) {
+  if (count(DB::select('select * from mindkraft18_workshop_details where id=\''.$id.'\'')) > 0) {
     return DB::select('select * from mindkraft18_workshop_details where id=\''.$id.'\'')[0]->fee_external;
-  // }
-  // return 0;
+  }
+  return 0;
 }
 
 foreach ($list as $item) {
@@ -22,7 +22,11 @@ foreach ($list as $item) {
     }
     foreach (array_unique(explode(':', $item->payed_for)) as $workshop_id) {
       if ($workshop_id != 'main') {
-        $workshop += getWorkshopFee($workshop_id);
+        $fee = getWorkshopFee($workshop_id);
+        if ($fee == 0) {
+          echo $workshop_id;
+        }
+        $workshop += $fee;
       }
     }
   }

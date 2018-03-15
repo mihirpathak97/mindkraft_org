@@ -163,6 +163,8 @@ Route::prefix('admin')->group(function () {
 
   Route::view('approved', 'admin.approved');
 
+  Route::view('test', 'admin.test');
+
   // Auth Route
   Route::post('authenticate', 'AdminController@login');
 });

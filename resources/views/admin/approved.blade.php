@@ -8,7 +8,7 @@
 
   $prefix = env('DB_TABLE_PREFIX', '');
   $query = 'SELECT * from '.$prefix.'approved_enduser order by name';
-  $list = DB::select($query, [$college]);
+  $list = DB::select($query);
 
   function yesNo($value){
     return $value == true ? 'Yes' : 'No';

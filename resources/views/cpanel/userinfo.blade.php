@@ -114,6 +114,12 @@
           <p><b>Name</b> - <?php echo $user->name ?></p>
           <p><b>College</b> - <?php echo $user->college ?></p>
           <p><b>Registration Number</b> - <?php echo $user->register_number ?></p><br>
+          <?php
+            if (!checkUserStatus($user->id)) {
+              echo $workshop->name . ' - Tick to pay <input type="checkbox" class="checkbox workshop" fee="300" name="main">'.'<br>';
+              echo '<b>Fees</b> - 300<br>';
+            }
+          ?>
           <p><b>Events Registered</b></p>
           <?php
             foreach ($events_list as $event) {
@@ -158,7 +164,7 @@
             <p>User is already approved no need to collect registration fee</p>
           <?php endif; ?>
 
-          <b>Total Amount To Be Payed </b> - Rs. <span id="amt">0</span> + <?php if (!checkUserStatus($user->id)) {echo '300';} ?><br><br>
+          <b>Total Amount To Be Payed </b> - Rs. <span id="amt">0</span><br><br>
           <?php if (!checkUserStatus($user->id)): ?>
             <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
           <?php else: ?>
@@ -182,11 +188,11 @@
         $('#button').click(function () {
 
           formData = new FormData();
-          formData.set('workshops', '');
+          formData.set('items', '');
 
           document.querySelectorAll('input.checkbox.workshop').forEach(function (currentValue, currentIndex, listObj) {
             if (currentValue.checked) {
-              formData.set('workshops', formData.get('workshops') + currentValue.getAttribute('name') + ':');
+              formData.set('items', formData.get('items') + currentValue.getAttribute('name') + ':');
             }
           });
 
@@ -194,7 +200,7 @@
             type: 'POST',
             url: '/cpanel/user/<?php echo $user->id ?>/approve',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            data: {'workshops': formData.get('workshops')},
+            data: {'items': formData.get('items')},
             success: function (data) {
 
               console.log(data);
@@ -323,9 +329,6 @@
               printWindow.document.write('<br><b>Total in Words</b>' + '<span style="margin-left: 30px"> RUPEES '+numberToEnglish(total).toUpperCase()+' ONLY</span>' + '<br><br>');
               Object.keys(payed).forEach(function(key) {
                 printWindow.document.write(key + '<span style="float:right">₹ '+payed[key]+'</span>' + '<br>');
-                if (key.indexOf('MindKraft') != -1) {
-                  printWindow.document.write('<br><b>Workshops</b><br>');
-                }
               });
               printWindow.document.write('<br><br><b>Cashier</b>' + '<span style="float:right"><b>Organizing Secretary<br>MindKraft 2018</b></span>')
               printWindow.document.close(); // necessary for IE >= 10

@@ -158,7 +158,7 @@
             <p>User is already approved no need to collect registration fee</p>
           <?php endif; ?>
 
-          <b>Total Amount To Be Payed </b> - Rs. <span id="amt">0</span><br><br>
+          <b>Total Amount To Be Payed </b> - Rs. <span id="amt">0</span> + <?php if (!checkUserStatus($user->id)) {echo '300';} ?><br><br>
           <?php if (!checkUserStatus($user->id)): ?>
             <button type="button" id="button" class="button is-link" name="button">Approve Registration</button>
           <?php else: ?>

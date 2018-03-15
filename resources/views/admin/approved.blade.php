@@ -33,7 +33,12 @@
         $acc .= 'MindKraft Registration<br>';
       }
       else {
-        $acc .= DB::select('select * from mindkraft18_workshops_list where id=\''.$payed_for.'\'')[0]->name . '<br>';
+        if (count(DB::select('select * from mindkraft18_workshops_list where id=\''.$payed_for.'\'')) == 1) {
+          $acc .= DB::select('select * from mindkraft18_workshops_list where id=\''.$payed_for.'\'')[0]->name . '<br>';
+        }
+        else {
+          $acc .= $payed_for . '<br>';
+        }
       }
     }
     return $acc;

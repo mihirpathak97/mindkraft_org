@@ -1,6 +1,6 @@
 <?php
 $prefix = env('DB_TABLE_PREFIX', '');
-$query = 'SELECT * from '.$prefix.'enduser order by name';
+$query = 'SELECT * from '.$prefix.'payment_info';
 $list = DB::select($query);
 
 $main = 0;

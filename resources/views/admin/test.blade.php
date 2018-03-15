@@ -17,7 +17,7 @@ foreach ($list as $item) {
     if (in_array('main', explode(':', $item->payed_for))) {
       $main += 300;
     }
-    foreach (array_unique(explode(':', $user->payed_for)) as $item) {
+    foreach (array_unique(explode(':', $item->payed_for)) as $item) {
       if ($item != 'main') {
         $workshop += getWorkshopFee($item);
       }

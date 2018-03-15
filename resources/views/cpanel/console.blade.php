@@ -27,11 +27,13 @@
 
   function getColor($id, $type, $workshop)
   {
-    if (!checkUserStatus($id)) {
-      return '#ff3860';
-    }
+
     if ($type == 'workshop' && !paymentStatus($id, $workshop)) {
       return '#ffdd57';
+    }
+
+    if (!checkUserStatus($id)) {
+      return '#ff3860';
     }
 
     return '';

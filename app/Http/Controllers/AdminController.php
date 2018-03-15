@@ -94,12 +94,8 @@ class AdminController extends Controller
 
     $user = DB::select('select * from '.$prefix.'enduser where id=\''.$id.'\'')[0];
 
-    if (!checkUserStatus($user->id)) {
-      $for = ['main' => '300'];
-    }
-    else {
-      $for = [];
-    }
+    $for = [];
+
     $workshop_array = explode(':', $request->input('workshops'));
 
     function isInternal($user)
@@ -124,8 +120,8 @@ class AdminController extends Controller
 
     // Add user to approved list and payment list
     try {
-      if (!checkUserStatus($user->id)) {
-        DB::statement('insert into mindkraft18_approved_enduser values(\''.$user->id.'\')');
+      if (count(DB::select('select * from mindkraft18_enduser_id where id=\''.$user->id.'\'')) == 0) {
+
         DB::statement('insert into mindkraft18_payment_info values(\''.$user->id.'\', \''.'main:'.implode(':', $workshop_array).'\')');
         $last = DB::select('select * from mindkraft18_enduser_id');
         $last = $last[count($last) - 1];
@@ -136,6 +132,11 @@ class AdminController extends Controller
         $new = DB::select('select * from mindkraft18_payment_info where id=\''.$user->id.'\'')[0]->payed_for . implode(':', $workshop_array);
         DB::statement('update mindkraft18_payment_info set payed_for=\''.$new.'\' where id=\''.$user->id.'\'');
       }
+
+      if (in_array('main', $workshop_array)) {
+        DB::statement('insert into mindkraft18_approved_enduser values(\''.$user->id.'\')');
+      }
+
     } catch (\Exception $e) {
       return '{ "success": false, "reason": "SQL Error!", "message": '.json_encode($e->getMessage()).' }';
     }

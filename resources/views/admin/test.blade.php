@@ -8,7 +8,10 @@ $workshop = 0;
 
 function getWorkshopFee($id)
 {
-  return DB::select('select * from mindkraft18_workshop_details where id=\''.$id.'\'')[0]->fee_external;
+  if (count(DB::select('select * from mindkraft18_workshop_details where id=\''.$id.'\'')[0]) > 0) {
+    return DB::select('select * from mindkraft18_workshop_details where id=\''.$id.'\'')[0]->fee_external;
+  }
+  return 0;
 }
 
 foreach ($list as $item) {

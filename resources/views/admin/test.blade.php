@@ -3,6 +3,7 @@ $prefix = env('DB_TABLE_PREFIX', '');
 $query = 'SELECT * from '.$prefix.'payment_info';
 $list = DB::select($query);
 
+$main_count = 0;
 $main = 0;
 $workshop = 0;
 
@@ -19,14 +20,11 @@ foreach ($list as $item) {
   if ($user->college != 'Karunya Institute of Technology and Sciences, Coimbatore') {
     if (in_array('main', explode(':', $item->payed_for))) {
       $main += 300;
+      $main_count++;
     }
     foreach (array_unique(explode(':', $item->payed_for)) as $workshop_id) {
       if ($workshop_id != 'main') {
-        $fee = getWorkshopFee($workshop_id);
-        if ($fee == 0) {
-          echo $workshop_id . ',';
-        }
-        $workshop += $fee;
+        $workshop += getWorkshopFee($workshop_id);
       }
     }
   }

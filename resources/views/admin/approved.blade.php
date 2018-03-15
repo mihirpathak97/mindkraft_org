@@ -25,7 +25,12 @@
   // Gets "Payed For"
   function getPayedFor($user)
   {
-    $user = DB::select('select * from mindkraft18_payment_info where id=\''.$user.'\'')[0];
+    if (count(DB::select('select * from mindkraft18_payment_info where id=\''.$user.'\'')) == 1) {
+      $user = DB::select('select * from mindkraft18_payment_info where id=\''.$user.'\'')[0];
+    }
+    else {
+      return 'null';
+    }
     $acc = '';
 
     foreach (explode(':', $user->payed_for) as $payed_for) {

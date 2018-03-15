@@ -51,6 +51,18 @@
     return '';
   }
 
+  function getApprovedCount($list)
+  {
+    $count = 0;
+    $list = explode(':', $list);
+    foreach ($list as $item) {
+      if (checkUserStatus($item)) {
+        $count++;
+      }
+    }
+    return $count;
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -106,6 +118,11 @@
       </nav>
 
       <?php if ($access_level <= 2): ?>
+
+        <div class="box">
+          <b>Total approved users</b> - <?php echo getApprovedCount($list->registered_users) ?>
+        </div>
+
         <table class="table card">
           <thead>
             <tr>

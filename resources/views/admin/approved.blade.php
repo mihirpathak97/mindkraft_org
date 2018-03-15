@@ -7,7 +7,7 @@
   }
 
   $prefix = env('DB_TABLE_PREFIX', '');
-  $list = DB::select('SELECT * from '.$prefix.'approved_enduser');
+  $list = DB::select('SELECT * from '.$prefix.'enduser');
 
 
   // Counts internal participants
@@ -15,7 +15,6 @@
   {
     $count = 0;
     foreach ($list as $item) {
-      $item = DB::select('select * from mindkraft18_enduser where id=\''.$item->id.'\'')[0];
       if ($item->college == 'Karunya Institute of Technology and Sciences, Coimbatore' && Controller::checkUserStatus($item->id)) {
         $count++;
       }
@@ -107,7 +106,7 @@
       <div class="box">
         <h1><b>Statistics</b></h1>
         <br><br>
-        <p>Total Users - <b><?php echo count($list) ?></b></p>
+        <p>Total Users - <b><?php echo count(DB::select('select * from mindkraft18_approved_enduser')) ?></b></p>
         <p>Internal -  <?php echo countInternal($list) ?></p>
         <br>
       </div>

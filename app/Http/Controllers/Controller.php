@@ -530,4 +530,14 @@ class Controller extends BaseController
       return $string;
     }
 
+
+    // Check if User is Verified
+    public static function checkUserStatus($id)
+    {
+      if (count(DB::select('select * from mindkraft18_approved_enduser where id=\''.$id.'\'')) > 0 ) {
+        return true;
+      }
+      return false;
+    }
+
 }

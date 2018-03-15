@@ -70,7 +70,7 @@
           <a href="/admin/debates">Debates List</a><br><br>
           <a href="/admin/users">Users List By College</a><br><br>
           <a href="/admin/kits">KITS Users List</a><br><br>
-          <a href="/admin/user/list">User Registration</a><br><br>
+          <a href="/admin/approved">Approved Users List</a><br><br>
         </article>
       </div>
     </div>

@@ -7,36 +7,37 @@
   }
 
   $prefix = env('DB_TABLE_PREFIX', '');
-  $query = 'SELECT * from '.$prefix.'enduser order by name';
-  $list = DB::select($query);
+  $list = DB::select('SELECT * from '.$prefix.'approved_enduser order by name');
 
-  function yesNo($value){
-    return $value == true ? 'Yes' : 'No';
-  }
 
-  // Check verified users
-  function getApproved($prefix, $college)
-  {
-    return count(DB::select('SELECT * from '.$prefix.'approved_enduser'));
-  }
-
-  function checkUserStatus($id)
-  {
-    if (count(DB::select('select * from mindkraft18_approved_enduser where id=\''.$id.'\'')) > 0 ) {
-      return true;
-    }
-    return false;
-  }
-
+  // Counts internal participants
   function countInternal($list)
   {
     $count = 0;
     foreach ($list as $item) {
-      if ($item->college == 'Karunya Institute of Technology and Sciences, Coimbatore' && checkUserStatus($item->id)) {
+      $item = DB::select('select * from mindkraft18_enduser where id=\''.$item->id.'\'')[0];
+      if ($item->college == 'Karunya Institute of Technology and Sciences, Coimbatore' && Controller::checkUserStatus($item->id)) {
         $count++;
       }
     }
     return $count;
+  }
+
+  // Gets "Payed For"
+  function getPayedFor($user)
+  {
+    $user = DB::select('select * from mindkraft18_payment_info where id=\''.$user.'\'')[0];
+    $acc = '';
+
+    foreach (explode(':', $user->payed_for) as $payed_for) {
+      if ($payed_for == 'main') {
+        $acc .= 'MindKraft Registration<br>';
+      }
+      else {
+        $acc .= DB::select('select * from mindkraft18_workshops_list where id=\''.$payed_for.'\'')[0]->name . '<br>';
+      }
+    }
+    return $acc;
   }
 
 ?>
@@ -98,7 +99,7 @@
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item is-tab" href="/admin/console">Dashboard</a>
-            <a class="navbar-item is-tab is-active">KITS Users List</a>
+            <a class="navbar-item is-tab is-active">Approve Users</a>
           </div>
         </div>
       </nav>
@@ -114,20 +115,21 @@
       <table class="table card">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Full Name</th>
             <th>Mobile</th>
-            <th>E-Mail</th>
+            <th>Payed For</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($list as $record): ?>
             <tr>
+              <td><?php echo $record->id; ?></td>
               <td><?php echo $record->name; ?></td>
               <td><?php echo $record->mobile; ?></td>
-              <td><?php echo $record->email; ?></td>
-              <td>1</td>
-              <td><a href="/cpanel/user/<?php $record->id ?>">Payed For</a></td>
+              <td><?php echo getPayedFor($record->id) ?></td>
+              <td><a href="/cpanel/user/<?php $record->id ?>/receipts">Show Receipts</a></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

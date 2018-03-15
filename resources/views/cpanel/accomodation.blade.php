@@ -130,7 +130,6 @@
           <?php if (!checkUserStatus($user->id)): ?>
             <br><b>Note</b> - User is not approved!<br>
           <?php endif; ?>
-            <b>Total Amount To Be Payed </b> - Rs. 200<br><br>
             <button type="button" id="button" class="button is-link" name="button">Make Payment</button>
           <br><br>
           <p id="ajax-output"></p>

@@ -48,6 +48,13 @@
       margin-bottom: 20px;
       font-size: 20px;
     }
+    .fee{
+      color: #f5f5f5;
+      margin-top: 3rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 20px;
+      text-align: center;
+    }
   </style>
 
   <body>
@@ -75,6 +82,7 @@
   					<div class="title">
               <button type="button" class="button is-link big" onclick="JavaScript:window.location.assign('/register/internal')" name="button"><span class="font">Internal Students</span></button>
               <button type="button" class="button is-link big" onclick="JavaScript:window.location.assign('/register/external')" name="button"><span class="font">External Students</span></button>
+              <p class="fee"><b>Registraion Fee</b> - ₹ 300</p>
   					</div>
   				</div>
   			</div>

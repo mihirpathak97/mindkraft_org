@@ -133,13 +133,15 @@
         </thead>
         <tbody>
           <?php foreach ($list as $record): ?>
-            <tr>
-              <td><?php echo $record->id; ?></td>
-              <td><?php echo $record->name; ?></td>
-              <td><?php echo $record->mobile; ?></td>
-              <td><?php echo getPayedFor($record->id) ?></td>
-              <td><a href="/cpanel/user/<?php $record->id ?>/receipts">Show Receipts</a></td>
-            </tr>
+            <?php if (Controller::checkUserStatus($record->id)): ?>
+              <tr>
+                <td><?php echo $record->id; ?></td>
+                <td><?php echo $record->name; ?></td>
+                <td><?php echo $record->mobile; ?></td>
+                <td><?php echo getPayedFor($record->id) ?></td>
+                <td><a href="/cpanel/user/<?php $record->id ?>/receipts">Show Receipts</a></td>
+              </tr>
+            <?php endif; ?>
           <?php endforeach; ?>
         </tbody>
       </table>

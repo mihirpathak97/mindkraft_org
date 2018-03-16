@@ -2,8 +2,8 @@
   namespace App\Http\Controllers;
   use URL, DB, Redirect;
 
-  if (!session()->has('cpaneluser') || !Controller::checkAdmin(session('cpaneluser'))) {
-    Redirect::to('cpanel')->send();
+  if (!session()->has('adminuser') || !Controller::checkAdmin(session('adminuser'))) {
+    Redirect::to('admin')->send();
   }
   $prefix = env('DB_TABLE_PREFIX', '');
 

@@ -38,7 +38,7 @@ $list = DB::select('select * from mindkraft18_approved_enduser');
 
 $ku = 0;
 $ext = 0;
-$colleges = [];
+$college = [];
 
 foreach ($list as $user) {
   $user = DB::select('select * from mindkraft18_enduser where id=\''.$user->id.'\'')[0];

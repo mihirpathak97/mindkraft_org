@@ -92,6 +92,7 @@
 
       <?php if ($access_level == 1): ?>
         <div class="box">
+          <p style="text-align:center; font-size:18px; color:#ff3860"><b>All Cpanel access credentials will be revoked on 20-03-2018</b></p>
           <article>
             <a href="/cpanel/events">Events List</a><br><br>
             <a href="/cpanel/games">Games List</a><br><br>
@@ -201,6 +202,7 @@
           ?>
 
             <div class="box">
+              <p style="text-align:center; font-size:18px; color:#ff3860"><b>All Cpanel access credentials will be revoked on 20-03-2018</b></p>
               <p><b>Event Name</b> - <?php echo getEventName($event, $type) ?> </p>
               <br>
               <p><b>Department</b> - <?php echo getDepartmentName($event, $type) ?></p>
@@ -262,6 +264,7 @@
       ?>
       <!-- ACC 9 -->
       <div class="box">
+        <p style="text-align:center; font-size:18px; color:#ff3860"><b>All Cpanel access credentials will be revoked on 20-03-2018</b></p>
         <p><b>MindKraft T-Shirt Registration</b></p>
         <br>
         <p><b>Total Registrations</b> - <?php echo count($list) ?></p><br>
@@ -314,6 +317,7 @@
       <?php if ($access_level == 10): ?>
         <!-- ACC 10 -->
         <div class="box">
+          <p style="text-align:center; font-size:18px; color:#ff3860"><b>All Cpanel access credentials will be revoked on 20-03-2018</b></p>
           <article>
             <form class="" action="/cpanel/user/info" method="post">
               {{ csrf_field() }}
@@ -349,6 +353,7 @@
       <?php if ($access_level == 902): ?>
         <!-- ACC 101 -->
         <div class="box">
+          <p style="text-align:center; font-size:18px; color:#ff3860"><b>All Cpanel access credentials will be revoked on 20-03-2018</b></p>
           <article>
             <form class="" action="/cpanel/register/laser" method="post">
               {{ csrf_field() }}
@@ -367,6 +372,7 @@
       <?php if ($access_level == 903): ?>
         <!-- ACC 101 -->
         <div class="box">
+          <p style="text-align:center; font-size:18px; color:#ff3860"><b>All Cpanel access credentials will be revoked on 20-03-2018</b></p>
           <article>
             <form class="" action="/cpanel/register/atv" method="post">
               {{ csrf_field() }}
@@ -385,6 +391,7 @@
       <?php if ($access_level == 11): ?>
         <!-- ACC 11 -->
         <div class="box">
+          <p style="text-align:center; font-size:18px; color:#ff3860"><b>All Cpanel access credentials will be revoked on 20-03-2018</b></p>
           <article>
             <form class="" action="/cpanel/user/accomodation" method="post">
               {{ csrf_field() }}

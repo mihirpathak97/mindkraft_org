@@ -41,7 +41,7 @@ $ext = 0;
 $colleges = [];
 
 foreach ($list as $user) {
-  $user = DB::select('select * from mindkraft18_enduser where id=\''.$user.'\'')[0];
+  $user = DB::select('select * from mindkraft18_enduser where id=\''.$user->id.'\'')[0];
   if ($user->college =='Karunya Institute of Technology and Sciences, Coimbatore') {
     $ku++;
   }

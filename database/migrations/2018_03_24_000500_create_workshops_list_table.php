@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGamesListTable extends Migration
+class CreateWorkshopsListTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,18 @@ class CreateGamesListTable extends Migration
      */
     public function up()
     {
-        Schema::create('games_list', function (Blueprint $table) {
+        Schema::create('workshops_list', function (Blueprint $table) {
           $table->string('id')->unique();
           $table->string('name');
-          $table->string('contact');
-          $table->string('fee');
-          $table->string('prize');
-          $table->longText('rules');
+          $table->string('department');
+          $table->mediumText('incharge_faculty');
+          $table->mediumText('incharge_student');
+          $table->string('fee_internal');
+          $table->string('fee_external');
           $table->longText('about');
           $table->integer('seats');
           $table->boolean('open')->default(1);
-          $table->timestamp('date_created');
+          $table->timestamps();
         });
     }
 
@@ -34,6 +35,6 @@ class CreateGamesListTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('games_list');
+        Schema::dropIfExists('workshops_list');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SetUsernameUniqueCpanelUsers extends Migration
+class CreateEnduserIdTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class SetUsernameUniqueCpanelUsers extends Migration
      */
     public function up()
     {
-      Schema::table('cpanel_users', function (Blueprint $table) {
-          $table->string('username')->unique()->change();
-      });
+        Schema::create('enduser_id', function (Blueprint $table) {
+            $table->string('id')->unique();
+            $table->string('mk_id')->unique();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,6 +27,6 @@ class SetUsernameUniqueCpanelUsers extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('enduser_id');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCpanelMappingTable extends Migration
+class CreateReceiptDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateCpanelMappingTable extends Migration
      */
     public function up()
     {
-        Schema::create('cpanel_mapping', function (Blueprint $table) {
-            $table->string('username')->unique();
-            $table->longText('events');
+        Schema::create('receipt_details', function (Blueprint $table) {
+            $table->string('receipt_number')->unique();
+            $table->string('user')->unique();
+            $table->longText('payed_for');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +28,6 @@ class CreateCpanelMappingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cpanel_mapping');
+        Schema::dropIfExists('receipt_details');
     }
 }

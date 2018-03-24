@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeRegInEnduser extends Migration
+class CreateCpanelUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class ChangeRegInEnduser extends Migration
      */
     public function up()
     {
-      Schema::table('enduser', function (Blueprint $table) {
-          $table->string('register_number')->nullable()->change();
-      });
+        Schema::create('cpanel_users', function (Blueprint $table) {
+            $table->string('username')->unique();
+            $table->binary('password');
+            $table->integer('access_level')->default('3');
+            $table->timetamps();
+        });
     }
 
     /**
@@ -25,6 +28,6 @@ class ChangeRegInEnduser extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cpanel_users');
     }
 }

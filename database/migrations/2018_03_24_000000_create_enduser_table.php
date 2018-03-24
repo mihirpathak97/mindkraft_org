@@ -18,15 +18,11 @@ class CreateEnduserTable extends Migration
             $table->string('name');
             $table->string('mobile')->unique();
             $table->string('email')->unique();
-            $table->string('college');
-            $table->string('register_number')->unique()->default('N/A');
+            $table->string('register_number')->default('N/A');
             $table->binary('password');
             $table->string('api_token')->unique();
-            $table->integer('visit_count')->default(0);
-            $table->boolean('allow_sponsor_promo')->default(false);
-            $table->boolean('require_accomodaiton')->default(false);
             $table->boolean('is_verified')->default(false);
-            $table->timestamp('date_modified');
+            $table->timetamps();
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateOverallViews extends Migration
+class CreatePaymentInformationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class UpdateOverallViews extends Migration
      */
     public function up()
     {
-      $view_prefix = env('DB_VIEW_PREFIX', '');
-      $table_prefix = env('DB_TABLE_PREFIX', '');
-      DB::statement("create view $view_prefix"."news_feed as select * from $table_prefix"."news_feed");
+        Schema::create('payment_information', function (Blueprint $table) {
+            $table->string('id')->unique();
+            $table->longText('payed_for');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -25,7 +27,6 @@ class UpdateOverallViews extends Migration
      */
     public function down()
     {
-      $view_prefix = env('DB_VIEW_PREFIX', '');
-      DB::statement("drop view $view_prefix"."news_feed");
+        Schema::dropIfExists('payment_information');
     }
 }

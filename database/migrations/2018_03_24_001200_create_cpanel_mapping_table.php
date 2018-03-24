@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddStateToEnduser extends Migration
+class CreateCpanelMappingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddStateToEnduser extends Migration
      */
     public function up()
     {
-      Schema::table('enduser', function (Blueprint $table) {
-          $table->string('state')->after('college')->default('Tamil Nadu');
-      });
+        Schema::create('cpanel_mapping', function (Blueprint $table) {
+            $table->string('username')->unique();
+            $table->longText('access_for');
+        });
     }
 
     /**
@@ -25,6 +26,6 @@ class AddStateToEnduser extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cpanel_mapping');
     }
 }

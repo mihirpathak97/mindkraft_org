@@ -16,16 +16,17 @@ class CreateEventsListTable extends Migration
         Schema::create('events_list', function (Blueprint $table) {
             $table->string('id')->unique();
             $table->string('name');
-            $table->string('type');
             $table->string('department');
-            $table->string('contact');
-            $table->string('fee');
+            $table->mediumText('incharge_faculty');
+            $table->mediumText('incharge_student');
+            $table->string('fee_internal');
+            $table->string('fee_external');
             $table->string('prize');
             $table->longText('rules');
             $table->longText('about');
             $table->integer('seats');
             $table->boolean('open')->default(1);
-            $table->timestamp('date_created');
+            $table->timestamps();
         });
     }
 

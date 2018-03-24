@@ -5,104 +5,154 @@
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here is where you can register web routes for the application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "web" middleware group.
 |
 */
 
 
-// Base Routes
+// 127.0.0.1
 Route::view('/', 'home');
-
 Route::redirect('/home', '/');
 
-// Displaying Events/Workshops/Games
-Route::view('/events', 'events');
 
+/*
+|--------------------------------------------------------------------------
+| Content Display Routes
+|--------------------------------------------------------------------------
+|
+| There are currently the following supported types -
+| - Technical Events [Department Wise]
+| - Workshops [Department Wise]
+| - Debates
+| - Exhibitions
+| - Games
+|
+| More content types can be added, just remember to add it to this comment too :)
+|
+*/
+
+// Displaying Events
+Route::view('/events', 'events');
 Route::get('/events/{dept}', function ($dept) {
     $data = array('dept' => $dept);
     return view('events')->with($data);
 });
 
+// Displaying Workshops
 Route::view('/workshops', 'workshops');
-
 Route::get('/workshops/{dept}', function ($dept) {
     $data = array('dept' => $dept);
     return view('workshops')->with($data);
 });
 
 Route::view('/games', 'games');
-
-Route::view('/logout', 'logout');
-
-Route::view('/user', 'user');
+Route::view('/debates', 'debates');
+Route::view('/exhibitions', 'static.exhibitions');
 
 
-// Event Request Routes
+/*
+|--------------------------------------------------------------------------
+| Content Request Routes
+|--------------------------------------------------------------------------
+|
+| These routes are used to request content for each {item} of {type}
+| from the database.
+|
+| There are currently the following supported types -
+| - Technical Events [Department Wise]
+| - Workshops [Department Wise]
+|
+| More content types can be added, just remember to add it to this comment too :)
+|
+*/
+
 Route::get('/events/{dept}/{name}/{id}', function ($dept, $name, $id) {
     $data = array('dept' => $dept, 'name' => $name, 'id' => $id);
     return view('req.event')->with($data);
 });
-
 Route::get('/workshops/{dept}/{name}/{id}', function ($dept, $name, $id) {
     $data = array('dept' => $dept, 'name' => $name, 'id' => $id);
     return view('req.workshop')->with($data);
 });
 
-Route::get('/games/{name}/{id}', function ($name, $id) {
-    $data = array('name' => $name, 'id' => $id);
-    return view('req.game')->with($data);
-});
 
-// Event Registration Route
+/*
+|--------------------------------------------------------------------------
+| Events/Workshop Registration Routes
+|--------------------------------------------------------------------------
+|
+| You can create a registration for almost anything by passing {type},
+| {userid} and {eventid}
+|
+*/
+
 Route::view('/register/{type}/{userid}/{eventid}', 'req.registerevent');
-
 // Event Terms and Conditions
 Route::view('/register/terms', 'req.terms');
 
 
-// Misc. Routes (Static Pages)
+/*
+|--------------------------------------------------------------------------
+| Static Pages
+|--------------------------------------------------------------------------
+|
+| All static pages should be under the folder "static"
+|
+*/
+
 Route::view('/accomodation', 'static.accomodation');
 Route::view('/app', 'static.app');
 Route::view('/schedule', 'static.schedule');
 Route::view('/sponsors', 'static.sponsors');
 Route::view('/team', 'static.team');
 Route::view('/terms', 'static.terms');
-Route::view('/z', 'static.z');
+Route::view('/z', 'static.zcoders');
 
 
-// Debate Routes
-Route::view('/debates', 'static.debates');
-Route::view('/debates/mock_parliament', 'static.debates.mock');
-Route::view('/debates/agro_war', 'static.debates.agrowar');
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes
+|--------------------------------------------------------------------------
+|
+| All user authentication routes like login and register are under this
+| banner.
+|
+*/
 
-
-// Exhibition Routes
-Route::view('/exhibitions', 'static.exhibitions');
-Route::view('/exhibitions/camera_exhibition', 'static.exhibitions.camera');
-
-
-// Helper Routes
-Route::redirect('/when', '/schedule');
-
-// T-Shir Registration
-// Route::view('register/tshirt', 'tshirt-register');
-// Route::post('register/tshirt/register', 'Auth@tshirtRegister');
-
-// Auth Routes
 Route::view('/login', 'login');
-Route::post('userlogin', 'Auth@login');
 Route::view('/register', 'register');
-// Disable Registration
-// Route::view('/register', 'tempdisable');
+Route::view('/logout', 'logout');
+Route::view('/user', 'user');
 Route::view('/register/internal', 'internal');
 Route::view('/register/external', 'external');
+Route::post('userlogin', 'Auth@login');
 Route::post('userregister', 'Auth@register');
 Route::get('verify/{userid}/{token}/{api_token}', 'Auth@userVerify');
 
 
-// Admin Routes
+/*
+|--------------------------------------------------------------------------
+| Helper Routes
+|--------------------------------------------------------------------------
+|
+| Use cool shorthand route names here to redirect to complex routes.
+|
+*/
+Route::redirect('/when', '/schedule');
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+|
+| For the use of Level 0 user.
+| {prefix} = 'admin'
+|
+*/
+
 Route::prefix('admin')->group(function () {
 
   Route::view('/', 'admin.main');
@@ -161,7 +211,17 @@ Route::prefix('admin')->group(function () {
 });
 
 
-// CPanel Routes
+
+/*
+|--------------------------------------------------------------------------
+| Cpanel Routes
+|--------------------------------------------------------------------------
+|
+| For the use of other admin users.
+| {prefix} = 'cpanel'
+|
+*/
+
 Route::prefix('cpanel')->group(function () {
 
   Route::view('/', 'cpanel.main');
@@ -228,7 +288,16 @@ Route::prefix('cpanel')->group(function () {
 });
 
 
-// Resource Routes
+/*
+|--------------------------------------------------------------------------
+| Resource Routes
+|--------------------------------------------------------------------------
+|
+| For all kinds of file downloads
+| {prefix} = 'resources'
+|
+*/
+
 Route::prefix('resources')->group(function () {
 
   // IEEE Paper Presentation Format

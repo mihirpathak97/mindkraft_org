@@ -12,6 +12,10 @@
 */
 
 
+// NOTE: Please make sure that you use API requests to perform all tasks
+//       if you can.
+
+
 // 127.0.0.1
 Route::view('/', 'home');
 Route::redirect('/home', '/');
@@ -49,7 +53,7 @@ Route::get('/workshops/{dept}', function ($dept) {
 
 Route::view('/games', 'games');
 Route::view('/debates', 'debates');
-Route::view('/exhibitions', 'static.exhibitions');
+Route::view('/exhibitions', 'exhibitions');
 
 
 /*
@@ -299,12 +303,7 @@ Route::prefix('cpanel')->group(function () {
 */
 
 Route::prefix('resources')->group(function () {
-
-  // IEEE Paper Presentation Format
-  Route::redirect('ieee', '/resources/ieee-format.doc');
-  Route::redirect('event-schedule', '/resources/events.pdf');
-  Route::redirect('workshop-schedule', '/resources/workshops.pdf');
-
+  // Add resource routes here
 });
 
 

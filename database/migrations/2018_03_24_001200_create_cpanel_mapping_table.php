@@ -16,6 +16,7 @@ class CreateCpanelMappingTable extends Migration
         Schema::create('cpanel_mapping', function (Blueprint $table) {
             $table->string('username')->unique();
             $table->longText('access_for');
+            $table->timestamps();
         });
     }
 

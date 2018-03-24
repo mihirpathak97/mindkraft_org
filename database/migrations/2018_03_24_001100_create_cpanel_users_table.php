@@ -17,7 +17,7 @@ class CreateCpanelUsersTable extends Migration
             $table->string('username')->unique();
             $table->binary('password');
             $table->integer('access_level')->default('3');
-            $table->timetamps();
+            $table->timestamps();
         });
     }
 

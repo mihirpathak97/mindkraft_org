@@ -22,7 +22,7 @@ class CreateEnduserTable extends Migration
             $table->binary('password');
             $table->string('api_token')->unique();
             $table->boolean('is_verified')->default(false);
-            $table->timetamps();
+            $table->timestamps();
         });
     }
 

@@ -24,7 +24,7 @@ class CreateEnduserDetailsTable extends Migration
             $table->integer('mode_of_signup')->default('other');
             $table->boolean('allow_sponsor_promo')->default(false);
             $table->boolean('require_accomodaiton')->default(false);
-            $table->timetamps();
+            $table->timestamps();
         });
     }
 

@@ -16,6 +16,7 @@ class CreateEventRegistrationTable extends Migration
         Schema::create('event_registration', function (Blueprint $table) {
             $table->string('id')->unique();
             $table->longText('registered_users');
+            $table->timestamps();
         });
     }
 

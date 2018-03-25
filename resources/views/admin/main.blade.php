@@ -46,6 +46,9 @@
           <div class="container">
             <h1 class="display-3">Admin - Login</h1>
             <br>
+            <?php if (session('error')): ?>
+              <h4 style="color:red">{{ session('error') }}</h3>
+            <?php endif; ?>
             <form class="form-inline" action="/admin/authenticate" id="login-form" method="post">
               {{ csrf_field() }}
               <div class="form-group">

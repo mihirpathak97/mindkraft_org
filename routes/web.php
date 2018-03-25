@@ -160,58 +160,63 @@ Route::redirect('/when', '/schedule');
 Route::prefix('admin')->group(function () {
 
   Route::view('/', 'admin.main');
-  Route::view('console', 'admin.console');
-
-  Route::view('events', 'admin.events');
-  Route::view('games', 'admin.games');
-  Route::view('workshops', 'admin.workshops');
-
-  Route::view('users', 'admin.users');
-  Route::get('users/{college}', function ($college) {
-    return view('admin.userlist', ['college' => $college]);
-  });
-  Route::view('kits', 'admin.kitsusers', ['college' => 'Karunya Institute of Technology and Sciences, Coimbatore']);
-
-  Route::get('/showinfo/{type}/{id}', function ($type, $id) {
-    return view('admin.showinfo', ['type' => $type, 'id' => $id]);
-  });
-
-  Route::get('/showinfo/{type}/{id}/users', function ($type, $id) {
-    return view('admin.showusers', ['type' => $type, 'id' => $id]);
-  });
-
-  // Approved Users
-  Route::view('/approved', 'admin.approved');
-
-  Route::view('test', 'admin.test');
-
-  // Web Mailer Route
-  Route::view('mailer', 'admin.mailer');
-  Route::post('mailer/send', 'AdminController@MailSender');
-
-  // CMS Routes
-  Route::prefix('cms')->group(function () {
-
-    Route::view('console', 'admin.cms.console');
-    Route::view('game', 'admin.cms.game');
-    Route::view('workshop', 'admin.cms.workshop');
-    Route::view('cpanel', 'admin.cms.cpanel');
-
-    // Adder Routes
-    Route::post('addevent', 'CmsController@addevent');
-    Route::post('addgame', 'CmsController@addgame');
-    Route::post('addworkshop', 'CmsController@addworkshop');
-    Route::post('addcpaneluser', 'CmsController@addcpaneluser');
-
-    // Modifier Routes
-    Route::post('modifyevent', 'CmsController@modifyevent');
-    Route::post('modifygame', 'CmsController@modifygame');
-    Route::post('modifyworkshop', 'CmsController@modifyworkshop');
-
-  });
-
-  // Auth Route
   Route::post('authenticate', 'AdminController@login');
+
+  // Use AdminAuth Middleware for checking access
+  Route::group(['middleware' => ['adminauth']], function () {
+
+    Route::view('console', 'admin.console')->middleware('adminauth');
+
+    Route::view('events', 'admin.events');
+    Route::view('games', 'admin.games');
+    Route::view('workshops', 'admin.workshops');
+
+    Route::view('users', 'admin.users');
+    Route::get('users/{college}', function ($college) {
+      return view('admin.userlist', ['college' => $college]);
+    });
+    Route::view('kits', 'admin.kitsusers', ['college' => 'Karunya Institute of Technology and Sciences, Coimbatore']);
+
+    Route::get('/showinfo/{type}/{id}', function ($type, $id) {
+      return view('admin.showinfo', ['type' => $type, 'id' => $id]);
+    });
+
+    Route::get('/showinfo/{type}/{id}/users', function ($type, $id) {
+      return view('admin.showusers', ['type' => $type, 'id' => $id]);
+    });
+
+    // Approved Users
+    Route::view('/approved', 'admin.approved');
+
+    Route::view('test', 'admin.test');
+
+    // Web Mailer Route
+    Route::view('mailer', 'admin.mailer');
+    Route::post('mailer/send', 'AdminController@MailSender');
+
+    // CMS Routes
+    Route::prefix('cms')->group(function () {
+
+      Route::view('console', 'admin.cms.console');
+      Route::view('game', 'admin.cms.game');
+      Route::view('workshop', 'admin.cms.workshop');
+      Route::view('cpanel', 'admin.cms.cpanel');
+
+      // Adder Routes
+      Route::post('addevent', 'CmsController@addevent');
+      Route::post('addgame', 'CmsController@addgame');
+      Route::post('addworkshop', 'CmsController@addworkshop');
+      Route::post('addcpaneluser', 'CmsController@addcpaneluser');
+
+      // Modifier Routes
+      Route::post('modifyevent', 'CmsController@modifyevent');
+      Route::post('modifygame', 'CmsController@modifygame');
+      Route::post('modifyworkshop', 'CmsController@modifyworkshop');
+
+    });
+
+  });
+
 });
 
 

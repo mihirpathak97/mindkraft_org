@@ -17,8 +17,8 @@
 
 
 // 127.0.0.1
-Route::view('/', 'errors.404');
-Route::redirect('/home', 'errors.404');
+Route::view('/', 'index');
+Route::redirect('/home', '/');
 
 
 /*

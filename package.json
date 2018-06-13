@@ -12,11 +12,14 @@
     "devDependencies": {
         "animate.css": "^3.5.2",
         "axios": "^0.17",
+        "babel-preset-react": "^6.23.0",
         "cross-env": "^5.1",
         "laravel-mix": "^1.0",
         "less": "^2.7.3",
         "less-loader": "^4.0.5",
-        "lodash": "^4.17.4"
+        "lodash": "^4.17.4",
+        "react": "^15.4.2",
+        "react-dom": "^15.4.2"
     },
     "dependencies": {
         "bulma": "^0.6.1",

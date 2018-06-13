@@ -1,8 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
 
-/**
- * Load Jquery into the app
- */
-
- try {
-     window.$ = window.jQuery = require('jquery');
- } catch (e) {}
+ReactDOM.render(<App />, document.getElementById('root'));

@@ -459,7 +459,6 @@ class Controller extends BaseController
       }
 
       return false;
-
     }
 
     // Checks authernication of admin user
@@ -473,30 +472,6 @@ class Controller extends BaseController
       }
 
       return false;
-
-    }
-
-    public function getChatMessages()
-    {
-
-      $prefix = env('DB_VIEW_PREFIX', '');
-      $messages = DB::select('select * from '.$prefix.'news_feed');
-
-      $acc = '{ "messages":[';
-
-      for ($i=0; $i < count($messages); $i++) {
-        if ($i == count($messages) - 1) {
-          $acc .= json_encode($messages[$i]->message);
-        }
-        else {
-          $acc .= json_encode($messages[$i]->message).', ';
-        }
-      }
-
-      $acc .= ']}';
-
-      return $acc;
-
     }
 
     // Generates a 16-digit alpha-numeric
@@ -522,22 +497,6 @@ class Controller extends BaseController
       $clean = preg_replace('#[\/_|+ -]+#', $delimiter, $clean);
       $clean = trim($clean, $delimiter);
       return $clean;
-    }
-
-    public function nl_replace($string)
-    {
-      // return str_replace(array("\r", "\n", "\r\n", "\n\r"), '<br>', $string);
-      return $string;
-    }
-
-
-    // Check if User is Verified
-    public static function checkUserStatus($id)
-    {
-      if (count(DB::select('select * from mindkraft18_approved_enduser where id=\''.$id.'\'')) > 0 ) {
-        return true;
-      }
-      return false;
     }
 
 }

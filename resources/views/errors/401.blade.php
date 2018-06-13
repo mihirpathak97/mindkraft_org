@@ -5,19 +5,12 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>MindKraft | Error</title>
-
-        <!-- Fonts -->
+        <title>MindKraft</title>
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-
         <style>
             html, body {
-                background-color: #222;
-                color: hsl(0, 0%, 96%);
+                background-color: #f5f8fa;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -55,7 +48,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title">
-                    You do not have access to visit this page <i class="em em-confused"></i>
+                    You do not have access to this page <i class="em em-confused"></i>
                 </div>
             </div>
         </div>

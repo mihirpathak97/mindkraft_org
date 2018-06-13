@@ -13,12 +13,12 @@
 
 
 // NOTE: Please make sure that you use API requests to perform all tasks
-//       if you can.
+// if you can.
 
 
 // 127.0.0.1
-Route::view('/', 'home');
-Route::redirect('/home', '/');
+Route::view('/', 'errors.404');
+Route::redirect('/home', 'errors.404');
 
 
 /*
@@ -38,22 +38,16 @@ Route::redirect('/home', '/');
 */
 
 // Displaying Events
-Route::view('/events', 'events');
-Route::get('/events/{dept}', function ($dept) {
-    $data = array('dept' => $dept);
-    return view('events')->with($data);
-});
+Route::view('/events', 'errors.404');
+Route::view('/events/{dept}', 'errors.404');
 
 // Displaying Workshops
-Route::view('/workshops', 'workshops');
-Route::get('/workshops/{dept}', function ($dept) {
-    $data = array('dept' => $dept);
-    return view('workshops')->with($data);
-});
+Route::view('/workshops', 'errors.404');
+Route::view('/workshops/{dept}', 'errors.404');
 
-Route::view('/games', 'games');
-Route::view('/debates', 'debates');
-Route::view('/exhibitions', 'exhibitions');
+Route::view('/games', 'errors.404');
+Route::view('/debates', 'errors.404');
+Route::view('/exhibitions', 'errors.404');
 
 
 /*
@@ -72,14 +66,8 @@ Route::view('/exhibitions', 'exhibitions');
 |
 */
 
-Route::get('/events/{dept}/{name}/{id}', function ($dept, $name, $id) {
-    $data = array('dept' => $dept, 'name' => $name, 'id' => $id);
-    return view('req.event')->with($data);
-});
-Route::get('/workshops/{dept}/{name}/{id}', function ($dept, $name, $id) {
-    $data = array('dept' => $dept, 'name' => $name, 'id' => $id);
-    return view('req.workshop')->with($data);
-});
+Route::view('/events/{dept}/{name}/{id}', 'errors.404');
+Route::view('/workshops/{dept}/{name}/{id}', 'errors.404');
 
 
 /*
@@ -92,9 +80,9 @@ Route::get('/workshops/{dept}/{name}/{id}', function ($dept, $name, $id) {
 |
 */
 
-Route::view('/register/{type}/{userid}/{eventid}', 'req.registerevent');
+Route::view('/register/{type}/{userid}/{eventid}', 'errors.404');
 // Event Terms and Conditions
-Route::view('/register/terms', 'req.terms');
+Route::view('/register/terms', 'errors.404');
 
 
 /*
@@ -106,13 +94,13 @@ Route::view('/register/terms', 'req.terms');
 |
 */
 
-Route::view('/accomodation', 'static.accomodation');
-Route::view('/app', 'static.app');
-Route::view('/schedule', 'static.schedule');
-Route::view('/sponsors', 'static.sponsors');
-Route::view('/team', 'static.team');
-Route::view('/terms', 'static.terms');
-Route::view('/z', 'static.zcoders');
+Route::view('/accomodation', 'errors.404');
+Route::view('/app', 'errors.404');
+Route::view('/schedule', 'errors.404');
+Route::view('/sponsors', 'errors.404');
+Route::view('/team', 'errors.404');
+Route::view('/terms', 'errors.404');
+Route::view('/z', 'errors.404');
 
 
 /*
@@ -125,12 +113,12 @@ Route::view('/z', 'static.zcoders');
 |
 */
 
-Route::view('/login', 'login');
-Route::view('/register', 'register');
-Route::view('/logout', 'logout');
-Route::view('/user', 'user');
-Route::view('/register/internal', 'internal');
-Route::view('/register/external', 'external');
+Route::view('/login', 'errors.404');
+Route::view('/register', 'errors.404');
+Route::view('/logout', 'errors.404');
+Route::view('/user', 'errors.404');
+Route::view('/register/internal', 'errors.404');
+Route::view('/register/external', 'errors.404');
 Route::post('userlogin', 'Auth@login');
 Route::post('userregister', 'Auth@register');
 Route::get('verify/{userid}/{token}/{api_token}', 'Auth@userVerify');
@@ -158,65 +146,7 @@ Route::redirect('/when', '/schedule');
 */
 
 Route::prefix('admin')->group(function () {
-
-  Route::view('/', 'admin.main');
-  Route::post('authenticate', 'AdminController@login');
-
-  // Use AdminAuth Middleware for checking access
-  Route::group(['middleware' => ['adminauth']], function () {
-
-    Route::view('console', 'admin.console')->middleware('adminauth');
-
-    Route::view('events', 'admin.events');
-    Route::view('games', 'admin.games');
-    Route::view('workshops', 'admin.workshops');
-
-    Route::view('users', 'admin.users');
-    Route::get('users/{college}', function ($college) {
-      return view('admin.userlist', ['college' => $college]);
-    });
-    Route::view('kits', 'admin.kitsusers', ['college' => 'Karunya Institute of Technology and Sciences, Coimbatore']);
-
-    Route::get('/showinfo/{type}/{id}', function ($type, $id) {
-      return view('admin.showinfo', ['type' => $type, 'id' => $id]);
-    });
-
-    Route::get('/showinfo/{type}/{id}/users', function ($type, $id) {
-      return view('admin.showusers', ['type' => $type, 'id' => $id]);
-    });
-
-    // Approved Users
-    Route::view('/approved', 'admin.approved');
-
-    Route::view('test', 'admin.test');
-
-    // Web Mailer Route
-    Route::view('mailer', 'admin.mailer');
-    Route::post('mailer/send', 'AdminController@MailSender');
-
-    // CMS Routes
-    Route::prefix('cms')->group(function () {
-
-      Route::view('console', 'admin.cms.console');
-      Route::view('game', 'admin.cms.game');
-      Route::view('workshop', 'admin.cms.workshop');
-      Route::view('cpanel', 'admin.cms.cpanel');
-
-      // Adder Routes
-      Route::post('addevent', 'CmsController@addevent');
-      Route::post('addgame', 'CmsController@addgame');
-      Route::post('addworkshop', 'CmsController@addworkshop');
-      Route::post('addcpaneluser', 'CmsController@addcpaneluser');
-
-      // Modifier Routes
-      Route::post('modifyevent', 'CmsController@modifyevent');
-      Route::post('modifygame', 'CmsController@modifygame');
-      Route::post('modifyworkshop', 'CmsController@modifyworkshop');
-
-    });
-
-  });
-
+  Route::view('/', 'errors.404');
 });
 
 
@@ -232,68 +162,7 @@ Route::prefix('admin')->group(function () {
 */
 
 Route::prefix('cpanel')->group(function () {
-
-  Route::view('/', 'cpanel.main');
-  Route::view('console', 'cpanel.console');
-
-  Route::view('events', 'cpanel.events');
-  Route::view('games', 'cpanel.games');
-  Route::view('workshops', 'cpanel.workshops');
-
-  Route::view('users', 'cpanel.users');
-  Route::get('users/{college}', function ($college) {
-    return view('cpanel.userlist', ['college' => $college]);
-  });
-  Route::view('kits', 'cpanel.kitsusers', ['college' => 'Karunya Institute of Technology and Sciences, Coimbatore']);
-
-  Route::get('/showinfo/{type}/{id}', function ($type, $id) {
-    return view('cpanel.showinfo', ['type' => $type, 'id' => $id]);
-  });
-
-  Route::get('/showinfo/{type}/{id}/users', function ($type, $id) {
-    return view('cpanel.showusers', ['type' => $type, 'id' => $id]);
-  });
-
-  Route::view('/tshirt', 'cpanel.tshirt');
-
-  // Update T-shirt Info
-  Route::get('/showinfo/tshirt/{id}', function ($type, $id) {
-    return view('cpanel.showinfo', ['id' => $id]);
-  });
-  Route::post('/update/tshirt/{id}', 'CpanelController@updateTshirtInfo');
-
-  // User Approval
-  Route::post('/user/info', function () {
-    return view('cpanel.userinfo');
-  });
-
-  Route::post('/user/{id}/approve', 'AdminController@approveUser');
-  Route::post('/user/{id}/pay', 'AdminController@makePayment');
-
-  // Games Registraion
-  Route::post('/register/paintball',  function () {
-    return view('cpanel.games.paintball');
-  });
-  Route::post('/register/laser',  function () {
-    return view('cpanel.games.laser');
-  });
-  Route::post('/register/atv',  function () {
-    return view('cpanel.games.atv');
-  });
-
-  Route::post('/user/{id}/register/{game}', 'AdminController@registerGame');
-
-  // Accomodation
-  Route::post('/user/accomodation',  function () {
-    return view('cpanel.accomodation');
-  });
-
-  Route::post('/user/{id}/accomodation', 'AdminController@registerAccomodation');
-
-  // Auth Route
-  Route::post('authenticate', 'CpanelController@login');
-  Route::get('logout', 'CpanelController@logout');
-
+  Route::view('/', 'errors.404');
 });
 
 

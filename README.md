@@ -1,4 +1,4 @@
-# MindKraft 2018
+# MindKraft
 
 Copyright 2017 Mihir Pathak
 

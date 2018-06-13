@@ -13,7 +13,6 @@ use App\Mail\VerificationEmail;
 |--------------------------------------------------------------------------
 |
 | Author - Mihir Pathak
-| Copyright (c) 2018 Z Coders All Rights Reserved
 |
 | All calls except in auth group must contain a valid 64-digit alphanumeric
 | `api_token` (generated when a user registers). `api_token` is unique

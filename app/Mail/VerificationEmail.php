@@ -34,6 +34,11 @@ class VerificationEmail extends Mailable
 
       $subject = 'User Verification Email';
 
+      /*
+        Builds the message using the template found in 'emails/verification'.
+        Any changes there whill be reflected in the email
+      */
+
       return $this->view('emails.verification')
                 ->from(env('MAIL_FROM_ADDRESS', ''), env('MAIL_FROM_NAME', ''))
                 ->subject($subject)

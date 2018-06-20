@@ -2,3 +2,7 @@
   The app's base SASS file
 */
 
+.App {
+  text-align: center;
+}
+

@@ -12,6 +12,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {
+          /**
+           * Define your app's routes here
+           */
+        }
         <Router>
           <div>
             <Route exact path="/" component={Home} />

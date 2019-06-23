@@ -6,7 +6,7 @@ Includes REST API calls and definitions. All you need to do is work on the front
 
 ## Note
 
-This project was written by me when I did not fully understrand the workings of the web development world. Looking back at this code I sometimes have a good laugh.
+This project was written by me when I did not fully understrand the workings of the web development world. Looking back at this code I sometimes have a good laugh :laughing:.
 
 ## Install
 
